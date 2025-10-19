@@ -43,3 +43,21 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Ignore generated files from build_runner
+pubspec.lock
+**/*.g.dart
+**/*.freezed.dart
+**/*.gen.dart
+**/*.config.dart
+**/*.mocks.dart
+**/*.gr.dart
+**/*.gql.dart
+
+# Flutter generated files
+ios/Runner/GeneratedPluginRegistrant.*
+android/app/src/main/java/**/GeneratedPluginRegistrant.java
+lib/generated_plugin_registrant.dart
+
+# Coverage
+coverage/
