@@ -12,7 +12,7 @@ jobs:
         uses: pragmatic-tools/pr-title-validator@1.0.0
         with:
           pattern: |
-            ^((fix|release|feat|hotfix|build|refactor|test))\((FAT1-[0-9]+|[A-Z]+-[0-9]+)\):\s?.+$
+            ^((fix|release|feat|hotfix|build|refactor|test))\((FIT1-[0-9]+|[A-Z]+-[0-9]+)\):\s?.+$
 
       - name: Ensure PR Title Ticket Matches Branch Ticket
         run: |
@@ -20,8 +20,8 @@ jobs:
           BRANCH="${{ github.head_ref }}"
 
           # Extract ticket IDs (e.g. JIRA-1234, ECOM-27)
-          TITLE_TICKET=$(echo "$TITLE" | grep -oE '(FAT1-[0-9]+|[A-Z]+-[0-9]+)' | head -1)
-          BRANCH_TICKET=$(echo "$BRANCH" | grep -oE '(FAT1-[0-9]+|[A-Z]+-[0-9]+)' | head -1)
+          TITLE_TICKET=$(echo "$TITLE" | grep -oE '(FIT1-[0-9]+|[A-Z]+-[0-9]+)' | head -1)
+          BRANCH_TICKET=$(echo "$BRANCH" | grep -oE '(FIT1-[0-9]+|[A-Z]+-[0-9]+)' | head -1)
 
           echo "PR Title Ticket: $TITLE_TICKET"
           echo "Branch Ticket: $BRANCH_TICKET"
