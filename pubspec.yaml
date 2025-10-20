@@ -63,10 +63,11 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/icons/
     - assets/animations/
     - assets/images/
     - assets/translations/
+    - assets/icons/
+
 
   fonts:
     - family: Baloo Thambi 2

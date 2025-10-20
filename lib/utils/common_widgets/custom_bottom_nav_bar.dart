@@ -1,35 +1,41 @@
-import 'package:fitness_app/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-final List<Map<String, dynamic>> _navItems = [
-  {'icon': Icons.home_rounded, 'title': 'Explore'},
-  {'icon': Icons.location_on_outlined, 'title': 'Location'},
-  {'icon': Icons.fitness_center_outlined, 'title': 'Workout'},
-  {'icon': Icons.person_outline, 'title': 'Profile'},
-];
+import 'package:fitness_app/core/constants/app_colors.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
-  const CustomBottomNavBar({super.key});
+  const CustomBottomNavBar({
+    super.key,
+    required this.selectedIndex,
+    required this.onItemTapped,
+  });
+
+  final int selectedIndex;
+  final void Function(int index) onItemTapped;
 
   @override
   State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
 }
 
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
-  int _selectedIndex = 0;
+  final List<IconData> _icons = [
+    Icons.home_rounded,
+    Icons.chat_bubble_outline_rounded,
+    Icons.fitness_center_rounded,
+    Icons.person_rounded,
+  ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-    print('Tapped index: $index');
-  }
+  final List<String> _titles = [
+    'Explore',
+    'Chat Ai',
+    'Workout',
+    'Profile',
+  ];
 
   @override
   Widget build(BuildContext context) {
-    final double navHeight = 90.h;
-    final Color activeColor = Colors.deepOrange;
+    final double navHeight = 80.h;
+    final Color activeColor = AppColors.orange;
+    final Color? inactiveColor = AppColors.gray[20];
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
@@ -47,38 +53,31 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             ),
           ],
         ),
-
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(_navItems.length, (index) {
-            final bool isSelected = index == _selectedIndex;
+          children: List.generate(_icons.length, (index) {
+            final bool isSelected = index == widget.selectedIndex;
             return GestureDetector(
-              onTap: () => _onItemTapped(index),
-              child: Container(
-                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 8.w),
-                color: Colors.transparent,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      _navItems[index]['icon'] as IconData,
-                      size: 28.r,
-                      color: isSelected ? activeColor : Colors.white,
-                    ),
-                    if (isSelected)
-                      SizedBox(height: 4.h),
-                    if (isSelected)
-                      Text(
-                        _navItems[index]['title'] as String,
-                        style: TextStyle(
-                          color: activeColor,
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
+              onTap: () => widget.onItemTapped(index),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    _icons[index],
+                    size: isSelected ? 30.r : 24.r,
+                    color: isSelected ? activeColor : inactiveColor,
+                  ),
+                  if (isSelected) ...[
+                    Text(
+                      _titles[index],
+                      style: TextStyle(
+                        color: activeColor,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w200,
                       ),
+                    ),
                   ],
-                ),
+                ],
               ),
             );
           }),
@@ -87,4 +86,3 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
     );
   }
 }
-
