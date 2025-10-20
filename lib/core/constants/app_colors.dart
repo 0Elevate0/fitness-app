@@ -20,7 +20,7 @@ abstract final class AppColors {
 
   static const MaterialColor black = MaterialColor(0xff242424, <int, Color>{
     10: Color(0xff000000),
-    20: Color(0xff000000),
+    20: Color(0xff1A1A1A),
     30: Color(0xff000000),
     40: Color(0xff000000),
     50: Color(0xff000000),
