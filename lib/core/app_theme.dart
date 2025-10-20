@@ -10,7 +10,9 @@ abstract final class AppTheme {
     colorScheme: ColorScheme.fromSeed(
       primary: AppColors.orange[0],
       onPrimary: AppColors.lightOrange[0],
-      secondary: AppColors.black[10],
+      secondary: AppColors.black[0],
+      secondaryFixed: AppColors.black[10],
+      secondaryContainer: AppColors.black[20],
       onSecondary: AppColors.white,
       shadow: AppColors.gray[0],
       onSurface: AppColors.green,
