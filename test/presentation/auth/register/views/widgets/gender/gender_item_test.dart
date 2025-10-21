@@ -55,11 +55,11 @@ void main() {
           home: BlocProvider<RegisterCubit>.value(
             value: mockRegisterCubit
               ..doIntent(intent: const RegisterInitializationIntent()),
-            child: const Scaffold(
+            child: Scaffold(
               body: GenderItem(
-                selectedGender: null,
-                genderTitle: AppText.male,
-                genderIcon: AppIcons.male,
+                selectedGender: selectedGender,
+                genderTitle: genderTitle,
+                genderIcon: genderIcon,
               ),
             ),
           ),
@@ -68,7 +68,7 @@ void main() {
     );
   }
 
-  testWidgets("Verifying GenderItem Widgets", (tester) async {
+  testWidgets("Verifying GenderItem Widgets on Initial state", (tester) async {
     // Act
     await tester.pumpWidget(
       prepareWidget(
@@ -97,6 +97,35 @@ void main() {
     expect(find.byType(RSizedBox), findsNWidgets(2));
     expect(find.byType(FittedBox), findsAny);
     expect(find.byType(Text), findsOneWidget);
+    expect(find.text(AppText.male.tr()), findsOneWidget);
+  });
+
+  testWidgets("Verifying GenderItem Widgets on male circle selected", (
+    tester,
+  ) async {
+    // Act
+    await tester.pumpWidget(
+      prepareWidget(
+        selectedGender: Gender.male,
+        genderTitle: AppText.male,
+        genderIcon: AppIcons.male,
+      ),
+    );
+    // Assert
+    expect(find.byType(GestureDetector), findsOneWidget);
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is AnimatedContainer &&
+            widget.decoration !=
+                BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.transparent,
+                  border: Border.all(width: 1.r, color: AppColors.white),
+                ),
+      ),
+      findsOneWidget,
+    );
     expect(find.text(AppText.male.tr()), findsOneWidget);
   });
 

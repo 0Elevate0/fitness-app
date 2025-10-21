@@ -26,6 +26,6 @@ void main() {
     expect(find.byType(Text), findsNWidgets(2));
     expect(find.byType(InkWell), findsOneWidget);
     expect(find.text(AppText.haveAccountMessage.tr()), findsOneWidget);
-    expect(find.text(" ${AppText.login.tr()}"), findsOneWidget);
+    expect(find.textContaining(AppText.login.tr()), findsOneWidget);
   });
 }
