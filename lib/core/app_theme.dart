@@ -63,7 +63,7 @@ abstract final class AppTheme {
         fontWeight: FontWeight.w800,
         color: AppColors.white,
       ),
-      labelLarge: TextStyle(
+      bodySmall: TextStyle(
         fontSize: 12.sp,
         fontWeight: FontWeight.w400,
         color: AppColors.gray[0],
@@ -74,7 +74,6 @@ abstract final class AppTheme {
       selectionHandleColor: AppColors.lightOrange[0],
       selectionColor: AppColors.lightOrange[0]?.withValues(alpha: 0.2),
     ),
-
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         disabledBackgroundColor: AppColors.gray[0],

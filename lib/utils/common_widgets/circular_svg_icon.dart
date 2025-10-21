@@ -9,6 +9,8 @@ class CircularSvgIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
+      width: 32.r,
+      height: 32.r,
       padding: REdgeInsets.all(8),
       decoration: BoxDecoration(
         shape: BoxShape.circle,

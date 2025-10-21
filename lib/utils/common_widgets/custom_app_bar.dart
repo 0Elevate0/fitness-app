@@ -13,6 +13,7 @@ class CustomAppBar extends StatelessWidget {
     this.titleWidget,
     this.actionWidget,
     this.titleAlignment,
+    this.onBackArrowClicked,
   });
   final String? title;
   final TextStyle? titleStyle;
@@ -22,6 +23,7 @@ class CustomAppBar extends StatelessWidget {
   final Widget? titleWidget;
   final Widget? actionWidget;
   final AlignmentGeometry? titleAlignment;
+  final void Function()? onBackArrowClicked;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -33,7 +35,7 @@ class CustomAppBar extends StatelessWidget {
           children: [
             Visibility(
               visible: automaticallyImplyLeading,
-              child: const CustomBackArrow(),
+              child: CustomBackArrow(onBackArrowClicked: onBackArrowClicked),
             ),
             Visibility(
               visible: isTitleNotString,

@@ -37,7 +37,7 @@ class AnimationLoaderWidget extends StatelessWidget {
               text.tr(),
               style:
                   style ??
-                  theme.textTheme.labelLarge?.copyWith(
+                  theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSecondary,
                   ),
               textAlign: TextAlign.center,
