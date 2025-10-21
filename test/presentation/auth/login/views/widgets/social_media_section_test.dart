@@ -43,7 +43,11 @@ void main() {
     final icons = [AppIcons.faceBook, AppIcons.google, AppIcons.apple];
 
     for (var icon in icons) {
-      expect(svgFinder, findsWidgets);
+      expect(
+        svgFinder,
+        findsWidgets,
+        reason: 'Expected to find SVG icon: $icon',
+      );
     }
   });
 }
