@@ -6,7 +6,7 @@ part 'user_model.g.dart';
 @JsonSerializable()
 class UserModel {
   @JsonKey(name: "_id")
-  final String? Id;
+  final String? id;
   @JsonKey(name: "firstName")
   final String? firstName;
   @JsonKey(name: "lastName")
@@ -31,7 +31,7 @@ class UserModel {
   final String? createdAt;
 
   UserModel({
-    this.Id,
+    this.id,
     this.firstName,
     this.lastName,
     this.email,
@@ -55,7 +55,7 @@ class UserModel {
 
   UserDataEntity toUserDataEntity() {
     return UserDataEntity(
-      id: Id,
+      id: id,
       firstName: firstName,
       lastName: lastName,
       email: email,

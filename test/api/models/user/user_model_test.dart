@@ -13,7 +13,7 @@ void main() {
           weight: null,
           activityLevel: null,
           goal: null,
-          Id: null,
+          id: null,
           age: null,
           createdAt: null,
           firstName: null,
@@ -27,7 +27,7 @@ void main() {
         final UserDataEntity actualResult = userModel.toUserDataEntity();
 
         // Assert
-        expect(actualResult.id, equals(userModel.Id));
+        expect(actualResult.id, equals(userModel.id));
         expect(actualResult.firstName, equals(userModel.firstName));
         expect(actualResult.lastName, equals(userModel.lastName));
         expect(actualResult.email, equals(userModel.email));
@@ -48,7 +48,7 @@ void main() {
         // Arrange
         final UserModel userModel = UserModel(
           gender: "male",
-          Id: "123",
+          id: "123",
           firstName: "moaaz",
           lastName: "hassan",
           email: 'moaazhassan10@gmail.com',
@@ -65,7 +65,7 @@ void main() {
         final UserDataEntity actualResult = userModel.toUserDataEntity();
 
         // Assert
-        expect(actualResult.id, equals(userModel.Id));
+        expect(actualResult.id, equals(userModel.id));
         expect(actualResult.firstName, equals(userModel.firstName));
         expect(actualResult.lastName, equals(userModel.lastName));
         expect(actualResult.email, equals(userModel.email));
@@ -86,7 +86,7 @@ void main() {
       // Arrange
       final UserModel userModel = UserModel(
         gender: "male",
-        Id: "123",
+        id: "123",
         firstName: "moaaz",
         lastName: "hassan",
         email: 'moaazhassan10@gmail.com',
@@ -104,7 +104,7 @@ void main() {
       final fromJson = UserModel.fromJson(json);
 
       // Assert
-      expect(fromJson.Id, equals(userModel.Id));
+      expect(fromJson.id, equals(userModel.id));
       expect(fromJson.firstName, equals(userModel.firstName));
       expect(fromJson.lastName, equals(userModel.lastName));
       expect(fromJson.email, equals(userModel.email));
