@@ -79,16 +79,14 @@ void main() {
     // Check for LoginViewBody
     expect(find.byType(LoginViewBody), findsOneWidget);
 
-    // Check for background image
-    final containerFinder = find.byWidgetPredicate(
-      (widget) =>
-          widget is Container &&
-          widget.decoration is BoxDecoration &&
-          (widget.decoration as BoxDecoration).image != null &&
-          ((widget.decoration as BoxDecoration).image!.image as AssetImage)
-                  .assetName ==
-              AppImages.authBackGround,
-    );
+    // Check for background image (more resilient)
+    final containerFinder = find.byWidgetPredicate((widget) {
+      if (widget is! Container) return false;
+      final decoration = widget.decoration;
+      if (decoration is! BoxDecoration) return false;
+      final image = decoration.image?.image;
+      return image is AssetImage && image.assetName == AppImages.authBackGround;
+    });
     expect(containerFinder, findsOneWidget);
   });
 }

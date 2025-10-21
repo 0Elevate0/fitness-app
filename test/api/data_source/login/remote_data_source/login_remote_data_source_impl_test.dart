@@ -50,6 +50,7 @@ void main() {
       // Assert
       expect(result, isA<Success<void>>());
       verify(mockApiClient.login(request: anyNamed("request"))).called(1);
+      verify(mockSecureStorage.saveUserToken(token: "currentUserToken")).called(1);
 
     },
   );

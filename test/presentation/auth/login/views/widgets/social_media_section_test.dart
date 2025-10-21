@@ -39,13 +39,18 @@ void main() {
 
     expect(find.byType(SvgPicture), findsNWidgets(3));
 
-    final svgFinder = find.byType(SvgPicture);
     final icons = [AppIcons.faceBook, AppIcons.google, AppIcons.apple];
 
     for (var icon in icons) {
+      final iconFinder = find.byWidgetPredicate(
+        (widget) =>
+            widget is SvgPicture &&
+            widget.bytesLoader is SvgAssetLoader &&
+            (widget.bytesLoader as SvgAssetLoader).assetName == icon,
+      );
       expect(
-        svgFinder,
-        findsWidgets,
+        iconFinder,
+        findsOneWidget,
         reason: 'Expected to find SVG icon: $icon',
       );
     }

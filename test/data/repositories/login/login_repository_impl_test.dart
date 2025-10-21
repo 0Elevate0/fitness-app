@@ -1,4 +1,5 @@
 import 'package:fitness_app/api/client/api_result.dart';
+import 'package:fitness_app/core/exceptions/response_exception.dart';
 import 'package:fitness_app/data/data_source/login/remote_data_source/login_remote_data_source.dart';
 import 'package:fitness_app/data/repositories/login/login_repository_impl.dart';
 import 'package:fitness_app/domain/entities/requests/login_request/login_request_entity.dart';
@@ -36,6 +37,31 @@ void main() {
 
       verify(mockedLoginRemoteDataSource.login(request: request)).called(1);
       expect(result, isA<Success<void>>());
+    },
+  );
+  test(
+    'when login fails it should return Failure',
+        () async {
+      // Arrange
+      final mockedLoginRemoteDataSource = MockLoginRemoteDataSource();
+      final loginRepositoryImpl = LoginRepositoryImpl(
+        mockedLoginRemoteDataSource,
+      );
+      final request = const LoginRequestEntity(
+        email: "test@example.com",
+        password: "Wrong@123",
+      );
+      final expectedResult = Failure<void>(responseException:const ResponseException(message: 'Authentication failed') );
+      provideDummy<Result<void>>(expectedResult);
+      when(
+        mockedLoginRemoteDataSource.login(request: request),
+      ).thenAnswer((_) async => expectedResult);
+
+      // Act
+      final result = await loginRepositoryImpl.login(request: request);
+
+      // Assert
+      expect(result, isA<Failure<void>>());
     },
   );
 }
