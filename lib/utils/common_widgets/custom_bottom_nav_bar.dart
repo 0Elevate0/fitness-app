@@ -1,88 +1,72 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fitness_app/core/constants/app_colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fitness_app/presentation/fitness_bottom_navigation/views_model/fitness_bottom_navigation_cubit.dart';
+import 'package:fitness_app/presentation/fitness_bottom_navigation/views_model/fitness_bottom_navigation_intent.dart';
+import 'package:fitness_app/core/constants/app_icons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class CustomBottomNavBar extends StatefulWidget {
-  const CustomBottomNavBar({
-    super.key,
-    required this.selectedIndex,
-    required this.onItemTapped,
-  });
-
-  final int selectedIndex;
-  final void Function(int index) onItemTapped;
-
-  @override
-  State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
-}
-
-class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
-  final List<IconData> _icons = [
-    Icons.home_rounded,
-    Icons.chat_bubble_outline_rounded,
-    Icons.fitness_center_rounded,
-    Icons.person_rounded,
-  ];
-
-  final List<String> _titles = [
-    'Explore',
-    'Chat Ai',
-    'Workout',
-    'Profile',
-  ];
+class FitnessBottomNavigationBar extends StatelessWidget {
+  const FitnessBottomNavigationBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final double navHeight = 80.h;
-    final Color activeColor = AppColors.orange;
-    final Color? inactiveColor = AppColors.gray[20];
+    final cubit = context.read<FitnessBottomNavigationCubit>();
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
-      child: Container(
-        height: navHeight,
-        decoration: BoxDecoration(
-          color: AppColors.gray[100],
-          borderRadius: BorderRadius.circular(30.r),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black,
-              spreadRadius: 0,
-              blurRadius: 1,
-              offset: Offset(0, 0),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(_icons.length, (index) {
-            final bool isSelected = index == widget.selectedIndex;
-            return GestureDetector(
-              onTap: () => widget.onItemTapped(index),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    _icons[index],
-                    size: isSelected ? 30.r : 24.r,
-                    color: isSelected ? activeColor : inactiveColor,
-                  ),
-                  if (isSelected) ...[
-                    Text(
-                      _titles[index],
-                      style: TextStyle(
-                        color: activeColor,
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w200,
+    final icons = [
+      AppIcons.homeIcon,
+      AppIcons.chatIcon,
+      AppIcons.gymIcon,
+      AppIcons.profileIcon,
+    ];
+
+    final titles = ["Explore", "Chat Ai", "Workout", "Profile"];
+    final theme = Theme.of(context);
+
+    return BlocBuilder<FitnessBottomNavigationCubit, dynamic>(
+      builder: (context, state) {
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.secondaryContainer,
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: List.generate(icons.length, (index) {
+              final isSelected = state.selectedIndex == index;
+              return GestureDetector(
+                onTap: () => cubit.onIntent(FitnessBottomNavigationIntent(index)),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SvgPicture.asset(
+                      icons[index],
+                      width: isSelected ? 34 : 26,
+                      height: isSelected ? 34 : 26,
+                      colorFilter: ColorFilter.mode(
+                        isSelected ? theme.colorScheme.onPrimary : theme.colorScheme.shadow,
+                        BlendMode.srcIn,
                       ),
                     ),
+                    if (isSelected)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(
+                          titles[index],
+                          style: TextStyle(
+                            color: theme.colorScheme.onPrimary,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
                   ],
-                ],
-              ),
-            );
-          }),
-        ),
-      ),
+                ),
+              );
+            }),
+          ),
+        );
+      },
     );
   }
 }

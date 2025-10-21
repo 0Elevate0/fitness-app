@@ -1,5 +1,5 @@
 import 'package:fitness_app/core/router/route_names.dart';
-import 'package:fitness_app/presentation/home/views/home_view.dart';
+import 'package:fitness_app/presentation/fitness_bottom_navigation/views/home_view.dart';
 import 'package:fitness_app/presentation/onboarding/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 
