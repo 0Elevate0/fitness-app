@@ -1,6 +1,9 @@
 import 'package:fitness_app/presentation/auth/register/views/widgets/gender/gender_section.dart';
+import 'package:fitness_app/presentation/auth/register/views/widgets/height/height_section.dart';
+import 'package:fitness_app/presentation/auth/register/views/widgets/old/old_section.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/register_account/register_account_section.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/register_app_bar.dart';
+import 'package:fitness_app/presentation/auth/register/views/widgets/weight/weight_section.dart';
 import 'package:fitness_app/presentation/auth/register/views_model/register_cubit.dart';
 import 'package:fitness_app/presentation/auth/register/views_model/register_state.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_layer_view.dart';
@@ -26,11 +29,11 @@ class RegisterViewBody extends StatelessWidget {
                     case RegistrationProcess.gender:
                       return const GenderSection();
                     case RegistrationProcess.old:
-                      return const SizedBox();
+                      return const OldSection();
                     case RegistrationProcess.weight:
-                      return const SizedBox();
+                      return const WeightSection();
                     case RegistrationProcess.height:
-                      return const SizedBox();
+                      return const HeightSection();
                     case RegistrationProcess.goal:
                       return const SizedBox();
                     case RegistrationProcess.physical:

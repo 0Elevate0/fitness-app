@@ -24,6 +24,16 @@ abstract final class AppText {
   static const String next = "next";
   static const String signingYouUpMessage = "signingYouUpMessage";
 
+  // Complete Registration
+  static const String oldTitle = "oldTitle";
+  static const String weightTitle = "weightTitle";
+  static const String heightTitle = "heightTitle";
+  static const String completeRegistrationMessage =
+      "completeRegistrationMessage";
+  static const String year = "year";
+  static const String kg = "kg";
+  static const String cm = "cm";
+
   // Validations
   static const String fieldValidation = "fieldValidation";
   static const String emailValidation = "emailValidation";

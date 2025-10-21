@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/core/di/di.dart';
-import 'package:fitness_app/presentation/auth/register/views/widgets/gender/gender_section.dart';
-import 'package:fitness_app/presentation/auth/register/views/widgets/gender/gender_selection.dart';
+import 'package:fitness_app/presentation/auth/register/views/widgets/height/height_choice.dart';
+import 'package:fitness_app/presentation/auth/register/views/widgets/height/height_section.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/next_button.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/register_progress.dart';
 import 'package:fitness_app/presentation/auth/register/views_model/register_cubit.dart';
@@ -16,7 +16,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'gender_section_test.mocks.dart';
+import 'height_section_test.mocks.dart';
 
 @GenerateMocks([RegisterCubit])
 void main() {
@@ -52,27 +52,27 @@ void main() {
           home: BlocProvider<RegisterCubit>.value(
             value: mockRegisterCubit
               ..doIntent(intent: const RegisterInitializationIntent()),
-            child: const Scaffold(body: GenderSection()),
+            child: const Scaffold(body: HeightSection()),
           ),
         );
       },
     );
   }
 
-  testWidgets("Verifying GenderSection Widgets", (tester) async {
+  testWidgets("Verifying HeightSection Widgets", (tester) async {
     // Act
     await tester.pumpWidget(prepareWidget());
     // Assert
-    expect(find.byType(Column), findsAny);
-    expect(find.byType(RSizedBox), findsAny);
+    expect(find.byType(Column), findsWidgets);
+    expect(find.byType(RSizedBox), findsWidgets);
     expect(find.byType(RegisterProgress), findsOneWidget);
-    expect(find.byType(RPadding), findsAny);
-    expect(find.byType(FittedBox), findsAny);
+    expect(find.byType(RPadding), findsWidgets);
+    expect(find.byType(FittedBox), findsWidgets);
     expect(find.byType(BlurredContainer), findsOneWidget);
-    expect(find.byType(GenderSelection), findsOneWidget);
+    expect(find.byType(HeightChoice), findsOneWidget);
     expect(find.byType(NextButton), findsOneWidget);
-    expect(find.text(AppText.tellUs.tr()), findsOneWidget);
-    expect(find.text(AppText.genderAsk.tr()), findsOneWidget);
+    expect(find.text(AppText.heightTitle.tr()), findsOneWidget);
+    expect(find.text(AppText.completeRegistrationMessage.tr()), findsOneWidget);
   });
 
   tearDown(() {

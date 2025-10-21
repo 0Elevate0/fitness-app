@@ -1,14 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
-import 'package:fitness_app/presentation/auth/register/views/widgets/gender/gender_selection.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/next_button.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/register_progress.dart';
+import 'package:fitness_app/presentation/auth/register/views/widgets/weight/weight_choice.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class GenderSection extends StatelessWidget {
-  const GenderSection({super.key});
+class WeightSection extends StatelessWidget {
+  const WeightSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class GenderSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const RSizedBox(height: 85.5),
+        const RSizedBox(height: 130.5),
         const RegisterProgress(),
         const RSizedBox(height: 8),
         RPadding(
@@ -27,14 +27,14 @@ class GenderSection extends StatelessWidget {
               FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  AppText.tellUs.tr(),
+                  AppText.weightTitle.tr(),
                   style: theme.textTheme.headlineMedium,
                 ),
               ),
               FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  AppText.genderAsk.tr(),
+                  AppText.completeRegistrationMessage.tr(),
                   style: theme.textTheme.headlineSmall,
                 ),
               ),
@@ -44,7 +44,7 @@ class GenderSection extends StatelessWidget {
         const RSizedBox(height: 8),
         const BlurredContainer(
           child: Column(
-            children: [GenderSelection(), RSizedBox(height: 24), NextButton()],
+            children: [WeightChoice(), RSizedBox(height: 24), NextButton()],
           ),
         ),
       ],

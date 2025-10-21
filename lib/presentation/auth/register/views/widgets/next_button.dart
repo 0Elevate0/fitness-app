@@ -6,8 +6,8 @@ import 'package:fitness_app/utils/common_widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class GenderNextButton extends StatelessWidget {
-  const GenderNextButton({super.key});
+class NextButton extends StatelessWidget {
+  const NextButton({super.key});
 
   @override
   Widget build(BuildContext context) {

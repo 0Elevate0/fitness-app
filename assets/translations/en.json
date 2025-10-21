@@ -22,6 +22,14 @@
   "next": "Next",
   "signingYouUpMessage": "Signing you up...",
 
+  "oldTitle": "HOW OLD ARE YOU ?",
+  "weightTitle": "WHAT IS YOUR WEIGHT ?",
+  "heightTitle": "WHAT IS YOUR HEIGHT ?",
+  "completeRegistrationMessage": "This Helps Us Create Your Personalized Plan",
+  "year": "Year",
+  "kg": "Kg",
+  "cm": "CM",
+
   "fieldValidation": "This field is required",
   "emailValidation": "This Email is not valid",
   "emailValidation2": "Enter a valid email",

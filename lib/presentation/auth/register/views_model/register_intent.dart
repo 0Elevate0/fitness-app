@@ -22,3 +22,18 @@ final class ChangeSelectedGenderIntent extends RegisterIntent {
   final String newSelectedGender;
   const ChangeSelectedGenderIntent({required this.newSelectedGender});
 }
+
+final class ChangeSelectedYearsIntent extends RegisterIntent {
+  final int newSelectedYears;
+  const ChangeSelectedYearsIntent({required this.newSelectedYears});
+}
+
+final class ChangeSelectedWeightIntent extends RegisterIntent {
+  final int newSelectedWeight;
+  const ChangeSelectedWeightIntent({required this.newSelectedWeight});
+}
+
+final class ChangeSelectedHeightIntent extends RegisterIntent {
+  final int newSelectedHeight;
+  const ChangeSelectedHeightIntent({required this.newSelectedHeight});
+}

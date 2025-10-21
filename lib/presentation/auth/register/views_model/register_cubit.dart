@@ -30,6 +30,15 @@ class RegisterCubit extends Cubit<RegisterState> {
       case ChangeSelectedGenderIntent():
         _changeSelectedGender(newSelectedGender: intent.newSelectedGender);
         break;
+      case ChangeSelectedYearsIntent():
+        _changeSelectedYearsOld(years: intent.newSelectedYears);
+        break;
+      case ChangeSelectedWeightIntent():
+        _changeSelectedWeight(kg: intent.newSelectedWeight);
+        break;
+      case ChangeSelectedHeightIntent():
+        _changeSelectedHeight(cm: intent.newSelectedHeight);
+        break;
     }
   }
 
@@ -73,10 +82,23 @@ class RegisterCubit extends Cubit<RegisterState> {
         }
         break;
       case RegistrationProcess.old:
+        emit(
+          state.copyWith(
+            currentRegistrationProcess: RegistrationProcess.weight,
+          ),
+        );
         break;
       case RegistrationProcess.weight:
+        emit(
+          state.copyWith(
+            currentRegistrationProcess: RegistrationProcess.height,
+          ),
+        );
         break;
       case RegistrationProcess.height:
+        emit(
+          state.copyWith(currentRegistrationProcess: RegistrationProcess.goal),
+        );
         break;
       case RegistrationProcess.goal:
         break;
@@ -100,6 +122,18 @@ class RegisterCubit extends Cubit<RegisterState> {
         ? Gender.male
         : Gender.female;
     emit(state.copyWith(selectedGender: gender));
+  }
+
+  void _changeSelectedYearsOld({required int years}) {
+    emit(state.copyWith(selectedYearsOld: years.toString()));
+  }
+
+  void _changeSelectedWeight({required int kg}) {
+    emit(state.copyWith(selectedWeight: kg.toString()));
+  }
+
+  void _changeSelectedHeight({required int cm}) {
+    emit(state.copyWith(selectedHeight: cm.toString()));
   }
 
   @override

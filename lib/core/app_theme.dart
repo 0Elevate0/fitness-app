@@ -24,7 +24,7 @@ abstract final class AppTheme {
     ),
     textTheme: TextTheme(
       displayLarge: TextStyle(
-        fontSize: 44.sp,
+        fontSize: 40.sp,
         fontWeight: FontWeight.w800,
         color: AppColors.orange[0],
       ),
