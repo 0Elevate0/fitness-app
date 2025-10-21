@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/router/route_names.dart';
+import 'package:fitness_app/presentation/auth/login/views/login_view.dart';
 import 'package:fitness_app/presentation/onboarding/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,8 @@ abstract final class AppRoutes {
     switch (settings.name) {
       case RouteNames.onboarding:
         return MaterialPageRoute(builder: (_) => const OnboardingView());
+      case RouteNames.login:
+        return MaterialPageRoute(builder: (_) => const LoginView());
       default:
         return null;
     }

@@ -32,6 +32,7 @@ class CustomTextFormField extends StatelessWidget {
     this.isReadOnly = false,
     this.floatingLabelBehavior = FloatingLabelBehavior.auto,
   });
+
   final String? hintText;
   final String label;
   final void Function(String)? onChanged;
@@ -58,6 +59,7 @@ class CustomTextFormField extends StatelessWidget {
   final Color? disabledBorderColor;
   final bool? isReadOnly;
   final FloatingLabelBehavior floatingLabelBehavior;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -128,7 +130,9 @@ class CustomTextFormField extends StatelessWidget {
           padding: REdgeInsetsDirectional.only(end: 16, start: 4),
           child: suffixIcon,
         ),
-        errorStyle: Theme.of(context).textTheme.bodySmall,
+        errorStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          color: Theme.of(context).colorScheme.error,
+        ),
         errorMaxLines: 3,
       ),
       maxLength: maxLength,

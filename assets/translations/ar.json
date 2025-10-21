@@ -1,8 +1,6 @@
 {
   "loggingInMessage": "جاري تسجيل دخولك ...",
-
   "signingYouUpMessage": "جاري تسجيلك...",
-
   "fieldValidation": "هذا الحقل مطلوب",
   "emailValidation": "البريد الإلكتروني غير صالح",
   "emailValidation2": "أدخل بريدًا إلكترونيًا صحيحًا",
@@ -15,7 +13,6 @@
   "passwordValidation5": "لا يجب أن تتجاوز كلمة المرور 20 حرفًا",
   "passwordValidation6": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
   "passwordValidation7": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
-
   "connectionError": "يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى",
   "noResponseReceivedMessage": "لم يتم استلام استجابة أو الاستجابة ليست بالتنسيق المتوقع.",
   "error": "خطأ",
@@ -27,5 +24,18 @@
   "connectionTimeout": "انتهت مهلة الاتصال، يرجى المحاولة لاحقًا.",
   "networkError": "حدث خطأ ما. يرجى التحقق من اتصال الإنترنت.",
   "anUnknownErrorOccurred": "حدث خطأ غير معروف.",
-  "unknownErrorMessage": "حدث خطأ غير معروف بالرسالة التالية:"
+  "unknownErrorMessage": "حدث خطأ غير معروف بالرسالة التالية:",
+  "login": "تسجيل الدخول",
+  "email": "البريد الإلكتروني",
+  "emailHint": "أدخل بريدك الإلكتروني",
+  "password": "كلمة المرور",
+  "passwordHint": "أدخل كلمة المرور",
+  "forgetPassword": "نسيت كلمة المرور؟",
+  "donNotHaveAccount": "ليس لديك حساب؟",
+  "continueAsGuest": "المتابعة كضيف",
+  "register": "تسجيل",
+  "heyThere": "مرحباً",
+  "welcomeBack": "مرحباً بعودتك",
+  "loginSuccessful": "تم تسجيل الدخول بنجاح",
+  "or": "أو"
 }

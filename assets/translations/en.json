@@ -1,8 +1,6 @@
 {
   "loggingInMessage": "Logging you in ...",
-
   "signingYouUpMessage": "Signing you up...",
-
   "fieldValidation": "This field is required",
   "emailValidation": "This Email is not valid",
   "emailValidation2": "Enter a valid email",
@@ -15,7 +13,6 @@
   "passwordValidation5": "Password must not exceed 20 characters",
   "passwordValidation6": "Password must contain a capital letter",
   "passwordValidation7": "Password must contain a special character",
-
   "connectionError": "Please check your internet connection and try again",
   "noResponseReceivedMessage": "No response received or response is not in expected format.",
   "error": "Error",
@@ -27,5 +24,19 @@
   "connectionTimeout": "Connection timeout, please try again later.",
   "networkError": "Something went wrong. Please check your internet connection.",
   "anUnknownErrorOccurred": "An unknown error occurred.",
-  "unknownErrorMessage": "An unknown error has occurred with the following message:"
+  "unknownErrorMessage": "An unknown error has occurred with the following message:",
+  "login": "Login",
+  "email": "Email",
+  "emailHint": "Enter your email",
+  "password": "Password",
+  "passwordHint": "Enter your password",
+  "forgetPassword": "Forget password?",
+  "donNotHaveAccount": "Don't have an account?",
+  "heyThere": "Hey There",
+  "welcomeBack": "WELCOME BACK",
+  "register": "Register",
+  "or": "Or",
+  "loginSuccessful": "Login Successful"
+
+
 }
