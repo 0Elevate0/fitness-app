@@ -9,7 +9,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return BlocProvider(
       create: (_) => FitnessBottomNavigationCubit(),
       child: BlocBuilder<FitnessBottomNavigationCubit, FitnessBottomNavigationState>(
