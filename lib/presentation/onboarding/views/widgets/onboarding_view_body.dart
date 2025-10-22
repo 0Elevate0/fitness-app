@@ -1,3 +1,5 @@
+import 'package:fitness_app/core/router/route_names.dart';
+import 'package:fitness_app/utils/common_widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingViewBody extends StatelessWidget {
@@ -5,6 +7,12 @@ class OnboardingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(children: []);
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+      CustomElevatedButton(onPressed: () {
+        Navigator.pushNamed(context, RouteNames.homepage);
+      }, buttonTitle: 'To Home',)
+    ]);
   }
 }
