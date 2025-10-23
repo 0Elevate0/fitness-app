@@ -23,6 +23,9 @@ abstract final class AppText {
   static const String connectionError = "connectionError";
   static const String noResponseReceivedMessage = "noResponseReceivedMessage";
   static const String error = "error";
+  static const String back = "Back";
+  static const String next = "Next";
+  static const String skip = 'Skip';
   static const String unexpectedError = "unexpectedError";
   static const String unexpectedErrorOccurred = "unexpectedErrorOccurred";
   static const String requestCancelled = "requestCancelled";
@@ -32,4 +35,9 @@ abstract final class AppText {
   static const String networkError = "networkError";
   static const String anUnknownErrorOccurred = "anUnknownErrorOccurred";
   static const String unknownErrorMessage = "unknownErrorMessage";
+  static const String onboard1 = "the price of excellence  is discipline";
+  static const String onboard2 = "Fitness has never been so  much fun";
+  static const String onboard3 = "NO MORE EXCUSES Do It Now";
+  static const String onboardsubtitle = "Lorem ipsum dolor sit amet consectetur. Eu urna ut gravida quis id pretium purus. Mauris massa ";
+
 }
