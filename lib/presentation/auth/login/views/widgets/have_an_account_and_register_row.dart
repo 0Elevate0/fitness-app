@@ -16,9 +16,9 @@ class HaveAnAccountAndRegisterRow extends StatelessWidget {
             fit: BoxFit.scaleDown,
             child: Text(
               AppText.donNotHaveAccount.tr(),
-              style: Theme.of(
-                context,
-              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w400),
+              style: theme.textTheme.bodyMedium?.copyWith(
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ),
         ),
@@ -31,10 +31,10 @@ class HaveAnAccountAndRegisterRow extends StatelessWidget {
               fit: BoxFit.scaleDown,
               child: Text(
                 AppText.register.tr(),
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Theme.of(context).colorScheme.primary,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.primary,
                   decoration: TextDecoration.underline,
-                  decorationColor: Theme.of(context).colorScheme.primary,
+                  decorationColor: theme.colorScheme.primary,
                 ),
               ),
             ),
