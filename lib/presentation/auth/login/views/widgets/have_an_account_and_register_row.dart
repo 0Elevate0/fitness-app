@@ -22,19 +22,6 @@ class HaveAnAccountAndRegisterRow extends StatelessWidget {
             ),
           ),
         ),
-        TextButton(
-          onPressed: () {
-            // Navigate to the registration page
-          },
-          child: Text(
-            AppText.register.tr(),
-            style: theme.textTheme.bodyMedium?.copyWith(
-              color: theme.colorScheme.primary,
-              decoration: TextDecoration.underline,
-              decorationColor: theme.colorScheme.primary,
-            ),
-          ),
-        ),
         Flexible(
           child: TextButton(
             onPressed: () {
