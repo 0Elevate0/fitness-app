@@ -1,3 +1,5 @@
+import 'package:fitness_app/api/models/onboarding/onboarding_model.dart';
+import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/di/di.dart';
 import 'package:fitness_app/presentation/onboarding/views/widgets/onboarding_view_body.dart';
 import 'package:fitness_app/presentation/onboarding/views_model/onboarding_cubit.dart';
@@ -11,7 +13,16 @@ class OnboardingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<OnboardingCubit>(
       create: (_) => getIt.get<OnboardingCubit>(),
-      child: const Scaffold(body: OnboardingViewBody()),
+      child:  Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(image: AssetImage(AppImages.onboardingbackground,),fit:BoxFit.cover ),
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: OnboardingViewBody(),
+
+        )
+      ),
     );
   }
 }
