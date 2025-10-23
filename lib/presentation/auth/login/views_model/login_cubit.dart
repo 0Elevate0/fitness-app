@@ -4,7 +4,6 @@ import 'package:fitness_app/domain/entities/requests/login_request/login_request
 import 'package:fitness_app/domain/use_cases/login/login_with_email_and_password_use_case.dart';
 import 'package:fitness_app/presentation/auth/login/views_model/login_intent.dart';
 import 'package:fitness_app/presentation/auth/login/views_model/login_state.dart';
-import 'package:fitness_app/utils/validations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -32,12 +31,6 @@ class LoginCubit extends Cubit<LoginState> {
       case ToggleObscurePasswordIntent():
         _toggleObscure();
         break;
-      case CheckFieldsValidationIntent():
-        _checkFieldsValidation();
-        break;
-      case EnableValidationIntent():
-        _enableFieldsValidation();
-        break;
     }
   }
 
@@ -56,30 +49,14 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
-  void _checkFieldsValidation() {
-    if (state.isContinueClickedWhenDisabled) {
-      if (loginFormKey.currentState!.validate()) {
-        emit(state.copyWith(isValidToLogin: true));
-      } else {
-        emit(state.copyWith(isValidToLogin: false));
-      }
-    } else {
-      if (Validations.emailValidation(email: emailController.text.trim()) ==
-              null &&
-          Validations.passwordValidation(
-                password: passwordController.text.trim(),
-              ) ==
-              null) {
-        emit(state.copyWith(isValidToLogin: true));
-      } else {
-        emit(state.copyWith(isValidToLogin: false));
-      }
-    }
-  }
-
   Future<void> _login() async {
     if (loginFormKey.currentState!.validate()) {
-      emit(state.copyWith(loginStatus: const StateStatus.loading()));
+      emit(
+        state.copyWith(
+          loginStatus: const StateStatus.loading(),
+          autoValidateMode: AutovalidateMode.disabled,
+        ),
+      );
       final loginResult = await _loginWithEmailAndPasswordUseCase.invoke(
         request: LoginRequestEntity(
           email: emailController.text,
@@ -98,12 +75,9 @@ class LoginCubit extends Cubit<LoginState> {
           );
           break;
       }
+    } else {
+      emit(state.copyWith(autoValidateMode: AutovalidateMode.always));
     }
-  }
-
-  void _enableFieldsValidation() {
-    emit(state.copyWith(isContinueClickedWhenDisabled: true));
-    _checkFieldsValidation();
   }
 
   @override

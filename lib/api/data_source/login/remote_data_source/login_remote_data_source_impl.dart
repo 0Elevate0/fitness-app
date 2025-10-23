@@ -22,6 +22,7 @@ final class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
       );
       await _secureStorage.saveUserToken(token: response.token);
       FitnessMethodHelper.currentUserToken = response.token;
+      FitnessMethodHelper.userData = response.user?.toUserDataEntity();
     });
   }
 }

@@ -29,6 +29,7 @@ class LoginForm extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Form(
             key: loginCubit.loginFormKey,
+            autovalidateMode: state.autoValidateMode,
             child: Column(
               children: [
                 FittedBox(
@@ -50,9 +51,6 @@ class LoginForm extends StatelessWidget {
                   validator: (value) =>
                       Validations.emailValidation(email: value),
                   enabled: !state.loginStatus.isLoading,
-                  onChanged: (_) => loginCubit.doIntent(
-                    intent: CheckFieldsValidationIntent(),
-                  ),
                 ),
                 const RSizedBox(height: 24),
                 CustomTextFormField(
@@ -68,7 +66,7 @@ class LoginForm extends StatelessWidget {
                     },
                     icon: Icon(
                       state.isObscure ? Icons.visibility_off : Icons.visibility,
-                      color: Theme.of(context).colorScheme.onSecondary,
+                      color: theme.colorScheme.onSecondary,
                       size: 22.r,
                     ),
                   ),
@@ -79,9 +77,6 @@ class LoginForm extends StatelessWidget {
                   validator: (value) =>
                       Validations.passwordValidation(password: value),
                   enabled: !state.loginStatus.isLoading,
-                  onChanged: (_) => loginCubit.doIntent(
-                    intent: CheckFieldsValidationIntent(),
-                  ),
                 ),
                 const ForgetPasswordButton(),
                 const RSizedBox(height: 10),
@@ -89,13 +84,9 @@ class LoginForm extends StatelessWidget {
                 const RSizedBox(height: 24),
                 CustomElevatedButton(
                   onPressed: () {
-                    if (state.isValidToLogin) {
-                      loginCubit.doIntent(
-                        intent: LoginWithEmailAndPasswordIntent(),
-                      );
-                    } else {
-                      loginCubit.doIntent(intent: EnableValidationIntent());
-                    }
+                    loginCubit.doIntent(
+                      intent: LoginWithEmailAndPasswordIntent(),
+                    );
                   },
                   buttonTitle: AppText.login.tr(),
                 ),

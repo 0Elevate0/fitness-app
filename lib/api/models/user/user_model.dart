@@ -61,7 +61,6 @@ class UserModel {
       email: email,
       activityLevel: activityLevel,
       age: age,
-      createdAt: createdAt,
       gender: gender,
       goal: goal,
       height: height,

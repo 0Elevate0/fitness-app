@@ -1,4 +1,6 @@
-class UserDataEntity {
+import 'package:equatable/equatable.dart';
+
+final class UserDataEntity extends Equatable {
   final String? id;
   final String? firstName;
   final String? lastName;
@@ -10,9 +12,8 @@ class UserDataEntity {
   final String? activityLevel;
   final String? goal;
   final String? photo;
-  final String? createdAt;
 
-  UserDataEntity({
+  const UserDataEntity({
     this.id,
     this.firstName,
     this.lastName,
@@ -24,6 +25,20 @@ class UserDataEntity {
     this.activityLevel,
     this.goal,
     this.photo,
-    this.createdAt,
   });
+
+  @override
+  List<Object?> get props => [
+    id,
+    email,
+    firstName,
+    lastName,
+    gender,
+    age,
+    weight,
+    height,
+    activityLevel,
+    goal,
+    photo,
+  ];
 }

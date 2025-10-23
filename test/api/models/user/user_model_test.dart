@@ -32,7 +32,6 @@ void main() {
         expect(actualResult.lastName, equals(userModel.lastName));
         expect(actualResult.email, equals(userModel.email));
         expect(actualResult.gender, equals(userModel.gender));
-        expect(actualResult.createdAt, equals(userModel.createdAt));
         expect(actualResult.photo, equals(userModel.photo));
         expect(actualResult.age, equals(userModel.age));
         expect(actualResult.goal, equals(userModel.goal));
@@ -70,7 +69,6 @@ void main() {
         expect(actualResult.lastName, equals(userModel.lastName));
         expect(actualResult.email, equals(userModel.email));
         expect(actualResult.gender, equals(userModel.gender));
-        expect(actualResult.createdAt, equals(userModel.createdAt));
         expect(actualResult.photo, equals(userModel.photo));
         expect(actualResult.age, equals(userModel.age));
         expect(actualResult.goal, equals(userModel.goal));

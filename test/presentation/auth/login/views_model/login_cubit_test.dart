@@ -111,31 +111,5 @@ void main() {
       act: (cubit) => cubit.doIntent(intent: ToggleObscurePasswordIntent()),
       expect: () => const [LoginState(isObscure: false)],
     );
-
-    blocTest<LoginCubit, LoginState>(
-      'Check isContinueClickedWhenDisabled value when CheckFieldsValidationIntent',
-      build: () {
-        cubit.emailController.text = 'test@gmail.com';
-        cubit.passwordController.text = 'Test@123';
-        return cubit;
-      },
-      act: (cubit) => cubit.doIntent(intent: CheckFieldsValidationIntent()),
-      expect: () => const [
-        LoginState(isContinueClickedWhenDisabled: false, isValidToLogin: true),
-      ],
-    );
-    blocTest<LoginCubit, LoginState>(
-      'Check isContinueClickedWhenDisabled value when EnableValidationIntent',
-      build: () {
-        cubit.emailController.text = 'test@gmail.com';
-        cubit.passwordController.text = 'Test@123';
-        return cubit;
-      },
-      act: (cubit) => cubit.doIntent(intent: EnableValidationIntent()),
-      expect: () => const [
-        LoginState(isContinueClickedWhenDisabled: true, isValidToLogin: false),
-        LoginState(isContinueClickedWhenDisabled: true, isValidToLogin: true),
-      ],
-    );
   });
 }

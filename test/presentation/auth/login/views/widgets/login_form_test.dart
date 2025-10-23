@@ -63,19 +63,11 @@ void main() async {
 
     when(mockCubit.stream).thenAnswer(
       (_) => Stream<LoginState>.value(
-        const LoginState(
-          loginStatus: StateStatus.initial(),
-          isObscure: true,
-          isValidToLogin: true,
-        ),
+        const LoginState(loginStatus: StateStatus.initial(), isObscure: true),
       ),
     );
     when(mockCubit.state).thenReturn(
-      const LoginState(
-        loginStatus: StateStatus.initial(),
-        isObscure: true,
-        isValidToLogin: true,
-      ),
+      const LoginState(loginStatus: StateStatus.initial(), isObscure: true),
     );
 
     when(mockCubit.loginFormKey).thenReturn(GlobalKey<FormState>());

@@ -5,37 +5,26 @@ import 'package:flutter/material.dart';
 final class LoginState extends Equatable {
   final StateStatus<void> loginStatus;
   final bool isObscure;
-  final bool isValidToLogin;
-  final bool isContinueClickedWhenDisabled;
+  final AutovalidateMode autoValidateMode;
 
   const LoginState({
     this.loginStatus = const StateStatus.initial(),
     this.isObscure = true,
-    this.isValidToLogin = false,
-    this.isContinueClickedWhenDisabled = false,
+    this.autoValidateMode = AutovalidateMode.disabled,
   });
 
   LoginState copyWith({
     StateStatus<void>? loginStatus,
     bool? isObscure,
     AutovalidateMode? autoValidateMode,
-    bool? isValidToLogin,
-    bool? isContinueClickedWhenDisabled,
   }) {
     return LoginState(
       loginStatus: loginStatus ?? this.loginStatus,
       isObscure: isObscure ?? this.isObscure,
-      isValidToLogin: isValidToLogin ?? this.isValidToLogin,
-      isContinueClickedWhenDisabled:
-          isContinueClickedWhenDisabled ?? this.isContinueClickedWhenDisabled,
+      autoValidateMode: autoValidateMode ?? this.autoValidateMode,
     );
   }
 
   @override
-  List<Object?> get props => [
-    loginStatus,
-    isObscure,
-    isValidToLogin,
-    isContinueClickedWhenDisabled,
-  ];
+  List<Object?> get props => [loginStatus, isObscure, autoValidateMode];
 }

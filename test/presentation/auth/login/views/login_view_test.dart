@@ -34,7 +34,6 @@ void main() {
       const LoginState(
         loginStatus: StateStatus.initial(),
         isObscure: true,
-        isValidToLogin: false,
       ),
     );
     when(mockCubit.stream).thenAnswer((_) => const Stream.empty());

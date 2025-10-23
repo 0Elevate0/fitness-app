@@ -7,6 +7,7 @@ class HaveAnAccountAndRegisterRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -18,6 +19,19 @@ class HaveAnAccountAndRegisterRow extends StatelessWidget {
               style: Theme.of(
                 context,
               ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w400),
+            ),
+          ),
+        ),
+        TextButton(
+          onPressed: () {
+            // Navigate to the registration page
+          },
+          child: Text(
+            AppText.register.tr(),
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: theme.colorScheme.primary,
+              decoration: TextDecoration.underline,
+              decorationColor: theme.colorScheme.primary,
             ),
           ),
         ),
