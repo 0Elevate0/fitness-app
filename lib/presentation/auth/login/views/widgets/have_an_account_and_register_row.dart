@@ -10,22 +10,32 @@ class HaveAnAccountAndRegisterRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          AppText.donNotHaveAccount.tr(),
-          style: Theme.of(
-            context,
-          ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w400),
+        Flexible(
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              AppText.donNotHaveAccount.tr(),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w400),
+            ),
+          ),
         ),
-        TextButton(
-          onPressed: () {
-            // Navigate to the registration page
-          },
-          child: Text(
-            AppText.register.tr(),
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              color: Theme.of(context).colorScheme.primary,
-              decoration: TextDecoration.underline,
-              decorationColor: Theme.of(context).colorScheme.primary,
+        Flexible(
+          child: TextButton(
+            onPressed: () {
+              // Navigate to the registration page
+            },
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                AppText.register.tr(),
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.primary,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Theme.of(context).colorScheme.primary,
+                ),
+              ),
             ),
           ),
         ),

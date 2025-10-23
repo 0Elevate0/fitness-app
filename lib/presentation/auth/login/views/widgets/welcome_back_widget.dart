@@ -11,8 +11,20 @@ class WelcomeBackWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(AppText.heyThere.tr(), style: theme.textTheme.headlineSmall),
-        Text(AppText.welcomeBack.tr(), style: theme.textTheme.headlineMedium),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            AppText.heyThere.tr(),
+            style: theme.textTheme.headlineSmall,
+          ),
+        ),
+        FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            AppText.welcomeBack.tr(),
+            style: theme.textTheme.headlineMedium,
+          ),
+        ),
       ],
     );
   }

@@ -31,7 +31,14 @@ class LoginForm extends StatelessWidget {
             key: loginCubit.loginFormKey,
             child: Column(
               children: [
-                Text(AppText.login.tr(), style: theme.textTheme.headlineLarge),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: AlignmentDirectional.center,
+                  child: Text(
+                    AppText.login.tr(),
+                    style: theme.textTheme.headlineLarge,
+                  ),
+                ),
                 RSizedBox(height: 16.h),
                 CustomTextFormField(
                   controller: loginCubit.emailController,
@@ -76,7 +83,7 @@ class LoginForm extends StatelessWidget {
                     intent: CheckFieldsValidationIntent(),
                   ),
                 ),
-                const Row(children: [Spacer(), ForgetPasswordButton()]),
+                const ForgetPasswordButton(),
                 const RSizedBox(height: 10),
                 const SocialMediaSection(),
                 const RSizedBox(height: 24),
