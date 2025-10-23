@@ -62,6 +62,7 @@ void main() {
   testWidgets("Verifying WeightSection Widgets", (tester) async {
     // Act
     await tester.pumpWidget(prepareWidget());
+    await tester.pumpAndSettle();
     // Assert
     expect(find.byType(Column), findsWidgets);
     expect(find.byType(RSizedBox), findsWidgets);

@@ -37,3 +37,13 @@ final class ChangeSelectedHeightIntent extends RegisterIntent {
   final int newSelectedHeight;
   const ChangeSelectedHeightIntent({required this.newSelectedHeight});
 }
+
+final class SelectGoalIntent extends RegisterIntent {
+  final String goal;
+  const SelectGoalIntent({required this.goal});
+}
+
+final class SelectActivityIntent extends RegisterIntent {
+  final String activity;
+  const SelectActivityIntent({required this.activity});
+}

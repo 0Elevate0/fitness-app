@@ -34,6 +34,22 @@ abstract final class AppText {
   static const String kg = "kg";
   static const String cm = "cm";
 
+  // Complete Registration(Goal & Activity)
+  static const String goalTitle = "goalTitle";
+  static const String gainWeight = "gainWeight";
+  static const String loseWeight = "loseWeight";
+  static const String getFitter = "getFitter";
+  static const String gainMoreFlexible = "gainMoreFlexible";
+  static const String learnTheBasic = "learnTheBasic";
+  static const String activityTitle = "activityTitle";
+  static const String rookie = "rookie";
+  static const String beginner = "beginner";
+  static const String intermediate = "intermediate";
+  static const String advance = "advance";
+  static const String trueBeast = "trueBeast";
+  static const String done = "done";
+  static const String registeredSuccessfully = "registeredSuccessfully";
+
   // Validations
   static const String fieldValidation = "fieldValidation";
   static const String emailValidation = "emailValidation";

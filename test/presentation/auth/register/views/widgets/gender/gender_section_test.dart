@@ -62,6 +62,7 @@ void main() {
   testWidgets("Verifying GenderSection Widgets", (tester) async {
     // Act
     await tester.pumpWidget(prepareWidget());
+    await tester.pumpAndSettle();
     // Assert
     expect(find.byType(Column), findsAny);
     expect(find.byType(RSizedBox), findsAny);
