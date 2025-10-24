@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views/widgets/build_reset_password_form.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views_model/reset_password_cubit.dart';
@@ -28,7 +29,7 @@ class ResetPasswordBodyView extends StatelessWidget {
             break;
           case Status.success:
             Navigator.pop(context);
-            // Navigator.pushReplacementNamed(context, RouteNames.login);
+            Navigator.pushReplacementNamed(context, RouteNames.login);
             Loaders.showSuccessMessage(
               message: AppText.passwordChangedSuccessfully.tr(),
               context: context,

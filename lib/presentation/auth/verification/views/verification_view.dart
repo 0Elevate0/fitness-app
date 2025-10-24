@@ -20,7 +20,7 @@ class VerificationView extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImages.forgetPassword),
+            image: AssetImage(AppImages.authBackground),
             fit: BoxFit.cover,
           ),
         ),
