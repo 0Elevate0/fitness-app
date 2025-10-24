@@ -128,7 +128,9 @@ class CustomTextFormField extends StatelessWidget {
           padding: REdgeInsetsDirectional.only(end: 16, start: 4),
           child: suffixIcon,
         ),
-        errorStyle: Theme.of(context).textTheme.bodySmall,
+        errorStyle: Theme.of(context).textTheme.bodySmall?.copyWith(
+          color: Colors.red[900]
+        ),
         errorMaxLines: 3,
       ),
       maxLength: maxLength,
