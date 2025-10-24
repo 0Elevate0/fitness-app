@@ -39,10 +39,6 @@ class BuildContainer extends StatelessWidget {
 
               CustomElevatedButton(
                 onPressed: () {
-                  final isValid =
-                      cubit.formKey.currentState?.validate() ??
-                          false;
-                  if (!isValid) return;
                   cubit.doIntent(
                     OnSendOtpClick(
                       request: ForgetPasswordRequestEntity(

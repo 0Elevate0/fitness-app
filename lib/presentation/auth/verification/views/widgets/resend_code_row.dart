@@ -24,7 +24,7 @@ class ResendCodeRow extends StatelessWidget {
         const RSizedBox(width: 4),
         InkWell(
           onTap: isDisabled ? null : onResend,
-          child: Text(AppText.resenCode.tr(),
+          child: Text(AppText.resendCode.tr(),
               style: theme.textTheme.bodyMedium?.copyWith(
               color: isDisabled
                   ? AppColors.gray

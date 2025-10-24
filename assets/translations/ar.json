@@ -46,6 +46,6 @@
   "enterAValid6DigitCode": "أدخل رمز مكون من 6 أرقام صالح",
   "confirm": "تأكيد",
   "didntReceiveVerificationCode": "لم تستلم رمز التحقق؟",
-  "resenCode": "إعادة الإرسال",
+  "resendCode": "إعادة الإرسال",
   "invalidCode": "رمز غير صالح"
 }

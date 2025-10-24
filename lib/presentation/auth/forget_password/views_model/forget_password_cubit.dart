@@ -54,7 +54,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
         );
     }
     } emit(state.copyWith(
-      autoValidateMode: AutovalidateMode.onUserInteraction,
+      autoValidateMode: AutovalidateMode.always,
     ));
    }
 

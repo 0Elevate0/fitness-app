@@ -52,7 +52,7 @@ abstract final class AppText {
   static const String enterAValid6DigitCode="enterAValid6DigitCode";
   static const String confirm ="confirm";
   static const String didntReceiveVerificationCode = "didntReceiveVerificationCode";
-  static const String resenCode = "resenCode";
+  static const String resendCode = "resendCode";
   static const String invalidCode = "invalidCode";
 
 
