@@ -9,10 +9,7 @@ class ResetPasswordRequestModel {
   @JsonKey(name: "newPassword")
   final String? newPassword;
 
-  ResetPasswordRequestModel ({
-    this.email,
-    this.newPassword,
-  });
+  ResetPasswordRequestModel({this.email, this.newPassword});
 
   factory ResetPasswordRequestModel.fromJson(Map<String, dynamic> json) {
     return _$ResetPasswordRequestModelFromJson(json);
@@ -22,5 +19,3 @@ class ResetPasswordRequestModel {
     return _$ResetPasswordRequestModelToJson(this);
   }
 }
-
-

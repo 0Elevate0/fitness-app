@@ -26,7 +26,7 @@ class BuildBlurredContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = BlocProvider.of<VerificationCubit>(context);
-
+    final theme=Theme.of(context);
     return BlurredContainer(
       child: RPadding(
         padding: const EdgeInsets.only(left: 10, right: 10),
@@ -98,9 +98,7 @@ class BuildBlurredContainer extends StatelessWidget {
                     maintainState: true,
                     child: Text(
                       '${state.secondsRemaining}s',
-                      style: Theme.of(
-                        context,
-                      ).textTheme.bodyLarge?.copyWith(color: Colors.red),
+                      style:theme.textTheme.bodyLarge?.copyWith(color: Colors.red),
                     ),
                   ),
                   ResendCodeRow(

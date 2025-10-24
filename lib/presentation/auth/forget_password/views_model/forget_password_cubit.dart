@@ -32,30 +32,32 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
 
     emit(
       state.copyWith(
-        status: const StateStatus.initial(),
+        forgetPasswordState: const StateStatus.initial(),
         autoValidateMode: AutovalidateMode.disabled,
       ),
     );
   }
 
-
-
   Future<void> _handleSendOtp(OnSendOtpClick intent) async {
     if (formKey.currentState!.validate()) {
+      emit(state.copyWith(autoValidateMode: AutovalidateMode.always));
 
-      emit(state.copyWith(status: const StateStatus.loading()));
-    final res = await _forgetPasswordUseCase.call(intent.request);
-    switch (res) {
-      case Success<ForgetPasswordResponse>():
-        emit(state.copyWith(status: const StateStatus.success(null)));
-      case Failure<ForgetPasswordResponse>():
-        emit(
-          state.copyWith(status: StateStatus.failure(res.responseException)),
-        );
+      emit(state.copyWith(forgetPasswordState: const StateStatus.loading()));
+      final res = await _forgetPasswordUseCase.call(intent.request);
+      switch (res) {
+        case Success<ForgetPasswordResponse>():
+          emit(
+            state.copyWith(
+              forgetPasswordState: const StateStatus.success(null),
+            ),
+          );
+        case Failure<ForgetPasswordResponse>():
+          emit(
+            state.copyWith(
+              forgetPasswordState: StateStatus.failure(res.responseException),
+            ),
+          );
+      }
     }
-    } emit(state.copyWith(
-      autoValidateMode: AutovalidateMode.always,
-    ));
-   }
-
+  }
 }

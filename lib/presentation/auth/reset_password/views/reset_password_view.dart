@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/di/di.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views/widgets/reset_password_body_view.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views_model/reset_password_cubit.dart';
@@ -14,8 +15,17 @@ class ResetPasswordView extends StatelessWidget {
     return BlocProvider
       (create: (_) => getIt.get<ResetPasswordCubit>()
       ..doIntent(InitResetPasswordFormIntent()),
-    child: Scaffold(body: ResetPasswordBodyView(email: email,),
-      resizeToAvoidBottomInset: false,
+    child: Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(AppImages.forgetPassword),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Scaffold(body: ResetPasswordBodyView(email: email,),
+        backgroundColor: Colors.transparent,
+        resizeToAvoidBottomInset: false,
+      ),
     ),
     );
   }

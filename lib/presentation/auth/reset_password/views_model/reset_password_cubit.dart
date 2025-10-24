@@ -21,7 +21,6 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   bool isPasswordVisible = false;
   bool isConfirmPasswordVisible = false;
 
-
   void doIntent(ResetPasswordIntent intent) {
     switch (intent) {
       case InitResetPasswordFormIntent():
@@ -32,7 +31,6 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
         _togglePasswordVisibility();
       case ToggleConfirmPasswordVisibility():
         _toggleConfirmPasswordVisibility();
-
     }
   }
 
@@ -41,8 +39,11 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   }
 
   void _toggleConfirmPasswordVisibility() {
-    emit(state.copyWith(isConfirmPasswordVisible: !state.isConfirmPasswordVisible));
+    emit(
+      state.copyWith(isConfirmPasswordVisible: !state.isConfirmPasswordVisible),
+    );
   }
+
   void _onInit() {
     formKey = GlobalKey<FormState>();
     passwordController = TextEditingController();
@@ -58,7 +59,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
 
   void _handelDoneClick(OnDoneClick intent) async {
     if (formKey.currentState!.validate()) {
-
+      emit(state.copyWith(autoValidateMode: AutovalidateMode.always));
       emit(state.copyWith(resetPasswordState: const StateStatus.loading()));
       final res = await _resetPasswordUseCase.call(request: intent.request);
       switch (res) {
@@ -73,13 +74,7 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
             ),
           );
       }
-    } else {
-      _enableAutoValidateMode();
     }
-  }
-
-  void _enableAutoValidateMode() {
-    emit(state.copyWith(autoValidateMode: AutovalidateMode.always));
   }
 
   @override

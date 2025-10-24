@@ -22,10 +22,6 @@ class BuildResetPasswordForm extends StatelessWidget {
       builder: (context, state) {
         return Stack(
           children: [
-            Positioned.fill(
-              child: Image.asset(AppImages.forgetPassword, fit: BoxFit.cover),
-            ),
-
             BlurredLayerView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,

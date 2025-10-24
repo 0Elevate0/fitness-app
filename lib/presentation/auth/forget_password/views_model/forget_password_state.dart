@@ -12,11 +12,11 @@ class ForgetPasswordState extends Equatable {
   });
 
   ForgetPasswordState copyWith({
-    StateStatus<void>? status,
+    StateStatus<void>? forgetPasswordState,
     AutovalidateMode? autoValidateMode,
   }) {
     return ForgetPasswordState(
-      forgetPasswordState: status ?? forgetPasswordState,
+      forgetPasswordState: forgetPasswordState  ?? this.forgetPasswordState,
       autoValidateMode: autoValidateMode ?? this.autoValidateMode,
     );
   }

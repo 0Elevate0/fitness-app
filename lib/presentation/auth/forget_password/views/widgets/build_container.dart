@@ -29,6 +29,7 @@ class BuildContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CustomTextFormField(
+                keyboardType: TextInputType.emailAddress,
                 validator: (value) =>
                     Validations.emailValidation(email: value),
                 controller: cubit.emailController,

@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/di/di.dart';
 import 'package:fitness_app/presentation/auth/forget_password/views/widgets/forget_password_body_view.dart';
 import 'package:fitness_app/presentation/auth/forget_password/views_model/forget_password_cubit.dart';
@@ -14,8 +15,18 @@ class ForgetPasswordView extends StatelessWidget {
       create: (_) =>
           getIt.get<ForgetPasswordCubit>()
             ..doIntent(const InitForgetPasswordFormIntent()),
-      child: const Scaffold(
-         body: ForgetPasswordBodyView(),
+      child: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AppImages.forgetPassword),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: const Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.transparent,
+          body: ForgetPasswordBodyView(),
+        ),
       ),
     );
   }

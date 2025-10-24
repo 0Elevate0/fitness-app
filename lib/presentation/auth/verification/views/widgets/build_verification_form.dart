@@ -23,10 +23,6 @@ class BuildVerificationForm extends StatelessWidget {
 
     return Stack(
       children: [
-        Positioned.fill(
-          child: Image.asset(AppImages.forgetPassword, fit: BoxFit.cover),
-        ),
-
         BlurredLayerView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +55,9 @@ class BuildVerificationForm extends StatelessWidget {
               ),
 
               const RSizedBox(height: 20),
-              SingleChildScrollView(child: BuildBlurredContainer(email: email, isError: isError)),
+              SingleChildScrollView(
+                child: BuildBlurredContainer(email: email, isError: isError),
+              ),
             ],
           ),
         ),

@@ -21,6 +21,8 @@ class BuildFormContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     final cubit = BlocProvider.of<ResetPasswordCubit>(context);
     return BlocBuilder<ResetPasswordCubit, ResetPasswordState>(
       builder: (BuildContext context, state) {
@@ -29,7 +31,7 @@ class BuildFormContainer extends StatelessWidget {
             padding: const EdgeInsets.only(left: 10, right: 10),
             child: Form(
               key: cubit.formKey,
-              autovalidateMode: cubit.state.autoValidateMode,
+              autovalidateMode: state.autoValidateMode,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -41,10 +43,10 @@ class BuildFormContainer extends StatelessWidget {
                     prefixIcon: SvgPicture.asset(AppIcons.passwordLock),
                     suffixIcon: GestureDetector(
                       onTap: () => cubit.doIntent(TogglePasswordVisibility()),
-                      child: SvgPicture.asset(
-                        state.isPasswordVisible
-                            ? AppIcons.eye
-                            : AppIcons.eye,
+                      child: Icon(
+                        state.isPasswordVisible ? Icons.visibility_off : Icons.visibility,
+                        color: theme.colorScheme.onSecondary,
+                        size: 22.r,
                       ),
                     ),
                     keyboardType: TextInputType.visiblePassword,
@@ -64,24 +66,21 @@ class BuildFormContainer extends StatelessWidget {
                     suffixIcon: GestureDetector(
                       onTap: () =>
                           cubit.doIntent(ToggleConfirmPasswordVisibility()),
-                      child: SvgPicture.asset(
-                        state.isConfirmPasswordVisible
-                            ? AppIcons.eye
-                            : AppIcons.eye,
+                      child: Icon(
+                        state.isConfirmPasswordVisible ? Icons.visibility_off : Icons.visibility,
+                        color: theme.colorScheme.onSecondary,
+                        size: 22.r,
                       ),
                     ),
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: !state.isConfirmPasswordVisible,
-                    textInputAction: TextInputAction.next,
+                    textInputAction: TextInputAction.done,
                   ),
 
                   const RSizedBox(height: 25),
 
                   CustomElevatedButton(
                     onPressed: () {
-                      final isValid =
-                          cubit.formKey.currentState?.validate() ?? false;
-                      if (!isValid) return;
                       cubit.doIntent(
                         OnDoneClick(
                           request: ResetPasswordRequestEntity(

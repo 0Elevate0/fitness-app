@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/di/di.dart';
 import 'package:fitness_app/presentation/auth/verification/views/widgets/verification_view_body.dart';
 import 'package:fitness_app/presentation/auth/verification/views_model/verification_cubit.dart';
@@ -16,7 +17,18 @@ class VerificationView extends StatelessWidget {
       create: (_) => getIt.get<VerificationCubit>()
         ..doIntent(OnStartTimer())
         ..doIntent(InitVerificationIntent()),
-      child: Scaffold(body: VerificationViewBody(email: email),
+      child: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AppImages.forgetPassword),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.transparent,
+          body: VerificationViewBody(email: email),
+        ),
       ),
     );
   }

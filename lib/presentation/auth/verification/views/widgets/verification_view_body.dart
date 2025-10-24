@@ -3,7 +3,7 @@ import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
 import 'package:fitness_app/presentation/auth/verification/views/widgets/build_verification_form.dart';
- import 'package:fitness_app/presentation/auth/verification/views_model/verification_cubit.dart';
+import 'package:fitness_app/presentation/auth/verification/views_model/verification_cubit.dart';
 import 'package:fitness_app/presentation/auth/verification/views_model/verification_state.dart';
 import 'package:fitness_app/utils/common_widgets/loading_dialog.dart';
 import 'package:fitness_app/utils/loaders/loaders.dart';
@@ -32,10 +32,11 @@ class VerificationViewBody extends StatelessWidget {
                 break;
               case Status.success:
                 Navigator.pop(context);
-                Navigator.pushReplacementNamed(
+                Navigator.pushNamedAndRemoveUntil(
                   context,
                   RouteNames.resetPassword,
-                  arguments: email ,
+                  (route) => false,
+                  arguments: email,
                 );
                 Loaders.showSuccessMessage(
                   message: AppText.verificationSuccess.tr(),
@@ -49,6 +50,7 @@ class VerificationViewBody extends StatelessWidget {
                       state.verifyCodeStatus.error?.message ?? AppText.error,
                   context: context,
                 );
+
                 break;
             }
           },
@@ -63,6 +65,7 @@ class VerificationViewBody extends StatelessWidget {
                 break;
               case Status.loading:
                 showLoadingDialog(context, color: theme.colorScheme.primary);
+                break;
               case Status.success:
                 Navigator.pop(context);
                 Loaders.showSuccessMessage(
@@ -72,17 +75,18 @@ class VerificationViewBody extends StatelessWidget {
                 break;
               case Status.failure:
                 Loaders.showErrorMessage(
-                    message:state.resendCodeStatus.error?.message?? AppText.error,
-                    context:
-                context);
+                  message:
+                      state.resendCodeStatus.error?.message ?? AppText.error,
+                  context: context,
+                );
                 break;
             }
           },
         ),
       ],
       child: BlocBuilder<VerificationCubit, VerificationState>(
-        builder: ( context,state) {
-          return  BuildVerificationForm(email: email, isError: state.isError,);
+        builder: (context, state) {
+          return BuildVerificationForm(email: email, isError: state.isError);
         },
       ),
     );
