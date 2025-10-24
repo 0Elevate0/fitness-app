@@ -32,7 +32,6 @@ class CustomTextFormField extends StatelessWidget {
     this.isReadOnly = false,
     this.floatingLabelBehavior = FloatingLabelBehavior.auto,
   });
-
   final String? hintText;
   final String label;
   final void Function(String)? onChanged;
@@ -59,15 +58,16 @@ class CustomTextFormField extends StatelessWidget {
   final Color? disabledBorderColor;
   final bool? isReadOnly;
   final FloatingLabelBehavior floatingLabelBehavior;
-
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return TextFormField(
       onTap: onTap,
       style:
           style ??
-          Theme.of(context).textTheme.bodyLarge?.copyWith(
-            color: Theme.of(context).colorScheme.onSecondary,
+          theme.textTheme.bodyLarge?.copyWith(
+            color: theme.colorScheme.onSecondary,
+            decorationColor: theme.colorScheme.onPrimary,
           ),
       controller: controller,
       keyboardType: keyboardType,
@@ -87,33 +87,32 @@ class CustomTextFormField extends StatelessWidget {
             label.tr(),
             style:
                 labelStyle ??
-                Theme.of(context).textTheme.labelLarge?.copyWith(
-                  color: Theme.of(context).colorScheme.onSecondary,
+                theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSecondary,
                 ),
           ),
         ),
-        hintStyle: hintStyle ?? Theme.of(context).textTheme.labelLarge,
+        hintStyle: hintStyle ?? theme.textTheme.bodySmall,
         hintText: hintText?.tr(),
 
         focusedBorder: buildOutlinedBorder(
-          borderColor: Theme.of(context).colorScheme.onPrimary,
+          borderColor: theme.colorScheme.onPrimary,
           borderRadius: borderRadius,
         ),
         enabledBorder: buildOutlinedBorder(
-          borderColor: Theme.of(context).colorScheme.outline,
+          borderColor: theme.colorScheme.outline,
           borderRadius: borderRadius,
         ),
         focusedErrorBorder: buildOutlinedBorder(
-          borderColor: Theme.of(context).colorScheme.onPrimary,
+          borderColor: theme.colorScheme.onPrimary,
           borderRadius: borderRadius,
         ),
         errorBorder: buildOutlinedBorder(
-          borderColor: Theme.of(context).colorScheme.error,
+          borderColor: theme.colorScheme.error,
           borderRadius: borderRadius,
         ),
         disabledBorder: buildOutlinedBorder(
-          borderColor:
-              disabledBorderColor ?? Theme.of(context).colorScheme.onSecondary,
+          borderColor: disabledBorderColor ?? theme.colorScheme.onSecondary,
           borderRadius: borderRadius,
         ),
         prefixIcon: Padding(
@@ -130,8 +129,8 @@ class CustomTextFormField extends StatelessWidget {
           padding: REdgeInsetsDirectional.only(end: 16, start: 4),
           child: suffixIcon,
         ),
-        errorStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
-          color: Theme.of(context).colorScheme.error,
+        errorStyle: theme.textTheme.bodySmall?.copyWith(
+          color: theme.colorScheme.error,
         ),
         errorMaxLines: 3,
       ),
