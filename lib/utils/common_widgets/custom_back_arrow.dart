@@ -4,14 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomBackArrow extends StatelessWidget {
-  const CustomBackArrow({super.key});
-
+  const CustomBackArrow({super.key, this.onBackArrowClicked});
+  final void Function()? onBackArrowClicked;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pop();
+        onBackArrowClicked != null
+            ? onBackArrowClicked!()
+            : Navigator.of(context).pop();
       },
       child: Container(
         padding: REdgeInsets.all(7),

@@ -1,1 +1,3 @@
-abstract final class WidgetKeys {}
+abstract final class WidgetKeys {
+  static const String register = "register";
+}

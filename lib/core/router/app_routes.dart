@@ -2,6 +2,8 @@ import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/presentation/auth/forget_password/views/forget_password_view.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views/reset_password_view.dart';
 import 'package:fitness_app/presentation/auth/verification/views/verification_view.dart';
+import 'package:fitness_app/presentation/auth/login/views/login_view.dart';
+import 'package:fitness_app/presentation/auth/register/views/register_view.dart';
 import 'package:fitness_app/presentation/onboarding/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +20,10 @@ abstract final class AppRoutes {
         );
       case RouteNames.resetPassword:
         return MaterialPageRoute(builder: (_) => ResetPasswordView(email: settings.arguments as String,));
+      case RouteNames.register:
+        return MaterialPageRoute(builder: (_) => const RegisterView());
+      case RouteNames.login:
+        return MaterialPageRoute(builder: (_) => const LoginView());
       default:
         return null;
     }
