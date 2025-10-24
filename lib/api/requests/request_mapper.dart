@@ -1,4 +1,6 @@
+import 'package:fitness_app/api/requests/login_request/login_request_model.dart';
 import 'package:fitness_app/api/requests/register_request/register_request_model.dart';
+import 'package:fitness_app/domain/entities/requests/login_request/login_request_entity.dart';
 import 'package:fitness_app/domain/entities/requests/register_request/register_request_entity.dart';
 
 abstract final class RequestMapper {
@@ -17,6 +19,15 @@ abstract final class RequestMapper {
       age: registerRequest.age,
       goal: registerRequest.goal,
       activityLevel: registerRequest.activityLevel,
+    );
+  }
+
+  static LoginRequestModel toLoginRequestModel({
+    required LoginRequestEntity loginRequestEntity,
+  }) {
+    return LoginRequestModel(
+      email: loginRequestEntity.email,
+      password: loginRequestEntity.password,
     );
   }
 }

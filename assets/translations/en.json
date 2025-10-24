@@ -1,4 +1,7 @@
 {
+  "forgetPassword": "Forget password?",
+  "donNotHaveAccount": "Don't have an account?",
+  "welcomeBack": "WELCOME BACK",
   "loggingInMessage": "Logging you in ...",
 
   "heyThere": "Hey There",

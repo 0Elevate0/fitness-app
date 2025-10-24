@@ -1,6 +1,5 @@
 name: fitness_app
 description: "A new Flutter project."
-
 publish_to: 'none'
 
 version: 1.0.0+1
@@ -8,12 +7,6 @@ version: 1.0.0+1
 environment:
   sdk: ^3.9.0
 
-# Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
-# the latest version available on pub.dev. To see which dependencies have newer
-# versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
     sdk: flutter
@@ -51,18 +44,18 @@ dependencies:
   flutter_animate: ^4.5.2
 
 dev_dependencies:
-  flutter_launcher_icons: "^0.14.4"
+  flutter_test:
+    sdk: flutter
+
+  flutter_launcher_icons: ^0.14.4
   injectable_generator: ^2.7.0
   retrofit_generator: ^9.2.0
   json_serializable: ^6.8.0
   build_runner: ^2.5.4
-  flutter_test:
-    sdk: flutter
-
   flutter_lints: ^5.0.0
+  connectivity_plus_platform_interface: any
 
 flutter:
-
   uses-material-design: true
 
   assets:

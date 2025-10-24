@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:fitness_app/api/requests/login_request/login_request_model.dart';
 import 'package:fitness_app/api/requests/register_request/register_request_model.dart';
+import 'package:fitness_app/api/responses/login_response/login_response.dart';
 import 'package:fitness_app/core/constants/endpoints.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
@@ -14,4 +16,7 @@ abstract class ApiClient {
 
   @POST(Endpoints.signup)
   Future<void> register({@Body() required RegisterRequestModel request});
+
+  @POST(Endpoints.login)
+  Future<LoginResponse> login({@Body() required LoginRequestModel request});
 }

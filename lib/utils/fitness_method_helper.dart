@@ -1,8 +1,9 @@
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/domain/entities/user_data_entity/user_data_entity.dart';
 import 'package:fitness_app/presentation/auth/register/views_model/register_state.dart';
 
 abstract final class FitnessMethodHelper {
-  // static UserDataEntity? userData;
+  static UserDataEntity? userData;
   static String? currentUserToken;
 
   static final List<String> goals = const [

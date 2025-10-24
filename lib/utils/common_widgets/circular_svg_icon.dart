@@ -4,7 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class CircularSvgIcon extends StatelessWidget {
   const CircularSvgIcon({super.key, required this.iconPath});
+
   final String iconPath;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

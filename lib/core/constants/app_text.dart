@@ -1,5 +1,9 @@
 abstract final class AppText {
   // Login
+  static const String login = "login";
+  static const String welcomeBack = "welcomeBack";
+  static const String forgetPassword = "forgetPassword";
+  static const String donNotHaveAccount = "donNotHaveAccount";
   static const String loggingInMessage = "loggingInMessage";
 
   // Register
@@ -16,7 +20,6 @@ abstract final class AppText {
   static const String passwordHint = "passwordHint";
   static const String or = "or";
   static const String haveAccountMessage = "haveAccountMessage";
-  static const String login = "login";
   static const String tellUs = "tellUs";
   static const String genderAsk = "genderAsk";
   static const String male = "male";

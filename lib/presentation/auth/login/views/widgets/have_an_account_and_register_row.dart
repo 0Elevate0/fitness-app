@@ -2,10 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/core/router/route_names.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class HaveAccountRow extends StatelessWidget {
-  const HaveAccountRow({super.key});
+class HaveAnAccountAndRegisterRow extends StatelessWidget {
+  const HaveAnAccountAndRegisterRow({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class HaveAccountRow extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.scaleDown,
             child: Text(
-              AppText.haveAccountMessage.tr(),
+              AppText.donNotHaveAccount.tr(),
               style: theme.textTheme.bodyMedium?.copyWith(
                 fontWeight: FontWeight.w400,
               ),
@@ -25,20 +24,18 @@ class HaveAccountRow extends StatelessWidget {
           ),
         ),
         Flexible(
-          child: InkWell(
-            splashColor: theme.colorScheme.primary,
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed(RouteNames.login);
+          child: TextButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacementNamed(RouteNames.register);
             },
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: Text(
-                " ${AppText.login.tr()}",
+                AppText.register.tr(),
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.colorScheme.primary,
                   decoration: TextDecoration.underline,
                   decorationColor: theme.colorScheme.primary,
-                  decorationThickness: 1.r,
                 ),
               ),
             ),
