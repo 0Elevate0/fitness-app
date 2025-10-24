@@ -52,7 +52,7 @@ class GlobalCubit extends Cubit<GlobalState> {
     if (userToken != null) {
       // emit(state.copyWith(redirectedScreen: RouteNames.splash));
     } else if (isLoginScreen) {
-      // emit(state.copyWith(redirectedScreen: RouteNames.login));
+      emit(state.copyWith(redirectedScreen: RouteNames.login));
     } else {
       emit(state.copyWith(redirectedScreen: RouteNames.onboarding));
     }
