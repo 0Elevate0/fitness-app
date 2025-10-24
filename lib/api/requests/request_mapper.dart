@@ -1,8 +1,7 @@
-import 'package:fitness_app/api/requests/register_request/register_request_model.dart';
-import 'package:fitness_app/domain/entities/requests/register_request/register_request_entity.dart';
-
 import 'package:fitness_app/api/requests/login_request/login_request_model.dart';
+import 'package:fitness_app/api/requests/register_request/register_request_model.dart';
 import 'package:fitness_app/domain/entities/requests/login_request/login_request_entity.dart';
+import 'package:fitness_app/domain/entities/requests/register_request/register_request_entity.dart';
 
 abstract final class RequestMapper {
   static RegisterRequestModel toRegisterRequestModel({
@@ -22,6 +21,7 @@ abstract final class RequestMapper {
       activityLevel: registerRequest.activityLevel,
     );
   }
+
   static LoginRequestModel toLoginRequestModel({
     required LoginRequestEntity loginRequestEntity,
   }) {

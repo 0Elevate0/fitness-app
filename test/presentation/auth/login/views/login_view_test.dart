@@ -31,10 +31,7 @@ void main() {
   setUp(() {
     mockCubit = MockLoginCubit();
     when(mockCubit.state).thenReturn(
-      const LoginState(
-        loginStatus: StateStatus.initial(),
-        isObscure: true,
-      ),
+      const LoginState(loginStatus: StateStatus.initial(), isObscure: true),
     );
     when(mockCubit.stream).thenAnswer((_) => const Stream.empty());
     when(mockCubit.loginFormKey).thenReturn(GlobalKey<FormState>());
@@ -84,7 +81,7 @@ void main() {
       final decoration = widget.decoration;
       if (decoration is! BoxDecoration) return false;
       final image = decoration.image?.image;
-      return image is AssetImage && image.assetName == AppImages.authBackGround;
+      return image is AssetImage && image.assetName == AppImages.authBackground;
     });
     expect(containerFinder, findsOneWidget);
   });

@@ -88,7 +88,7 @@ class LoginForm extends StatelessWidget {
                       intent: LoginWithEmailAndPasswordIntent(),
                     );
                   },
-                  buttonTitle: AppText.login.tr(),
+                  buttonTitle: AppText.login,
                 ),
                 const HaveAnAccountAndRegisterRow(),
               ],

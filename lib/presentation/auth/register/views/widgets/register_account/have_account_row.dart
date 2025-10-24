@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/router/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,7 +27,9 @@ class HaveAccountRow extends StatelessWidget {
         Flexible(
           child: InkWell(
             splashColor: theme.colorScheme.primary,
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed(RouteNames.login);
+            },
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: Text(

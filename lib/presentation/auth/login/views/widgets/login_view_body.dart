@@ -32,10 +32,7 @@ class LoginViewBody extends StatelessWidget {
             );
           case Status.success:
             FullScreenLoader.stopLoading(context: context);
-            Loaders.showSuccessMessage(
-              message: AppText.loginSuccessful,
-              context: context,
-            );
+          // Navigator.of(context).pushReplacementNamed(RouteNames.fitnessBottomNavigation);
           case Status.failure:
             FullScreenLoader.stopLoading(context: context);
             Loaders.showErrorMessage(

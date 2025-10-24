@@ -8,7 +8,7 @@ void main() {
     'when call toModel with non-null values it should return right values',
     () {
       final LoginRequestEntity entity = const LoginRequestEntity(
-        email: 'moaazhassan10@gmaikl.com',
+        email: 'moaazhassan10@gmail.com',
         password: 'Password@123',
       );
       final LoginRequestModel model = RequestMapper.toLoginRequestModel(

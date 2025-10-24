@@ -18,7 +18,7 @@ class LoginView extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImages.authBackGround),
+            image: AssetImage(AppImages.authBackground),
             fit: BoxFit.cover,
           ),
         ),

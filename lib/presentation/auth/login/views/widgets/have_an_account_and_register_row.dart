@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/router/route_names.dart';
 import 'package:flutter/material.dart';
 
 class HaveAnAccountAndRegisterRow extends StatelessWidget {
@@ -25,7 +26,7 @@ class HaveAnAccountAndRegisterRow extends StatelessWidget {
         Flexible(
           child: TextButton(
             onPressed: () {
-              // Navigate to the registration page
+              Navigator.of(context).pushReplacementNamed(RouteNames.register);
             },
             child: FittedBox(
               fit: BoxFit.scaleDown,

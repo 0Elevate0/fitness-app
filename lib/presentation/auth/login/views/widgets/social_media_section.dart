@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_icons.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/utils/common_widgets/circular_svg_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class SocialMediaSection extends StatelessWidget {
   const SocialMediaSection({super.key});
@@ -52,14 +52,14 @@ class SocialMediaSection extends StatelessWidget {
           ),
         ),
         const RSizedBox(height: 24),
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(AppIcons.faceBook),
-            const RSizedBox(width: 16),
-            SvgPicture.asset(AppIcons.google),
-            const RSizedBox(width: 16),
-            SvgPicture.asset(AppIcons.apple),
+            CircularSvgIcon(iconPath: AppIcons.facebook),
+            RSizedBox(width: 16),
+            CircularSvgIcon(iconPath: AppIcons.google),
+            RSizedBox(width: 16),
+            CircularSvgIcon(iconPath: AppIcons.apple),
           ],
         ),
       ],

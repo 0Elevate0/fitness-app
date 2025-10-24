@@ -3,7 +3,6 @@ import 'package:fitness_app/api/client/api_result.dart';
 import 'package:fitness_app/core/exceptions/response_exception.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
 import 'package:fitness_app/domain/use_cases/login/login_with_email_and_password_use_case.dart';
-import 'package:fitness_app/fake_form_state.dart';
 import 'package:fitness_app/presentation/auth/login/views_model/login_cubit.dart';
 import 'package:fitness_app/presentation/auth/login/views_model/login_intent.dart';
 import 'package:fitness_app/presentation/auth/login/views_model/login_state.dart';
@@ -11,6 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
+import '../../../../fake_form_state.dart';
 import 'login_cubit_test.mocks.dart';
 
 @GenerateMocks([LoginWithEmailAndPasswordUseCase])

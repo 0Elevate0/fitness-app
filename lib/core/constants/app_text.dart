@@ -1,5 +1,9 @@
 abstract final class AppText {
   // Login
+  static const String login = "login";
+  static const String welcomeBack = "welcomeBack";
+  static const String forgetPassword = "forgetPassword";
+  static const String donNotHaveAccount = "donNotHaveAccount";
   static const String loggingInMessage = "loggingInMessage";
 
   // Register
@@ -16,7 +20,6 @@ abstract final class AppText {
   static const String passwordHint = "passwordHint";
   static const String or = "or";
   static const String haveAccountMessage = "haveAccountMessage";
-  static const String login = "login";
   static const String tellUs = "tellUs";
   static const String genderAsk = "genderAsk";
   static const String male = "male";
@@ -77,19 +80,4 @@ abstract final class AppText {
   static const String networkError = "networkError";
   static const String anUnknownErrorOccurred = "anUnknownErrorOccurred";
   static const String unknownErrorMessage = "unknownErrorMessage";
-
-  //Login
-  static const String heyThere = "Hey There";
-  static const String welcomeBack = "WELCOME BACK";
-  static const String login = "login";
-  static const String email = "email";
-  static const String emailHint = "emailHint";
-  static const String password = "password";
-  static const String passwordHint = "passwordHint";
-  static const String rememberMe = "rememberMe";
-  static const String forgetPassword = "forgetPassword";
-  static const String donNotHaveAccount = "donNotHaveAccount";
-  static const String register = "register";
-  static const String or = "or";
-  static const String loginSuccessful = "loginSuccessful";
 }
