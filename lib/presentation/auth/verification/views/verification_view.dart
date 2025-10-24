@@ -17,7 +17,6 @@ class VerificationView extends StatelessWidget {
         ..doIntent(OnStartTimer())
         ..doIntent(InitVerificationIntent()),
       child: Scaffold(body: VerificationViewBody(email: email),
-        resizeToAvoidBottomInset: true,
       ),
     );
   }

@@ -27,5 +27,6 @@ abstract class ApiClient {
     @Body() required VerificationRequestModel request
 });
   @PUT(Endpoints.resetPassword)
-  Future<ResetPasswordResponse>resetPassword({required ResetPasswordRequestModel request});
+  Future<ResetPasswordResponse>resetPassword({
+    @Body() required ResetPasswordRequestModel request});
 }

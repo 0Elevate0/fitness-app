@@ -59,7 +59,7 @@ class BuildVerificationForm extends StatelessWidget {
               ),
 
               const RSizedBox(height: 20),
-              BuildBlurredContainer(email: email, isError: isError),
+              SingleChildScrollView(child: BuildBlurredContainer(email: email, isError: isError)),
             ],
           ),
         ),

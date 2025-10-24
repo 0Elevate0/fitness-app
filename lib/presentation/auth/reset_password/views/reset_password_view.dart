@@ -15,7 +15,7 @@ class ResetPasswordView extends StatelessWidget {
       (create: (_) => getIt.get<ResetPasswordCubit>()
       ..doIntent(InitResetPasswordFormIntent()),
     child: Scaffold(body: ResetPasswordBodyView(email: email,),
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
     ),
     );
   }

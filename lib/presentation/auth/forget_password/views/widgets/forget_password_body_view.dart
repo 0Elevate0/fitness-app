@@ -98,7 +98,7 @@ class ForgetPasswordBodyView extends StatelessWidget {
                     ),
 
                     const RSizedBox(height: 25),
-                      const BuildContainer()
+                      const SingleChildScrollView(child: BuildContainer())
 
                   ],
                 ),

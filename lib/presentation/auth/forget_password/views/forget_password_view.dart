@@ -15,8 +15,7 @@ class ForgetPasswordView extends StatelessWidget {
           getIt.get<ForgetPasswordCubit>()
             ..doIntent(const InitForgetPasswordFormIntent()),
       child: const Scaffold(
-        resizeToAvoidBottomInset: true,
-        body: ForgetPasswordBodyView(),
+         body: ForgetPasswordBodyView(),
       ),
     );
   }

@@ -58,7 +58,7 @@ class BuildResetPasswordForm extends StatelessWidget {
                   ),
 
                   const RSizedBox(height: 25),
-                  BuildFormContainer(email: email),
+                  SingleChildScrollView(child: BuildFormContainer(email: email)),
                 ],
               ),
             ),
