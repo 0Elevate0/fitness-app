@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/core/di/di.dart';
-import 'package:fitness_app/presentation/auth/register/views/widgets/gender/gender_next_button.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/gender/gender_section.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/gender/gender_selection.dart';
+import 'package:fitness_app/presentation/auth/register/views/widgets/next_button.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/register_progress.dart';
 import 'package:fitness_app/presentation/auth/register/views_model/register_cubit.dart';
 import 'package:fitness_app/presentation/auth/register/views_model/register_intent.dart';
@@ -62,6 +62,7 @@ void main() {
   testWidgets("Verifying GenderSection Widgets", (tester) async {
     // Act
     await tester.pumpWidget(prepareWidget());
+    await tester.pumpAndSettle();
     // Assert
     expect(find.byType(Column), findsAny);
     expect(find.byType(RSizedBox), findsAny);
@@ -70,7 +71,7 @@ void main() {
     expect(find.byType(FittedBox), findsAny);
     expect(find.byType(BlurredContainer), findsOneWidget);
     expect(find.byType(GenderSelection), findsOneWidget);
-    expect(find.byType(GenderNextButton), findsOneWidget);
+    expect(find.byType(NextButton), findsOneWidget);
     expect(find.text(AppText.tellUs.tr()), findsOneWidget);
     expect(find.text(AppText.genderAsk.tr()), findsOneWidget);
   });

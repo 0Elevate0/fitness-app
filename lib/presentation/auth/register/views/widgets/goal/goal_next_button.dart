@@ -6,15 +6,15 @@ import 'package:fitness_app/utils/common_widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class GenderNextButton extends StatelessWidget {
-  const GenderNextButton({super.key});
+class GoalNextButton extends StatelessWidget {
+  const GoalNextButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     final registerCubit = BlocProvider.of<RegisterCubit>(context);
     return BlocBuilder<RegisterCubit, RegisterState>(
       builder: (context, state) => CustomElevatedButton(
-        onPressed: state.selectedGender != null
+        onPressed: state.selectedGoal != null
             ? () => registerCubit.doIntent(
                 intent: const MoveToRegistrationNextStepIntent(),
               )

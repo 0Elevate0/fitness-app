@@ -1,11 +1,9 @@
-import 'package:easy_localization/easy_localization.dart';
-import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/core/di/di.dart';
-import 'package:fitness_app/presentation/auth/register/views/widgets/gender/gender_next_button.dart';
+import 'package:fitness_app/presentation/auth/register/views/widgets/goal/goal_choices.dart';
 import 'package:fitness_app/presentation/auth/register/views_model/register_cubit.dart';
 import 'package:fitness_app/presentation/auth/register/views_model/register_intent.dart';
 import 'package:fitness_app/presentation/auth/register/views_model/register_state.dart';
-import 'package:fitness_app/utils/common_widgets/custom_elevated_button.dart';
+import 'package:fitness_app/utils/common_widgets/goal_activity_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,7 +11,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'gender_next_button_test.mocks.dart';
+import 'goal_choices_test.mocks.dart';
 
 @GenerateMocks([RegisterCubit])
 void main() {
@@ -49,23 +47,21 @@ void main() {
           home: BlocProvider<RegisterCubit>.value(
             value: mockRegisterCubit
               ..doIntent(intent: const RegisterInitializationIntent()),
-            child: const Scaffold(body: GenderNextButton()),
+            child: const Scaffold(body: GoalChoices()),
           ),
         );
       },
     );
   }
 
-  testWidgets("Verifying GenderNextButton Widgets", (tester) async {
+  testWidgets("Verifying GoalChoices Widgets", (tester) async {
     // Act
     await tester.pumpWidget(prepareWidget());
     // Assert
-    expect(
-      find.byType(BlocBuilder<RegisterCubit, RegisterState>),
-      findsOneWidget,
-    );
-    expect(find.byType(CustomElevatedButton), findsOneWidget);
-    expect(find.text(AppText.next.tr()), findsOneWidget);
+    expect(find.byType(BlocProvider<RegisterCubit>), findsOneWidget);
+    expect(find.byType(RPadding), findsOneWidget);
+    expect(find.byType(Column), findsOneWidget);
+    expect(find.byType(GoalActivityField), findsWidgets);
   });
 
   tearDown(() {
