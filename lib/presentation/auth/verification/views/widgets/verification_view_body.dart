@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/core/router/route_names.dart';
@@ -39,7 +37,6 @@ class VerificationViewBody extends StatelessWidget {
                   RouteNames.resetPassword,
                   arguments: email ,
                 );
-                log("lplplplplp${email}");
                 Loaders.showSuccessMessage(
                   message: AppText.verificationSuccess.tr(),
                   context: context,
