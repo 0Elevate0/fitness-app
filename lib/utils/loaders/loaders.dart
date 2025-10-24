@@ -15,7 +15,7 @@ abstract final class Loaders {
       titleText: title,
       messageText: Text(
         message.tr(),
-        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
           color: AppColors.white,
           fontWeight: FontWeight.w600,
         ),
@@ -47,7 +47,7 @@ abstract final class Loaders {
       titleText: title,
       messageText: Text(
         message.tr(),
-        style: Theme.of(context).textTheme.bodyLarge,
+        style: Theme.of(context).textTheme.bodyMedium,
         textAlign: TextAlign.start,
       ),
       icon: Icon(Icons.warning_amber_outlined, color: Colors.white, size: 28.r),
@@ -76,20 +76,16 @@ abstract final class Loaders {
       titleText: title,
       messageText: Text(
         message.tr(),
-        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
           color: AppColors.white,
           fontWeight: FontWeight.w600,
         ),
         textAlign: TextAlign.start,
       ),
       icon: Icon(Icons.info_outline_rounded, color: Colors.white, size: 28.r),
-      backgroundColor: Colors.redAccent,
+      backgroundColor: Colors.red,
       boxShadows: const [
-        BoxShadow(
-          color: Colors.redAccent,
-          blurRadius: 5,
-          blurStyle: BlurStyle.outer,
-        ),
+        BoxShadow(color: Colors.red, blurRadius: 5, blurStyle: BlurStyle.outer),
       ],
       margin: REdgeInsets.all(8),
       borderRadius: BorderRadius.circular(8.r),

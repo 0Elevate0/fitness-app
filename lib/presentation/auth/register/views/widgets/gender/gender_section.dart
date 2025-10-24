@@ -5,6 +5,7 @@ import 'package:fitness_app/presentation/auth/register/views/widgets/next_button
 import 'package:fitness_app/presentation/auth/register/views/widgets/register_progress.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GenderSection extends StatelessWidget {
@@ -46,7 +47,7 @@ class GenderSection extends StatelessWidget {
           child: Column(
             children: [GenderSelection(), RSizedBox(height: 24), NextButton()],
           ),
-        ),
+        ).animate().fadeIn().scale().move(delay: 200.ms, duration: 600.ms),
       ],
     );
   }

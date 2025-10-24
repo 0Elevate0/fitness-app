@@ -5,6 +5,7 @@ import 'package:fitness_app/presentation/auth/register/views/widgets/register_pr
 import 'package:fitness_app/presentation/auth/register/views/widgets/weight/weight_choice.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WeightSection extends StatelessWidget {
@@ -46,7 +47,7 @@ class WeightSection extends StatelessWidget {
           child: Column(
             children: [WeightChoice(), RSizedBox(height: 24), NextButton()],
           ),
-        ),
+        ).animate().fadeIn(duration: 600.ms).slideX(delay: 200.ms),
       ],
     );
   }
