@@ -1,6 +1,7 @@
 import 'package:fitness_app/core/constants/app_animations.dart';
 import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
 import 'package:fitness_app/presentation/auth/login/views/widgets/login_form.dart';
 import 'package:fitness_app/presentation/auth/login/views/widgets/welcome_back_widget.dart';
@@ -32,7 +33,9 @@ class LoginViewBody extends StatelessWidget {
             );
           case Status.success:
             FullScreenLoader.stopLoading(context: context);
-          // Navigator.of(context).pushReplacementNamed(RouteNames.fitnessBottomNavigation);
+            Navigator.of(
+              context,
+            ).pushReplacementNamed(RouteNames.fitnessBottomNavigation);
           case Status.failure:
             FullScreenLoader.stopLoading(context: context);
             Loaders.showErrorMessage(
