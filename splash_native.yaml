@@ -1,60 +1,24 @@
 flutter_native_splash:
-  # This package generates native code to customize Flutter's default white native splash screen
-  # with background color and splash image.
-  # Steps to make this work:
-  # 1. Customize the parameters below.
-  # 2. run the following command in the terminal:
-  # dart run flutter_native_splash:create
-  # 3. voila, done!
 
-  #======================================================================
+  color: "#1A1A1A"
 
-  #! FOR ALL PLATFORM, except Android 12+:
 
-  # general color for all platform (except android 12+):
-  color: "#1A1A1A" ##====================================[REQUIRED]==========
-  #color_dark: "#042a49"
-
-  # general background_image for all platform (except android 12+)
-  #background_image:      "assets/background.png" #========[REQUIRED]============
 
   # general image for all platform (except android 12+):
   image: assets/images/logo.png
-  #image_dark:          assets/splash-invert.png
 
-  # image alignment (default center if not specified, or speccified something else):
-  #android_gravity: center
-  #ios_content_mode: center
-  #web_image_mode: center
 
-  # general branding for all platform (except android 12+):
-  #branding:      assets/dart.png
-
-  # branding position:
-  #branding_mode: bottom                # default bottom
-  #branding_bottom_padding: 24          # default 0
-
-  # hide notif bar on android.
-  fullscreen: true                # default false
-
-  #========================================================================
+  fullscreen: true
 
   #! ANDROID 12+ configuration:
   android_12:
     # background color
     color: "#1A1A1A"
-    # color_dark: "#042a49"
+
 
     # center-logo
     image: assets/images/splash_icon.png
-    # image_dark: assets/images/logo/logo-splash2.png
 
-    # center-logo background color
-   # icon_background_color: "#111111"
-    # icon_background_color_dark: "#eeeeee"
-
-    # branding:
-    #branding:      assets/dart.png
     android: true
     ios: true
     web: false

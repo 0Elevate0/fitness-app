@@ -20,12 +20,14 @@ class FitnessApp extends StatelessWidget {
       builder: (context, child) => BlocBuilder<GlobalCubit, GlobalState>(
         builder: (context, state) => MaterialApp(
           title: 'Fitness',
-          home: OnboardingView(),
+          home:const OnboardingView(),
+          // state.isFirstTimeOpenApp
+             // ? const OnboardingView(): null,
           debugShowCheckedModeBanner: false,
           theme: AppTheme.darkTheme,
           themeMode: ThemeMode.dark,
           //onGenerateRoute: AppRoutes.onGenerateRoute,
-         // initialRoute: state.redirectedScreen,
+         //initialRoute:state.redirectedScreen,
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,

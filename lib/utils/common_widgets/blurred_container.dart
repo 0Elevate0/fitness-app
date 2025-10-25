@@ -7,7 +7,7 @@ class BlurredContainer extends StatelessWidget {
   const BlurredContainer({
     super.key,
     this.blurColor,
-    this.halfTheBlurValue,
+    this.blurSigma,
     required this.child,
     this.borderRadius,
     this.padding,
@@ -15,7 +15,7 @@ class BlurredContainer extends StatelessWidget {
   });
 
   final Color? blurColor;
-  final double? halfTheBlurValue;
+  final double? blurSigma;
   final Widget child;
   final BorderRadiusGeometry? borderRadius;
   final EdgeInsetsGeometry? padding;
@@ -30,16 +30,15 @@ class BlurredContainer extends StatelessWidget {
       borderRadius: radius,
       child: BackdropFilter(
         filter: ImageFilter.blur(
-          sigmaX: halfTheBlurValue ?? 17.3.r,
-          sigmaY: halfTheBlurValue ?? 17.3.r,
+          sigmaX: blurSigma ?? 17.3.r,
+          sigmaY: blurSigma ?? 17.3.r,
         ),
         child: Container(
           padding:
           padding ?? REdgeInsets.symmetric(horizontal: 16, vertical: 24),
           margin: margin,
           decoration: BoxDecoration(
-            color:
-            blurColor ?? theme.colorScheme.secondary.withValues(alpha: 0.1),
+            color: blurColor ?? theme.colorScheme.secondary.withValues(alpha: 0.1),
             borderRadius: radius,
           ),
           child: child,
