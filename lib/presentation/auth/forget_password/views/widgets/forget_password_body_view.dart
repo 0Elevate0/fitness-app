@@ -7,6 +7,7 @@ import 'package:fitness_app/presentation/auth/forget_password/views/widgets/buil
 import 'package:fitness_app/presentation/auth/forget_password/views_model/forget_password_cubit.dart';
 import 'package:fitness_app/presentation/auth/forget_password/views_model/forget_password_state.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_layer_view.dart';
+import 'package:fitness_app/utils/common_widgets/custom_app_bar.dart';
 import 'package:fitness_app/utils/common_widgets/loading_dialog.dart';
 import 'package:fitness_app/utils/loaders/loaders.dart';
 import 'package:flutter/material.dart';
@@ -68,15 +69,19 @@ class ForgetPasswordBodyView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Center(
-                      child: RPadding(
-                        padding: const EdgeInsets.only(top: 50),
-                        child: Image.asset(AppImages.fitLogo),
+                    CustomAppBar(
+                      automaticallyImplyLeading: true,
+                      isTitleNotString: true,
+                      titleWidget: Padding(
+                        padding: REdgeInsetsDirectional.only(end: 20),
+                        child: Image.asset(
+                          AppImages.superFitness,
+                          height: 70.h,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
-
                     const RSizedBox(height: 85),
-
                     RPadding(
                       padding: const EdgeInsets.only(left: 12),
                       child: Column(
@@ -93,7 +98,6 @@ class ForgetPasswordBodyView extends StatelessWidget {
                         ],
                       ),
                     ),
-
                     const RSizedBox(height: 25),
                     const SingleChildScrollView(child: BuildContainer()),
                   ],
