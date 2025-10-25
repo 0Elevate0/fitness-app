@@ -1,4 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/core/router/route_names.dart';
+import 'package:fitness_app/presentation/onboarding/views/widgets/onboarding_details.dart';
 import 'package:fitness_app/presentation/onboarding/views/widgets/onboarding_item.dart';
 import 'package:fitness_app/presentation/onboarding/views_model/onboarding_cubit.dart';
 import 'package:fitness_app/presentation/onboarding/views_model/onboarding_intent.dart';
@@ -12,6 +15,7 @@ class OnboardingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final onboardingCubit = BlocProvider.of<OnboardingCubit>(context);
     return BlocListener<OnboardingCubit, OnboardingState>(
       listener: (context, state) {
@@ -21,14 +25,41 @@ class OnboardingViewBody extends StatelessWidget {
       },
       child: BlurredLayerView(
         child: BlocBuilder<OnboardingCubit, OnboardingState>(
-          builder: (context, state) => PageView.builder(
-            onPageChanged: (value) => onboardingCubit.doIntent(
-              intent: ChangePageIntent(pageIndex: value),
-            ),
-            controller: onboardingCubit.pageController,
-            itemBuilder: (context, index) =>
-                OnboardingItem(onboardingData: state.onboardingList[index]),
-            itemCount: state.onboardingList.length,
+          builder: (context, state) => Stack(
+            children: [
+              PageView.builder(
+                onPageChanged: (value) => onboardingCubit.doIntent(
+                  intent: ChangePageIntent(pageIndex: value),
+                ),
+                controller: onboardingCubit.pageController,
+                itemBuilder: (context, index) => OnboardingGymImage(
+                  onboardingData: state.onboardingList[index],
+                ),
+                itemCount: state.onboardingList.length,
+              ),
+              OnboardingDetails(
+                onboardingData: state.onboardingList[state.currentPageIndex],
+              ),
+              Visibility(
+                visible:
+                    state.currentPageIndex != state.onboardingList.length - 1,
+                child: PositionedDirectional(
+                  end: 17,
+                  top: 16,
+                  child: GestureDetector(
+                    onTap: () =>
+                        onboardingCubit.doIntent(intent: const SkipIntent()),
+                    child: Text(
+                      AppText.skip.tr(),
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w400,
+                        color: theme.colorScheme.outline,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
