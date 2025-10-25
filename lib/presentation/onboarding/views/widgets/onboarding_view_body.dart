@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fitness_app/api/models/onboarding/onboarding_model.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/domain/entities/onboarding/onboarding_entity.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
 import 'package:fitness_app/utils/common_widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
