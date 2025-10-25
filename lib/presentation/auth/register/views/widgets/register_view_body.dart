@@ -42,10 +42,9 @@ class RegisterViewBody extends StatelessWidget {
           );
         } else if (state.registerStatus.isSuccess) {
           FullScreenLoader.stopLoading(context: context);
-          // Navigator.of(
-          //   context,
-          // ).pushNamedAndRemoveUntil(RouteNames.login, (route) => false);
-          Navigator.of(context).pushReplacementNamed(RouteNames.onboarding);
+          Navigator.of(
+            context,
+          ).pushNamedAndRemoveUntil(RouteNames.login, (route) => false);
           Loaders.showSuccessMessage(
             message: AppText.registeredSuccessfully,
             context: context,

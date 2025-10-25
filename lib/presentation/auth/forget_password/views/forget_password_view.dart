@@ -25,7 +25,7 @@ class ForgetPasswordView extends StatelessWidget {
         child: const Scaffold(
           resizeToAvoidBottomInset: false,
           backgroundColor: Colors.transparent,
-          body: ForgetPasswordBodyView(),
+          body: SafeArea(child: ForgetPasswordBodyView()),
         ),
       ),
     );

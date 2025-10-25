@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/router/route_names.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPasswordButton extends StatelessWidget {
@@ -12,7 +13,7 @@ class ForgetPasswordButton extends StatelessWidget {
       alignment: AlignmentDirectional.centerEnd,
       child: TextButton(
         onPressed: () {
-          // Navigator.of(context).pushNamed(RouteNames.forgetPassword);
+          Navigator.of(context).pushNamed(RouteNames.forgetPassword);
         },
         child: FittedBox(
           fit: BoxFit.scaleDown,
