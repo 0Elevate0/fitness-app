@@ -1,16 +1,15 @@
 import 'package:equatable/equatable.dart';
-import 'package:fitness_app/core/router/route_names.dart';
 
 enum Language { arabic, english }
 
 final class GlobalState extends Equatable {
   final bool isRedirectedScreenLoaded;
   final Language selectedLanguage;
-  final String redirectedScreen;
+  final String? redirectedScreen;
   const GlobalState({
     this.isRedirectedScreenLoaded = false,
     this.selectedLanguage = Language.english,
-    this.redirectedScreen = RouteNames.onboarding,
+    this.redirectedScreen,
   });
   GlobalState copyWith({
     bool? isRedirectedScreenLoaded,
