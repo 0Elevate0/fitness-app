@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/presentation/onboarding/views/widgets/onboarding_details.dart';
-import 'package:fitness_app/presentation/onboarding/views/widgets/onboarding_item.dart';
+import 'package:fitness_app/presentation/onboarding/views/widgets/onboarding_gym_image.dart';
 import 'package:fitness_app/presentation/onboarding/views_model/onboarding_cubit.dart';
 import 'package:fitness_app/presentation/onboarding/views_model/onboarding_intent.dart';
 import 'package:fitness_app/presentation/onboarding/views_model/onboarding_state.dart';
