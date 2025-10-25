@@ -80,5 +80,16 @@ abstract final class AppTheme {
         disabledForegroundColor: AppColors.white,
       ),
     ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: AppColors.black[0],
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      selectedLabelStyle: TextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w400,
+        color: AppColors.orange[0],
+      ),
+    ),
   );
 }
