@@ -26,6 +26,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
     super.initState();
     _pageController = PageController(initialPage: 0);
   }
+  @override
   void dispose() {
     _pageController.dispose();
     super.dispose();
@@ -57,7 +58,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                 ),
               ),
             ),
-            RSizedBox(
+            const RSizedBox(
               height: 50,
             ),
             Expanded(
@@ -70,7 +71,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                 ),
               ),
             ),
-            RSizedBox(
+            const RSizedBox(
               height: 10,
             ),
             Center(
@@ -82,14 +83,14 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                             OnBoardingEntity.onbourding[_index].title.tr(), // Use _index
                             style: theme.textTheme.headlineLarge,
                           ),
-                          RSizedBox(
+                          const RSizedBox(
                             height: 10,
                           ),
                           Text(
                             OnBoardingEntity.onbourding[_index].subtitle.tr(), // Use _index
                             style: theme.textTheme.bodyLarge,
                           ),
-                          RSizedBox(
+                          const RSizedBox(
                             height: 10,
                           ),
                           AnimatedSmoothIndicator(
@@ -102,7 +103,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                               dotColor: theme.colorScheme.outline,
                             ),
                           ),
-                          RSizedBox(
+                          const RSizedBox(
                             height: 20,
                           ),
                           Center(
