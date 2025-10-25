@@ -23,16 +23,19 @@ class FitnessBottomNavigationBar extends StatelessWidget {
       FitnessBottomNavigationState
     >(
       builder: (context, state) => Container(
-        height: 71.h,
+        height: 73.h,
         margin: REdgeInsets.symmetric(horizontal: 32, vertical: 24),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
           color: theme.colorScheme.secondary.withValues(alpha: 0.8),
+          border: Border.all(
+            color: theme.colorScheme.onPrimary.withValues(alpha: 0.5),
+          ),
           boxShadow: [
             BoxShadow(
-              color: theme.colorScheme.onPrimary.withValues(alpha: 0.5),
+              color: theme.colorScheme.onPrimary.withValues(alpha: 0.8),
               blurStyle: BlurStyle.outer,
-              blurRadius: 6.r,
+              blurRadius: 12.r,
             ),
           ],
         ),
