@@ -9,4 +9,8 @@ abstract final class AppIcons {
   static const String male = "assets/icons/male.svg";
   static const String female = "assets/icons/female.svg";
   static const String indicator = "assets/icons/indicator.svg";
+  static const String home = "assets/icons/home.svg";
+  static const String chat = "assets/icons/chat_ai.svg";
+  static const String gym = "assets/icons/gym.svg";
+  static const String profile = "assets/icons/profile.svg";
 }
