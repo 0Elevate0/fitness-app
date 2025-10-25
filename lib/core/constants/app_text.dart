@@ -80,4 +80,31 @@ abstract final class AppText {
   static const String networkError = "networkError";
   static const String anUnknownErrorOccurred = "anUnknownErrorOccurred";
   static const String unknownErrorMessage = "unknownErrorMessage";
+
+  //forgetPassword
+    static const String confirmPassword="confirmPassword";
+   static const String passwordChangedSuccessfully="passwordChangedSuccessfully";
+  static const String createNewPassword="createNewPassword";
+  static const String makeSureIts8CharactersOrMore="makeSureIts8CharactersOrMore";
+   static const String otpSent="otpSent";
+  static const String enterYourEmail="enterYourEmail";
+   static const String sendOtp ="sendOtp";
+  static const String verificationSuccess ="verificationSuccess";
+  static const String otpResentedSuccessfully ="otpResentedSuccessfully";
+  static const String enterYourOTPCheckYourEmail ="enterYourOTPCheckYourEmail";
+  static const String otpCode ="otpCode";
+  static const String enterAValid6DigitCode="enterAValid6DigitCode";
+  static const String confirm ="confirm";
+  static const String didntReceiveVerificationCode = "didntReceiveVerificationCode";
+  static const String resendCode = "resendCode";
+  static const String invalidCode = "invalidCode";
+
+
+
+
+
+
+
+
+
 }
