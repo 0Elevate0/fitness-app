@@ -28,7 +28,7 @@ void main() {
     await tester.pumpWidget(buildTestWidget());
     await tester.pumpAndSettle();
 
-    final textFinder = find.text(AppText.forgetPassword.tr());
+    final textFinder = find.text(AppText.forgetPasswordLogin.tr());
     expect(textFinder, findsOneWidget);
 
     final Text textWidget = tester.widget(textFinder);

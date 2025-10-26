@@ -2,7 +2,7 @@ abstract final class AppText {
   // Login
   static const String login = "login";
   static const String welcomeBack = "welcomeBack";
-  static const String forgetPassword = "forgetPassword";
+  static const String forgetPasswordLogin = "forgetPasswordLogin";
   static const String donNotHaveAccount = "donNotHaveAccount";
   static const String loggingInMessage = "loggingInMessage";
 
@@ -53,6 +53,10 @@ abstract final class AppText {
   static const String done = "done";
   static const String registeredSuccessfully = "registeredSuccessfully";
 
+  // Splash
+  static const String tryAgain = "tryAgain";
+  static const String reLogin = "reLogin";
+
   // Fitness Bottom Navigation
   static const String explore = "explore";
   static const String workouts = "Workouts";
@@ -88,6 +92,7 @@ abstract final class AppText {
   static const String unknownErrorMessage = "unknownErrorMessage";
 
   //forgetPassword
+  static const String forgetPassword = "forgetPassword";
   static const String confirmPassword = "confirmPassword";
   static const String passwordChangedSuccessfully =
       "passwordChangedSuccessfully";

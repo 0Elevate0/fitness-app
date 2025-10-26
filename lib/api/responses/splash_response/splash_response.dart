@@ -1,0 +1,22 @@
+import 'package:fitness_app/api/models/user/user_model.dart';
+import 'package:json_annotation/json_annotation.dart';
+
+part 'splash_response.g.dart';
+
+@JsonSerializable()
+class SplashResponse {
+  @JsonKey(name: "message")
+  final String? message;
+  @JsonKey(name: "user")
+  final UserModel? user;
+
+  SplashResponse({this.message, this.user});
+
+  factory SplashResponse.fromJson(Map<String, dynamic> json) {
+    return _$SplashResponseFromJson(json);
+  }
+
+  Map<String, dynamic> toJson() {
+    return _$SplashResponseToJson(this);
+  }
+}

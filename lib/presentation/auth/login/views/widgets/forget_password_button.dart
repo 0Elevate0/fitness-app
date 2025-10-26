@@ -18,7 +18,7 @@ class ForgetPasswordButton extends StatelessWidget {
         child: FittedBox(
           fit: BoxFit.scaleDown,
           child: Text(
-            AppText.forgetPassword.tr(),
+            AppText.forgetPasswordLogin.tr(),
             style: theme.textTheme.labelLarge?.copyWith(
               color: theme.colorScheme.primary,
               decoration: TextDecoration.underline,
