@@ -1,5 +1,5 @@
 {
-  "forgetPassword": "نسيت كلمة المرور؟",
+  "forgetPasswordLogin": "نسيت كلمة المرور؟",
   "donNotHaveAccount": "ليس لديك حساب؟",
   "welcomeBack": "مرحباً بعودتك",
   "loggingInMessage": "جاري تسجيل دخولك ...",
@@ -48,6 +48,9 @@
   "done": "تم",
   "registeredSuccessfully": "تم التسجيل بنجاح",
 
+  "tryAgain": "حاول مرة أخرى",
+  "reLogin": "إعادة تسجيل الدخول",
+
   "fieldValidation": "هذا الحقل مطلوب",
   "emailValidation": "البريد الإلكتروني غير صالح",
   "emailValidation2": "أدخل بريدًا إلكترونيًا صحيحًا",
@@ -73,13 +76,10 @@
   "networkError": "حدث خطأ ما. يرجى التحقق من اتصال الإنترنت.",
   "anUnknownErrorOccurred": "حدث خطأ غير معروف.",
   "unknownErrorMessage": "حدث خطأ غير معروف بالرسالة التالية:",
-  "email": "البريد الإلكتروني",
   "confirmPassword": "تأكيد كلمة المرور",
-  "password": "كلمة المرور",
   "passwordChangedSuccessfully": "تم تغيير كلمة المرور بنجاح",
   "createNewPassword": "إنشاء كلمة مرور جديدة",
   "makeSureIts8CharactersOrMore": "تأكد أن كلمة المرور لا تقل عن 8 أحرف",
-  "done": "تم",
   "otpSent": "تم إرسال رمز التحقق",
   "enterYourEmail": "أدخل بريدك الإلكتروني",
   "forgetPassword": "نسيت كلمة المرور",

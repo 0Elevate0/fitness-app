@@ -1,5 +1,5 @@
 {
-  "forgetPassword": "Forget password?",
+  "forgetPasswordLogin": "Forget password?",
   "donNotHaveAccount": "Don't have an account?",
   "welcomeBack": "WELCOME BACK",
   "loggingInMessage": "Logging you in ...",
@@ -48,6 +48,9 @@
   "done": "Done",
   "registeredSuccessfully": "You have successfully registered",
 
+  "tryAgain": "Try again",
+  "reLogin": "Re-login",
+
   "fieldValidation": "This field is required",
   "emailValidation": "This Email is not valid",
   "emailValidation2": "Enter a valid email",
@@ -73,13 +76,10 @@
   "networkError": "Something went wrong. Please check your internet connection.",
   "anUnknownErrorOccurred": "An unknown error occurred.",
   "unknownErrorMessage": "An unknown error has occurred with the following message:",
-  "email": "Email",
   "confirmPassword": "Confirm Password",
-  "password": "Password",
   "passwordChangedSuccessfully": "Password changed successfully",
   "createNewPassword": "Create a new password",
   "makeSureIts8CharactersOrMore": "Make sure it's 8 characters or more",
-  "done": "Done",
   "otpSent": "OTP has been sent",
   "enterYourEmail": "Enter your email",
   "forgetPassword": "Forgot Password",
