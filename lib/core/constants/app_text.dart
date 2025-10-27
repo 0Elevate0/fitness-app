@@ -33,11 +33,13 @@ abstract final class AppText {
   static const String anUnknownErrorOccurred = "anUnknownErrorOccurred";
   static const String unknownErrorMessage = "unknownErrorMessage";
   // Onboarding/Navigation
-  static const String back = "Back";
-  static const String next = "Next";
-  static const String skip = 'Skip';
-  static const String onboard1 = "the Price Of Excellence/nIs Discipline";
-  static const String onboard2 = "Fitness Has Never Been So/n Much Fun";
-  static const String onboard3 = "NO MORE EXCUSE/nDo It Now";
-  static const String onboardsubtitle = "Lorem Ipsum Dolor Sit Amet Consectetur. Eu Urna Ut Gravida Quis Id Pretium Purus. Mauris Massa ";
+  static const String back = "back";
+  static const String next = "next";
+  static const String skip = 'skip';
+  static const String onboardingTitle1 = "onboardingTitle1";
+  static const String onboardingTitle2 = "onboardingTitle2";
+  static const String onboardingTitle3 = "onboardingTitle3";
+  static const String onboardingSubTitle1 = "onboardingSubTitle1";
+  static const String onboardingSubTitle2 = "onboardingSubTitle2";
+  static const String onboardingSubTitle3 = "onboardingSubTitle3";
 }

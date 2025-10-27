@@ -27,5 +27,14 @@
   "connectionTimeout": "Connection timeout, please try again later.",
   "networkError": "Something went wrong. Please check your internet connection.",
   "anUnknownErrorOccurred": "An unknown error occurred.",
-  "unknownErrorMessage": "An unknown error has occurred with the following message:"
+  "unknownErrorMessage": "An unknown error has occurred with the following message:",
+  "skip": "Skip",
+  "back": "Back",
+  "doIt": "Do IT",
+  "onboardingTitle1": "The Price Of Excellence\n Is Discipline",
+  "onboardingTitle2": "Fitness Has Never Been So\n Much Fun",
+  "onboardingTitle3": "NO MORE EXCUSES\nDo It Now",
+  "onboardingSubTitle1": "Stay consistent, push your limits, and watch your goals turn into achievements",
+  "onboardingSubTitle2": "Train smarter, move freely, and enjoy every step of your fitness journey",
+  "onboardingSubTitle3": "Start today, because your future self will thank you for the effort you make now"
 }

@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/app_theme.dart';
 import 'package:fitness_app/core/global_cubit/global_cubit.dart';
 import 'package:fitness_app/core/global_cubit/global_state.dart';
+import 'package:fitness_app/core/router/app_routes.dart';
+import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/presentation/onboarding/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,14 +21,11 @@ class FitnessApp extends StatelessWidget {
       builder: (context, child) => BlocBuilder<GlobalCubit, GlobalState>(
         builder: (context, state) => MaterialApp(
           title: 'Fitness',
-          home:const OnboardingView(),
-          // state.isFirstTimeOpenApp
-             // ? const OnboardingView(): null,
           debugShowCheckedModeBanner: false,
           theme: AppTheme.darkTheme,
           themeMode: ThemeMode.dark,
-          //onGenerateRoute: AppRoutes.onGenerateRoute,
-         //initialRoute:state.redirectedScreen,
+          onGenerateRoute: AppRoutes.onGenerateRoute,
+         initialRoute:RouteNames.onboarding,
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
