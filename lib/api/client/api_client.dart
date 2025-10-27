@@ -8,6 +8,7 @@ import 'package:fitness_app/api/responses/all_muscles_by_muscle_group_response/a
 import 'package:fitness_app/api/responses/all_muscles_group_response/all_muscles_group_response.dart';
 import 'package:fitness_app/api/responses/forgot_password_response/forgot_password_response.dart';
 import 'package:fitness_app/api/responses/login_response/login_response.dart';
+import 'package:fitness_app/api/responses/meal_details_response/meal_details_response.dart';
 import 'package:fitness_app/api/responses/meals_categories_response/meals_categories_response.dart';
 import 'package:fitness_app/api/responses/muscles_recommendation_response/muscles_recommendation_response.dart';
 import 'package:fitness_app/api/responses/reset_password_response/reset_password_response.dart';
@@ -68,4 +69,7 @@ abstract class ApiClient {
 
   @GET(Endpoints.getAllMealsCategories)
   Future<MealsCategoriesResponse> getAllMealsCategories();
+
+  @GET(Endpoints.getAllMealsDetails)
+  Future<MealDetailsResponse> getAllMealsDetails();
 }
