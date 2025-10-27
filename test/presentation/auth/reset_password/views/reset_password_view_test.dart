@@ -1,5 +1,4 @@
-import 'package:fitness_app/core/constants/app_images.dart';
-import 'package:fitness_app/core/di/di.dart';
+ import 'package:fitness_app/core/di/di.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views/reset_password_view.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views/widgets/reset_password_body_view.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views_model/reset_password_cubit.dart';
@@ -43,7 +42,7 @@ void main() {
           autoValidateMode: AutovalidateMode.disabled,
         ));
       }
-      return null;    });
+      return;    });
   });
 
   Widget prepareWidget(String email) {

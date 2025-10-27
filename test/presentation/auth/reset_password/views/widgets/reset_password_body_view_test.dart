@@ -1,6 +1,5 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/core/exceptions/response_exception.dart';
 import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
@@ -8,8 +7,6 @@ import 'package:fitness_app/presentation/auth/reset_password/views/widgets/reset
 import 'package:fitness_app/presentation/auth/reset_password/views/widgets/build_reset_password_form.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views_model/reset_password_cubit.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views_model/reset_password_state.dart';
-import 'package:fitness_app/utils/common_widgets/loading_dialog.dart';
-import 'package:fitness_app/utils/loaders/loaders.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,7 +53,9 @@ void main() {
     );
   }
 
-  testWidgets('renders BuildResetPasswordForm with correct email', (tester) async {
+  testWidgets('renders BuildResetPasswordForm with correct email', (
+    tester,
+  ) async {
     const testEmail = 'test@example.com';
 
     await tester.pumpWidget(buildTestableWidget(testEmail));
@@ -72,10 +71,12 @@ void main() {
   testWidgets('shows loading dialog when state is loading', (tester) async {
     const testEmail = 'test@example.com';
 
-    when(mockCubit.stream).thenAnswer((_) => Stream.fromIterable([
-      const ResetPasswordState(),
-      const ResetPasswordState(resetPasswordState: StateStatus.loading()),
-    ]));
+    when(mockCubit.stream).thenAnswer(
+      (_) => Stream.fromIterable([
+        const ResetPasswordState(),
+        const ResetPasswordState(resetPasswordState: StateStatus.loading()),
+      ]),
+    );
 
     await tester.pumpWidget(buildTestableWidget(testEmail));
     await tester.pumpAndSettle();
@@ -86,10 +87,12 @@ void main() {
   testWidgets('navigates to login on success', (tester) async {
     const testEmail = 'test@example.com';
 
-    when(mockCubit.stream).thenAnswer((_) => Stream.fromIterable([
-      const ResetPasswordState(),
-      const ResetPasswordState(resetPasswordState: StateStatus.success(null)),
-    ]));
+    when(mockCubit.stream).thenAnswer(
+      (_) => Stream.fromIterable([
+        const ResetPasswordState(),
+        const ResetPasswordState(resetPasswordState: StateStatus.success(null)),
+      ]),
+    );
 
     await tester.pumpWidget(buildTestableWidget(testEmail));
     await tester.pumpAndSettle();
@@ -104,17 +107,19 @@ void main() {
 
   testWidgets('shows error message on failure', (tester) async {
     const testEmail = 'test@example.com';
-    final error = ResponseException(message: 'Test error');
+    final error = const ResponseException(message: 'Test error');
 
-    when(mockCubit.stream).thenAnswer((_) => Stream.fromIterable([
-      const ResetPasswordState(),
-      ResetPasswordState(resetPasswordState: StateStatus.failure(error)),
-    ]));
+    when(mockCubit.stream).thenAnswer(
+      (_) => Stream.fromIterable([
+        const ResetPasswordState(),
+        ResetPasswordState(resetPasswordState: StateStatus.failure(error)),
+      ]),
+    );
 
     await tester.pumpWidget(buildTestableWidget(testEmail));
     await tester.pumpAndSettle();
 
-     final flushbarFinder = find.byType(Flushbar);
+    final flushbarFinder = find.byType(Flushbar);
     expect(flushbarFinder, findsOneWidget);
 
     final flushbar = tester.widget<Flushbar>(flushbarFinder);

@@ -9,10 +9,16 @@ import 'package:flutter/services.dart';
 
 void main() async {
   TestWidgetsFlutterBinding.ensureInitialized();
+  const MethodChannel channel = MethodChannel('plugins.flutter.io/shared_preferences');
 
    SharedPreferences.setMockInitialValues({});
-  const MethodChannel('plugins.flutter.io/shared_preferences')
-      .setMockMethodCallHandler((_) async => {});
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+    if (methodCall.method == 'getAll') {
+      return <String, dynamic>{};
+    }
+    return null;
+  });
 
   await EasyLocalization.ensureInitialized();
 
