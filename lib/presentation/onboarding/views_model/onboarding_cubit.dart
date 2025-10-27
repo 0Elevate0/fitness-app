@@ -9,9 +9,9 @@ import 'package:injectable/injectable.dart';
 @injectable
 
 class OnboardingCubit extends Cubit<OnboardingState> {
- final SharedPreferencesHelper _Helper;
+ final SharedPreferencesHelper _helper;
  @factoryMethod
- OnboardingCubit(this._Helper)
+ OnboardingCubit(this._helper)
      : super(const OnboardingState());
  late final PageController pageController;
  Future<void>doIntent({required OnboardingIntent intent})async{
@@ -71,7 +71,7 @@ class OnboardingCubit extends Cubit<OnboardingState> {
  }
 
  Future<void> _finishedOnboarding() async {
-   await _Helper.saveBool(
+   await _helper.saveBool(
      key: ConstKeys.isOnboardingFinished,
      value: true,
    );

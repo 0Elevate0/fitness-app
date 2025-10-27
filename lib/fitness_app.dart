@@ -4,7 +4,6 @@ import 'package:fitness_app/core/global_cubit/global_cubit.dart';
 import 'package:fitness_app/core/global_cubit/global_state.dart';
 import 'package:fitness_app/core/router/app_routes.dart';
 import 'package:fitness_app/core/router/route_names.dart';
-import 'package:fitness_app/presentation/onboarding/views/onboarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

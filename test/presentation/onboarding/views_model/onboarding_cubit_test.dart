@@ -2,10 +2,8 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
-import 'package:flutter/cupertino.dart'; // Required for PageController
-import 'package:flutter/material.dart'; // Required for PageController (if using the provided code)
-
-// Your Cubit, State, Intent, and Helper imports
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:fitness_app/core/cache/shared_preferences_helper.dart';
 import 'package:fitness_app/core/constants/const_keys.dart';
 import 'package:fitness_app/presentation/onboarding/views_model/onboarding_intent.dart';
@@ -14,7 +12,7 @@ import 'package:fitness_app/presentation/onboarding/views_model/onboarding_cubit
 
 import 'onboarding_cubit_test.mocks.dart';
 
-// Import the generated mock file (will be created by build_runner/flutter_test)
+
 
 
 
