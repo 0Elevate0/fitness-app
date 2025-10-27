@@ -16,7 +16,7 @@ class RecommendationListShimmer extends StatelessWidget {
           width: 104.r,
           alignment: Alignment.bottomCenter,
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.r)),
-          child: ShimmerEffect(width: 104.r, height: 104.r),
+          child: ShimmerEffect(width: 104.r, height: 104.r, radius: 20.r),
         ),
         separatorBuilder: (_, _) => const RSizedBox(width: 16),
         itemCount: 12,

@@ -20,7 +20,7 @@ class MusclesListShimmer extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20.r),
             ),
-            child: ShimmerEffect(width: 80.r, height: 80.r),
+            child: ShimmerEffect(width: 80.r, height: 80.r, radius: 20.r),
           ),
         ),
         separatorBuilder: (_, __) => const RSizedBox(width: 8),

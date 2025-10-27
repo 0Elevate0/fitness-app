@@ -17,7 +17,7 @@ class MusclesGroupListShimmer extends StatelessWidget {
           alignment: Alignment.center,
           padding: REdgeInsets.all(2),
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.r)),
-          child: ShimmerEffect(width: 65.r, height: 34.r),
+          child: ShimmerEffect(width: 65.r, height: 34.r, radius: 20.r),
         ),
         separatorBuilder: (_, __) => const RSizedBox(width: 8),
         itemCount: 16,
