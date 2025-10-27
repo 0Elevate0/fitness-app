@@ -13,6 +13,7 @@ class FitnessBottomNavigationView extends StatelessWidget {
     return BlocProvider<FitnessBottomNavigationCubit>(
       create: (context) => getIt.get<FitnessBottomNavigationCubit>(),
       child: const Scaffold(
+        backgroundColor: Colors.transparent,
         extendBody: true,
         bottomNavigationBar: FitnessBottomNavigationBar(),
         body: FitnessBottomNavigationViewBody(),
