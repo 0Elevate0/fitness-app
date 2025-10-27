@@ -12,4 +12,6 @@ abstract final class Endpoints {
       '/api/v1/musclesGroup/{muscleGroupId}';
   static const String getAllMealsCategories =
       'https://www.themealdb.com/api/json/v1/1/categories.php';
+  static const String getAllMealsDetails =
+      'https://www.themealdb.com/api/json/v1/1/lookup.php?i=52959';
 }

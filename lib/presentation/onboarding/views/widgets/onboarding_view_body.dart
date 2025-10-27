@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/router/route_names.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingViewBody extends StatelessWidget {
@@ -5,6 +6,10 @@ class OnboardingViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(children: []);
+    return Center(
+      child: ElevatedButton(onPressed: (){
+        Navigator.pushNamed(context, RouteNames.login);
+      }, child: const Text("test")),
+    );
   }
 }
