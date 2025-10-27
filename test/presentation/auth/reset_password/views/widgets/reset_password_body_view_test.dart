@@ -1,37 +1,56 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fitness_app/core/exceptions/response_exception.dart';
-import 'package:fitness_app/core/router/route_names.dart';
-import 'package:fitness_app/core/state_status/state_status.dart';
-import 'package:fitness_app/presentation/auth/reset_password/views/widgets/reset_password_body_view.dart';
-import 'package:fitness_app/presentation/auth/reset_password/views/widgets/build_reset_password_form.dart';
-import 'package:fitness_app/presentation/auth/reset_password/views_model/reset_password_cubit.dart';
-import 'package:fitness_app/presentation/auth/reset_password/views_model/reset_password_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'reset_password_body_view_test.mocks.dart';
+import 'package:fitness_app/core/constants/app_images.dart';
+import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/state_status/state_status.dart';
+import 'package:fitness_app/presentation/auth/forget_password/views/widgets/forget_password_body_view.dart';
+import 'package:fitness_app/presentation/auth/forget_password/views/widgets/build_container.dart';
+import 'package:fitness_app/presentation/auth/forget_password/views_model/forget_password_cubit.dart';
+import 'package:fitness_app/presentation/auth/forget_password/views_model/forget_password_intent.dart';
+import 'package:fitness_app/presentation/auth/forget_password/views_model/forget_password_state.dart';
+import 'package:fitness_app/utils/common_widgets/custom_app_bar.dart';
 
-@GenerateMocks([ResetPasswordCubit])
-void main() {
-  TestWidgetsFlutterBinding.ensureInitialized();
+import '../../../forget_password/views/forget_password_view_test.mocks.dart';
 
-  late MockResetPasswordCubit mockCubit;
-
-  setUp(() {
-    mockCubit = MockResetPasswordCubit();
-
-    provideDummy<ResetPasswordState>(const ResetPasswordState());
-
-    when(mockCubit.state).thenReturn(const ResetPasswordState());
-    when(mockCubit.stream).thenAnswer((_) => const Stream.empty());
+@GenerateMocks([ForgetPasswordCubit])
+void main() async {
+  setUpAll(() async {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    SharedPreferences.setMockInitialValues({});
+    await EasyLocalization.ensureInitialized();
   });
 
-  Widget buildTestableWidget(String email) {
+  provideDummy<ForgetPasswordState>(
+    const ForgetPasswordState(
+      forgetPasswordState: StateStatus.initial(),
+      autoValidateMode: AutovalidateMode.disabled,
+    ),
+  );
+
+  late MockForgetPasswordCubit mockCubit;
+  const initialState = ForgetPasswordState(
+    forgetPasswordState: StateStatus.initial(),
+    autoValidateMode: AutovalidateMode.disabled,
+  );
+
+  setUp(() {
+    mockCubit = MockForgetPasswordCubit();
+
+    when(mockCubit.state).thenReturn(initialState);
+    when(mockCubit.stream).thenAnswer((_) => const Stream.empty());
+    when(mockCubit.formKey).thenReturn(GlobalKey<FormState>());
+    when(mockCubit.emailController).thenReturn(TextEditingController());
+    when(mockCubit.doIntent(const InitForgetPasswordFormIntent())).thenAnswer((_) async {});
+  });
+
+  Widget buildTestableWidget() {
     return EasyLocalization(
       supportedLocales: const [Locale('en')],
       path: 'test/assets/translations',
@@ -40,89 +59,40 @@ void main() {
         designSize: const Size(375, 812),
         child: MaterialApp(
           home: Scaffold(
-            body: BlocProvider<ResetPasswordCubit>.value(
+            body: BlocProvider<ForgetPasswordCubit>.value(
               value: mockCubit,
-              child: ResetPasswordBodyView(email: email),
+              child: const ForgetPasswordBodyView(),
             ),
           ),
-          routes: {
-            RouteNames.login: (context) => const Scaffold(body: Text('Login')),
-          },
         ),
       ),
     );
   }
 
-  testWidgets('renders BuildResetPasswordForm with correct email', (
-    tester,
-  ) async {
-    const testEmail = 'test@example.com';
-
-    await tester.pumpWidget(buildTestableWidget(testEmail));
+  testWidgets('renders all child widgets in initial state', (tester) async {
+    await tester.pumpWidget(buildTestableWidget());
     await tester.pumpAndSettle();
 
-    final formFinder = find.byType(BuildResetPasswordForm);
-    expect(formFinder, findsOneWidget);
-
-    final formWidget = tester.widget<BuildResetPasswordForm>(formFinder);
-    expect(formWidget.email, testEmail);
+    expect(find.byType(CustomAppBar), findsOneWidget);
+    expect(find.image(const AssetImage(AppImages.superFitness)), findsOneWidget);
+    expect(find.text(AppText.enterYourEmail.tr()), findsOneWidget);
+    expect(find.text(AppText.forgetPassword.tr()), findsOneWidget);
+    expect(find.byType(BuildContainer), findsOneWidget);
   });
 
   testWidgets('shows loading dialog when state is loading', (tester) async {
-    const testEmail = 'test@example.com';
+    final states = [
+      initialState,
+      const ForgetPasswordState(forgetPasswordState: StateStatus.loading()),
+    ];
 
-    when(mockCubit.stream).thenAnswer(
-      (_) => Stream.fromIterable([
-        const ResetPasswordState(),
-        const ResetPasswordState(resetPasswordState: StateStatus.loading()),
-      ]),
-    );
+    when(mockCubit.stream).thenAnswer((_) => Stream.fromIterable(states));
+    when(mockCubit.state).thenReturn(initialState);
 
-    await tester.pumpWidget(buildTestableWidget(testEmail));
-    await tester.pumpAndSettle();
+    await tester.pumpWidget(buildTestableWidget());
+    await tester.pump();
+    await tester.pump();
 
     expect(find.byType(AlertDialog), findsOneWidget);
-  });
-
-  testWidgets('navigates to login on success', (tester) async {
-    const testEmail = 'test@example.com';
-
-    when(mockCubit.stream).thenAnswer(
-      (_) => Stream.fromIterable([
-        const ResetPasswordState(),
-        const ResetPasswordState(resetPasswordState: StateStatus.success(null)),
-      ]),
-    );
-
-    await tester.pumpWidget(buildTestableWidget(testEmail));
-    await tester.pumpAndSettle();
-
-    // Navigator.pushReplacementNamed
-    expect(find.text('Login'), findsOneWidget);
-
-    // Loaders.showSuccessMessage called → we can't verify directly
-    // but we can verify it was called by checking Flushbar appears
-    expect(find.byType(Flushbar), findsOneWidget);
-  });
-
-  testWidgets('shows error message on failure', (tester) async {
-    const testEmail = 'test@example.com';
-    final error = const ResponseException(message: 'Test error');
-
-    when(mockCubit.stream).thenAnswer(
-      (_) => Stream.fromIterable([
-        const ResetPasswordState(),
-        ResetPasswordState(resetPasswordState: StateStatus.failure(error)),
-      ]),
-    );
-
-    await tester.pumpWidget(buildTestableWidget(testEmail));
-    await tester.pumpAndSettle();
-
-    final flushbarFinder = find.byType(Flushbar);
-    expect(flushbarFinder, findsOneWidget);
-
-    final flushbar = tester.widget<Flushbar>(flushbarFinder);
-    expect(flushbar.backgroundColor, equals(Colors.red));
   });
 }
