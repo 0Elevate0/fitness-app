@@ -15,6 +15,7 @@ abstract final class AppTheme {
       secondaryContainer: AppColors.black[20],
       onSecondary: AppColors.white,
       shadow: AppColors.gray[0],
+      outlineVariant: AppColors.gray[90],
       onSurface: AppColors.green,
       error: AppColors.orange[80],
       onSurfaceVariant: AppColors.gray[90],

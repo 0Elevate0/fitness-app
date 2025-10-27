@@ -59,9 +59,30 @@ abstract final class AppText {
 
   // Fitness Bottom Navigation
   static const String explore = "explore";
-  static const String workouts = "Workouts";
-  static const String profile = "Profile";
-  static const String chat = "Chat";
+  static const String workouts = "workouts";
+  static const String profile = "profile";
+  static const String chat = "chat";
+
+  // Home
+  static const String hi = "hi";
+  static const String startYourDay = "startYourDay";
+  static const String category = "category";
+  static const String gym = "gym";
+  static const String fitness = "fitness";
+  static const String yoga = "yoga";
+  static const String aerobics = "aerobics";
+  static const String trainer = "trainer";
+  static const String recommendationToDay = "recommendationToDay";
+  static const String upcomingWorkouts = "upcomingWorkouts";
+  static const String seeAll = "seeAll";
+  static const String recommendationForYou = "recommendationForYou";
+  static const String notProvided = "notProvided";
+  static const String emptyExerciseGroupsMessage = "emptyExerciseGroupsMessage";
+  static const String emptyExercisesRecommendationMessage =
+      "emptyExercisesRecommendationMessage";
+  static const String emptyExercisesGroupMessage = "emptyExercisesGroupMessage";
+  static const String emptyMealRecommendationMessage =
+      "emptyMealRecommendationMessage";
 
   // Validations
   static const String fieldValidation = "fieldValidation";
