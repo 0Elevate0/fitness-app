@@ -1,5 +1,5 @@
+import 'package:fitness_app/api/models/muscle/muscle_model.dart';
 import 'package:fitness_app/api/models/muscle_group/muscle_group_model.dart';
-import 'package:fitness_app/api/models/muscle_model/muscle_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'all_muscles_by_muscle_group_response.g.dart';

@@ -48,7 +48,7 @@ class WorkoutsSection extends StatelessWidget {
                           }
                         : () {},
                     child: Text(
-                      AppText.seeAll,
+                      AppText.seeAll.tr(),
                       style: theme.textTheme.bodyMedium?.copyWith(
                         fontWeight: FontWeight.w400,
                         color: theme.colorScheme.primary,
