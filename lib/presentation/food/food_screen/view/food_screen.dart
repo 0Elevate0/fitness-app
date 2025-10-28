@@ -6,11 +6,20 @@ class FoodScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mealId = "52959";
+
     return Scaffold(
       body: Center(
-        child: ElevatedButton(onPressed: (){
-          Navigator.pushNamed(context, RouteNames.foodDetails);
-        }, child: const Text("To food details")),
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              RouteNames.foodDetails,
+              arguments: mealId,
+            );
+          },
+          child: const Text("To food details"),
+        ),
       ),
     );
   }

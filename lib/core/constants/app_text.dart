@@ -63,6 +63,17 @@ abstract final class AppText {
   static const String profile = "profile";
   static const String chat = "chat";
 
+  // Food Details (NEW)
+  static const String ingredients = "ingredients";
+  static const String recommendation = "recommendation";
+  static const String loadingMealDetails = "loadingMealDetails";
+  static const String mealNotFound = "mealNotFound";
+  static const String noDescription = "noDescription";
+  static const String energy = "energy";
+  static const String protein = "protein";
+  static const String carbs = "carbs";
+  static const String fat = "fat";
+
   // Home
   static const String hi = "hi";
   static const String startYourDay = "startYourDay";

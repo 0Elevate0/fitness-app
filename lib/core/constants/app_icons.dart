@@ -13,4 +13,6 @@ abstract final class AppIcons {
   static const String chat = "assets/icons/chat_ai.svg";
   static const String gym = "assets/icons/gym.svg";
   static const String profile = "assets/icons/profile.svg";
+  static const String back2 = "assets/icons/Back2.svg";
+
 }

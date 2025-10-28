@@ -37,7 +37,11 @@ abstract final class AppRoutes {
       case RouteNames.splash:
         return MaterialPageRoute(builder: (_) => const SplashView());
       case RouteNames.foodDetails:
-        return MaterialPageRoute(builder: (_) => const FoodDetailsScreen());
+        final mealId = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (_) => FoodDetailsView(mealId: mealId),
+        );
+
       default:
         return null;
     }

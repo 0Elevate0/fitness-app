@@ -1,3 +1,4 @@
+import 'package:fitness_app/domain/entities/meal_details/ingredient_measure_entity.dart';
 import 'package:fitness_app/domain/entities/meal_details/meal_details_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -9,8 +10,6 @@ class MealDetailsModel {
   final String? idMeal;
   @JsonKey(name: "strMeal")
   final String? strMeal;
-  @JsonKey(name: "strMealAlternate")
-  final String? strMealAlternate;
   @JsonKey(name: "strCategory")
   final String? strCategory;
   @JsonKey(name: "strArea")
@@ -25,22 +24,12 @@ class MealDetailsModel {
   final String? strYoutube;
   @JsonKey(name: "strSource")
   final String? strSource;
-  @JsonKey(name: "strIngredient1")
-  final String? strIngredient1;
-  @JsonKey(name: "strIngredient2")
-  final String? strIngredient2;
-  @JsonKey(name: "strIngredient20")
-  final String? strIngredient20;
-  @JsonKey(name: "strMeasure1")
-  final String? strMeasure1;
-  @JsonKey(name: "strMeasure2")
-  final String? strMeasure2;
-  @JsonKey(name: "strMeasure20")
-  final String? strMeasure20;
+
+  final Map<String, dynamic> extraFields;
+
   MealDetailsModel({
     this.idMeal,
     this.strMeal,
-    this.strMealAlternate,
     this.strCategory,
     this.strArea,
     this.strInstructions,
@@ -48,29 +37,54 @@ class MealDetailsModel {
     this.strTags,
     this.strYoutube,
     this.strSource,
-    this.strIngredient1,
-    this.strIngredient2,
-    this.strIngredient20,
-    this.strMeasure1,
-    this.strMeasure2,
-    this.strMeasure20,
+    required this.extraFields,
   });
+
   factory MealDetailsModel.fromJson(Map<String, dynamic> json) {
-    return _$MealDetailsModelFromJson(json);
+    return MealDetailsModel(
+      idMeal: json['idMeal'],
+      strMeal: json['strMeal'],
+      strCategory: json['strCategory'],
+      strArea: json['strArea'],
+      strInstructions: json['strInstructions'],
+      strMealThumb: json['strMealThumb'],
+      strTags: json['strTags'],
+      strYoutube: json['strYoutube'],
+      strSource: json['strSource'],
+      extraFields: Map.from(json),
+    );
   }
 
-  Map<String, dynamic> toJson() {
-    return _$MealDetailsModelToJson(this);
-  }
+  Map<String, dynamic> toJson() => _$MealDetailsModelToJson(this);
+
   MealDetailsEntity toMealDetailsEntity() {
-    final List<Map<String, String?>> ingredients = [];
+    final List<IngredientMeasureEntity> ingredients = [];
+
+    for (int i = 1; i <= 20; i++) {
+      final ingredient = extraFields["strIngredient$i"];
+      final measure = extraFields["strMeasure$i"];
+
+      if (ingredient != null && ingredient.toString().trim().isNotEmpty) {
+        ingredients.add(
+          IngredientMeasureEntity(
+            ingredient: ingredient.toString(),
+            measure: measure?.toString() ?? '',
+          ),
+        );
+      }
+    }
 
     return MealDetailsEntity(
       idMeal: idMeal,
       strMeal: strMeal,
+      strCategory: strCategory,
+      strArea: strArea,
       strInstructions: strInstructions,
       strMealThumb: strMealThumb,
+      strTags: strTags,
+      strYoutube: strYoutube,
+      strSource: strSource,
+      ingredients: ingredients,
     );
   }
 }
-
