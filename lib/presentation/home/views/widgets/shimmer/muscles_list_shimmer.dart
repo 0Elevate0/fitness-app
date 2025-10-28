@@ -13,15 +13,11 @@ class MusclesListShimmer extends StatelessWidget {
         clipBehavior: Clip.none,
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemBuilder: (_, index) => GestureDetector(
-          child: Container(
-            width: 80.r,
-            alignment: Alignment.bottomCenter,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.r),
-            ),
-            child: ShimmerEffect(width: 80.r, height: 80.r, radius: 20.r),
-          ),
+        itemBuilder: (_, index) => Container(
+          width: 80.r,
+          alignment: Alignment.bottomCenter,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.r)),
+          child: ShimmerEffect(width: 80.r, height: 80.r, radius: 20.r),
         ),
         separatorBuilder: (_, __) => const RSizedBox(width: 8),
         itemCount: 16,

@@ -1,4 +1,4 @@
-import 'package:fitness_app/api/models/muscle_model/muscle_model.dart';
+import 'package:fitness_app/api/models/muscle/muscle_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'muscles_recommendation_response.g.dart';
