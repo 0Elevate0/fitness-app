@@ -32,20 +32,35 @@ class OnboardingDetails extends StatelessWidget {
           builder: (context, state) => Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                onboardingData.title.tr(),
-                style: theme.textTheme.headlineLarge,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 200),
+                transitionBuilder: (child, animation) =>
+                    FadeTransition(opacity: animation, child: child),
+                child: Text(
+                  onboardingData.title.tr(),
+                  key: ValueKey(
+                    onboardingData.title,
+                  ), // Important for animation
+                  style: theme.textTheme.headlineLarge,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                ),
               ),
               const RSizedBox(height: 4),
-              Text(
-                onboardingData.subTitle.tr(),
-                style: theme.textTheme.bodyLarge,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                textAlign: TextAlign.center,
+
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 200),
+                transitionBuilder: (child, animation) =>
+                    FadeTransition(opacity: animation, child: child),
+                child: Text(
+                  onboardingData.subTitle.tr(),
+                  key: ValueKey(onboardingData.subTitle),
+                  style: theme.textTheme.bodyLarge,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                ),
               ),
               const RSizedBox(height: 24),
               SmoothPageIndicator(
