@@ -14,7 +14,7 @@ abstract final class AppColors {
     60: Color(0xff7C7C7C),
     70: Color(0xff666666),
     80: Color(0xff505050),
-    90: Color(0xff3A3A3A),
+    90: Color(0xff2D2D2D),
     100: Color(0xff242424),
   });
 

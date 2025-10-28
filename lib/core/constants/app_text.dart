@@ -13,7 +13,7 @@ abstract final class AppText {
   // Login
   static const String login = "login";
   static const String welcomeBack = "welcomeBack";
-  static const String forgetPassword = "forgetPassword";
+  static const String forgetPasswordLogin = "forgetPasswordLogin";
   static const String donNotHaveAccount = "donNotHaveAccount";
   static const String loggingInMessage = "loggingInMessage";
 
@@ -64,11 +64,36 @@ abstract final class AppText {
   static const String done = "done";
   static const String registeredSuccessfully = "registeredSuccessfully";
 
+  // Splash
+  static const String tryAgain = "tryAgain";
+  static const String reLogin = "reLogin";
+
   // Fitness Bottom Navigation
   static const String explore = "explore";
-  static const String workouts = "Workouts";
-  static const String profile = "Profile";
-  static const String chat = "Chat";
+  static const String workouts = "workouts";
+  static const String profile = "profile";
+  static const String chat = "chat";
+
+  // Home
+  static const String hi = "hi";
+  static const String startYourDay = "startYourDay";
+  static const String category = "category";
+  static const String gym = "gym";
+  static const String fitness = "fitness";
+  static const String yoga = "yoga";
+  static const String aerobics = "aerobics";
+  static const String trainer = "trainer";
+  static const String recommendationToDay = "recommendationToDay";
+  static const String upcomingWorkouts = "upcomingWorkouts";
+  static const String seeAll = "seeAll";
+  static const String recommendationForYou = "recommendationForYou";
+  static const String notProvided = "notProvided";
+  static const String emptyExerciseGroupsMessage = "emptyExerciseGroupsMessage";
+  static const String emptyExercisesRecommendationMessage =
+      "emptyExercisesRecommendationMessage";
+  static const String emptyExercisesGroupMessage = "emptyExercisesGroupMessage";
+  static const String emptyMealRecommendationMessage =
+      "emptyMealRecommendationMessage";
 
   // Validations
   static const String fieldValidation = "fieldValidation";
@@ -99,6 +124,7 @@ abstract final class AppText {
   static const String unknownErrorMessage = "unknownErrorMessage";
 
   //forgetPassword
+  static const String forgetPassword = "forgetPassword";
   static const String confirmPassword = "confirmPassword";
   static const String passwordChangedSuccessfully =
       "passwordChangedSuccessfully";

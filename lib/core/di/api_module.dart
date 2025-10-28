@@ -9,7 +9,11 @@ abstract class ApiModule {
   @singleton
   Dio provideDio() {
     final dio = Dio(
-      BaseOptions(baseUrl: Endpoints.baseUrl, receiveDataWhenStatusError: true),
+      BaseOptions(
+        baseUrl: Endpoints.baseUrl,
+        receiveDataWhenStatusError: true,
+        extra: {'useAbsoluteUrl': true},
+      ),
     );
     dio.interceptors.add(
       PrettyDioLogger(

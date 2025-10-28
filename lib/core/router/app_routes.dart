@@ -6,6 +6,7 @@ import 'package:fitness_app/presentation/auth/reset_password/views/reset_passwor
 import 'package:fitness_app/presentation/auth/verification/views/verification_view.dart';
 import 'package:fitness_app/presentation/fitness_bottom_navigation/views/fitness_bottom_navigation_view.dart';
 import 'package:fitness_app/presentation/onboarding/views/onboarding_view.dart';
+import 'package:fitness_app/presentation/splash/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 abstract final class AppRoutes {
@@ -32,6 +33,8 @@ abstract final class AppRoutes {
         return MaterialPageRoute(
           builder: (_) => const FitnessBottomNavigationView(),
         );
+      case RouteNames.splash:
+        return MaterialPageRoute(builder: (_) => const SplashView());
       default:
         return null;
     }

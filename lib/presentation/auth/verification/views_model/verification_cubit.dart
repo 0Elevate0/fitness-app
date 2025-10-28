@@ -39,7 +39,7 @@ class VerificationCubit extends Cubit<VerificationState> {
   }
 
   void _resendCode(ForgetPasswordRequestEntity request) async {
-    emit(state.copyWith(verifyCodeStatus: const StateStatus.loading()));
+    emit(state.copyWith(resendCodeStatus: const StateStatus.loading()));
     final res = await _forgetPasswordUseCase.call(request);
     switch (res) {
       case Success<ForgetPasswordResponse>():
