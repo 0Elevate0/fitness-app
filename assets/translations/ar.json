@@ -126,5 +126,7 @@
   "confirm": "تأكيد",
   "didntReceiveVerificationCode": "لم تستلم رمز التحقق؟",
   "resendCode": "إعادة الإرسال",
-  "invalidCode": "رمز غير صالح"
+  "invalidCode": "رمز غير صالح",
+  "workout": "تمرين"
+
 }

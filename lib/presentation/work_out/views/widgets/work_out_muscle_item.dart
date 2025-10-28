@@ -1,0 +1,57 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fitness_app/core/constants/app_images.dart';
+import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class WorkOutMuscleItem extends StatelessWidget {
+  const WorkOutMuscleItem({super.key, required this.muscleData, this.onTap});
+
+  final MuscleEntity muscleData;
+  final VoidCallback? onTap;
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return GestureDetector(
+      onTap: onTap??() {
+        // Navigate To Exercise Details Screen
+        // use muscleData.id as argument data to fetch the exercise data
+      },
+      child: Stack(
+        children: [
+          Container(
+            width: 160.r,
+            height: 160.r,
+            alignment: Alignment.bottomCenter,
+            decoration: BoxDecoration(
+              color: theme.colorScheme.secondaryFixed.withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(20.r),
+              image: DecorationImage(
+                image: muscleData.image != null
+                    ? CachedNetworkImageProvider(muscleData.image ?? "")
+                    : const AssetImage(AppImages.notFound),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 8.r,
+            left: 8.r,
+            right: 8.r,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                textAlign: TextAlign.center,
+                muscleData.name ?? '',
+                style: theme.textTheme.bodyLarge?.copyWith(
+                  color: theme.colorScheme.primary,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

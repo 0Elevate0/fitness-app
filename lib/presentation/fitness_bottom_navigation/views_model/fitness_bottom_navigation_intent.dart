@@ -1,8 +1,12 @@
+import 'package:flutter/material.dart';
+
 sealed class FitnessBottomNavigationIntent {
   const FitnessBottomNavigationIntent();
 }
 
 final class ChangeIndexIntent extends FitnessBottomNavigationIntent {
   final int index;
-  const ChangeIndexIntent({required this.index});
+  final Widget? changedTap;
+
+  const ChangeIndexIntent({required this.index, this.changedTap});
 }
