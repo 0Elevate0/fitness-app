@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
-import 'package:fitness_app/utils/common_widgets/custom_Image_container.dart';
+import 'package:fitness_app/utils/common_widgets/custom_image_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
