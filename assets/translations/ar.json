@@ -1,5 +1,4 @@
 {
-
   "skip": "تخطي",
   "back": "رجوع",
   "doIt": "ابدأ الآن",
@@ -9,12 +8,10 @@
   "onboardingSubTitle1": "كن ثابتًا، وتحدى حدودك، وشاهد أهدافك تتحول إلى إنجازات",
   "onboardingSubTitle2": "تمرن بذكاء، وتحرك بحرية، واستمتع بكل خطوة في رحلتك الرياضية",
   "onboardingSubTitle3": "ابدأ اليوم، لأن نفسك في المستقبل ستشكرك على الجهد الذي تبذله الآن",
-
   "forgetPasswordLogin": "نسيت كلمة المرور؟",
   "donNotHaveAccount": "ليس لديك حساب؟",
   "welcomeBack": "مرحباً بعودتك",
   "loggingInMessage": "جاري تسجيل دخولك ...",
-
   "heyThere": "مرحباً",
   "createAnAccount": "إنشاء حساب",
   "register": "تسجيل",
@@ -35,7 +32,6 @@
   "female": "أنثى",
   "next": "التالي",
   "signingYouUpMessage": "جاري تسجيلك...",
-
   "oldTitle": "كم عمرك؟",
   "weightTitle": "ما هو وزنك؟",
   "heightTitle": "ما هو طولك؟",
@@ -43,7 +39,6 @@
   "year": "سنة",
   "kg": "كجم",
   "cm": "سم",
-
   "goalTitle": "ما هو هدفك؟",
   "gainWeight": "زيادة الوزن",
   "loseWeight": "خسارة الوزن",
@@ -58,15 +53,12 @@
   "trueBeast": "محترف حقيقي",
   "done": "تم",
   "registeredSuccessfully": "تم التسجيل بنجاح",
-
   "tryAgain": "حاول مرة أخرى",
   "reLogin": "إعادة تسجيل الدخول",
-
   "explore": "استكشف",
   "workouts": "التمارين",
   "profile": "الملف الشخصي",
   "chat": "الدردشة",
-
   "hi": "مرحباً",
   "startYourDay": "لنبدأ يومك",
   "category": "الفئة",
@@ -84,6 +76,7 @@
   "emptyExercisesRecommendationMessage": "حالياً لا توجد تمارين موصى بها لهذا اليوم",
   "emptyExercisesGroupMessage": "لا توجد تمارين متاحة حالياً لمجموعة التمارين المحددة",
   "emptyMealRecommendationMessage": "لا توجد توصيات للوجبات حالياً",
+  "emptyFoodGroupMessage": "لا يوجد طعام متاح حالياً لمجموعة الطعام المحددة",
 
   "fieldValidation": "هذا الحقل مطلوب",
   "emailValidation": "البريد الإلكتروني غير صالح",
@@ -97,7 +90,6 @@
   "passwordValidation5": "لا يجب أن تتجاوز كلمة المرور 20 حرفًا",
   "passwordValidation6": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
   "passwordValidation7": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
-
   "connectionError": "يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى",
   "noResponseReceivedMessage": "لم يتم استلام استجابة أو الاستجابة ليست بالتنسيق المتوقع.",
   "error": "خطأ",
@@ -126,5 +118,6 @@
   "confirm": "تأكيد",
   "didntReceiveVerificationCode": "لم تستلم رمز التحقق؟",
   "resendCode": "إعادة الإرسال",
-  "invalidCode": "رمز غير صالح"
+  "invalidCode": "رمز غير صالح",
+  "foodRecommendation": "توصية غذائية"
 }

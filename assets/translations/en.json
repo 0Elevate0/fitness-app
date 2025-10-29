@@ -83,6 +83,8 @@
   "emptyExercisesRecommendationMessage": "Currently, there are no recommended exercises available for today",
   "emptyExercisesGroupMessage": "There are currently no exercises available for the selected exercise group",
   "emptyMealRecommendationMessage": "There are no meal recommendations available",
+  "emptyFoodGroupMessage": "There are currently no food available for the selected food group",
+
 
   "fieldValidation": "This field is required",
   "emailValidation": "This Email is not valid",
@@ -125,5 +127,6 @@
   "confirm": "Confirm",
   "didntReceiveVerificationCode": "Didn't receive verification code?",
   "resendCode": "Resend Code?",
-  "invalidCode": "Invalid code"
+  "invalidCode": "Invalid code",
+  "foodRecommendation": "Food Recommendation"
 }
