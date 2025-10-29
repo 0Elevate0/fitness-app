@@ -18,8 +18,11 @@ class FitnessBottomNavigationCubit extends Cubit<FitnessBottomNavigationState> {
   }
 
   void _changeIndex({required int index, Widget? changedTap}) {
-    _checkWorkoutScreenNavigation(index: index, changedTap: changedTap);
-    emit(state.copyWith(currentIndex: index));
+    if (changedTap != null || index == 2) {
+      _checkWorkoutScreenNavigation(index: index, changedTap: changedTap);
+    } else {
+      emit(state.copyWith(currentIndex: index));
+    }
   }
 
   void _checkWorkoutScreenNavigation({required int index, Widget? changedTap}) {

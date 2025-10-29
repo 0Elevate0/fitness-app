@@ -14,11 +14,18 @@ class WorkOutViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<WorkOutCubit, WorkOutState>(
-      listenWhen: (previous, current) => current.musclesByGroupStatus.isFailure,
+      listenWhen: (previous, current) =>
+          current.musclesByGroupStatus.isFailure ||
+          current.musclesGroupStatus.isFailure,
       listener: (context, state) {
         if (state.musclesByGroupStatus.isFailure) {
           Loaders.showErrorMessage(
             message: state.musclesByGroupStatus.error?.message ?? "",
+            context: context,
+          );
+        } else if (state.musclesGroupStatus.isFailure) {
+          Loaders.showErrorMessage(
+            message: state.musclesGroupStatus.error?.message ?? "",
             context: context,
           );
         }
