@@ -128,5 +128,6 @@
   "didntReceiveVerificationCode": "Didn't receive verification code?",
   "resendCode": "Resend Code?",
   "invalidCode": "Invalid code",
+  "workout": "Workout",
   "foodRecommendation": "Food Recommendation"
 }

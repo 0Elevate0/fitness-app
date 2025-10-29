@@ -1,9 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/domain/entities/muscle_with_group_argument/muscle_with_group_argument.dart';
+import 'package:fitness_app/presentation/fitness_bottom_navigation/views_model/fitness_bottom_navigation_cubit.dart';
+import 'package:fitness_app/presentation/fitness_bottom_navigation/views_model/fitness_bottom_navigation_intent.dart';
 import 'package:fitness_app/presentation/home/views/widgets/muscles_group_list.dart';
 import 'package:fitness_app/presentation/home/views/widgets/muscles_list.dart';
 import 'package:fitness_app/presentation/home/views_model/home_cubit.dart';
 import 'package:fitness_app/presentation/home/views_model/home_state.dart';
+import 'package:fitness_app/presentation/work_out/views/work_out_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,6 +17,9 @@ class WorkoutsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final fitnessBottomNavCubit = BlocProvider.of<FitnessBottomNavigationCubit>(
+      context,
+    );
     final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,8 +50,19 @@ class WorkoutsSection extends StatelessWidget {
                         state.musclesGroupStatus.isSuccess &&
                             state.musclesByGroupStatus.isSuccess
                         ? () {
-                            // Navigate To Workout Screen from here with the loaded data
-                            // use state.musclesGroupStatus.data And  state.musclesByGroupStatus.data
+                            fitnessBottomNavCubit.doIntent(
+                              intent: ChangeIndexIntent(
+                                index: 2,
+                                changedTap: WorkOutView(
+                                  groupArgument: MuscleWithGroupArgument(
+                                    muscleGroup: state.musclesGroupStatus.data,
+                                    muscle: state.musclesByGroupStatus.data,
+                                    selectedMuscleGroup:
+                                        state.selectedMuscleGroup,
+                                  ),
+                                ),
+                              ),
+                            );
                           }
                         : () {},
                     child: Text(
