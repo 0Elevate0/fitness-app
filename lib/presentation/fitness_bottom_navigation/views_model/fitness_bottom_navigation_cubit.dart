@@ -26,24 +26,16 @@ class FitnessBottomNavigationCubit extends Cubit<FitnessBottomNavigationState> {
   }
 
   void _checkWorkoutScreenNavigation({required int index, Widget? changedTap}) {
-    if (changedTap != null) {
+    final Widget? replacementTap =
+        changedTap ?? (index == 2 ? const WorkOutView() : null);
+
+    if (replacementTap != null) {
       final tempTaps = List.generate(
         state.taps.length,
         (index) => state.taps[index],
       );
-      tempTaps.removeAt(index);
-      tempTaps.insert(index, changedTap);
+      tempTaps[index] = replacementTap;
       emit(state.copyWith(currentIndex: index, taps: tempTaps));
-      return;
-    } else if (index == 2) {
-      final tempTaps = List.generate(
-        state.taps.length,
-        (index) => state.taps[index],
-      );
-      tempTaps.removeAt(index);
-      tempTaps.insert(index, const WorkOutView());
-      emit(state.copyWith(currentIndex: index, taps: tempTaps));
-      return;
     }
   }
 }
