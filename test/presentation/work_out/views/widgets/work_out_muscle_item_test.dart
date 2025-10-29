@@ -39,9 +39,19 @@ void main() {
     // Assert
     expect(find.text(testName), findsOneWidget);
 
-    final container = tester.widget<Container>(find.byType(Container));
+    final container = tester.widget<Container>(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is Container &&
+            widget.decoration is BoxDecoration &&
+            (widget.decoration as BoxDecoration).image != null,
+      ),
+    );
+
     final decoration = container.decoration as BoxDecoration;
-    expect(decoration.image?.image, isA<CachedNetworkImageProvider>());
+    final image = decoration.image!.image;
+
+    expect(image, isA<CachedNetworkImageProvider>());
   });
 
   testWidgets('uses fallback image when muscle image is null', (tester) async {
@@ -52,12 +62,21 @@ void main() {
     await tester.pumpWidget(buildTestableWidget(muscleWithoutImage));
 
     // Assert
-    final container = tester.widget<Container>(find.byType(Container));
-    final decoration = container.decoration as BoxDecoration;
-    expect(decoration.image?.image, isA<AssetImage>());
+    // Pick the container that has a DecorationImage
+    final container = tester.widget<Container>(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is Container &&
+            widget.decoration is BoxDecoration &&
+            (widget.decoration as BoxDecoration).image != null,
+      ),
+    );
 
-    final assetImage = decoration.image!.image as AssetImage;
-    expect(assetImage.assetName, AppImages.notFound);
+    final decoration = container.decoration as BoxDecoration;
+    final image = decoration.image?.image;
+
+    expect(image, isA<AssetImage>());
+    expect((image as AssetImage).assetName, AppImages.notFound);
   });
 
   testWidgets('responds to tap gesture', (tester) async {
