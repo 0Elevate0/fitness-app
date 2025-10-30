@@ -32,6 +32,9 @@
   "year": "سنة",
   "kg": "كجم",
   "cm": "سم",
+  "nodata":"لا يوجد معلومات",
+  "foodrecommendation": "اقتراحات الطعام",
+
 
   "goalTitle": "ما هو هدفك؟",
   "gainWeight": "زيادة الوزن",

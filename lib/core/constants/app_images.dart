@@ -12,4 +12,6 @@ abstract final class AppImages {
   static const String category4 = "assets/images/category4.png";
   static const String category5 = "assets/images/category5.png";
   static const String notFound = "assets/images/not_found.png";
+  static const String backbutton = "assets/icons/back.svg";
+  static const String foodbackground = "assets/images/foodback.png";
 }

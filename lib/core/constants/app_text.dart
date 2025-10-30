@@ -111,6 +111,7 @@ abstract final class AppText {
   static const String networkError = "networkError";
   static const String anUnknownErrorOccurred = "anUnknownErrorOccurred";
   static const String unknownErrorMessage = "unknownErrorMessage";
+  static const String nodata = "nodata";
 
   //forgetPassword
   static const String forgetPassword = "forgetPassword";
@@ -133,4 +134,6 @@ abstract final class AppText {
       "didntReceiveVerificationCode";
   static const String resendCode = "resendCode";
   static const String invalidCode = "invalidCode";
+  //food
+static const String foodRecommendation="foodrecommendation";
 }
