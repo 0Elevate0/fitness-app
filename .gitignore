@@ -59,5 +59,4 @@ ios/Runner/GeneratedPluginRegistrant.*
 android/app/src/main/java/**/GeneratedPluginRegistrant.java
 lib/generated_plugin_registrant.dart
 
-# Coverage
-coverage/
+
