@@ -83,6 +83,12 @@
   "emptyExercisesRecommendationMessage": "Currently, there are no recommended exercises available for today",
   "emptyExercisesGroupMessage": "There are currently no exercises available for the selected exercise group",
   "emptyMealRecommendationMessage": "There are no meal recommendations available",
+  "popularTraining": "Popular Training",
+  "tasks": "Tasks",
+  "advanced": "Advanced",
+  "beginnerChest": "Exercises That \nStrengthen Your Chest",
+  "intermediateBack": "Exercises That \nStrengthen Your Back",
+  "advancedLeg": "Exercises That \nStrengthen Your Body",
 
   "fieldValidation": "This field is required",
   "emailValidation": "This Email is not valid",
