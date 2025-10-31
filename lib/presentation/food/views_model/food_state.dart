@@ -10,6 +10,7 @@ final class FoodState extends Equatable {
   final MealCategoryEntity? selectedCategory;
   final int tabIndex;
 
+
   const FoodState({
     this.mealsListStatus = const StateStatus.initial(),
     this.selectedCategory,
