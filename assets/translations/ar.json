@@ -90,6 +90,7 @@
   "beginnerChest": "تمارين تقوي صدرك",
   "intermediateBack": "تمارين تقوي ظهرك",
   "advancedLeg": "تمارين تقوي جسمك",
+  "emptyFoodGroupMessage": "لا يوجد طعام متاح حالياً لمجموعة الطعام المحددة",
 
   "fieldValidation": "هذا الحقل مطلوب",
   "emailValidation": "البريد الإلكتروني غير صالح",
@@ -103,7 +104,6 @@
   "passwordValidation5": "لا يجب أن تتجاوز كلمة المرور 20 حرفًا",
   "passwordValidation6": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
   "passwordValidation7": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
-
   "connectionError": "يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى",
   "noResponseReceivedMessage": "لم يتم استلام استجابة أو الاستجابة ليست بالتنسيق المتوقع.",
   "error": "خطأ",
@@ -133,6 +133,6 @@
   "didntReceiveVerificationCode": "لم تستلم رمز التحقق؟",
   "resendCode": "إعادة الإرسال",
   "invalidCode": "رمز غير صالح",
-  "workout": "تمرين"
-
+  "workout": "تمرين",
+  "foodRecommendation": "توصية غذائية"
 }

@@ -150,5 +150,8 @@ abstract final class AppText {
       "didntReceiveVerificationCode";
   static const String resendCode = "resendCode";
   static const String invalidCode = "invalidCode";
+
+  static const String foodRecommendation = "foodRecommendation";
+  static const String emptyFoodGroupMessage = "emptyFoodGroupMessage";
   static const String workout = "workout";
 }

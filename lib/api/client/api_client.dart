@@ -9,6 +9,7 @@ import 'package:fitness_app/api/responses/all_muscles_group_response/all_muscles
 import 'package:fitness_app/api/responses/forgot_password_response/forgot_password_response.dart';
 import 'package:fitness_app/api/responses/login_response/login_response.dart';
 import 'package:fitness_app/api/responses/meals_categories_response/meals_categories_response.dart';
+import 'package:fitness_app/api/responses/meals_list_response/meals_list_response.dart';
 import 'package:fitness_app/api/responses/muscles_recommendation_response/muscles_recommendation_response.dart';
 import 'package:fitness_app/api/responses/reset_password_response/reset_password_response.dart';
 import 'package:fitness_app/api/responses/splash_response/splash_response.dart';
@@ -34,6 +35,7 @@ abstract class ApiClient {
   Future<VerificationResponse> verificationCode({
     @Body() required VerificationRequestModel request,
   });
+
   @PUT(Endpoints.resetPassword)
   Future<ResetPasswordResponse> resetPassword({
     @Body() required ResetPasswordRequestModel request,
@@ -68,4 +70,7 @@ abstract class ApiClient {
 
   @GET(Endpoints.getAllMealsCategories)
   Future<MealsCategoriesResponse> getAllMealsCategories();
+
+  @GET(Endpoints.getMealsByCategory)
+  Future<MealsListResponse> getMealsByCategory(@Query("c") String category);
 }
