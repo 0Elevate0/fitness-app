@@ -94,6 +94,12 @@ abstract final class AppText {
   static const String emptyExercisesGroupMessage = "emptyExercisesGroupMessage";
   static const String emptyMealRecommendationMessage =
       "emptyMealRecommendationMessage";
+  static const String popularTraining = "popularTraining";
+  static const String tasks = "tasks";
+  static const String advanced = "advanced";
+  static const String beginnerChest = "beginnerChest";
+  static const String intermediateBack = "intermediateBack";
+  static const String advancedLeg = "advancedLeg";
 
   // Validations
   static const String fieldValidation = "fieldValidation";
@@ -147,4 +153,5 @@ abstract final class AppText {
 
   static const String foodRecommendation = "foodRecommendation";
   static const String emptyFoodGroupMessage = "emptyFoodGroupMessage";
+  static const String workout = "workout";
 }

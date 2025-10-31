@@ -1,8 +1,11 @@
 import 'package:fitness_app/core/di/di.dart';
+import 'package:fitness_app/presentation/fitness_bottom_navigation/views_model/fitness_bottom_navigation_cubit.dart';
+import 'package:fitness_app/presentation/fitness_bottom_navigation/views_model/fitness_bottom_navigation_state.dart';
 import 'package:fitness_app/presentation/home/views/widgets/categories_section.dart';
 import 'package:fitness_app/presentation/home/views/widgets/home_app_bar.dart';
 import 'package:fitness_app/presentation/home/views/widgets/home_view_body.dart';
 import 'package:fitness_app/presentation/home/views/widgets/meals_recommendation_section.dart';
+import 'package:fitness_app/presentation/home/views/widgets/popular_training_section.dart';
 import 'package:fitness_app/presentation/home/views/widgets/recommendation_section.dart';
 import 'package:fitness_app/presentation/home/views/widgets/workouts_section.dart';
 import 'package:fitness_app/presentation/home/views_model/home_cubit.dart';
@@ -18,18 +21,34 @@ import 'package:mockito/mockito.dart';
 
 import 'home_view_body_test.mocks.dart';
 
-@GenerateMocks([HomeCubit])
+@GenerateMocks([HomeCubit, FitnessBottomNavigationCubit])
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late MockHomeCubit mockHomeCubit;
+  late MockFitnessBottomNavigationCubit mockFitnessBottomNavigationCubit;
   setUp(() {
     mockHomeCubit = MockHomeCubit();
+    mockFitnessBottomNavigationCubit = MockFitnessBottomNavigationCubit();
     getIt.registerFactory<HomeCubit>(() => mockHomeCubit);
     provideDummy<HomeState>(const HomeState());
+    getIt.registerFactory<FitnessBottomNavigationCubit>(
+      () => mockFitnessBottomNavigationCubit,
+    );
+
+    provideDummy<FitnessBottomNavigationState>(
+      const FitnessBottomNavigationState(),
+    );
     when(mockHomeCubit.state).thenReturn(const HomeState());
     when(
       mockHomeCubit.stream,
     ).thenAnswer((_) => Stream.fromIterable([const HomeState()]));
+    when(
+      mockFitnessBottomNavigationCubit.state,
+    ).thenReturn(const FitnessBottomNavigationState());
+
+    when(mockFitnessBottomNavigationCubit.stream).thenAnswer(
+      (_) => Stream.fromIterable([const FitnessBottomNavigationState()]),
+    );
   });
 
   // Arrange
@@ -38,9 +57,17 @@ void main() {
       designSize: const Size(375, 812),
       builder: (context, child) {
         return MaterialApp(
-          home: BlocProvider<HomeCubit>.value(
-            value: mockHomeCubit
-              ..doIntent(intent: const HomeInitializationIntent()),
+          home: MultiBlocProvider(
+            providers: [
+              BlocProvider<HomeCubit>.value(
+                value: mockHomeCubit
+                  ..doIntent(intent: const HomeInitializationIntent()),
+              ),
+
+              BlocProvider<FitnessBottomNavigationCubit>.value(
+                value: mockFitnessBottomNavigationCubit,
+              ),
+            ],
             child: const HomeViewBody(),
           ),
         );
@@ -62,6 +89,7 @@ void main() {
     expect(find.byType(RecommendationSection), findsOneWidget);
     expect(find.byType(WorkoutsSection), findsOneWidget);
     expect(find.byType(MealsRecommendationSection), findsOneWidget);
+    expect(find.byType(PopularTrainingSection), findsOneWidget);
   });
 
   tearDown(() {
