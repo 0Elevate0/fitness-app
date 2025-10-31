@@ -5,6 +5,7 @@ import 'package:fitness_app/presentation/home/views/widgets/categories_section.d
 import 'package:fitness_app/presentation/home/views/widgets/home_app_bar.dart';
 import 'package:fitness_app/presentation/home/views/widgets/home_view_body.dart';
 import 'package:fitness_app/presentation/home/views/widgets/meals_recommendation_section.dart';
+import 'package:fitness_app/presentation/home/views/widgets/popular_training_section.dart';
 import 'package:fitness_app/presentation/home/views/widgets/recommendation_section.dart';
 import 'package:fitness_app/presentation/home/views/widgets/workouts_section.dart';
 import 'package:fitness_app/presentation/home/views_model/home_cubit.dart';
@@ -88,6 +89,7 @@ void main() {
     expect(find.byType(RecommendationSection), findsOneWidget);
     expect(find.byType(WorkoutsSection), findsOneWidget);
     expect(find.byType(MealsRecommendationSection), findsOneWidget);
+    expect(find.byType(PopularTrainingSection), findsOneWidget);
   });
 
   tearDown(() {
