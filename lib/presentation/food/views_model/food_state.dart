@@ -8,25 +8,34 @@ final class FoodState extends Equatable {
   final StateStatus<List<MealEntity>> mealsListStatus;
   final MealsArgument? mealsArgument;
   final MealCategoryEntity? selectedCategory;
+  final int tabIndex;
 
   const FoodState({
     this.mealsListStatus = const StateStatus.initial(),
     this.selectedCategory,
     this.mealsArgument,
+    this.tabIndex = 0,
   });
 
   FoodState copyWith({
     StateStatus<List<MealEntity>>? mealsListStatus,
     MealsArgument? mealsArgument,
     MealCategoryEntity? selectedCategory,
+    int? tabIndex,
   }) {
     return FoodState(
       mealsListStatus: mealsListStatus ?? this.mealsListStatus,
       mealsArgument: mealsArgument ?? this.mealsArgument,
       selectedCategory: selectedCategory ?? this.selectedCategory,
+      tabIndex: tabIndex ?? this.tabIndex,
     );
   }
 
   @override
-  List<Object?> get props => [mealsListStatus, selectedCategory, mealsArgument];
+  List<Object?> get props => [
+    mealsListStatus,
+    selectedCategory,
+    mealsArgument,
+    tabIndex,
+  ];
 }

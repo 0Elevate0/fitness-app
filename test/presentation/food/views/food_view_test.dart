@@ -18,6 +18,7 @@ import 'widgets/category_group_item_test.mocks.dart';
 @GenerateMocks([FoodCubit])
 void main() {
   late MockFoodCubit mockFoodCubit;
+  late PageController mockPageController;
   provideDummy<FoodState>(const FoodState());
 
   const tCategory = MealCategoryEntity(
@@ -32,8 +33,10 @@ void main() {
 
   setUp(() {
     mockFoodCubit = MockFoodCubit();
+    mockPageController = PageController();
     when(mockFoodCubit.state).thenReturn(const FoodState());
     when(mockFoodCubit.stream).thenAnswer((_) => const Stream.empty());
+    when(mockFoodCubit.pageController).thenReturn(mockPageController);
     getIt.registerFactory<FoodCubit>(() => mockFoodCubit);
   });
 

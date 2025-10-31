@@ -93,7 +93,7 @@ void main() {
       'emits updated state when selecting a category',
       build: () => cubit,
       act: (cubit) async => await cubit.doIntent(
-        intent: ChangeFoodCategoryIntent(category: mockMealCategory),
+        intent: ChangeFoodCategoryIntent(category: mockMealCategory,fromSwipe: false),
       ),
       expect: () => [
         isA<FoodState>().having(

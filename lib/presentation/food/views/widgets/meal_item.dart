@@ -15,19 +15,10 @@ class MealItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return GestureDetector(
-      onTap:
-          onTap ??
-          () {
-            // Navigate To meal Details Screen
-            // use mealData.id as argument data to fetch the meal data
-          },
+      onTap: onTap,
       child: Center(
         child: CustomImageContainer(
-          width: 160.r,
-          height: 160.r,
           widget: Container(
-            width: 160.r,
-            height: 160.r,
             alignment: Alignment.bottomCenter,
             decoration: BoxDecoration(
               color: theme.colorScheme.secondaryFixed.withValues(alpha: 0.2),

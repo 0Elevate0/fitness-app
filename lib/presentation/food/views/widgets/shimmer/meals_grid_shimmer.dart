@@ -13,11 +13,11 @@ class MealsGridShimmer extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // 2 items per row
-          mainAxisSpacing: 18.h,
-          crossAxisSpacing: 18.w,
+          mainAxisSpacing: 18.r,
+          crossAxisSpacing: 18.r,
           childAspectRatio: 1, // keep them square
         ),
-        itemCount: 6,
+        itemCount: 12,
         // shimmer placeholders count
         itemBuilder: (_, __) => Container(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.r)),
