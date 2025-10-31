@@ -21,7 +21,7 @@ class FoodView extends StatelessWidget {
         ..doIntent(intent: InitCategoryGroup(argument: argument))
         ..doIntent(
           intent: GetMealsIntent(
-            category: argument.selectedCategory!.strCategory!,
+            category: argument.selectedCategory?.strCategory ?? "",
           ),
         ),
       child: Container(

@@ -94,6 +94,6 @@ void main() {
     final image = decoration.image?.image;
 
     expect(image, isA<AssetImage>());
-    expect((image as AssetImage).assetName, AppImages.notFound);
+    expect((image as AssetImage).assetName, AppImages.foodNotFound);
   });
 }

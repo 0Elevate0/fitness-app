@@ -26,7 +26,7 @@ class MealItem extends StatelessWidget {
               image: DecorationImage(
                 image: mealData.thumbnail != null
                     ? CachedNetworkImageProvider(mealData.thumbnail ?? "")
-                    : const AssetImage(AppImages.notFound),
+                    : const AssetImage(AppImages.foodNotFound),
                 fit: BoxFit.cover,
               ),
             ),

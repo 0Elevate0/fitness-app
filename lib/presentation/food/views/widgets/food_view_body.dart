@@ -37,7 +37,9 @@ class FoodViewBody extends StatelessWidget {
                     ),
                   );
                   context.read<FoodCubit>().doIntent(
-                    intent: GetMealsIntent(category: category.strCategory!),
+                    intent: GetMealsIntent(
+                      category: category.strCategory ?? "",
+                    ),
                   );
                 },
               );

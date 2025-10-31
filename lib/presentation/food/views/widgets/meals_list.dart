@@ -42,7 +42,7 @@ class MealsList extends StatelessWidget {
         } else if (state.mealsListStatus.isFailure) {
           return Center(
             child: Text(
-              state.mealsListStatus.error?.message ?? AppText.error,
+              state.mealsListStatus.error?.message ?? AppText.error.tr(),
               style: theme.textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),

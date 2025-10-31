@@ -44,7 +44,9 @@ class CategoryGroupItem extends StatelessWidget {
             ),
           );
           await foodCubit.doIntent(
-            intent: GetMealsIntent(category: mealCategoryData.strCategory!),
+            intent: GetMealsIntent(
+              category: mealCategoryData.strCategory ?? "",
+            ),
           );
         },
         child: AnimatedContainer(
