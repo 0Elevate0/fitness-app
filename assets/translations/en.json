@@ -126,5 +126,8 @@
   "didntReceiveVerificationCode": "Didn't receive verification code?",
   "resendCode": "Resend Code?",
   "invalidCode": "Invalid code",
+  "nodata":"No Data",
+  "foodrecommendation": "Food Recommendation"
+  "invalidCode": "Invalid code",
   "workout": "Workout"
 }

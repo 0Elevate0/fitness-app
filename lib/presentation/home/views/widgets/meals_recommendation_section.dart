@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/presentation/home/views/widgets/meals_recommendation_list.dart';
 import 'package:fitness_app/presentation/home/views_model/home_cubit.dart';
 import 'package:fitness_app/presentation/home/views_model/home_state.dart';
@@ -42,6 +43,7 @@ class MealsRecommendationSection extends StatelessWidget {
                         ? () {
                             // Navigate To Food Screen from here with the loaded data
                             // use state.mealsCategoriesStatus.data
+                      Navigator.pushNamed(context, RouteNames.food,arguments: state.mealsCategoriesStatus.data);
                           }
                         : () {},
                     child: Text(

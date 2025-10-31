@@ -8,6 +8,7 @@ abstract final class Endpoints {
   static const String getLoggedUserData = '/api/v1/auth/profile-data';
   static const String getRecommendationRandomMuscles = '/api/v1/muscles/random';
   static const String getAllMusclesGroup = '/api/v1/muscles';
+  static const String getMealsByCategory = 'https://www.themealdb.com/api/json/v1/1/filter.php';
   static const String getAllMusclesByMuscleGroup =
       '/api/v1/musclesGroup/{muscleGroupId}';
   static const String getAllMealsCategories =
