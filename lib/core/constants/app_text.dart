@@ -146,4 +146,10 @@ abstract final class AppText {
   static const String invalidCode = "invalidCode";
   static const String workout = "workout";
 
+
+  static const String cal=  "130 Cal";
+  static const String mins ="30 min";
+  static const String title= "exercises to strengthen and tone your";
+
+
 }

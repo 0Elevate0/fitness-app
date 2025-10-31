@@ -1,9 +1,11 @@
 import 'package:fitness_app/core/router/route_names.dart';
+ import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/presentation/auth/forget_password/views/forget_password_view.dart';
 import 'package:fitness_app/presentation/auth/login/views/login_view.dart';
 import 'package:fitness_app/presentation/auth/register/views/register_view.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views/reset_password_view.dart';
 import 'package:fitness_app/presentation/auth/verification/views/verification_view.dart';
+import 'package:fitness_app/presentation/exercise/views/exercise_view.dart';
 import 'package:fitness_app/presentation/fitness_bottom_navigation/views/fitness_bottom_navigation_view.dart';
 import 'package:fitness_app/presentation/onboarding/views/onboarding_view.dart';
 import 'package:fitness_app/presentation/splash/views/splash_view.dart';
@@ -32,6 +34,11 @@ abstract final class AppRoutes {
       case RouteNames.fitnessBottomNavigation:
         return MaterialPageRoute(
           builder: (_) => const FitnessBottomNavigationView(),
+        );
+      case RouteNames.exercise:
+         return MaterialPageRoute(
+          builder: (_) =>   ExerciseView(muscle: settings.arguments as MuscleEntity,
+            ),
         );
       case RouteNames.splash:
         return MaterialPageRoute(builder: (_) => const SplashView());
