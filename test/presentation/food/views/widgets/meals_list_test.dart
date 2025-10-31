@@ -19,7 +19,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'category_group_item_test.mocks.dart';
 
-@GenerateMocks([FoodState])
+@GenerateMocks([FoodCubit])
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late MockFoodCubit mockCubit;
