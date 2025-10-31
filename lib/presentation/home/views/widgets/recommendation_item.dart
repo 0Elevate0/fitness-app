@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +16,11 @@ class RecommendationItem extends StatelessWidget {
     final theme = Theme.of(context);
     return GestureDetector(
       onTap: () {
-        // Navigate To Exercise Details Screen
-        // use muscleData.id as argument data to fetch the exercise data
+        Navigator.pushNamed(
+          context,
+          RouteNames.exercise,
+          arguments: muscleData,
+        );
       },
       child: Container(
         width: 104.r,

@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
- import 'package:fitness_app/core/constants/app_colors.dart';
 import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/domain/entities/exercise/exercise_entity.dart';
@@ -68,14 +67,18 @@ class MuscleHeaderSection extends StatelessWidget {
             ),
             if (state.isPlayingVideo && state.selectedVideoId != null)
               Positioned(
-                top: 16,
-                right: 16,
+                top: 16.h,
+                right: 16.w,
                 child: IconButton(
-                  icon: const Icon(Icons.close, color: Colors.white, size: 28),
+                  icon: Icon(
+                    Icons.close,
+                    color: theme.colorScheme.onSecondary,
+                    size: 28,
+                  ),
                   onPressed: () => cubit.doIntent(const StopVideoIntent()),
                 ),
               ),
-            Positioned(top: 30.r, left: 15.r, child: const CustomBackArrow()),
+            Positioned(top: 20.r, left: 15.r, child: const CustomBackArrow()),
             if (!state.isPlayingVideo) ...[
               Positioned(
                 bottom: 120.h,
@@ -89,9 +92,9 @@ class MuscleHeaderSection extends StatelessWidget {
               ),
 
               Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
+                bottom: 0.h,
+                left: 0.w,
+                right: 0.w,
                 child: BlurredContainer(
                   halfTheBlurValue: 8,
                   borderRadius: BorderRadius.zero,
@@ -114,18 +117,20 @@ class MuscleHeaderSection extends StatelessWidget {
                             padding: REdgeInsets.all(8),
 
                             decoration: BoxDecoration(
-                              border: Border.all(color: AppColors.white),
+                              border: Border.all(
+                                color: theme.colorScheme.onSecondary,
+                              ),
                               borderRadius: BorderRadius.circular(20.r),
                             ),
-                            child:const Text(
-                              AppText.mins,
-                            ),
+                            child: const Text(AppText.mins),
                           ),
                           Container(
                             padding: REdgeInsets.all(8),
 
                             decoration: BoxDecoration(
-                              border: Border.all(color: AppColors.white),
+                              border: Border.all(
+                                color: theme.colorScheme.onSecondary,
+                              ),
                               borderRadius: BorderRadius.circular(20.r),
                             ),
                             child: Text(

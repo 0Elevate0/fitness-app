@@ -7,25 +7,24 @@ class ExerciseItemShimmer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Row(
+    return Row(
       children: [
-
-        ShimmerEffect(width: 70, height: 70),
-        RSizedBox(width: 15),
+        ShimmerEffect(width: 70.w, height: 70.h),
+        const RSizedBox(width: 15),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ShimmerEffect(width: 150, height: 20),
-              RSizedBox(height: 6),
-              ShimmerEffect(width: 100, height: 14),
-              RSizedBox(height: 6),
-              ShimmerEffect(width: 80, height: 14),
+              ShimmerEffect(width: 150.w, height: 20.h),
+              const RSizedBox(height: 6),
+              ShimmerEffect(width: 100.w, height: 14.h),
+              const RSizedBox(height: 6),
+              ShimmerEffect(width: 80.w, height: 14.h),
             ],
           ),
         ),
-        RSizedBox(width: 10),
-        ShimmerEffect(width: 35, height: 35, radius: 100),
+        const RSizedBox(width: 10),
+        ShimmerEffect(width: 35.w, height: 35.h, radius: 100.r),
       ],
     );
   }

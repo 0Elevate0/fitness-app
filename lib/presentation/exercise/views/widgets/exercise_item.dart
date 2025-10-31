@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/domain/entities/exercise/exercise_entity.dart';
 import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/presentation/exercise/views_model/exercise_cubit.dart';
@@ -65,7 +66,7 @@ class ExerciseItem extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,),
                     const RSizedBox(height: 6),
                     Text(
-                      "3 Groups * 15 Times",
+                      AppText.exerciseReps,
                       style: theme.textTheme.headlineSmall,
                     ),
                     const RSizedBox(height: 2),

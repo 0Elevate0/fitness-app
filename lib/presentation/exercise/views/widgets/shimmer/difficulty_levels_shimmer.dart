@@ -15,10 +15,10 @@ class DifficultyLevelsShimmer extends StatelessWidget {
           4,
               (index) => Container(
             margin: REdgeInsets.only(right: 12),
-            child: const ShimmerEffect(
-              width: 80,
-              height: 35,
-              radius: 20,
+            child:   ShimmerEffect(
+              width: 80.w,
+              height: 35.h,
+              radius: 20.r,
             ),
           ),
         ),

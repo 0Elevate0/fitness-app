@@ -29,24 +29,28 @@ class DifficultyLevelsSection extends StatelessWidget {
 
         return SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Row(
-            children: levels.map((level) {
-              final bool isSelected = selected?.id == level.id;
-              return GestureDetector(
-                onTap: () => onSelect(level),
-                child: Container(
-                  margin: REdgeInsets.only(right: 35),
-                  padding: REdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  decoration: BoxDecoration(
-                    color: isSelected
-                        ? theme.colorScheme.primary
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(20),
+          child: RSizedBox(
+            width: MediaQuery.of(context).size.width * 2,
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: levels.map((level) {
+                final bool isSelected = selected?.id == level.id;
+                return GestureDetector(
+                  onTap: () => onSelect(level),
+                  child: Container(
+                    margin: REdgeInsets.only(right: 35),
+                    padding: REdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: isSelected
+                          ? theme.colorScheme.primary
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Text(level.name ?? ''),
                   ),
-                  child: Text(level.name ?? ''),
-                ),
-              );
-            }).toList(),
+                );
+              }).toList(),
+            ),
           ),
         );
       },
