@@ -1,5 +1,7 @@
 import 'package:fitness_app/core/exceptions/response_exception.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
+import 'package:fitness_app/domain/entities/muscle_group/muscle_group_entity.dart';
+import 'package:fitness_app/domain/entities/muscle_with_group_argument/muscle_with_group_argument.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_app_bar.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_muscle_list.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_muscles_group_list.dart';
@@ -18,12 +20,27 @@ import 'work_out_view_body_test.mocks.dart';
 @GenerateMocks([WorkOutCubit])
 void main() {
   late MockWorkOutCubit mockWorkOutCubit;
+  late PageController mockPageController;
   provideDummy<WorkOutState>(const WorkOutState());
+  const tMuscleGroup = MuscleGroupEntity(id: '1', name: 'Chest');
+  const tGroupArgument = MuscleWithGroupArgument(
+    muscleGroup: [tMuscleGroup],
+    selectedMuscleGroup: tMuscleGroup,
+    muscle: [],
+  );
 
   setUp(() {
     mockWorkOutCubit = MockWorkOutCubit();
-    when(mockWorkOutCubit.state).thenReturn(const WorkOutState());
+    mockPageController = PageController();
+    when(mockWorkOutCubit.state).thenReturn(
+      const WorkOutState(
+        groupArgument: tGroupArgument,
+        musclesByGroupStatus: StateStatus.success([]),
+        musclesGroupStatus: StateStatus.success([tMuscleGroup]),
+      ),
+    );
     when(mockWorkOutCubit.stream).thenAnswer((_) => const Stream.empty());
+    when(mockWorkOutCubit.pageController).thenReturn(mockPageController);
   });
 
   Widget buildTestableWidget() {

@@ -9,12 +9,14 @@ final class WorkOutState extends Equatable {
   final StateStatus<List<MuscleEntity>> musclesByGroupStatus;
   final MuscleGroupEntity? selectedMuscleGroup;
   final MuscleWithGroupArgument? groupArgument;
+  final int tabIndex;
 
   const WorkOutState({
     this.musclesGroupStatus = const StateStatus.initial(),
     this.musclesByGroupStatus = const StateStatus.initial(),
     this.selectedMuscleGroup,
     this.groupArgument,
+    this.tabIndex = 0,
   });
 
   WorkOutState copyWith({
@@ -22,12 +24,14 @@ final class WorkOutState extends Equatable {
     StateStatus<List<MuscleEntity>>? musclesByGroupStatus,
     MuscleGroupEntity? selectedMuscleGroup,
     MuscleWithGroupArgument? groupArgument,
+    int? tabIndex,
   }) {
     return WorkOutState(
       musclesGroupStatus: musclesGroupStatus ?? this.musclesGroupStatus,
       musclesByGroupStatus: musclesByGroupStatus ?? this.musclesByGroupStatus,
       selectedMuscleGroup: selectedMuscleGroup ?? this.selectedMuscleGroup,
       groupArgument: groupArgument ?? this.groupArgument,
+      tabIndex: tabIndex ?? this.tabIndex,
     );
   }
 
@@ -37,5 +41,6 @@ final class WorkOutState extends Equatable {
     musclesByGroupStatus,
     selectedMuscleGroup,
     groupArgument,
+    tabIndex,
   ];
 }

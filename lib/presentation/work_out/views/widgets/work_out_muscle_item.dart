@@ -23,11 +23,7 @@ class WorkOutMuscleItem extends StatelessWidget {
           },
       child: Center(
         child: CustomImageContainer(
-          height: 160.r,
-          width: 160.r,
           widget: Container(
-            width: 160.r,
-            height: 160.r,
             alignment: Alignment.bottomCenter,
             decoration: BoxDecoration(
               color: theme.colorScheme.secondaryFixed.withValues(alpha: 0.2),

@@ -7,6 +7,7 @@ import 'package:fitness_app/domain/use_cases/muscles_by_muscle_group/get_all_mus
 import 'package:fitness_app/domain/use_cases/muscles_group/get_all_muscles_group_use_case.dart';
 import 'package:fitness_app/presentation/work_out/views_model/work_out_intent.dart';
 import 'package:fitness_app/presentation/work_out/views_model/work_out_state.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
@@ -14,6 +15,7 @@ import 'package:injectable/injectable.dart';
 class WorkOutCubit extends Cubit<WorkOutState> {
   final GetAllMusclesGroupUseCase _getAllMusclesGroupUseCase;
   final GetAllMusclesByMuscleGroupUseCase _getAllMusclesByMuscleGroupUseCase;
+  PageController? pageController;
 
   WorkOutCubit(
     this._getAllMusclesGroupUseCase,
@@ -46,11 +48,21 @@ class WorkOutCubit extends Cubit<WorkOutState> {
       );
       return;
     }
+    final initialIndex =
+        group.muscleGroup?.indexWhere(
+          (c) => c.id == group.selectedMuscleGroup?.id,
+        ) ??
+        0;
+
+    pageController = PageController(
+      initialPage: initialIndex.isNegative ? 0 : initialIndex,
+    );
     emit(
       state.copyWith(
         groupArgument: group,
         musclesByGroupStatus: StateStatus.success(group.muscle!),
         musclesGroupStatus: StateStatus.success(group.muscleGroup!),
+        tabIndex: initialIndex.isNegative ? 0 : initialIndex,
       ),
     );
   }
@@ -78,12 +90,29 @@ class WorkOutCubit extends Cubit<WorkOutState> {
     }
   }
 
-  Future<void> _selectMuscleGroup({MuscleGroupEntity? muscleGroup}) async {
-    if (muscleGroup?.id != state.selectedMuscleGroup?.id) {
+  Future<void> _selectMuscleGroup({
+    MuscleGroupEntity? muscleGroup,
+    bool fromSwipe = false,
+  }) async {
+    if (muscleGroup?.id != state.selectedMuscleGroup?.id ||
+        muscleGroup == null) {
+      final newIndex =
+          state.groupArgument?.muscleGroup?.indexWhere(
+            (c) => c.id == muscleGroup?.id,
+          ) ??
+          0;
+      if (!fromSwipe) {
+        pageController?.animateToPage(
+          newIndex.isNegative ? 0 : newIndex,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
       emit(
         state.copyWith(
           selectedMuscleGroup: muscleGroup ?? state.selectedMuscleGroup,
           musclesByGroupStatus: const StateStatus.loading(),
+          tabIndex: newIndex.isNegative ? 0 : newIndex,
         ),
       );
 
@@ -120,5 +149,11 @@ class WorkOutCubit extends Cubit<WorkOutState> {
           );
       }
     }
+  }
+
+  @override
+  Future<void> close() {
+    pageController?.dispose();
+    return super.close();
   }
 }
