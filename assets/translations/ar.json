@@ -140,5 +140,10 @@
   "resendCode": "إعادة الإرسال",
   "invalidCode": "رمز غير صالح",
   "workout": "تمرين",
-  "foodRecommendation": "توصية غذائية"
+  "foodRecommendation": "توصية غذائية",
+
+  "cal": "130 سعرة حرارية",
+  "mins": "30 دقيقة",
+  "title": "تمارين لتقوية وشد عضلاتك",
+  "exerciseReps": "3 مجموعات * 15 مرة"
 }

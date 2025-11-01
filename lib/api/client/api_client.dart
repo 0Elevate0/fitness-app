@@ -6,6 +6,8 @@ import 'package:fitness_app/api/requests/reset_password_request/reset_password_r
 import 'package:fitness_app/api/requests/verification_request/verification_request_model.dart';
 import 'package:fitness_app/api/responses/all_muscles_by_muscle_group_response/all_muscles_by_muscle_group_response.dart';
 import 'package:fitness_app/api/responses/all_muscles_group_response/all_muscles_group_response.dart';
+import 'package:fitness_app/api/responses/difficulty_levels_response/difficulty_levels_response.dart';
+import 'package:fitness_app/api/responses/exercises_response/exercises_response.dart';
 import 'package:fitness_app/api/responses/forgot_password_response/forgot_password_response.dart';
 import 'package:fitness_app/api/responses/login_response/login_response.dart';
 import 'package:fitness_app/api/responses/meal_details_response/meal_details_response.dart';
@@ -78,5 +80,18 @@ abstract class ApiClient {
   @GET(Endpoints.getMealDetails)
   Future<MealDetailsResponse> getMealDetails({
     @Query("i") required String mealId,
+  });
+
+  @GET(Endpoints.getExercisesByMuscleAndDifficulty)
+  Future<ExercisesResponse> getExercisesByMuscleAndDifficulty({
+    @Header("accept-language") required String currentLanguage,
+    @Query("primeMoverMuscleId") required String primeMoverMuscleId,
+    @Query("difficultyLevelId") required String difficultyLevelId,
+  });
+
+  @GET(Endpoints.getDifficultyLevelsByPrimeMover)
+  Future<DifficultyLevelsResponse> getDifficultyLevelsByPrimeMover({
+    @Header("accept-language") required String currentLanguage,
+    @Query("primeMoverMuscleId") required String primeMoverMuscleId,
   });
 }

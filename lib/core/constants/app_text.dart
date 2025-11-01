@@ -159,4 +159,9 @@ abstract final class AppText {
   static const String workout = "workout";
   static const String foodRecommendation = "foodRecommendation";
   static const String emptyFoodGroupMessage = "emptyFoodGroupMessage";
+
+  static const String cal = "cal";
+  static const String mins = "mins";
+  static const String title = "title";
+  static const String exerciseReps = "exerciseReps";
 }

@@ -1,5 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/router/route_names.dart';
+import 'package:fitness_app/domain/entities/difficulty_level/difficulty_level_entity.dart';
+import 'package:fitness_app/domain/entities/exercise_argument/exercise_argument.dart';
+import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/domain/entities/popular_training/popular_training_entity.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +17,21 @@ class PopularTrainingItem extends StatelessWidget {
     final theme = Theme.of(context);
     return GestureDetector(
       onTap: () {
-        // Navigate to exercise details screen with the arguments required
-        // (popularTrainingData.levelId, popularTrainingData.muscleId)
-        // Navigator.of(context).pushNamed(RouteNames.exerciseDetails);
+        Navigator.pushNamed(
+          context,
+          RouteNames.exercise,
+          arguments: ExerciseArgument(
+            muscle: MuscleEntity(
+              id: popularTrainingData.muscleId,
+              name: popularTrainingData.title.tr(),
+              image: popularTrainingData.backgroundImage,
+            ),
+            difficultyLevel: DifficultyLevelEntity(
+              id: popularTrainingData.levelId,
+              name: popularTrainingData.level.tr(),
+            ),
+          ),
+        );
       },
       child: RSizedBox(
         height: 176.h,
