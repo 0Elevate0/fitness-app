@@ -15,6 +15,9 @@ class WorkOutMusclesGroupList extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return BlocBuilder<WorkOutCubit, WorkOutState>(
+      buildWhen: (p, c) =>
+          p.selectedMuscleGroup != c.selectedMuscleGroup ||
+          p.groupArgument != c.groupArgument,
       builder: (context, state) {
         final selected =
             state.selectedMuscleGroup ??

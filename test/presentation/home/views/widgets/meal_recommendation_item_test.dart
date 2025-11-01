@@ -13,6 +13,7 @@ void main() {
       builder: (context, child) {
         return const MaterialApp(
           home: MealRecommendationItem(
+            categories: [],
             mealCategoryData: MealCategoryEntity(
               strCategoryThumb: "",
               strCategoryDescription: "",

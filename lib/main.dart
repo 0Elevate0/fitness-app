@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:fitness_app/core/di/di.dart';
 import 'package:fitness_app/core/global_cubit/global_cubit.dart';
 import 'package:fitness_app/core/global_cubit/global_intent.dart';
+import 'package:fitness_app/firebase_options.dart';
 import 'package:fitness_app/fitness_app.dart';
 import 'package:fitness_app/my_bloc_observer.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +16,7 @@ void main() async {
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await ScreenUtil.ensureScreenSize();
   await EasyLocalization.ensureInitialized();
   await SystemChrome.setPreferredOrientations([

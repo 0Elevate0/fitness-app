@@ -1,4 +1,6 @@
 import 'package:fitness_app/core/router/route_names.dart';
+import 'package:fitness_app/domain/entities/food_details_argument/food_details_argument.dart';
+import 'package:fitness_app/domain/entities/meals_argument/meals_argument.dart';
  import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/presentation/auth/forget_password/views/forget_password_view.dart';
 import 'package:fitness_app/presentation/auth/login/views/login_view.dart';
@@ -7,6 +9,8 @@ import 'package:fitness_app/presentation/auth/reset_password/views/reset_passwor
 import 'package:fitness_app/presentation/auth/verification/views/verification_view.dart';
 import 'package:fitness_app/presentation/exercise/views/exercise_view.dart';
 import 'package:fitness_app/presentation/fitness_bottom_navigation/views/fitness_bottom_navigation_view.dart';
+import 'package:fitness_app/presentation/food/views/food_view.dart';
+import 'package:fitness_app/presentation/food_details/views/food_details_view.dart';
 import 'package:fitness_app/presentation/onboarding/views/onboarding_view.dart';
 import 'package:fitness_app/presentation/splash/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +46,17 @@ abstract final class AppRoutes {
         );
       case RouteNames.splash:
         return MaterialPageRoute(builder: (_) => const SplashView());
+      case RouteNames.food:
+        return MaterialPageRoute(
+          builder: (_) =>
+              FoodView(argument: settings.arguments as MealsArgument),
+        );
+      case RouteNames.foodDetails:
+        return MaterialPageRoute(
+          builder: (_) => FoodDetailsView(
+            foodDetailsArgument: settings.arguments as FoodDetailsArgument,
+          ),
+        );
       default:
         return null;
     }

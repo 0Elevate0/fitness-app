@@ -29,6 +29,7 @@ class MealsRecommendationList extends StatelessWidget {
                     itemBuilder: (_, index) => MealRecommendationItem(
                       mealCategoryData:
                           state.mealsCategoriesStatus.data![index],
+                      categories: state.mealsCategoriesStatus.data ?? [],
                     ),
                     separatorBuilder: (_, _) => const RSizedBox(width: 16),
                     itemCount: state.mealsCategoriesStatus.data!.length,

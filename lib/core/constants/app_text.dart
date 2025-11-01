@@ -101,6 +101,12 @@ abstract final class AppText {
   static const String intermediateBack = "intermediateBack";
   static const String advancedLeg = "advancedLeg";
 
+  // Food Details
+  static const String recommendation = "recommendation";
+  static const String ingredients = "ingredients";
+  static const String loading = "loading";
+  static const String preparationVideo = "preparationVideo";
+
   // Validations
   static const String fieldValidation = "fieldValidation";
   static const String emailValidation = "emailValidation";
@@ -151,12 +157,11 @@ abstract final class AppText {
   static const String resendCode = "resendCode";
   static const String invalidCode = "invalidCode";
   static const String workout = "workout";
-
+  static const String foodRecommendation = "foodRecommendation";
+  static const String emptyFoodGroupMessage = "emptyFoodGroupMessage";
 
   static const String cal=  "130 Cal";
   static const String mins ="30 min";
   static const String title= "exercises to strengthen and tone your";
   static const String exerciseReps= "3 Groups * 15 Times";
-
-
 }

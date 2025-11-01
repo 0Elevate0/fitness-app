@@ -10,7 +10,9 @@ import 'package:fitness_app/api/responses/difficulty_levels_response/difficulty_
 import 'package:fitness_app/api/responses/exercises_response/exercises_response.dart';
 import 'package:fitness_app/api/responses/forgot_password_response/forgot_password_response.dart';
 import 'package:fitness_app/api/responses/login_response/login_response.dart';
+import 'package:fitness_app/api/responses/meal_details_response/meal_details_response.dart';
 import 'package:fitness_app/api/responses/meals_categories_response/meals_categories_response.dart';
+import 'package:fitness_app/api/responses/meals_list_response/meals_list_response.dart';
 import 'package:fitness_app/api/responses/muscles_recommendation_response/muscles_recommendation_response.dart';
 import 'package:fitness_app/api/responses/reset_password_response/reset_password_response.dart';
 import 'package:fitness_app/api/responses/splash_response/splash_response.dart';
@@ -71,6 +73,14 @@ abstract class ApiClient {
 
   @GET(Endpoints.getAllMealsCategories)
   Future<MealsCategoriesResponse> getAllMealsCategories();
+
+  @GET(Endpoints.getMealsByCategory)
+  Future<MealsListResponse> getMealsByCategory(@Query("c") String category);
+
+  @GET(Endpoints.getMealDetails)
+  Future<MealDetailsResponse> getMealDetails({
+    @Query("i") required String mealId,
+  });
 
   @GET(Endpoints.getExercisesByMuscleAndDifficulty)
   Future<ExercisesResponse> getExercisesByMuscleAndDifficulty({

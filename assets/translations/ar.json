@@ -90,6 +90,12 @@
   "beginnerChest": "تمارين تقوي صدرك",
   "intermediateBack": "تمارين تقوي ظهرك",
   "advancedLeg": "تمارين تقوي جسمك",
+  "emptyFoodGroupMessage": "لا يوجد طعام متاح حالياً لمجموعة الطعام المحددة",
+
+  "recommendation": "توصية",
+  "ingredients": "مكونات",
+  "loading": "تحميل...",
+  "preparationVideo": "فيديو التحضير",
 
   "fieldValidation": "هذا الحقل مطلوب",
   "emailValidation": "البريد الإلكتروني غير صالح",
@@ -133,6 +139,6 @@
   "didntReceiveVerificationCode": "لم تستلم رمز التحقق؟",
   "resendCode": "إعادة الإرسال",
   "invalidCode": "رمز غير صالح",
-  "workout": "تمرين"
-
+  "workout": "تمرين",
+  "foodRecommendation": "توصية غذائية"
 }

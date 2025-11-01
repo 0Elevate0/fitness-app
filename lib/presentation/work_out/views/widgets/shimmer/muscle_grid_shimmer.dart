@@ -17,7 +17,7 @@ class MusclesGridShimmer extends StatelessWidget {
           crossAxisSpacing: 18.w,
           childAspectRatio: 1, // keep them square
         ),
-        itemCount: 6,
+        itemCount: 12,
         // shimmer placeholders count
         itemBuilder: (_, __) => Container(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.r)),

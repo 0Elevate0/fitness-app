@@ -13,6 +13,10 @@ final class InitWorkOutIntent extends WorkOutIntent {
 
 final class ChangeWorkOutMusclesGroupIntent extends WorkOutIntent {
   final MuscleGroupEntity muscleGroup;
+  final bool fromSwipe;
 
-  const ChangeWorkOutMusclesGroupIntent({required this.muscleGroup});
+  const ChangeWorkOutMusclesGroupIntent({
+    required this.fromSwipe,
+    required this.muscleGroup,
+  });
 }
