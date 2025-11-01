@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/router/route_names.dart';
+import 'package:fitness_app/domain/entities/food_details_argument/food_details_argument.dart';
 import 'package:fitness_app/presentation/food/views/widgets/meal_item.dart';
 import 'package:fitness_app/presentation/food/views/widgets/shimmer/meals_grid_shimmer.dart';
 import 'package:fitness_app/presentation/food/views_model/food_cubit.dart';
@@ -30,7 +32,16 @@ class MealsList extends StatelessWidget {
                     childAspectRatio: 1,
                   ),
                   itemCount: meals.length,
-                  itemBuilder: (_, index) => MealItem(mealData: meals[index]),
+                  itemBuilder: (_, index) => MealItem(
+                    mealData: meals[index],
+                    onTap: () => Navigator.of(context).pushNamed(
+                      RouteNames.foodDetails,
+                      arguments: FoodDetailsArgument(
+                        mealsData: meals,
+                        mealId: meals[index].id ?? "",
+                      ),
+                    ),
+                  ),
                 )
               : Center(
                   child: Text(

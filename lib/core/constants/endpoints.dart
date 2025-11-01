@@ -14,4 +14,6 @@ abstract final class Endpoints {
       'https://www.themealdb.com/api/json/v1/1/categories.php';
   static const String getMealsByCategory =
       'https://www.themealdb.com/api/json/v1/1/filter.php';
+  static const String getMealDetails =
+      'https://www.themealdb.com/api/json/v1/1/lookup.php';
 }

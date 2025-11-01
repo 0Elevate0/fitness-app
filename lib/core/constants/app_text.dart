@@ -101,6 +101,12 @@ abstract final class AppText {
   static const String intermediateBack = "intermediateBack";
   static const String advancedLeg = "advancedLeg";
 
+  // Food Details
+  static const String recommendation = "recommendation";
+  static const String ingredients = "ingredients";
+  static const String loading = "loading";
+  static const String preparationVideo = "preparationVideo";
+
   // Validations
   static const String fieldValidation = "fieldValidation";
   static const String emailValidation = "emailValidation";

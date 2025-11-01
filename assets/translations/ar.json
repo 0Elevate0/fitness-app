@@ -92,6 +92,11 @@
   "advancedLeg": "تمارين تقوي جسمك",
   "emptyFoodGroupMessage": "لا يوجد طعام متاح حالياً لمجموعة الطعام المحددة",
 
+  "recommendation": "توصية",
+  "ingredients": "مكونات",
+  "loading": "تحميل...",
+  "preparationVideo": "فيديو التحضير",
+
   "fieldValidation": "هذا الحقل مطلوب",
   "emailValidation": "البريد الإلكتروني غير صالح",
   "emailValidation2": "أدخل بريدًا إلكترونيًا صحيحًا",
