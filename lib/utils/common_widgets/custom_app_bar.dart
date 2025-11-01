@@ -14,6 +14,7 @@ class CustomAppBar extends StatelessWidget {
     this.actionWidget,
     this.titleAlignment,
     this.onBackArrowClicked,
+    this.padding,
   });
   final String? title;
   final TextStyle? titleStyle;
@@ -24,13 +25,14 @@ class CustomAppBar extends StatelessWidget {
   final Widget? actionWidget;
   final AlignmentGeometry? titleAlignment;
   final void Function()? onBackArrowClicked;
+  final EdgeInsets? padding;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return ColoredBox(
       color: backgroundColor ?? Colors.transparent,
       child: RPadding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: padding ?? const EdgeInsets.symmetric(horizontal: 16),
         child: Row(
           children: [
             Visibility(

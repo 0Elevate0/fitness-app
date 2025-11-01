@@ -18,4 +18,6 @@ abstract final class AppImages {
   static const String popular2 = "assets/images/popular2.jpg";
   static const String popular3 = "assets/images/popular3.jpg";
   static const String foodNotFound = "assets/images/food_not_found.jpg";
+  static const String foodDetailsBackground =
+      "assets/images/food_details_background.jpg";
 }

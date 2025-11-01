@@ -91,6 +91,10 @@
   "advancedLeg": "Exercises That \nStrengthen Your Body",
   "emptyFoodGroupMessage": "There are currently no food available for the selected food group",
 
+  "recommendation": "Recommendation",
+  "ingredients": "Ingredients",
+  "loading": "Loading...",
+  "preparationVideo": "Preparation Video",
 
   "fieldValidation": "This field is required",
   "emailValidation": "This Email is not valid",

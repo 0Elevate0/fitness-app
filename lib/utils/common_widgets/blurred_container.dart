@@ -12,6 +12,9 @@ class BlurredContainer extends StatelessWidget {
     this.borderRadius,
     this.padding,
     this.margin,
+    this.image,
+    this.gradient,
+    this.boxShadow,
   });
 
   final Color? blurColor;
@@ -20,6 +23,9 @@ class BlurredContainer extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
+  final DecorationImage? image;
+  final Gradient? gradient;
+  final List<BoxShadow>? boxShadow;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +47,9 @@ class BlurredContainer extends StatelessWidget {
             color:
                 blurColor ?? theme.colorScheme.secondary.withValues(alpha: 0.1),
             borderRadius: radius,
+            image: image,
+            gradient: gradient,
+            boxShadow: boxShadow,
           ),
           child: child,
         ),
