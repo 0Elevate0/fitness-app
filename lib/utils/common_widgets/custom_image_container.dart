@@ -27,7 +27,7 @@ class CustomImageContainer extends StatelessWidget {
           width: height,
           decoration: BoxDecoration(
             color: AppColors.black.withAlpha(125),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20.r),
           ),
           alignment: Alignment.bottomCenter,
           child: RPadding(

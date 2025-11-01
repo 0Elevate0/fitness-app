@@ -43,7 +43,7 @@ class MealRecommendationItem extends StatelessWidget {
                 ? CachedNetworkImageProvider(
                     mealCategoryData.strCategoryThumb ?? "",
                   )
-                : const AssetImage(AppImages.notFound),
+                : const AssetImage(AppImages.foodNotFound),
             fit: BoxFit.cover,
           ),
         ),

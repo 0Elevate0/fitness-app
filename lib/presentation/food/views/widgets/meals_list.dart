@@ -25,8 +25,8 @@ class MealsList extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    mainAxisSpacing: 18.h,
-                    crossAxisSpacing: 18.w,
+                    mainAxisSpacing: 18.r,
+                    crossAxisSpacing: 18.r,
                     childAspectRatio: 1,
                   ),
                   itemCount: meals.length,
@@ -42,7 +42,7 @@ class MealsList extends StatelessWidget {
         } else if (state.mealsListStatus.isFailure) {
           return Center(
             child: Text(
-              state.mealsListStatus.error?.message ?? AppText.error,
+              state.mealsListStatus.error?.message ?? AppText.error.tr(),
               style: theme.textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),

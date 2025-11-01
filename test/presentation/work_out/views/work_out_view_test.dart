@@ -17,12 +17,15 @@ import 'work_out_view_test.mocks.dart';
 @GenerateMocks([WorkOutCubit])
 void main() {
   late MockWorkOutCubit mockWorkOutCubit;
+  late PageController mockPageController;
   provideDummy<WorkOutState>(const WorkOutState());
 
   setUp(() {
     mockWorkOutCubit = MockWorkOutCubit();
+    mockPageController = PageController();
     when(mockWorkOutCubit.state).thenReturn(const WorkOutState());
     when(mockWorkOutCubit.stream).thenAnswer((_) => const Stream.empty());
+    when(mockWorkOutCubit.pageController).thenReturn(mockPageController);
   });
 
   Widget buildTestableWidget() {

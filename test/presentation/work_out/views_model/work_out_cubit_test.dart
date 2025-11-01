@@ -133,6 +133,7 @@ void main() {
       act: (cubit) async => await cubit.doIntent(
         intent: ChangeWorkOutMusclesGroupIntent(
           muscleGroup: mockMuscleGroups.first,
+          fromSwipe: false
         ),
       ),
       expect: () => containsAllInOrder([

@@ -11,7 +11,7 @@ final class MealsListRepositoryImpl implements MealsListRepository {
   const MealsListRepositoryImpl(this._mealsListDataSource);
 
   @override
-  Future<Result<List<MealEntity>>> getMealsByCategory(category) async {
+  Future<Result<List<MealEntity>>> getMealsByCategory(String category) async {
     return await _mealsListDataSource.getMealsByCategory(category);
   }
 }

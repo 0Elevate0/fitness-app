@@ -9,7 +9,7 @@ class GetMealsListUseCase {
 
   const GetMealsListUseCase(this._mealsListRepository);
 
-  Future<Result<List<MealEntity>>> invoke(category) async {
+  Future<Result<List<MealEntity>>> invoke(String category) async {
     return await _mealsListRepository.getMealsByCategory(category);
   }
 }

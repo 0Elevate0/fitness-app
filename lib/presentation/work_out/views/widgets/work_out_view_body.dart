@@ -2,6 +2,7 @@ import 'package:fitness_app/presentation/work_out/views/widgets/work_out_app_bar
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_muscle_list.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_muscles_group_list.dart';
 import 'package:fitness_app/presentation/work_out/views_model/work_out_cubit.dart';
+import 'package:fitness_app/presentation/work_out/views_model/work_out_intent.dart';
 import 'package:fitness_app/presentation/work_out/views_model/work_out_state.dart';
 import 'package:fitness_app/utils/loaders/loaders.dart';
 import 'package:flutter/material.dart';
@@ -30,13 +31,40 @@ class WorkOutViewBody extends StatelessWidget {
           );
         }
       },
-      child: const Column(
+      child: Column(
         children: [
-          WorkOutAppBar(),
-          RSizedBox(height: 20),
-          WorkOutMusclesGroupList(),
-          RSizedBox(height: 20),
-          Expanded(child: WorkOutMuscleList()),
+          const WorkOutAppBar(),
+          const RSizedBox(height: 20),
+          const WorkOutMusclesGroupList(),
+          const RSizedBox(height: 20),
+          Expanded(
+            child: BlocBuilder<WorkOutCubit, WorkOutState>(
+              buildWhen: (p, c) =>
+                  p.groupArgument != c.groupArgument ||
+                  p.tabIndex != c.tabIndex,
+              builder: (context, state) {
+                final group = state.groupArgument?.muscleGroup ?? [];
+                final pageController = context
+                    .read<WorkOutCubit>()
+                    .pageController;
+                return PageView.builder(
+                  controller: pageController,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: group.length,
+                  itemBuilder: (context, index) => const WorkOutMuscleList(),
+                  onPageChanged: (index) {
+                    final muscle = group[index];
+                    context.read<WorkOutCubit>().doIntent(
+                      intent: ChangeWorkOutMusclesGroupIntent(
+                        muscleGroup: muscle,
+                        fromSwipe: true,
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
         ],
       ),
     );

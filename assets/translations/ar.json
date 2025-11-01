@@ -84,6 +84,12 @@
   "emptyExercisesRecommendationMessage": "حالياً لا توجد تمارين موصى بها لهذا اليوم",
   "emptyExercisesGroupMessage": "لا توجد تمارين متاحة حالياً لمجموعة التمارين المحددة",
   "emptyMealRecommendationMessage": "لا توجد توصيات للوجبات حالياً",
+  "popularTraining": "التدريبات الشائعة",
+  "tasks": "المهام",
+  "advanced": "متقدم",
+  "beginnerChest": "تمارين تقوي صدرك",
+  "intermediateBack": "تمارين تقوي ظهرك",
+  "advancedLeg": "تمارين تقوي جسمك",
   "emptyFoodGroupMessage": "لا يوجد طعام متاح حالياً لمجموعة الطعام المحددة",
 
   "fieldValidation": "هذا الحقل مطلوب",

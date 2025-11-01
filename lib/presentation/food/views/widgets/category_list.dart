@@ -11,9 +11,11 @@ class CategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FoodCubit, FoodState>(
+      buildWhen: (p, c) =>
+          p.selectedCategory != c.selectedCategory ||
+          p.mealsArgument != c.mealsArgument,
       builder: (context, state) {
-        final selected =
-            state.selectedCategory ?? state.mealsArgument?.selectedCategory;
+        final selected = state.selectedCategory;
         final categories = state.mealsArgument?.categories ?? [];
         return RPadding(
           padding: const EdgeInsets.only(left: 16),

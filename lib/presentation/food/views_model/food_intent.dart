@@ -19,6 +19,10 @@ final class GetMealsIntent extends FoodIntent {
 
 final class ChangeFoodCategoryIntent extends FoodIntent {
   final MealCategoryEntity category;
+  final bool fromSwipe;
 
-  const ChangeFoodCategoryIntent({required this.category});
+  const ChangeFoodCategoryIntent({
+    required this.category,
+    required this.fromSwipe,
+  });
 }
