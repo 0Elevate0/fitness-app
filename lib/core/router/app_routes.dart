@@ -1,7 +1,7 @@
 import 'package:fitness_app/core/router/route_names.dart';
+import 'package:fitness_app/domain/entities/exercise_argument/exercise_argument.dart';
 import 'package:fitness_app/domain/entities/food_details_argument/food_details_argument.dart';
 import 'package:fitness_app/domain/entities/meals_argument/meals_argument.dart';
- import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/presentation/auth/forget_password/views/forget_password_view.dart';
 import 'package:fitness_app/presentation/auth/login/views/login_view.dart';
 import 'package:fitness_app/presentation/auth/register/views/register_view.dart';
@@ -40,9 +40,10 @@ abstract final class AppRoutes {
           builder: (_) => const FitnessBottomNavigationView(),
         );
       case RouteNames.exercise:
-         return MaterialPageRoute(
-          builder: (_) =>   ExerciseView(muscle: settings.arguments as MuscleEntity,
-            ),
+        return MaterialPageRoute(
+          builder: (_) => ExerciseView(
+            exerciseArgument: settings.arguments as ExerciseArgument,
+          ),
         );
       case RouteNames.splash:
         return MaterialPageRoute(builder: (_) => const SplashView());

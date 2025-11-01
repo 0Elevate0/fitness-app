@@ -19,5 +19,5 @@ abstract final class Endpoints {
   static const String getExercisesByMuscleAndDifficulty =
       "/api/v1/exercises/by-muscle-difficulty";
   static const String getDifficultyLevelsByPrimeMover =
-  "/api/v1/levels/difficulty-levels/by-prime-mover";
+      "/api/v1/levels/difficulty-levels/by-prime-mover";
 }

@@ -139,5 +139,10 @@
   "resendCode": "Resend Code?",
   "invalidCode": "Invalid code",
   "workout": "Workout",
-  "foodRecommendation": "Food Recommendation"
+  "foodRecommendation": "Food Recommendation",
+
+  "cal": "130 Cal",
+  "mins": "30 min",
+  "title": "exercises to strengthen and tone your",
+  "exerciseReps": "3 Groups * 15 Times"
 }

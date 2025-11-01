@@ -90,9 +90,8 @@ abstract class ApiClient {
   });
 
   @GET(Endpoints.getDifficultyLevelsByPrimeMover)
-  Future<DifficultyLevelsResponse>getDifficultyLevelsByPrimeMover({
+  Future<DifficultyLevelsResponse> getDifficultyLevelsByPrimeMover({
     @Header("accept-language") required String currentLanguage,
-    @Query("primeMoverMuscleId") required String primeMoverMuscleId
-});
-
+    @Query("primeMoverMuscleId") required String primeMoverMuscleId,
+  });
 }

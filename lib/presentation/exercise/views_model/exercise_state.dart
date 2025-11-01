@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
-import 'package:fitness_app/domain/entities/exercise/exercise_entity.dart';
 import 'package:fitness_app/domain/entities/difficulty_level/difficulty_level_entity.dart';
+import 'package:fitness_app/domain/entities/exercise/exercise_entity.dart';
 import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 
 final class ExerciseState extends Equatable {
@@ -13,7 +13,6 @@ final class ExerciseState extends Equatable {
   final ExerciseEntity? currentExercise;
   final String? selectedVideoId;
 
-
   const ExerciseState({
     this.exerciseStatus = const StateStatus.initial(),
     this.difficultyLevelsStatus = const StateStatus.initial(),
@@ -21,8 +20,7 @@ final class ExerciseState extends Equatable {
     this.selectedDifficulty,
     this.isPlayingVideo = false,
     this.currentExercise,
-    this.selectedVideoId
-
+    this.selectedVideoId,
   });
 
   ExerciseState copyWith({
@@ -33,7 +31,6 @@ final class ExerciseState extends Equatable {
     bool? isPlayingVideo,
     ExerciseEntity? currentExercise,
     String? selectedVideoId,
-
   }) {
     return ExerciseState(
       exerciseStatus: exerciseStatus ?? this.exerciseStatus,
@@ -55,6 +52,6 @@ final class ExerciseState extends Equatable {
     selectedMuscle,
     selectedDifficulty,
     currentExercise,
-    selectedVideoId
+    selectedVideoId,
   ];
 }

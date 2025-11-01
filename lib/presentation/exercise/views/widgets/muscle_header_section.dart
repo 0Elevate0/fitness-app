@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
-import 'package:fitness_app/domain/entities/exercise/exercise_entity.dart';
 import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/presentation/exercise/views_model/exercise_cubit.dart';
 import 'package:fitness_app/presentation/exercise/views_model/exercise_intent.dart';
@@ -15,13 +15,8 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MuscleHeaderSection extends StatelessWidget {
   final MuscleEntity muscleData;
-  final ExerciseEntity? exerciseEntity;
 
-  const MuscleHeaderSection({
-    super.key,
-    required this.muscleData,
-    this.exerciseEntity,
-  });
+  const MuscleHeaderSection({super.key, required this.muscleData});
 
   @override
   Widget build(BuildContext context) {
@@ -50,19 +45,41 @@ class MuscleHeaderSection extends StatelessWidget {
                       ),
                       builder: (context, player) => player,
                     )
-                  : CachedNetworkImage(
-                      imageUrl: muscleData.image ?? '',
-                      fit: BoxFit.cover,
-                      placeholder: (_, __) => Image.asset(
-                        AppImages.notFound,
-                        height: 60.r,
-                        width: 60.r,
-                      ),
-                      errorWidget: (_, __, ___) => Image.asset(
-                        AppImages.notFound,
-                        height: 60.r,
-                        width: 60.r,
-                      ),
+                  : Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        CachedNetworkImage(
+                          imageUrl: muscleData.image ?? '',
+                          fit: BoxFit.cover,
+                          placeholder: (_, __) => Image.asset(
+                            AppImages.notFound,
+                            height: 60.r,
+                            width: 60.r,
+                          ),
+                          errorWidget: (_, __, ___) => Image.asset(
+                            muscleData.image != null
+                                ? muscleData.image!
+                                : AppImages.notFound,
+                            height: 60.r,
+                            width: 60.r,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                theme.colorScheme.secondaryFixed.withValues(
+                                  alpha: 0,
+                                ),
+                                theme.colorScheme.secondary,
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
             ),
             if (state.isPlayingVideo && state.selectedVideoId != null)
@@ -104,7 +121,7 @@ class MuscleHeaderSection extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "${muscleData.name} ${AppText.title} ${muscleData.name?.toLowerCase()} muscles.",
+                        "${muscleData.name} ${AppText.title.tr()} ${muscleData.name?.toLowerCase()} muscles.",
                         style: theme.textTheme.headlineSmall,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -122,7 +139,12 @@ class MuscleHeaderSection extends StatelessWidget {
                               ),
                               borderRadius: BorderRadius.circular(20.r),
                             ),
-                            child: const Text(AppText.mins),
+                            child: Text(
+                              AppText.mins.tr(),
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: theme.colorScheme.onSecondary,
+                              ),
+                            ),
                           ),
                           Container(
                             padding: REdgeInsets.all(8),
@@ -134,9 +156,10 @@ class MuscleHeaderSection extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20.r),
                             ),
                             child: Text(
-                              AppText.cal,
-                              style: TextStyle(
+                              AppText.cal.tr(),
+                              style: theme.textTheme.bodySmall?.copyWith(
                                 color: theme.colorScheme.primary,
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
                           ),

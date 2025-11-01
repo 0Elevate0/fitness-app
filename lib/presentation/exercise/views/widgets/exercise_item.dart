@@ -1,12 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fitness_app/core/constants/app_colors.dart';
+import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/domain/entities/exercise/exercise_entity.dart';
 import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/presentation/exercise/views_model/exercise_cubit.dart';
-import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fitness_app/core/constants/app_colors.dart';
-import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/presentation/exercise/views_model/exercise_intent.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,7 +29,7 @@ class ExerciseItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.transparent,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
       ),
       child: Column(
         children: [
@@ -41,15 +42,13 @@ class ExerciseItem extends StatelessWidget {
                   height: 70.r,
                   width: 70.r,
                   fit: BoxFit.cover,
-                  placeholder: (_, __) => Image.asset(
-                    AppImages.notFound,
-                    height: 60.r,
-                    width: 60.r,
-                  ),
+                  placeholder: (_, __) =>
+                      Image.asset(AppImages.notFound, fit: BoxFit.cover),
                   errorWidget: (_, __, ___) => Image.asset(
-                    AppImages.notFound,
-                    height: 60.r,
-                    width: 60.r,
+                    muscleData.image != null
+                        ? muscleData.image!
+                        : AppImages.notFound,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
@@ -60,19 +59,25 @@ class ExerciseItem extends StatelessWidget {
                   children: [
                     Text(
                       exercise.exercise ?? "",
-                      style: theme.textTheme.headlineMedium?.copyWith(
-                        fontSize: 17,),
+                      style: theme.textTheme.headlineSmall?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                       maxLines: 1,
-                      overflow: TextOverflow.ellipsis,),
+                      overflow: TextOverflow.ellipsis,
+                    ),
                     const RSizedBox(height: 6),
                     Text(
-                      AppText.exerciseReps,
-                      style: theme.textTheme.headlineSmall,
+                      AppText.exerciseReps.tr(),
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                     const RSizedBox(height: 2),
                     Text(
                       exercise.primaryEquipment ?? "",
-                      style: theme.textTheme.headlineSmall,
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ],
                 ),
@@ -89,10 +94,10 @@ class ExerciseItem extends StatelessWidget {
                     color: theme.colorScheme.primary,
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.play_arrow,
                     color: AppColors.black,
-                    size: 28,
+                    size: 28.sp,
                   ),
                 ),
               ),

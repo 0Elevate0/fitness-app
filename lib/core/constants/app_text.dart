@@ -160,8 +160,8 @@ abstract final class AppText {
   static const String foodRecommendation = "foodRecommendation";
   static const String emptyFoodGroupMessage = "emptyFoodGroupMessage";
 
-  static const String cal=  "130 Cal";
-  static const String mins ="30 min";
-  static const String title= "exercises to strengthen and tone your";
-  static const String exerciseReps= "3 Groups * 15 Times";
+  static const String cal = "cal";
+  static const String mins = "mins";
+  static const String title = "title";
+  static const String exerciseReps = "exerciseReps";
 }

@@ -2,6 +2,7 @@ import 'package:fitness_app/api/client/api_result.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
 import 'package:fitness_app/domain/entities/difficulty_level/difficulty_level_entity.dart';
 import 'package:fitness_app/domain/entities/exercise/exercise_entity.dart';
+import 'package:fitness_app/domain/entities/exercise_argument/exercise_argument.dart';
 import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/domain/use_cases/difficult_levels_by_prime_mover/difficult_levels_use_case.dart';
 import 'package:fitness_app/domain/use_cases/exercises_by_muscle_And_difficulty/exercise_use_case.dart';
@@ -17,17 +18,17 @@ class ExerciseCubit extends Cubit<ExerciseState> {
   final DifficultLevelsUseCase _difficultLevelsUseCase;
 
   ExerciseCubit(this._exerciseUseCase, this._difficultLevelsUseCase)
-      : super(const ExerciseState());
+    : super(const ExerciseState());
 
-  void doIntent(ExerciseIntent intent) {
+  Future<void> doIntent(ExerciseIntent intent) async {
     switch (intent) {
       case ExerciseInitIntent():
-        _onInit(intent.muscle);
+        await _onInit(exerciseArgument: intent.exerciseArgument);
         break;
       case ChangeExerciseLevelIntent():
         _onChangeExerciseLevel(
-          intent.difficultyLevelId,
-          intent.primeMoverMuscle,
+          difficulty: intent.difficultyLevelId,
+          muscle: intent.primeMoverMuscle,
         );
         break;
 
@@ -41,46 +42,58 @@ class ExerciseCubit extends Cubit<ExerciseState> {
   }
 
   void _onPlayVideo(ExerciseEntity exercise) {
-    final url = exercise.shortYoutubeDemonstrationLink ;
+    final url = exercise.shortYoutubeDemonstrationLink;
     if (url == null || url.isEmpty) return;
 
     final videoId = YoutubePlayer.convertUrlToId(url);
-     if (videoId == null) return;
+    if (videoId == null) return;
 
-    emit(state.copyWith(
-      currentExercise: exercise,
-      selectedVideoId: videoId,
-      isPlayingVideo: true,
-
-    ));
-   }
-
-  void _onStopVideo() {
-    emit(state.copyWith(
-       selectedVideoId: null,
-      isPlayingVideo: false,
-      currentExercise: null,
-    ));
-  }
-  Future<void> _onInit(MuscleEntity muscle) async {
     emit(
       state.copyWith(
-        selectedMuscle: muscle,
+        currentExercise: exercise,
+        selectedVideoId: videoId,
+        isPlayingVideo: true,
+      ),
+    );
+  }
+
+  void _onStopVideo() {
+    emit(
+      state.copyWith(
+        selectedVideoId: null,
+        isPlayingVideo: false,
+        currentExercise: null,
+      ),
+    );
+  }
+
+  Future<void> _onInit({required ExerciseArgument exerciseArgument}) async {
+    emit(
+      state.copyWith(
+        selectedMuscle: exerciseArgument.muscle,
         exerciseStatus: const StateStatus.loading(),
         difficultyLevelsStatus: const StateStatus.loading(),
       ),
     );
     final res = await _difficultLevelsUseCase.call(
-      primeMoverMuscleId: muscle.id ?? "",
+      primeMoverMuscleId: exerciseArgument.muscle.id ?? "",
     );
     switch (res) {
       case Success<List<DifficultyLevelEntity>>():
         emit(
-          state.copyWith(difficultyLevelsStatus: StateStatus.success(res.data)),
+          state.copyWith(
+            difficultyLevelsStatus: StateStatus.success(res.data),
+            selectedDifficulty: exerciseArgument.difficultyLevel,
+          ),
         );
         if (res.data.isNotEmpty) {
           final firstLevel = res.data.first;
-          await _onChangeExerciseLevel(firstLevel, muscle);
+          await _onChangeExerciseLevel(
+            difficulty: exerciseArgument.difficultyLevel != null
+                ? exerciseArgument.difficultyLevel!
+                : firstLevel,
+            muscle: exerciseArgument.muscle,
+          );
         }
         break;
 
@@ -94,8 +107,10 @@ class ExerciseCubit extends Cubit<ExerciseState> {
     }
   }
 
-  Future<void> _onChangeExerciseLevel(DifficultyLevelEntity difficulty,
-      MuscleEntity muscle,) async {
+  Future<void> _onChangeExerciseLevel({
+    required DifficultyLevelEntity difficulty,
+    required MuscleEntity muscle,
+  }) async {
     emit(
       state.copyWith(
         selectedMuscle: muscle,

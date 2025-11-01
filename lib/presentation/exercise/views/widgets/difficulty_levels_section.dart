@@ -29,28 +29,33 @@ class DifficultyLevelsSection extends StatelessWidget {
 
         return SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: RSizedBox(
-            width: MediaQuery.of(context).size.width * 2,
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: levels.map((level) {
-                final bool isSelected = selected?.id == level.id;
-                return GestureDetector(
-                  onTap: () => onSelect(level),
-                  child: Container(
-                    margin: REdgeInsets.only(right: 35),
-                    padding: REdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                    decoration: BoxDecoration(
-                      color: isSelected
-                          ? theme.colorScheme.primary
-                          : Colors.transparent,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(level.name ?? ''),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: levels.map((level) {
+              final bool isSelected = selected?.id == level.id;
+              return GestureDetector(
+                onTap: () => onSelect(level),
+                child: Container(
+                  margin: REdgeInsets.only(right: 35),
+                  padding: REdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  decoration: BoxDecoration(
+                    color: isSelected
+                        ? theme.colorScheme.primary
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                );
-              }).toList(),
-            ),
+                  child: Text(
+                    level.name ?? '',
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      fontWeight: FontWeight.w700,
+                      color: isSelected
+                          ? theme.colorScheme.onSecondary
+                          : theme.colorScheme.shadow,
+                    ),
+                  ),
+                ),
+              );
+            }).toList(),
           ),
         );
       },
