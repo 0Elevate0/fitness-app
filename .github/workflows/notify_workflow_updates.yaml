@@ -4,7 +4,6 @@ on:
   workflow_run:
     workflows:
       - "Flutter Linting"
-      - "Sonar Cube Analysis"
       - "Flutter Unit Testing Action"
       - "Validate Branch Name"
       - "Pull Request Title & Branch Name Validator"
