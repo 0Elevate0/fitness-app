@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:fitness_app/presentation/home/views/home_view.dart';
+import 'package:fitness_app/presentation/profile/view/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 final class FitnessBottomNavigationState extends Equatable {
@@ -17,12 +18,7 @@ final class FitnessBottomNavigationState extends Equatable {
         style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
       ),
     ),
-    Center(
-      child: Text(
-        "Profile Screen",
-        style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-      ),
-    ),
+  ProfileScreen(),
   ];
   final int currentIndex;
   const FitnessBottomNavigationState({this.currentIndex = 0});

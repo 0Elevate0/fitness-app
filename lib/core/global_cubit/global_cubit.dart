@@ -15,7 +15,7 @@ class GlobalCubit extends Cubit<GlobalState> {
   final SharedPreferencesHelper _sharedPreferencesHelper;
 
   GlobalCubit(this._secureStorage, this._sharedPreferencesHelper)
-    : super(const GlobalState());
+      : super(const GlobalState());
 
   Future<void> doIntent({required GlobalIntent intent}) async {
     switch (intent) {
@@ -51,14 +51,14 @@ class GlobalCubit extends Cubit<GlobalState> {
     final isLoginScreen = _sharedPreferencesHelper.getBool(
       key: ConstKeys.isOnboardingFinished,
     );
-    if (userToken != null) {
-      FitnessMethodHelper.currentUserToken = userToken;
-      emit(state.copyWith(redirectedScreen: RouteNames.splash));
-    } else if (isLoginScreen) {
+
+    if (userToken == null || userToken.isEmpty) {
       emit(state.copyWith(redirectedScreen: RouteNames.login));
     } else {
-      emit(state.copyWith(redirectedScreen: RouteNames.onboarding));
+      FitnessMethodHelper.currentUserToken = userToken;
+      emit(state.copyWith(redirectedScreen: RouteNames.splash));
     }
+
     FlutterNativeSplash.remove();
   }
 

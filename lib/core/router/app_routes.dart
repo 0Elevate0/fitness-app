@@ -35,6 +35,7 @@ abstract final class AppRoutes {
         );
       case RouteNames.splash:
         return MaterialPageRoute(builder: (_) => const SplashView());
+
       default:
         return null;
     }

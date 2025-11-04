@@ -7,4 +7,6 @@ abstract final class RouteNames {
   static const String register = "/registerView";
   static const String login = "/loginView";
   static const String fitnessBottomNavigation = "/fitnessBottomNavigationView";
+  static const String profile = "/fitnessBottomNavigationView";
+
 }

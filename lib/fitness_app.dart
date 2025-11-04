@@ -19,16 +19,16 @@ class FitnessApp extends StatelessWidget {
       builder: (context, child) => BlocBuilder<GlobalCubit, GlobalState>(
         builder: (context, state) => state.redirectedScreen != null
             ? MaterialApp(
-                title: 'Fitness',
-                debugShowCheckedModeBanner: false,
-                theme: AppTheme.darkTheme,
-                themeMode: ThemeMode.dark,
-                onGenerateRoute: AppRoutes.onGenerateRoute,
-                initialRoute: state.redirectedScreen,
-                localizationsDelegates: context.localizationDelegates,
-                supportedLocales: context.supportedLocales,
-                locale: context.locale,
-              )
+          title: 'Fitness',
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.darkTheme,
+          themeMode: ThemeMode.dark,
+          onGenerateRoute: AppRoutes.onGenerateRoute,
+          initialRoute: state.redirectedScreen,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+        )
             : const SizedBox.shrink(),
       ),
     );

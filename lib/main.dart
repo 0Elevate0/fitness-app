@@ -12,7 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   final WidgetsBinding widgetsBinding =
-      WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await ScreenUtil.ensureScreenSize();
   await EasyLocalization.ensureInitialized();
@@ -22,12 +22,12 @@ void main() async {
   ]);
   Bloc.observer = MyBlocObserver();
   await configureDependencies();
-
+  await getIt<GlobalCubit>().doIntent(intent: GlobalInitializationIntent());
   runApp(
     BlocProvider<GlobalCubit>(
       create: (context) =>
-          getIt.get<GlobalCubit>()
-            ..doIntent(intent: GlobalInitializationIntent()),
+      getIt.get<GlobalCubit>()
+        ..doIntent(intent: GlobalInitializationIntent()),
       child: EasyLocalization(
         supportedLocales: const [Locale('en'), Locale('ar')],
         path: 'assets/translations',
