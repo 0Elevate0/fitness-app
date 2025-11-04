@@ -5,24 +5,34 @@ import 'package:flutter/material.dart';
 class ProfileResetPasswordState extends Equatable {
   final StateStatus<void> profileResetPasswordState;
   final AutovalidateMode autoValidateMode;
-  final bool isObscure;
+  final bool currentPasswordIsObscure;
+  final bool confirmPasswordIsObscure;
+  final bool newPasswordIsObscure;
 
   const ProfileResetPasswordState({
     this.profileResetPasswordState = const StateStatus.initial(),
     this.autoValidateMode = AutovalidateMode.disabled,
-    this.isObscure = true,
+    this.currentPasswordIsObscure = true,
+    this.confirmPasswordIsObscure = true,
+    this.newPasswordIsObscure = true,
   });
 
   ProfileResetPasswordState copyWith({
     StateStatus<void>? profileResetPasswordState,
     AutovalidateMode? autoValidateMode,
-    bool? isObscure,
+    bool? currentPasswordIsObscure,
+    bool? confirmPasswordIsObscure,
+    bool? newPasswordIsObscure,
   }) {
     return ProfileResetPasswordState(
       profileResetPasswordState:
           profileResetPasswordState ?? this.profileResetPasswordState,
       autoValidateMode: autoValidateMode ?? this.autoValidateMode,
-      isObscure: isObscure ?? this.isObscure,
+      currentPasswordIsObscure:
+          currentPasswordIsObscure ?? this.currentPasswordIsObscure,
+      confirmPasswordIsObscure:
+          confirmPasswordIsObscure ?? this.confirmPasswordIsObscure,
+      newPasswordIsObscure: newPasswordIsObscure ?? this.newPasswordIsObscure,
     );
   }
 
@@ -30,6 +40,8 @@ class ProfileResetPasswordState extends Equatable {
   List<Object?> get props => [
     profileResetPasswordState,
     autoValidateMode,
-    isObscure,
+    currentPasswordIsObscure,
+    confirmPasswordIsObscure,
+    newPasswordIsObscure,
   ];
 }

@@ -56,9 +56,7 @@ void main() {
       ),
     ],
     verify: (_) {
-      verify(
-        getProfileResetPasswordUseCase.execute(any),
-      ).called(1);
+      verify(getProfileResetPasswordUseCase.execute(any)).called(1);
     },
   );
   blocTest(
@@ -96,16 +94,32 @@ void main() {
     ],
 
     verify: (_) {
-      verify(
-        getProfileResetPasswordUseCase.execute(any),
-      ).called(1);
+      verify(getProfileResetPasswordUseCase.execute(any)).called(1);
     },
   );
 
   blocTest<ProfileResetPasswordCubit, ProfileResetPasswordState>(
-    'Change password visibility when ToggleObscurePasswordIntent',
+    'Change password visibility for CurrentPasswordTextField when ToggleObscurePasswordIntent',
     build: () => cubit,
-    act: (cubit) => cubit.doIntent(ToggleObscurePasswordIntent()),
-    expect: () => const [ProfileResetPasswordState(isObscure: false)],
+    act: (cubit) => cubit.doIntent(CurrentToggleObscurePasswordIntent()),
+    expect: () => const [
+      ProfileResetPasswordState(currentPasswordIsObscure: false),
+    ],
+  );
+  blocTest<ProfileResetPasswordCubit, ProfileResetPasswordState>(
+    'Change password visibility for ConfirmPasswordTextField when ToggleObscurePasswordIntent',
+    build: () => cubit,
+    act: (cubit) => cubit.doIntent(ConfirmToggleObscurePasswordIntent()),
+    expect: () => const [
+      ProfileResetPasswordState(confirmPasswordIsObscure: false),
+    ],
+  );
+  blocTest<ProfileResetPasswordCubit, ProfileResetPasswordState>(
+    'Change password visibility when for NewPasswordTextField ToggleObscurePasswordIntent',
+    build: () => cubit,
+    act: (cubit) => cubit.doIntent(NewToggleObscurePasswordIntent()),
+    expect: () => const [
+      ProfileResetPasswordState(newPasswordIsObscure: false),
+    ],
   );
 }

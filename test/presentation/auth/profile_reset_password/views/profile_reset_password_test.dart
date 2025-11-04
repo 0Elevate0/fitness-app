@@ -27,7 +27,6 @@ void main() {
   provideDummy<ProfileResetPasswordState>(
     const ProfileResetPasswordState(
       profileResetPasswordState: StateStatus.initial(),
-      isObscure: true,
     ),
   );
 
@@ -36,7 +35,6 @@ void main() {
     when(mockCubit.state).thenReturn(
       const ProfileResetPasswordState(
         profileResetPasswordState: StateStatus.initial(),
-        isObscure: true,
       ),
     );
     when(mockCubit.stream).thenAnswer((_) => const Stream.empty());

@@ -5,4 +5,8 @@ class InitializeProfileResetPasswordFormIntent
 
 class OnProfileResetPasswordIntent extends ProfileResetPasswordIntent {}
 
-class ToggleObscurePasswordIntent extends ProfileResetPasswordIntent {}
+class CurrentToggleObscurePasswordIntent extends ProfileResetPasswordIntent {}
+
+class ConfirmToggleObscurePasswordIntent extends ProfileResetPasswordIntent {}
+
+class NewToggleObscurePasswordIntent extends ProfileResetPasswordIntent {}

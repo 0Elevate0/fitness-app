@@ -28,14 +28,12 @@ void main() async {
   provideDummy<ProfileResetPasswordState>(
     const ProfileResetPasswordState(
       profileResetPasswordState: StateStatus.initial(),
-      isObscure: true,
     ),
   );
 
   late MockProfileResetPasswordCubit mockCubit;
   const initialState = ProfileResetPasswordState(
     profileResetPasswordState: StateStatus.initial(),
-    isObscure: true,
   );
 
   setUp(() {
@@ -94,7 +92,6 @@ void main() async {
       initialState,
       const ProfileResetPasswordState(
         profileResetPasswordState: StateStatus.loading(),
-        isObscure: true,
       ),
     ];
 

@@ -33,7 +33,7 @@ class BuildProfileResetPasswordForm extends StatelessWidget {
                     label: AppText.currentPassword,
                     controller: cubit.currentPasswordController,
                     keyboardType: TextInputType.visiblePassword,
-                    obscureText: state.isObscure,
+                    obscureText: state.currentPasswordIsObscure,
                     hintText: AppText.currentPassword,
                     textInputAction: TextInputAction.next,
                     validator: (value) =>
@@ -41,10 +41,10 @@ class BuildProfileResetPasswordForm extends StatelessWidget {
                     prefixIcon: SvgPicture.asset(AppIcons.passwordLock),
                     suffixIcon: IconButton(
                       onPressed: () {
-                        cubit.doIntent(ToggleObscurePasswordIntent());
+                        cubit.doIntent(CurrentToggleObscurePasswordIntent());
                       },
                       icon: Icon(
-                        state.isObscure
+                        state.currentPasswordIsObscure
                             ? Icons.visibility_off
                             : Icons.visibility,
                         color: theme.colorScheme.onSecondary,
@@ -58,7 +58,7 @@ class BuildProfileResetPasswordForm extends StatelessWidget {
                     label: AppText.newPassword,
                     controller: cubit.newPasswordController,
                     keyboardType: TextInputType.visiblePassword,
-                    obscureText: state.isObscure,
+                    obscureText: state.newPasswordIsObscure,
                     hintText: AppText.newPassword,
                     textInputAction: TextInputAction.next,
                     validator: (value) =>
@@ -66,23 +66,24 @@ class BuildProfileResetPasswordForm extends StatelessWidget {
                     prefixIcon: SvgPicture.asset(AppIcons.passwordLock),
                     suffixIcon: IconButton(
                       onPressed: () {
-                        cubit.doIntent(ToggleObscurePasswordIntent());
+                        cubit.doIntent(NewToggleObscurePasswordIntent());
                       },
                       icon: Icon(
-                        state.isObscure
+                        state.newPasswordIsObscure
                             ? Icons.visibility_off
                             : Icons.visibility,
                         color: theme.colorScheme.onSecondary,
                         size: 22.r,
                       ),
                     ),
+                    enabled: !state.profileResetPasswordState.isLoading,
                   ),
                   const RSizedBox(height: 25),
                   CustomTextFormField(
                     label: AppText.confirmPassword,
                     controller: cubit.confirmPasswordController,
                     keyboardType: TextInputType.visiblePassword,
-                    obscureText: state.isObscure,
+                    obscureText: state.confirmPasswordIsObscure,
                     hintText: AppText.confirmPassword,
                     textInputAction: TextInputAction.done,
                     validator: (value) => Validations.confirmPasswordValidation(
@@ -92,16 +93,17 @@ class BuildProfileResetPasswordForm extends StatelessWidget {
                     prefixIcon: SvgPicture.asset(AppIcons.passwordLock),
                     suffixIcon: IconButton(
                       onPressed: () {
-                        cubit.doIntent(ToggleObscurePasswordIntent());
+                        cubit.doIntent(ConfirmToggleObscurePasswordIntent());
                       },
                       icon: Icon(
-                        state.isObscure
+                        state.confirmPasswordIsObscure
                             ? Icons.visibility_off
                             : Icons.visibility,
                         color: theme.colorScheme.onSecondary,
                         size: 22.r,
                       ),
                     ),
+                    enabled: !state.profileResetPasswordState.isLoading,
                   ),
                   const SizedBox(height: 25),
                   CustomElevatedButton(

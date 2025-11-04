@@ -63,14 +63,12 @@ void main() async {
       (_) => Stream<ProfileResetPasswordState>.value(
         const ProfileResetPasswordState(
           profileResetPasswordState: StateStatus.initial(),
-          isObscure: true,
         ),
       ),
     );
     when(mockCubit.state).thenReturn(
       const ProfileResetPasswordState(
         profileResetPasswordState: StateStatus.initial(),
-        isObscure: true,
       ),
     );
 

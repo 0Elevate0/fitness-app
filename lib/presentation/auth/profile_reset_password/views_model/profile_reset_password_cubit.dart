@@ -27,8 +27,12 @@ class ProfileResetPasswordCubit extends Cubit<ProfileResetPasswordState> {
         return _onInit();
       case OnProfileResetPasswordIntent():
         return _profileResetPassword();
-      case ToggleObscurePasswordIntent():
-        return _toggleObscure();
+      case CurrentToggleObscurePasswordIntent():
+        return _currentPasswordToggleObscure();
+      case ConfirmToggleObscurePasswordIntent():
+        return _confirmPasswordToggleObscure();
+      case NewToggleObscurePasswordIntent():
+        return _newPasswordToggleObscure();
     }
   }
 
@@ -39,10 +43,28 @@ class ProfileResetPasswordCubit extends Cubit<ProfileResetPasswordState> {
     confirmPasswordController = TextEditingController();
   }
 
-  void _toggleObscure() {
+  void _currentPasswordToggleObscure() {
     emit(
       state.copyWith(
-        isObscure: !state.isObscure,
+        currentPasswordIsObscure: !state.currentPasswordIsObscure,
+        profileResetPasswordState: const StateStatus.initial(),
+      ),
+    );
+  }
+
+  void _confirmPasswordToggleObscure() {
+    emit(
+      state.copyWith(
+        confirmPasswordIsObscure: !state.confirmPasswordIsObscure,
+        profileResetPasswordState: const StateStatus.initial(),
+      ),
+    );
+  }
+
+  void _newPasswordToggleObscure() {
+    emit(
+      state.copyWith(
+        newPasswordIsObscure: !state.newPasswordIsObscure,
         profileResetPasswordState: const StateStatus.initial(),
       ),
     );
