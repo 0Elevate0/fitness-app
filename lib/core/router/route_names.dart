@@ -10,4 +10,6 @@ abstract final class RouteNames {
   static const String food = "/foodView";
   static const String foodDetails = "/foodDetailsView";
   static const String exercise = "/exerciseView";
+  static const String profileResetPassword = "/profileResetPasswordView";
+
 }

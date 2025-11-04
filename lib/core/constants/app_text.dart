@@ -164,4 +164,8 @@ abstract final class AppText {
   static const String mins = "mins";
   static const String title = "title";
   static const String exerciseReps = "exerciseReps";
+  static const String passwordChanged = "passwordChanged";
+  static const String makeSureIts8Chars = "makeSureIts8Chars";
+  static const String currentPassword = "currentPassword";
+  static const String newPassword = "newPassword";
 }
