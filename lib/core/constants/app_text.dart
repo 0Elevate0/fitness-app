@@ -107,6 +107,20 @@ abstract final class AppText {
   static const String loading = "loading";
   static const String preparationVideo = "preparationVideo";
 
+  // Profile
+  static const String editProfile = "editProfile";
+  static const String changePassword = "changePassword";
+  static const String selectLanguage = "selectLanguage";
+  static const String security = "security";
+  static const String privacyPolicy = "privacyPolicy";
+  static const String help = "help";
+  static const String logout = "logout";
+  static const String english = "english";
+  static const String arabic = "arabic";
+  static const String helpErrorMessage = "helpErrorMessage";
+  static const String privacyPolicyErrorMessage = "privacyPolicyErrorMessage";
+  static const String securityErrorMessage = "securityErrorMessage";
+
   // Validations
   static const String fieldValidation = "fieldValidation";
   static const String emailValidation = "emailValidation";
