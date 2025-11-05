@@ -1,0 +1,283 @@
+{
+  "security_roles_config": [
+    {
+      "section": "page_title",
+      "content": {
+        "en": "User Roles & Permissions",
+        "ar": "أدوار وصلاحيات المستخدمين"
+      },
+      "style": {
+        "fontSize": 24,
+        "fontWeight": "bold",
+        "color": "#ffffff",
+        "textAlign": {
+          "en": "left",
+          "ar": "right"
+        },
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "section": "page_description",
+      "content": {
+        "en": "Manage the access and capabilities of different user roles within the system.",
+        "ar": "إدارة الوصول وقدرات أدوار المستخدمين المختلفة داخل النظام."
+      },
+      "style": {
+        "fontSize": 16,
+        "fontWeight": "w600",
+        "color": "#D3D3D3",
+        "textAlign": {
+          "en": "left",
+          "ar": "right"
+        },
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "section": "role_list_title",
+      "title": {
+        "en": "Available Roles",
+        "ar": "الأدوار المتاحة"
+      },
+      "style": {
+        "title": {
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "color": "#FF4100",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#F5F5F5"
+        }
+      }
+    },
+    {
+      "section": "role_definition",
+      "role_id": "super_admin",
+      "name": {
+        "en": "Super Admin",
+        "ar": "المدير العام (سوبر أدمن)"
+      },
+      "description": {
+        "en": "Full, unrestricted access to all system settings, user management, and content. This role is for system administrators only.",
+        "ar": "وصول كامل وغير مقيد لجميع إعدادات النظام، وإدارة المستخدمين، والمحتوى. هذا الدور مخصص لمديري النظام فقط."
+      },
+      "style": {
+        "highlightColor": "#ffffff",
+        "fontWeight": "bold"
+      },
+      "permissions": [
+        {
+          "key": "system.config.write",
+          "name": {
+            "en": "Modify System Configuration",
+            "ar": "تعديل إعدادات النظام"
+          },
+          "description": {
+            "en": "Can change core application settings, including integrations and security policies.",
+            "ar": "يمكنه تغيير إعدادات التطبيق الأساسية، بما في ذلك التكاملات والسياسات الأمنية."
+          }
+        },
+        {
+          "key": "user.all.full",
+          "name": {
+            "en": "Full User Management",
+            "ar": "إدارة كاملة للمستخدمين"
+          },
+          "description": {
+            "en": "Can create, read, update, and delete any user, including other administrators.",
+            "ar": "يمكنه إنشاء، قراءة، تحديث، وحذف أي مستخدم، بما في ذلك المدراء الآخرين."
+          }
+        },
+        {
+          "key": "content.all.full",
+          "name": {
+            "en": "Full Content Control",
+            "ar": "تحكم كامل بالمحتوى"
+          },
+          "description": {
+            "en": "Can create, edit, publish, and delete all content across the application.",
+            "ar": "يمكنه إنشاء، تعديل، نشر، وحذف كل المحتوى عبر التطبيق."
+          }
+        },
+        {
+          "key": "billing.all.full",
+          "name": {
+            "en": "Manage Billing & Subscriptions",
+            "ar": "إدارة الفواتير والاشتراكات"
+          },
+          "description": {
+            "en": "Can access invoices, change payment methods, and manage subscription plans.",
+            "ar": "يمكنه الوصول إلى الفواتير، تغيير طرق الدفع، وإدارة خطط الاشتراك."
+          }
+        }
+      ]
+    },
+    {
+      "section": "role_definition",
+      "role_id": "user_manager",
+      "name": {
+        "en": "User Manager",
+        "ar": "مدير المستخدمين"
+      },
+      "description": {
+        "en": "Can manage non-admin users. This role is for team leads or HR personnel.",
+        "ar": "يمكنه إدارة المستخدمين غير المدراء. هذا الدور مخصص لقادة الفرق أو موظفي الموارد البشرية."
+      },
+      "style": {
+        "highlightColor": "#ffffff",
+        "fontWeight": "bold"
+      },
+      "permissions": [
+        {
+          "key": "user.create",
+          "name": {
+            "en": "Create Users",
+            "ar": "إنشاء مستخدمين"
+          },
+          "description": {
+            "en": "Can add new non-admin users to the system.",
+            "ar": "يمكنه إضافة مستخدمين جدد (غير مدراء) إلى النظام."
+          }
+        },
+        {
+          "key": "user.edit",
+          "name": {
+            "en": "Edit User Profiles",
+            "ar": "تعديل ملفات المستخدمين"
+          },
+          "description": {
+            "en": "Can update profile information and reset passwords for non-admin users.",
+            "ar": "يمكنه تحديث معلومات الملف الشخصي وإعادة تعيين كلمات المرور للمستخدمين غير المدراء."
+          }
+        },
+        {
+          "key": "user.delete",
+          "name": {
+            "en": "Delete/Deactivate Users",
+            "ar": "حذف/إلغاء تنشيط المستخدمين"
+          },
+          "description": {
+            "en": "Can remove or deactivate non-admin user accounts.",
+            "ar": "يمكنه إزالة أو إلغاء تنشيط حسابات المستخدمين غير المدراء."
+          }
+        },
+        {
+          "key": "user.read.list",
+          "name": {
+            "en": "View User List",
+            "ar": "عرض قائمة المستخدمين"
+          },
+          "description": {
+            "en": "Can see the list of all non-admin users.",
+            "ar": "يمكنه رؤية قائمة بجميع المستخدمين غير المدراء."
+          }
+        }
+      ]
+    },
+    {
+      "section": "role_definition",
+      "role_id": "content_editor",
+      "name": {
+        "en": "Content Editor",
+        "ar": "محرر المحتوى"
+      },
+      "description": {
+        "en": "Can create, edit, and publish content (e.g., articles, products), but cannot manage users or settings.",
+        "ar": "يمكنه إنشاء، تعديل، ونشر المحتوى (مثل المقالات، المنتجات)، ولكن لا يمكنه إدارة المستخدمين أو الإعدادات."
+      },
+      "style": {
+        "highlightColor": "#ffffff",
+        "fontWeight": "bold"
+      },
+      "permissions": [
+        {
+          "key": "content.create",
+          "name": {
+            "en": "Create Content",
+            "ar": "إنشاء محتوى"
+          },
+          "description": {
+            "en": "Can create new drafts for articles, posts, or products.",
+            "ar": "يمكنه إنشاء مسودات جديدة للمقالات أو المنشورات أو المنتجات."
+          }
+        },
+        {
+          "key": "content.edit.own",
+          "name": {
+            "en": "Edit Own Content",
+            "ar": "تعديل المحتوى الخاص به"
+          },
+          "description": {
+            "en": "Can edit content that they have created.",
+            "ar": "يمكنه تعديل المحتوى الذي قام بإنشائه."
+          }
+        },
+        {
+          "key": "content.publish",
+          "name": {
+            "en": "Publish Content",
+            "ar": "نشر المحتوى"
+          },
+          "description": {
+            "en": "Can make content live and visible to the public.",
+            "ar": "يمكنه جعل المحتوى متاحًا ومرئيًا للجمهور."
+          }
+        },
+        {
+          "key": "media.upload",
+          "name": {
+            "en": "Upload Media",
+            "ar": "رفع الوسائط"
+          },
+          "description": {
+            "en": "Can upload images, videos, and documents to the media library.",
+            "ar": "يمكنه رفع الصور ومقاطع الفيديو والمستندات إلى مكتبة الوسائط."
+          }
+        }
+      ]
+    },
+    {
+      "section": "role_definition",
+      "role_id": "viewer",
+      "name": {
+        "en": "Viewer",
+        "ar": "مشاهد"
+      },
+      "description": {
+        "en": "Read-only access. Can view content and dashboards but cannot make any changes.",
+        "ar": "وصول للقراءة فقط. يمكنه عرض المحتوى ولوحات المعلومات ولكن لا يمكنه إجراء أي تغييرات."
+      },
+      "style": {
+        "highlightColor": "#ffffff",
+        "fontWeight": "bold"
+      },
+      "permissions": [
+        {
+          "key": "content.read",
+          "name": {
+            "en": "Read Content",
+            "ar": "قراءة المحتوى"
+          },
+          "description": {
+            "en": "Can view all published content.",
+            "ar": "يمكنه عرض كل المحتوى المنشور."
+          }
+        },
+        {
+          "key": "dashboard.view",
+          "name": {
+            "en": "View Dashboards",
+            "ar": "عرض لوحات المعلومات"
+          },
+          "description": {
+            "en": "Can access and view analytics dashboards in read-only mode.",
+            "ar": "يمكنه الوصول وعرض لوحات تحليلات المعلومات في وضع القراءة فقط."
+          }
+        }
+      ]
+    }
+  ]
+}

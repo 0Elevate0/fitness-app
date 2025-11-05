@@ -1,9 +1,11 @@
 import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/domain/entities/account/privacy_and_security/localized_text_align_entity.dart';
 import 'package:fitness_app/domain/entities/category/category_entity.dart';
 import 'package:fitness_app/domain/entities/popular_training/popular_training_entity.dart';
 import 'package:fitness_app/domain/entities/user_data_entity/user_data_entity.dart';
 import 'package:fitness_app/presentation/auth/register/views_model/register_state.dart';
+import 'package:flutter/material.dart';
 
 abstract final class FitnessMethodHelper {
   static UserDataEntity? userData;
@@ -90,4 +92,63 @@ abstract final class FitnessMethodHelper {
       muscleId: "67c8499726895f87ce0aa9c3",
     ),
   ];
+
+  static Color? parseColor(String? hex) {
+    if (hex == null || hex.isEmpty) return null;
+    final buffer = StringBuffer();
+    if (hex.length == 6 || hex.length == 7) buffer.write('ff');
+    buffer.write(hex.replaceFirst('#', ''));
+    return Color(int.parse(buffer.toString(), radix: 16));
+  }
+
+  static FontWeight parseFontWeight(String? weight) {
+    switch (weight?.toLowerCase()) {
+      case 'bold':
+        return FontWeight.bold;
+      case 'w500':
+        return FontWeight.w500;
+      case 'w600':
+        return FontWeight.w600;
+      case 'light':
+        return FontWeight.w300;
+      default:
+        return FontWeight.normal;
+    }
+  }
+
+  static TextAlign parseTextAlign(
+    LocalizedTextAlignEntity? alignMap,
+    bool isArabic,
+  ) {
+    if (alignMap == null) return TextAlign.center;
+    final alignment = isArabic ? alignMap.ar : alignMap.en;
+    switch (alignment) {
+      case 'center':
+        return TextAlign.center;
+      case 'right':
+        return TextAlign.right;
+      case 'left':
+        return TextAlign.left;
+      default:
+        return isArabic ? TextAlign.right : TextAlign.left;
+    }
+  }
+
+  static Alignment parseAlignment(
+    LocalizedTextAlignEntity? alignMap,
+    bool isArabic,
+  ) {
+    if (alignMap == null) return Alignment.center;
+    final alignment = isArabic ? alignMap.ar : alignMap.en;
+    switch (alignment) {
+      case 'center':
+        return Alignment.center;
+      case 'right':
+        return Alignment.centerRight;
+      case 'left':
+        return Alignment.centerLeft;
+      default:
+        return isArabic ? Alignment.centerRight : Alignment.centerLeft;
+    }
+  }
 }
