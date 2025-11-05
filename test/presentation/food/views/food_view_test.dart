@@ -1,5 +1,7 @@
 import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/di/di.dart';
+import 'package:fitness_app/core/global_cubit/global_cubit.dart';
+import 'package:fitness_app/core/global_cubit/global_state.dart';
 import 'package:fitness_app/domain/entities/meal_category/meal_category_entity.dart';
 import 'package:fitness_app/domain/entities/meals_argument/meals_argument.dart';
 import 'package:fitness_app/presentation/food/views/food_view.dart';
@@ -13,12 +15,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'widgets/category_group_item_test.mocks.dart';
+import 'food_view_test.mocks.dart';
 
-@GenerateMocks([FoodCubit])
+@GenerateMocks([FoodCubit, GlobalCubit])
 void main() {
   late MockFoodCubit mockFoodCubit;
   late PageController mockPageController;
+  late MockGlobalCubit mockGlobalCubit;
   provideDummy<FoodState>(const FoodState());
 
   const tCategory = MealCategoryEntity(
@@ -38,10 +41,14 @@ void main() {
     when(mockFoodCubit.stream).thenAnswer((_) => const Stream.empty());
     when(mockFoodCubit.pageController).thenReturn(mockPageController);
     getIt.registerFactory<FoodCubit>(() => mockFoodCubit);
-  });
+    mockGlobalCubit = MockGlobalCubit();
+    getIt.registerFactory<GlobalCubit>(() => mockGlobalCubit);
 
-  tearDown(() {
-    getIt.unregister<FoodCubit>();
+    provideDummy<GlobalState>(const GlobalState());
+    when(mockGlobalCubit.state).thenReturn(const GlobalState());
+    when(
+      mockGlobalCubit.stream,
+    ).thenAnswer((_) => Stream.fromIterable([const GlobalState()]));
   });
 
   Widget buildTestableWidget() {
@@ -49,8 +56,11 @@ void main() {
       designSize: const Size(375, 812),
       builder: (context, child) {
         return MaterialApp(
-          home: BlocProvider<FoodCubit>.value(
-            value: mockFoodCubit,
+          home: MultiBlocProvider(
+            providers: [
+              BlocProvider<FoodCubit>.value(value: mockFoodCubit),
+              BlocProvider<GlobalCubit>.value(value: mockGlobalCubit),
+            ],
             child: const FoodView(argument: tArgument),
           ),
         );
@@ -74,5 +84,9 @@ void main() {
   testWidgets('calls doIntent when created', (tester) async {
     await tester.pumpWidget(buildTestableWidget());
     verify(mockFoodCubit.doIntent(intent: anyNamed('intent'))).called(2);
+  });
+
+  tearDown(() {
+    getIt.reset();
   });
 }

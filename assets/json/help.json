@@ -1,0 +1,172 @@
+{
+  "help_screen_content": [
+    {
+      "section": "page_title",
+      "content": {
+        "en": "Help & Support",
+        "ar": "المساعدة والدعم"
+      },
+      "style": {
+        "fontSize": 24,
+        "fontWeight": "bold",
+        "color": "#FFFFFF",
+        "textAlign": {
+          "en": "center",
+          "ar": "center"
+        },
+        "backgroundColor": "#121212"
+      }
+    },
+    {
+      "section": "page_subtitle",
+      "content": {
+        "en": "How can we help you today?",
+        "ar": "كيف يمكننا مساعدتك اليوم؟"
+      },
+      "style": {
+        "fontSize": 16,
+        "fontWeight": "normal",
+        "color": "#CCCCCC",
+        "textAlign": {
+          "en": "center",
+          "ar": "center"
+        },
+        "backgroundColor": "#121212"
+      }
+    },
+    {
+      "section": "contact_us",
+      "title": {
+        "en": "Get in Touch",
+        "ar": "تواصل معنا"
+      },
+      "style": {
+        "title": {
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "color": "#FF5733",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#1E1E1E"
+        }
+      },
+      "content": [
+        {
+          "id": "contact_001",
+          "method": {
+            "en": "Email Support",
+            "ar": "الدعم عبر البريد الإلكتروني"
+          },
+          "details": {
+            "en": "Get a response within 24 hours.",
+            "ar": "احصل على رد خلال 24 ساعة."
+          },
+          "value": "support@apexfitness.com",
+          "style": {
+            "method": {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "color": "#FFFFFF"
+            },
+            "details": {
+              "fontSize": 14,
+              "fontWeight": "normal",
+              "color": "#CCCCCC"
+            }
+          }
+        },
+        {
+          "id": "contact_002",
+          "method": {
+            "en": "Call Us",
+            "ar": "اتصل بنا"
+          },
+          "details": {
+            "en": "Available 9 AM - 5 PM (PST).",
+            "ar": "متاح من 9 صباحًا - 5 مساءً (بتوقيت المحيط الهادئ)."
+          },
+          "value": "+1 (888) 555-APEX",
+          "style": {
+            "method": {
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "color": "#FFFFFF"
+            },
+            "details": {
+              "fontSize": 14,
+              "fontWeight": "normal",
+              "color": "#CCCCCC"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "section": "faq",
+      "title": {
+        "en": "Frequently Asked Questions",
+        "ar": "الأسئلة الشائعة"
+      },
+      "style": {
+        "title": {
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "color": "#FF5733",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#1E1E1E"
+        }
+      },
+      "content": [
+        {
+          "id": "faq_001",
+          "question": {
+            "en": "How does the AI Trainer 'Apex' work?",
+            "ar": "كيف يعمل المدرب الذكي 'أبيكس'؟"
+          },
+          "answer": {
+            "en": "Our AI Trainer, 'Apex', uses your provided data (goals, weight, height) and performance (reps, sets) to build a custom workout plan. For form correction, it uses your phone's camera (with your permission) to analyze your movements in real-time and provide feedback.",
+            "ar": "يستخدم مدربنا الذكي 'أبيكس' بياناتك المقدمة (الأهداف، الوزن، الطول) وأدائك (التكرارات، المجموعات) لبناء خطة تمرين مخصصة. لتصحيح الوضعية، يستخدم كاميرا هاتفك (بإذن منك) لتحليل حركاتك في الوقت الفعلي وتقديم ملاحظات."
+          }
+        },
+        {
+          "id": "faq_002",
+          "question": {
+            "en": "How do I log a meal?",
+            "ar": "كيف أسجل وجبة؟"
+          },
+          "answer": {
+            "en": "Navigate to the 'Nutrition' tab from the bottom menu. Tap the '+' button on the meal you wish to log (e.g., Breakfast, Lunch). You can then search our food database, scan a barcode, or enter the macros manually.",
+            "ar": "انتقل إلى علامة التبويب 'التغذية' من القائمة السفلية. اضغط على زر '+' بجوار الوجبة التي ترغب في تسجيلها (مثل الإفطار، الغداء). يمكنك بعد ذلك البحث في قاعدة بيانات الأطعمة لدينا، أو مسح باركود، أو إدخال الماكروز يدويًا."
+          }
+        },
+        {
+          "id": "faq_003",
+          "question": {
+            "en": "How do I manage my subscription?",
+            "ar": "كيف أدير اشتراكي؟"
+          },
+          "answer": {
+            "en": "You can manage your subscription by going to 'Profile' > 'Settings' > 'Manage Subscription'. From there, you can upgrade, downgrade, or cancel your plan. All billing is handled through the App Store or Google Play Store.",
+            "ar": "يمكنك إدارة اشتراكك بالانتقال إلى 'الملف الشخصي' > 'الإعدادات' > 'إدارة الاشتراك'. من هناك، يمكنك ترقية أو تخفيض أو إلغاء خطتك. تتم جميع عمليات الفوترة من خلال متجر التطبيقات (App Store) أو متجر Google Play."
+          }
+        },
+        {
+          "id": "faq_004",
+          "question": {
+            "en": "Is my video data for form correction private?",
+            "ar": "هل بيانات الفيديو الخاصة بي لتصحيح الوضعية خاصة؟"
+          },
+          "answer": {
+            "en": "Yes. Your privacy is our priority. The video stream for form correction is processed locally on your device or on our secure servers via AI. It is never viewed by humans without your explicit consent for support or troubleshooting. All analyzed data is anonymized.",
+            "ar": "نعم. خصوصيتك هي أولويتنا. يتم معالجة بث الفيديو لتصحيح الوضعية محليًا على جهازك أو على خوادمنا الآمنة عبر الذكاء الاصطناعي. لا يطلع عليها أي شخص دون موافقتك الصريحة لأغراض الدعم أو استكشاف الأخطاء وإصلاحها. جميع البيانات التي يتم تحليلها تكون مجهولة الهوية."
+          }
+        }
+      ]
+    }
+  ]
+}

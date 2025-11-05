@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:fitness_app/core/constants/const_keys.dart';
 import 'package:fitness_app/core/di/di.dart';
 import 'package:fitness_app/core/global_cubit/global_cubit.dart';
 import 'package:fitness_app/core/global_cubit/global_intent.dart';
@@ -32,9 +33,12 @@ void main() async {
           getIt.get<GlobalCubit>()
             ..doIntent(intent: GlobalInitializationIntent()),
       child: EasyLocalization(
-        supportedLocales: const [Locale('en'), Locale('ar')],
+        supportedLocales: const [
+          Locale(ConstKeys.english),
+          Locale(ConstKeys.arabic),
+        ],
         path: 'assets/translations',
-        fallbackLocale: const Locale('en'),
+        fallbackLocale: const Locale(ConstKeys.english),
         child: const FitnessApp(),
       ),
     ),
