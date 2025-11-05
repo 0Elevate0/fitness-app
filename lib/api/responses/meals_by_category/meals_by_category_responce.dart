@@ -1,3 +1,4 @@
+import 'package:fitness_app/api/models/meals/meals_model.dart';
 import 'package:fitness_app/domain/entities/meal_by_category/meal_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'meals_by_category_responce.g.dart';

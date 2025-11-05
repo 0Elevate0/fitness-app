@@ -10,7 +10,6 @@ import 'package:injectable/injectable.dart';
 @injectable
 class FoodCubit extends Cubit<FoodState>{
   final GetMealByCategoryUseCase _getMealByCategoryUseCase;
-  @factoryMethod
    FoodCubit(this._getMealByCategoryUseCase):super(const FoodState());
    Future<void>doIntent({required FoodIntent intent})async{
      switch(intent){

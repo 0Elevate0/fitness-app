@@ -6,7 +6,6 @@ import 'package:injectable/injectable.dart';
 @injectable
 class GetMealByCategoryUseCase{
   final MealByCategoryRepository _mealByCategoryRepository;
-  @factoryMethod
   const GetMealByCategoryUseCase(this._mealByCategoryRepository);
   Future<Result<List<MealEntity>>>invoke(String categoryName)async{
     return await _mealByCategoryRepository.getMealsByCategory(categoryName:categoryName);

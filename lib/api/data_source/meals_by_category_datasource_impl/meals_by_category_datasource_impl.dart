@@ -6,13 +6,12 @@ import 'package:injectable/injectable.dart';
 @Injectable(as: MealsByCategoryDataSource)
 class MealsByCategoryDataSourceImpl implements MealsByCategoryDataSource {
   final ApiClient _apiClient;
-  @factoryMethod
   const MealsByCategoryDataSourceImpl(this._apiClient);
   @override
   Future<Result<List<MealEntity>>> getMealsByCategory({required String categoryName})async{
 return await executeApi(()async{
-  final responce=await _apiClient.getMealsByCategory(categoryName:categoryName );
- final  result= responce.meals?.map((meal)=>meal.toMealEntity()).toList()??[];
+  final response=await _apiClient.getMealsByCategory(categoryName:categoryName );
+ final  result= response.meals?.map((meal)=>meal.toMealEntity()).toList()??[];
   return result;
 });
 

@@ -6,7 +6,6 @@ import 'package:injectable/injectable.dart';
 @Injectable(as: MealByCategoryRepository)
 class MealByCategoryRepositoryImpl implements MealByCategoryRepository{
   final MealsByCategoryDataSource _mealsByCategoryDataSource;
-  @factoryMethod
   const MealByCategoryRepositoryImpl(this._mealsByCategoryDataSource);
   @override
   Future<Result<List<MealEntity>>>getMealsByCategory({required String categoryName}) async{
