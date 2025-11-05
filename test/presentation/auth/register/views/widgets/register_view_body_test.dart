@@ -1,4 +1,6 @@
 import 'package:fitness_app/core/di/di.dart';
+import 'package:fitness_app/core/global_cubit/global_cubit.dart';
+import 'package:fitness_app/core/global_cubit/global_state.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/activity/activity_section.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/gender/gender_section.dart';
 import 'package:fitness_app/presentation/auth/register/views/widgets/goal/goal_section.dart';
@@ -21,10 +23,11 @@ import 'package:mockito/mockito.dart';
 
 import 'register_view_body_test.mocks.dart';
 
-@GenerateMocks([RegisterCubit])
+@GenerateMocks([RegisterCubit, GlobalCubit])
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late MockRegisterCubit mockRegisterCubit;
+  late MockGlobalCubit mockGlobalCubit;
   setUp(() {
     mockRegisterCubit = MockRegisterCubit();
     getIt.registerFactory<RegisterCubit>(() => mockRegisterCubit);
@@ -44,6 +47,14 @@ void main() {
     when(
       mockRegisterCubit.passwordController,
     ).thenReturn(TextEditingController());
+    mockGlobalCubit = MockGlobalCubit();
+    getIt.registerFactory<GlobalCubit>(() => mockGlobalCubit);
+
+    provideDummy<GlobalState>(const GlobalState());
+    when(mockGlobalCubit.state).thenReturn(const GlobalState());
+    when(
+      mockGlobalCubit.stream,
+    ).thenAnswer((_) => Stream.fromIterable([const GlobalState()]));
   });
 
   // Arrange
@@ -52,9 +63,14 @@ void main() {
       designSize: const Size(375, 812),
       builder: (context, child) {
         return MaterialApp(
-          home: BlocProvider<RegisterCubit>.value(
-            value: mockRegisterCubit
-              ..doIntent(intent: const RegisterInitializationIntent()),
+          home: MultiBlocProvider(
+            providers: [
+              BlocProvider<RegisterCubit>.value(
+                value: mockRegisterCubit
+                  ..doIntent(intent: const RegisterInitializationIntent()),
+              ),
+              BlocProvider<GlobalCubit>.value(value: mockGlobalCubit),
+            ],
             child: const Scaffold(body: RegisterViewBody()),
           ),
         );

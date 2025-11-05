@@ -1,5 +1,10 @@
+import 'dart:math';
+
 import 'package:fitness_app/core/constants/app_icons.dart';
+import 'package:fitness_app/core/global_cubit/global_cubit.dart';
+import 'package:fitness_app/core/global_cubit/global_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -8,6 +13,7 @@ class CustomBackArrow extends StatelessWidget {
   final void Function()? onBackArrowClicked;
   @override
   Widget build(BuildContext context) {
+    final globalCubit = BlocProvider.of<GlobalCubit>(context);
     final theme = Theme.of(context);
     return GestureDetector(
       onTap: () {
@@ -21,7 +27,12 @@ class CustomBackArrow extends StatelessWidget {
           shape: BoxShape.circle,
           color: theme.colorScheme.primary,
         ),
-        child: SvgPicture.asset(AppIcons.back, fit: BoxFit.contain),
+        child: Transform.rotate(
+          angle: globalCubit.state.selectedLanguage == Language.arabic
+              ? pi
+              : 2 * pi,
+          child: SvgPicture.asset(AppIcons.back, fit: BoxFit.contain),
+        ),
       ),
     );
   }
