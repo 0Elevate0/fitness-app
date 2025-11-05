@@ -13,7 +13,6 @@ class CustomBackArrow extends StatelessWidget {
   final void Function()? onBackArrowClicked;
   @override
   Widget build(BuildContext context) {
-    final globalCubit = BlocProvider.of<GlobalCubit>(context);
     final theme = Theme.of(context);
     return GestureDetector(
       onTap: () {
@@ -27,11 +26,11 @@ class CustomBackArrow extends StatelessWidget {
           shape: BoxShape.circle,
           color: theme.colorScheme.primary,
         ),
-        child: Transform.rotate(
-          angle: globalCubit.state.selectedLanguage == Language.arabic
-              ? pi
-              : 2 * pi,
-          child: SvgPicture.asset(AppIcons.back, fit: BoxFit.contain),
+        child: BlocBuilder<GlobalCubit, GlobalState>(
+          builder: (context, state) => Transform.rotate(
+            angle: state.selectedLanguage == Language.arabic ? pi : 0,
+            child: SvgPicture.asset(AppIcons.back, fit: BoxFit.contain),
+          ),
         ),
       ),
     );

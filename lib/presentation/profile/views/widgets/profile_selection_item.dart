@@ -28,57 +28,60 @@ class ProfileSelectionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Row(
-                  children: [
-                    SvgPicture.asset(prefixIcon, fit: BoxFit.contain),
-                    const RSizedBox(width: 16),
-                    Expanded(
-                      child: isTextTitle
-                          ? FittedBox(
-                              alignment: AlignmentDirectional.centerStart,
-                              fit: BoxFit.scaleDown,
-                              child: Text(
-                                title?.tr() ?? "",
-                                style: theme.textTheme.bodyLarge?.copyWith(
-                                  color:
-                                      titleColor ??
-                                      theme.colorScheme.onSecondary,
-                                  fontWeight: FontWeight.w600,
+      child: Container(
+        alignment: Alignment.center,
+        padding: REdgeInsets.only(bottom: 8),
+        decoration: BoxDecoration(
+          border: !isLastItem
+              ? Border(
+                  bottom: BorderSide(color: theme.colorScheme.outlineVariant),
+                )
+              : null,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(prefixIcon, fit: BoxFit.contain),
+                      const RSizedBox(width: 16),
+                      Expanded(
+                        child: isTextTitle
+                            ? FittedBox(
+                                alignment: AlignmentDirectional.centerStart,
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  title?.tr() ?? "",
+                                  style: theme.textTheme.bodyLarge?.copyWith(
+                                    color:
+                                        titleColor ??
+                                        theme.colorScheme.onSecondary,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
-                              ),
-                            )
-                          : titleWidget ?? const SizedBox.shrink(),
-                    ),
-                  ],
+                              )
+                            : titleWidget ?? const SizedBox.shrink(),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const RSizedBox(width: 16),
-              isSuffixIcon
-                  ? Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      size: 16.sp,
-                      color: theme.colorScheme.primary,
-                    )
-                  : suffixWidget ?? const SizedBox.shrink(),
-            ],
-          ),
-          const RSizedBox(height: 8),
-          Visibility(
-            visible: isLastItem,
-            child: Container(
-              height: 1.r,
-              width: ScreenUtil().screenWidth,
-              color: theme.colorScheme.outlineVariant,
+                const RSizedBox(width: 16),
+                isSuffixIcon
+                    ? Icon(
+                        Icons.arrow_forward_ios_outlined,
+                        size: 16.sp,
+                        color: theme.colorScheme.primary,
+                      )
+                    : suffixWidget ?? const SizedBox.shrink(),
+              ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

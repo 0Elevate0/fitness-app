@@ -13,7 +13,9 @@ void main() {
       designSize: const Size(375, 812),
       builder: (context, child) {
         return const MaterialApp(
-          home: ProfileSelectionItem(prefixIcon: AppIcons.logout),
+          home: Scaffold(
+            body: ProfileSelectionItem(prefixIcon: AppIcons.logout),
+          ),
         );
       },
     );
@@ -23,15 +25,14 @@ void main() {
     // Act
     await tester.pumpWidget(prepareWidget());
     // Assert
-    expect(find.byType(GestureDetector), findsOneWidget);
+    expect(find.byType(InkWell), findsOneWidget);
     expect(find.byType(Column), findsWidgets);
     expect(find.byType(Row), findsNWidgets(2));
     expect(find.byType(Expanded), findsNWidgets(2));
     expect(find.byType(SvgPicture), findsOneWidget);
     expect(find.byType(FittedBox), findsWidgets);
     expect(find.byType(Text), findsWidgets);
-    expect(find.byType(RSizedBox), findsNWidgets(3));
-    expect(find.byType(Visibility), findsOneWidget);
+    expect(find.byType(RSizedBox), findsNWidgets(2));
   });
 
   tearDown(() {
