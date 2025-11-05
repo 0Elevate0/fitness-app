@@ -73,7 +73,7 @@ class BuildProfileResetPasswordForm extends StatelessWidget {
                             ? Icons.visibility_off
                             : Icons.visibility,
                         color: theme.colorScheme.onSecondary,
-                        size: 22.r,
+                        size: 22.sp,
                       ),
                     ),
                     enabled: !state.profileResetPasswordState.isLoading,
@@ -100,7 +100,7 @@ class BuildProfileResetPasswordForm extends StatelessWidget {
                             ? Icons.visibility_off
                             : Icons.visibility,
                         color: theme.colorScheme.onSecondary,
-                        size: 22.r,
+                        size: 22.sp,
                       ),
                     ),
                     enabled: !state.profileResetPasswordState.isLoading,

@@ -1,5 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_images.dart';
+import 'package:fitness_app/core/di/di.dart';
+import 'package:fitness_app/core/global_cubit/global_cubit.dart';
+import 'package:fitness_app/core/global_cubit/global_state.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
 import 'package:fitness_app/presentation/auth/profile_reset_password/views/widgets/build_profile_reset_password_form.dart';
 import 'package:fitness_app/presentation/auth/profile_reset_password/views/widgets/create_new_password_section.dart';
@@ -17,8 +20,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'profile_reset_password_body_test.mocks.dart';
 
-@GenerateMocks([ProfileResetPasswordCubit])
+@GenerateMocks([ProfileResetPasswordCubit, GlobalCubit])
 void main() async {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  late MockGlobalCubit mockGlobalCubit;
   setUpAll(() async {
     TestWidgetsFlutterBinding.ensureInitialized();
     SharedPreferences.setMockInitialValues({});
@@ -50,6 +55,14 @@ void main() async {
     ).thenReturn(TextEditingController());
     when(mockCubit.newPasswordController).thenReturn(TextEditingController());
     when(mockCubit.doIntent(any)).thenAnswer((_) async {});
+
+    mockGlobalCubit = MockGlobalCubit();
+    getIt.registerFactory<GlobalCubit>(() => mockGlobalCubit);
+    provideDummy<GlobalState>(const GlobalState());
+    when(mockGlobalCubit.state).thenReturn(const GlobalState());
+    when(
+      mockGlobalCubit.stream,
+    ).thenAnswer((_) => Stream.fromIterable([const GlobalState()]));
   });
 
   Widget buildTestableWidget() {
@@ -61,8 +74,11 @@ void main() async {
         designSize: const Size(375, 812),
         child: MaterialApp(
           home: Scaffold(
-            body: BlocProvider<ProfileResetPasswordCubit>.value(
-              value: mockCubit,
+            body: MultiBlocProvider(
+              providers: [
+                BlocProvider<ProfileResetPasswordCubit>.value(value: mockCubit),
+                BlocProvider<GlobalCubit>.value(value: mockGlobalCubit),
+              ],
               child: const ProfileResetPasswordBody(),
             ),
           ),
@@ -105,5 +121,9 @@ void main() async {
 
     // Assert
     expect(find.byType(Dialog), findsOneWidget);
+  });
+
+  tearDown(() {
+    getIt.reset();
   });
 }

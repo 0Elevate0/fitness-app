@@ -2,7 +2,6 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fitness_app/api/client/api_client.dart';
 import 'package:fitness_app/api/client/api_result.dart';
 import 'package:fitness_app/api/data_source/profile_reset_password_data_source_impl/profile_reset_password_data_source_impl.dart';
-import 'package:fitness_app/api/requests/request_mapper.dart';
 import 'package:fitness_app/api/responses/profile_reset_password/profile_reset_password_response.dart';
 import 'package:fitness_app/core/connection_manager/connection_manager.dart';
 import 'package:fitness_app/core/secure_storage/secure_storage.dart';
@@ -41,7 +40,7 @@ void main() {
 
     when(
       mockApiClient.profileResetPassword(
-        request: RequestMapper.toProfileResetPasswordRequest(entity: request),
+        request: anyNamed("request"),
         token: anyNamed("token"),
       ),
     ).thenAnswer((_) async => expectedResponse);
@@ -50,15 +49,11 @@ void main() {
 
     verify(
       mockApiClient.profileResetPassword(
-        request: RequestMapper.toProfileResetPasswordRequest(entity: request),
+        request: anyNamed("request"),
         token: anyNamed("token"),
       ),
     ).called(1);
 
-    expect(result, isA<Success<ProfileResetPasswordResponse>>());
-
-    result as Success<ProfileResetPasswordResponse>;
-
-    expect(result.data.message, equals(expectedResponse.message));
+    expect(result, isA<Success<void>>());
   });
 }

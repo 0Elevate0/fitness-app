@@ -40,46 +40,40 @@ class ProfileSelectionItem extends StatelessWidget {
                 )
               : null,
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Row(
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(prefixIcon, fit: BoxFit.contain),
-                      const RSizedBox(width: 16),
-                      Expanded(
-                        child: isTextTitle
-                            ? FittedBox(
-                                alignment: AlignmentDirectional.centerStart,
-                                fit: BoxFit.scaleDown,
-                                child: Text(
-                                  title?.tr() ?? "",
-                                  style: theme.textTheme.bodyLarge?.copyWith(
-                                    color:
-                                        titleColor ??
-                                        theme.colorScheme.onSecondary,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              )
-                            : titleWidget ?? const SizedBox.shrink(),
-                      ),
-                    ],
+            Expanded(
+              child: Row(
+                children: [
+                  SvgPicture.asset(prefixIcon, fit: BoxFit.contain),
+                  const RSizedBox(width: 16),
+                  Expanded(
+                    child: isTextTitle
+                        ? FittedBox(
+                            alignment: AlignmentDirectional.centerStart,
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              title?.tr() ?? "",
+                              style: theme.textTheme.bodyLarge?.copyWith(
+                                color:
+                                    titleColor ?? theme.colorScheme.onSecondary,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          )
+                        : titleWidget ?? const SizedBox.shrink(),
                   ),
-                ),
-                const RSizedBox(width: 16),
-                isSuffixIcon
-                    ? Icon(
-                        Icons.arrow_forward_ios_outlined,
-                        size: 16.sp,
-                        color: theme.colorScheme.primary,
-                      )
-                    : suffixWidget ?? const SizedBox.shrink(),
-              ],
+                ],
+              ),
             ),
+            const RSizedBox(width: 16),
+            isSuffixIcon
+                ? Icon(
+                    Icons.arrow_forward_ios_outlined,
+                    size: 16.sp,
+                    color: theme.colorScheme.primary,
+                  )
+                : suffixWidget ?? const SizedBox.shrink(),
           ],
         ),
       ),

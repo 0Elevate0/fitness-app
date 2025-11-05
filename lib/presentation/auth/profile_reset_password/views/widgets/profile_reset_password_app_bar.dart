@@ -9,12 +9,15 @@ class ProfileResetPasswordAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomAppBar(
-      automaticallyImplyLeading: false,
+      automaticallyImplyLeading: true,
       isTitleNotString: true,
-      titleWidget: Image.asset(
-        AppImages.superFitness,
-        height: 70.h,
-        fit: BoxFit.contain,
+      titleWidget: Padding(
+        padding: REdgeInsetsDirectional.only(end: 24),
+        child: Image.asset(
+          AppImages.superFitness,
+          height: 70.h,
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }

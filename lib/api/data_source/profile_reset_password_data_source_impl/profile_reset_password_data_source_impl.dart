@@ -1,7 +1,6 @@
 import 'package:fitness_app/api/client/api_client.dart';
 import 'package:fitness_app/api/client/api_result.dart';
 import 'package:fitness_app/api/requests/request_mapper.dart';
-import 'package:fitness_app/api/responses/profile_reset_password/profile_reset_password_response.dart';
 import 'package:fitness_app/core/secure_storage/secure_storage.dart';
 import 'package:fitness_app/data/data_source/profile_reset_password/profile_reset_password_data_source.dart';
 import 'package:fitness_app/domain/entities/profile_reset_password/profile_reset_password_entity.dart';
@@ -20,7 +19,7 @@ class ProfileResetPasswordDataSourceImpl
   );
 
   @override
-  Future<Result<ProfileResetPasswordResponse>> profileResetPassword({
+  Future<Result<void>> profileResetPassword({
     required ProfileResetPasswordRequestEntity request,
   }) async {
     return executeApi(() async {
@@ -30,7 +29,6 @@ class ProfileResetPasswordDataSourceImpl
       );
       await _secureStorage.saveUserToken(token: res.token);
       FitnessMethodHelper.currentUserToken = res.token;
-      return res;
     });
   }
 }

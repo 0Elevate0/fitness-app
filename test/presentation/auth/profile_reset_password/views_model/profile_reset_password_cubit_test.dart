@@ -1,6 +1,5 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:fitness_app/api/client/api_result.dart';
-import 'package:fitness_app/api/responses/profile_reset_password/profile_reset_password_response.dart';
 import 'package:fitness_app/core/exceptions/response_exception.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
 import 'package:fitness_app/domain/use_cases/profile_reset_password/profile_reset_password_usecase.dart';
@@ -19,13 +18,9 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late MockGetProfileResetPasswordUseCase getProfileResetPasswordUseCase;
   late ProfileResetPasswordCubit cubit;
-  late Result<ProfileResetPasswordResponse> expectedSuccessResult;
-  late Failure<ProfileResetPasswordResponse> expectedFailureResult;
+  late Result<void> expectedSuccessResult;
+  late Failure<void> expectedFailureResult;
 
-  final expectedResponse = ProfileResetPasswordResponse(
-    token: 'sample_token',
-    message: 'Password Changed successfully',
-  );
   setUpAll(() {
     getProfileResetPasswordUseCase = MockGetProfileResetPasswordUseCase();
   });
@@ -37,10 +32,8 @@ void main() {
   blocTest<ProfileResetPasswordCubit, ProfileResetPasswordState>(
     'should emit [loading, success] when ChangePassword is successful',
     build: () {
-      expectedSuccessResult = Success<ProfileResetPasswordResponse>(
-        expectedResponse,
-      );
-      provideDummy<Result<ProfileResetPasswordResponse>>(expectedSuccessResult);
+      expectedSuccessResult = Success<void>(null);
+      provideDummy<Result<void>>(expectedSuccessResult);
       when(
         getProfileResetPasswordUseCase.execute(any),
       ).thenAnswer((_) async => expectedSuccessResult); // success
@@ -67,7 +60,7 @@ void main() {
           message: "failed to change password",
         ),
       );
-      provideDummy<Result<ProfileResetPasswordResponse>>(expectedFailureResult);
+      provideDummy<Result<void>>(expectedFailureResult);
       when(
         getProfileResetPasswordUseCase.execute(any),
       ).thenAnswer((_) async => expectedFailureResult);

@@ -28,6 +28,7 @@ class ProfileResetPasswordBody extends StatelessWidget {
             break;
           case Status.success:
             Navigator.pop(context);
+            Navigator.pop(context);
             Loaders.showSuccessMessage(
               message: AppText.passwordChanged,
               context: context,
