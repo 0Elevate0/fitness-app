@@ -4,6 +4,7 @@ import 'package:fitness_app/domain/entities/food_details_argument/food_details_a
 import 'package:fitness_app/domain/entities/meals_argument/meals_argument.dart';
 import 'package:fitness_app/presentation/auth/forget_password/views/forget_password_view.dart';
 import 'package:fitness_app/presentation/auth/login/views/login_view.dart';
+import 'package:fitness_app/presentation/auth/profile_reset_password/views/profile_reset_password.dart';
 import 'package:fitness_app/presentation/auth/register/views/register_view.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views/reset_password_view.dart';
 import 'package:fitness_app/presentation/auth/verification/views/verification_view.dart';
@@ -67,6 +68,8 @@ abstract final class AppRoutes {
         return MaterialPageRoute(builder: (_) => const PrivacyPolicyView());
       case RouteNames.security:
         return MaterialPageRoute(builder: (_) => const SecurityView());
+      case RouteNames.profileResetPassword:
+        return MaterialPageRoute(builder: (_) => const ProfileResetPassword());
       default:
         return null;
     }

@@ -157,5 +157,9 @@
   "cal": "130 Cal",
   "mins": "30 min",
   "title": "exercises to strengthen and tone your",
-  "exerciseReps": "3 Groups * 15 Times"
+  "exerciseReps": "3 Groups * 15 Times",
+  "passwordChanged": "Password Changed Successfully",
+  "makeSureIts8Chars": "Make Sure Its 8 Characters Or More",
+  "currentPassword": "Current Password",
+  "newPassword": "New Password"
 }

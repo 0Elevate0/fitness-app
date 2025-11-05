@@ -1,14 +1,15 @@
 import 'package:fitness_app/api/requests/forget_password_request/forget_password_request_model.dart';
+import 'package:fitness_app/api/requests/login_request/login_request_model.dart';
+import 'package:fitness_app/api/requests/profile%20_reset_password/profile_reset_password_request.dart';
+import 'package:fitness_app/api/requests/register_request/register_request_model.dart';
 import 'package:fitness_app/api/requests/reset_password_request/reset_password_request_model.dart';
 import 'package:fitness_app/api/requests/verification_request/verification_request_model.dart';
+import 'package:fitness_app/domain/entities/profile_reset_password/profile_reset_password_entity.dart';
 import 'package:fitness_app/domain/entities/requests/forget_password_request/forget_password_request_entity.dart';
-import 'package:fitness_app/domain/entities/requests/reset_password_request/reset_password_request_entity.dart';
-import 'package:fitness_app/domain/entities/requests/verification_request/verification_request_entity.dart';
-
-import 'package:fitness_app/api/requests/login_request/login_request_model.dart';
-import 'package:fitness_app/api/requests/register_request/register_request_model.dart';
 import 'package:fitness_app/domain/entities/requests/login_request/login_request_entity.dart';
 import 'package:fitness_app/domain/entities/requests/register_request/register_request_entity.dart';
+import 'package:fitness_app/domain/entities/requests/reset_password_request/reset_password_request_entity.dart';
+import 'package:fitness_app/domain/entities/requests/verification_request/verification_request_entity.dart';
 
 abstract final class RequestMapper {
   static RegisterRequestModel toRegisterRequestModel({
@@ -37,6 +38,7 @@ abstract final class RequestMapper {
       password: loginRequestEntity.password,
     );
   }
+
   static ForgetPasswordRequestModel toForgetPasswordRequestModel({
     required ForgetPasswordRequestEntity forgetPasswordRequestEntity,
   }) {
@@ -57,6 +59,15 @@ abstract final class RequestMapper {
     return ResetPasswordRequestModel(
       email: resetPasswordRequestEntity.email,
       newPassword: resetPasswordRequestEntity.newPassword,
+    );
+  }
+
+  static ProfileResetPasswordRequestModel toProfileResetPasswordRequest({
+    required ProfileResetPasswordRequestEntity entity,
+  }) {
+    return ProfileResetPasswordRequestModel(
+      password: entity.password,
+      newPassword: entity.newPassword,
     );
   }
 }

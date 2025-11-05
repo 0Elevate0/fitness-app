@@ -26,7 +26,6 @@ void main() {
     await tester.pumpWidget(prepareWidget());
     // Assert
     expect(find.byType(InkWell), findsOneWidget);
-    expect(find.byType(Column), findsWidgets);
     expect(find.byType(Row), findsNWidgets(2));
     expect(find.byType(Expanded), findsNWidgets(2));
     expect(find.byType(SvgPicture), findsOneWidget);

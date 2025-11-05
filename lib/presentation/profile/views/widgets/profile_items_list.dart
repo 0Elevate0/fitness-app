@@ -28,9 +28,12 @@ class ProfileItemsList extends StatelessWidget {
               title: AppText.editProfile,
             ),
           ),
-          const ProfileSelectionItem(
+          ProfileSelectionItem(
             prefixIcon: AppIcons.changePassword,
             title: AppText.changePassword,
+            onTap: () => Navigator.of(
+              context,
+            ).pushNamed(RouteNames.profileResetPassword),
           ),
           const SelectLanguageItem(),
           ProfileSelectionItem(
