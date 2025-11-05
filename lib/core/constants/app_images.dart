@@ -20,4 +20,8 @@ abstract final class AppImages {
   static const String foodNotFound = "assets/images/food_not_found.jpg";
   static const String foodDetailsBackground =
       "assets/images/food_details_background.jpg";
+  static const String chatBackground = "assets/images/Chat.png";
+  static const String robot = "assets/images/robot.png";
+  static const String chatLogo = "assets/images/chat_logo.png";
+
 }

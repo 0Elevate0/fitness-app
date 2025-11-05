@@ -12,6 +12,7 @@ import 'package:fitness_app/presentation/fitness_bottom_navigation/views/fitness
 import 'package:fitness_app/presentation/food/views/food_view.dart';
 import 'package:fitness_app/presentation/food_details/views/food_details_view.dart';
 import 'package:fitness_app/presentation/onboarding/views/onboarding_view.dart';
+import 'package:fitness_app/presentation/smart_coach_chat/views/smart_coach_chat_view.dart';
 import 'package:fitness_app/presentation/splash/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -57,6 +58,10 @@ abstract final class AppRoutes {
           builder: (_) => FoodDetailsView(
             foodDetailsArgument: settings.arguments as FoodDetailsArgument,
           ),
+        );
+      case RouteNames.smartCoachChat:
+        return MaterialPageRoute(
+          builder: (_) => const SmartCoachChatView(),
         );
       default:
         return null;
