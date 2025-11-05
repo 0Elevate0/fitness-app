@@ -1,0 +1,341 @@
+{
+  "privacy_policy": [
+    {
+      "section": "title",
+      "content": {
+        "en": "Privacy Policy",
+        "ar": "سياسة الخصوصية"
+      },
+      "style": {
+        "fontSize": 24,
+        "fontWeight": "bold",
+        "color": "#ffffff",
+        "textAlign": {
+          "en": "center",
+          "ar": "center"
+        },
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "section": "last_updated",
+      "content": {
+        "en": "Last Updated: November 1, 2025",
+        "ar": "آخر تحديث: 1 نوفمبر 2025"
+      },
+      "style": {
+        "fontSize": 16,
+        "fontWeight": "w600",
+        "color": "#D9D9D9",
+        "textAlign": {
+          "en": "center",
+          "ar": "center"
+        },
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "section": "introduction",
+      "content": {
+        "en": "Welcome to Apex Fitness ('we,' 'us,' or 'our'). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application.",
+        "ar": "مرحبًا بكم في 'أبيكس فيتنس' ('نحن'، 'لنا'). نحن ملتزمون بحماية خصوصيتك. تشرح سياسة الخصوصية هذه كيف نجمع ونستخدم ونكشف ونحمي معلوماتك عند استخدامك لتطبيقنا على الهاتف المحمول."
+      },
+      "style": {
+        "fontSize": 16,
+        "fontWeight": "normal",
+        "color": "#D3D3D3",
+        "textAlign": {
+          "en": "left",
+          "ar": "right"
+        },
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "section": "information_collection",
+      "title": {
+        "en": "1. Information We Collect",
+        "ar": "1. المعلومات التي نجمعها"
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#D3D3D3",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      },
+      "sub_sections": [
+        {
+          "type": "paragraph",
+          "title": {
+            "en": "A. Personal Data You Provide",
+            "ar": "أ. البيانات الشخصية التي تقدمها"
+          },
+          "content": {
+            "en": "We collect information you provide directly to us, such as when you create an account, log your meals, or contact customer support. This includes: \n- Name and Email Address\n- Profile Information (age, gender, weight, height)\n- Meal and activity logs",
+            "ar": "نحن نجمع المعلومات التي تقدمها لنا مباشرة، مثل عند إنشاء حساب، أو تسجيل وجباتك، أو الاتصال بدعم العملاء. وهذا يشمل: \n- الاسم وعنوان البريد الإلكتروني\n- معلومات الملف الشخصي (العمر، الجنس، الوزن، الطول)\n- سجلات الوجبات والنشاط"
+          }
+        },
+        {
+          "type": "paragraph",
+          "title": {
+            "en": "B. AI Trainer & Health Data",
+            "ar": "ب. بيانات المدرب الذكي والصحة"
+          },
+          "content": {
+            "en": "To use the AI Trainer, you may provide sensitive data. This includes: \n- Fitness goals and preferences.\n- Photos or videos for form correction analysis (this data is processed by our AI and not viewed by humans without your explicit consent).\n- Performance data (reps, sets, weight lifted).",
+            "ar": "لاستخدام المدرب الذكي، قد تقدم بيانات حساسة. وهذا يشمل: \n- أهداف اللياقة البدنية والتفضيلات.\n- الصور أو مقاطع الفيديو لتحليل تصحيح الوضعية (تتم معالجة هذه البيانات بواسطة الذكاء الاصطناعي لدينا ولا يطلع عليها أي شخص دون موافقتك الصريحة).\n- بيانات الأداء (التكرارات، المجموعات، الوزن المرفوع)."
+          }
+        },
+        {
+          "type": "paragraph",
+          "title": {
+            "en": "C. Automatic Usage Data",
+            "ar": "ج. بيانات الاستخدام التلقائية"
+          },
+          "content": {
+            "en": "We automatically collect information about your device and how you use our app, such as device type, IP address, operating system, and crash logs.",
+            "ar": "نحن نجمع تلقائيًا معلومات حول جهازك وكيفية استخدامك لتطبيقنا، مثل نوع الجهاز، وعنوان IP، ونظام التشغيل، وسجلات الأعطال."
+          }
+        }
+      ]
+    },
+    {
+      "section": "how_we_use_info",
+      "title": {
+        "en": "2. How We Use Your Information",
+        "ar": "2. كيف نستخدم معلوماتك"
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#D3D3D3",
+          "contentFontSize": 16,
+          "contentFontWeight": "normal",
+          "contentColor": "#D3D3D3",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      },
+      "content": {
+        "en": [
+          "To provide, maintain, and improve our services.",
+          "To personalize your experience, such as creating custom workout and meal plans.",
+          "To power the AI Trainer and provide form correction feedback.",
+          "To communicate with you, including sending service updates and marketing messages (which you can opt-out of).",
+          "To monitor and analyze trends, usage, and activities to improve app performance and security."
+        ],
+        "ar": [
+          "لتقديم خدماتنا وصيانتها وتحسينها.",
+          "لتخصيص تجربتك، مثل إنشاء خطط تمارين ووجبات مخصصة.",
+          "لتشغيل المدرب الذكي وتقديم ملاحظات تصحيح الوضعية.",
+          "للتواصل معك، بما في ذلك إرسال تحديثات الخدمة والرسائل التسويقية (التي يمكنك إلغاء الاشتراك فيها).",
+          "لمراقبة وتحليل الاتجاهات والاستخدام والأنشطة لتحسين أداء التطبيق وأمانه."
+        ]
+      }
+    },
+    {
+      "section": "how_we_share_info",
+      "title": {
+        "en": "3. How We Share Your Information",
+        "ar": "3. كيف نشارك معلوماتك"
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#D3D3D3",
+          "contentFontSize": 16,
+          "contentFontWeight": "normal",
+          "contentColor": "#D3D3D3",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      },
+      "content": {
+        "en": [
+          "With third-party service providers (e.g., cloud hosting) who need access to such information to perform services for us, under strict confidentiality agreements.",
+          "If required by law, such as in response to a subpoena or legal process.",
+          "If we believe your actions are inconsistent with our user agreements or to protect the rights, property, and safety of Apex Fitness or others.",
+          "**We do not sell your personal or sensitive health data.**"
+        ],
+        "ar": [
+          "مع مزودي الخدمات من الأطراف الثالثة (مثل الاستضافة السحابية) الذين يحتاجون إلى الوصول إلى هذه المعلومات لأداء الخدمات لنا، بموجب اتفاقيات سرية صارمة.",
+          "إذا اقتضى القانون ذلك، كما هو الحال استجابةً لأمر استدعاء أو إجراء قانوني.",
+          "إذا كنا نعتقد أن أفعالك غير متسقة مع اتفاقيات المستخدم الخاصة بنا أو لحماية حقوق وملكية وسلامة 'أبيكس فيتنس' أو الآخرين.",
+          "**نحن لا نبيع بياناتك الشخصية أو الصحية الحساسة.**"
+        ]
+      }
+    },
+    {
+      "section": "data_security",
+      "title": {
+        "en": "4. Data Security",
+        "ar": "4. أمن البيانات"
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#D3D3D3",
+          "contentFontSize": 16,
+          "contentFontWeight": "normal",
+          "contentColor": "#D3D3D3",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      },
+      "content": {
+        "en": [
+          "We implement reasonable administrative, technical, and physical security measures to protect your information. This includes encryption of data in transit and at rest. However, no security system is impenetrable, and we cannot guarantee the absolute security of your information."
+        ],
+        "ar": [
+          "نحن نطبق تدابير أمنية إدارية وتقنية ومادية معقولة لحماية معلوماتك. وهذا يشمل تشفير البيانات أثناء النقل وفي وضع السكون. ومع ذلك، لا يوجد نظام أمني لا يمكن اختراقه، ولا يمكننا ضمان الأمان المطلق لمعلوماتك."
+        ]
+      }
+    },
+    {
+      "section": "data_rights",
+      "title": {
+        "en": "5. Your Data Rights",
+        "ar": "5. حقوق بياناتك"
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#D3D3D3",
+          "contentFontSize": 16,
+          "contentFontWeight": "normal",
+          "contentColor": "#D3D3D3",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      },
+      "content": {
+        "en": [
+          "You have the right to access the personal information we hold about you.",
+          "You can correct, update, or request deletion of your personal information through your account settings or by contacting us.",
+          "You may object to the processing of your data or request that we restrict processing in certain circumstances."
+        ],
+        "ar": [
+          "لديك الحق في الوصول إلى المعلومات الشخصية التي نحتفظ بها عنك.",
+          "يمكنك تصحيح أو تحديث أو طلب حذف معلوماتك الشخصية من خلال إعدادات حسابك أو عن طريق الاتصال بنا.",
+          "يحق لك الاعتراض على معالجة بياناتك أو أن تطلب منا تقييد المعالجة في ظروف معينة."
+        ]
+      }
+    },
+    {
+      "section": "childrens_privacy",
+      "title": {
+        "en": "6. Children's Privacy",
+        "ar": "6. خصوصية الأطفال"
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#D3D3D3",
+          "contentFontSize": 16,
+          "contentFontWeight": "normal",
+          "contentColor": "#D3D3D3",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      },
+      "content": {
+        "en": [
+          "Our app is not intended for individuals under the age of 16. We do not knowingly collect personal information from children under 16. If we become aware that we have, we will take steps to delete such information promptly."
+        ],
+        "ar": [
+          "تطبيقنا غير مخصص للأفراد الذين تقل أعمارهم عن 16 عامًا. نحن لا نجمع عن عمد معلومات شخصية من الأطفال دون سن 16 عامًا. إذا علمنا أننا قمنا بذلك، فسنتخذ خطوات لحذف هذه المعلومات على الفور."
+        ]
+      }
+    },
+    {
+      "section": "changes_to_policy",
+      "title": {
+        "en": "7. Changes to This Policy",
+        "ar": "7. التغييرات على هذه السياسة"
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#D3D3D3",
+          "contentFontSize": 16,
+          "contentFontWeight": "normal",
+          "contentColor": "#D3D3D3",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      },
+      "content": {
+        "en": [
+          "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy in the app and updating the 'Last Updated' date. Your continued use of the app after changes constitutes your acceptance."
+        ],
+        "ar": [
+          "قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بإعلامك بأي تغييرات عن طريق نشر السياسة الجديدة في التطبيق وتحديث تاريخ 'آخر تحديث'. استمرار استخدامك للتطبيق بعد التغييرات يشكل موافقتك."
+        ]
+      }
+    },
+    {
+      "section": "contact_us",
+      "title": {
+        "en": "8. Contact Us",
+        "ar": "8. تواصلوا معنا"
+      },
+      "style": {
+        "title": {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "color": "#D3D3D3",
+          "contentFontSize": 16,
+          "contentFontWeight": "normal",
+          "contentColor": "#D3D3D3",
+          "textAlign": {
+            "en": "left",
+            "ar": "right"
+          },
+          "backgroundColor": "#FFFFFF"
+        }
+      },
+      "content": {
+        "en": [
+          "If you have questions about this Privacy Policy, please contact us at:",
+          "Email: privacy@apexfitness.com",
+          "Address: 123 Fitness Ave, San Francisco, CA 94105"
+        ],
+        "ar": [
+          "إذا كانت لديك أسئلة حول سياسة الخصوصية هذه، يرجى التواصل معنا على:",
+          "البريد الإلكتروني: privacy@apexfitness.com",
+          "العنوان: 123 شارع فيتنس، سان فرانسيسكو، كاليفورنيا 94105"
+        ]
+      }
+    }
+  ]
+}

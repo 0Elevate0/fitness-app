@@ -8,10 +8,12 @@
   "onboardingSubTitle1": "كن ثابتًا، وتحدى حدودك، وشاهد أهدافك تتحول إلى إنجازات",
   "onboardingSubTitle2": "تمرن بذكاء، وتحرك بحرية، واستمتع بكل خطوة في رحلتك الرياضية",
   "onboardingSubTitle3": "ابدأ اليوم، لأن نفسك في المستقبل ستشكرك على الجهد الذي تبذله الآن",
+
   "forgetPasswordLogin": "نسيت كلمة المرور؟",
   "donNotHaveAccount": "ليس لديك حساب؟",
   "welcomeBack": "مرحباً بعودتك",
   "loggingInMessage": "جاري تسجيل دخولك ...",
+
   "heyThere": "مرحباً",
   "createAnAccount": "إنشاء حساب",
   "register": "تسجيل",
@@ -32,6 +34,7 @@
   "female": "أنثى",
   "next": "التالي",
   "signingYouUpMessage": "جاري تسجيلك...",
+
   "oldTitle": "كم عمرك؟",
   "weightTitle": "ما هو وزنك؟",
   "heightTitle": "ما هو طولك؟",
@@ -39,6 +42,7 @@
   "year": "سنة",
   "kg": "كجم",
   "cm": "سم",
+
   "goalTitle": "ما هو هدفك؟",
   "gainWeight": "زيادة الوزن",
   "loseWeight": "خسارة الوزن",
@@ -53,12 +57,15 @@
   "trueBeast": "محترف حقيقي",
   "done": "تم",
   "registeredSuccessfully": "تم التسجيل بنجاح",
+
   "tryAgain": "حاول مرة أخرى",
   "reLogin": "إعادة تسجيل الدخول",
+
   "explore": "استكشف",
   "workouts": "التمارين",
   "profile": "الملف الشخصي",
   "chat": "الدردشة",
+
   "hi": "مرحباً",
   "startYourDay": "لنبدأ يومك",
   "category": "الفئة",
@@ -83,10 +90,25 @@
   "intermediateBack": "تمارين تقوي ظهرك",
   "advancedLeg": "تمارين تقوي جسمك",
   "emptyFoodGroupMessage": "لا يوجد طعام متاح حالياً لمجموعة الطعام المحددة",
+
   "recommendation": "توصية",
   "ingredients": "مكونات",
   "loading": "تحميل...",
   "preparationVideo": "فيديو التحضير",
+
+  "editProfile": "تعديل الملف الشخصي",
+  "changePassword": "تغيير كلمة المرور",
+  "selectLanguage": "اختيار اللغة",
+  "security": "الأمان",
+  "privacyPolicy": "سياسة الخصوصية",
+  "help": "المساعدة",
+  "logout": "تسجيل الخروج",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "helpErrorMessage": "حدث خطأ أثناء تحميل شاشة المساعدة:",
+  "privacyPolicyErrorMessage": "حدث خطأ أثناء تحميل شاشة سياسة الخصوصية:",
+  "securityErrorMessage": "حدث خطأ أثناء تحميل شاشة الأمان:",
+
   "fieldValidation": "هذا الحقل مطلوب",
   "emailValidation": "البريد الإلكتروني غير صالح",
   "emailValidation2": "أدخل بريدًا إلكترونيًا صحيحًا",
@@ -99,6 +121,7 @@
   "passwordValidation5": "لا يجب أن تتجاوز كلمة المرور 20 حرفًا",
   "passwordValidation6": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
   "passwordValidation7": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
+
   "connectionError": "يرجى التحقق من اتصال الإنترنت والمحاولة مرة أخرى",
   "noResponseReceivedMessage": "لم يتم استلام استجابة أو الاستجابة ليست بالتنسيق المتوقع.",
   "error": "خطأ",
@@ -130,6 +153,7 @@
   "invalidCode": "رمز غير صالح",
   "workout": "تمرين",
   "foodRecommendation": "توصية غذائية",
+
   "cal": "130 سعرة حرارية",
   "mins": "30 دقيقة",
   "title": "تمارين لتقوية وشد عضلاتك",

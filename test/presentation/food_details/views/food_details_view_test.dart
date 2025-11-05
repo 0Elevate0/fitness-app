@@ -1,4 +1,6 @@
 import 'package:fitness_app/core/di/di.dart';
+import 'package:fitness_app/core/global_cubit/global_cubit.dart';
+import 'package:fitness_app/core/global_cubit/global_state.dart';
 import 'package:fitness_app/domain/entities/food_details_argument/food_details_argument.dart';
 import 'package:fitness_app/domain/entities/meals/meals_entity.dart';
 import 'package:fitness_app/presentation/food_details/views/food_details_view.dart';
@@ -15,10 +17,11 @@ import 'package:mockito/mockito.dart';
 
 import 'food_details_view_test.mocks.dart';
 
-@GenerateMocks([FoodDetailsCubit])
+@GenerateMocks([FoodDetailsCubit, GlobalCubit])
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late MockFoodDetailsCubit mockFoodDetailsCubit;
+  late MockGlobalCubit mockGlobalCubit;
   setUp(() {
     mockFoodDetailsCubit = MockFoodDetailsCubit();
     getIt.registerFactory<FoodDetailsCubit>(() => mockFoodDetailsCubit);
@@ -27,6 +30,13 @@ void main() {
     when(
       mockFoodDetailsCubit.stream,
     ).thenAnswer((_) => Stream.fromIterable([const FoodDetailsState()]));
+    mockGlobalCubit = MockGlobalCubit();
+    getIt.registerFactory<GlobalCubit>(() => mockGlobalCubit);
+    provideDummy<GlobalState>(const GlobalState());
+    when(mockGlobalCubit.state).thenReturn(const GlobalState());
+    when(
+      mockGlobalCubit.stream,
+    ).thenAnswer((_) => Stream.fromIterable([const GlobalState()]));
   });
 
   // Arrange
@@ -42,13 +52,18 @@ void main() {
       designSize: const Size(375, 812),
       builder: (context, child) {
         return MaterialApp(
-          home: BlocProvider<FoodDetailsCubit>.value(
-            value: mockFoodDetailsCubit
-              ..doIntent(
-                intent: FoodDetailsInitializationIntent(
-                  foodDetailsArgument: foodDetailsArgument,
-                ),
+          home: MultiBlocProvider(
+            providers: [
+              BlocProvider<FoodDetailsCubit>.value(
+                value: mockFoodDetailsCubit
+                  ..doIntent(
+                    intent: FoodDetailsInitializationIntent(
+                      foodDetailsArgument: foodDetailsArgument,
+                    ),
+                  ),
               ),
+              BlocProvider<GlobalCubit>.value(value: mockGlobalCubit),
+            ],
             child: FoodDetailsView(foodDetailsArgument: foodDetailsArgument),
           ),
         );

@@ -8,10 +8,12 @@
   "onboardingSubTitle1": "Stay consistent, push your limits, and watch your goals turn into achievements",
   "onboardingSubTitle2": "Train smarter, move freely, and enjoy every step of your fitness journey",
   "onboardingSubTitle3": "Start today, because your future self will thank you for the effort you make now",
+
   "forgetPasswordLogin": "Forget password?",
   "donNotHaveAccount": "Don't have an account?",
   "welcomeBack": "WELCOME BACK",
   "loggingInMessage": "Logging you in ...",
+
   "heyThere": "Hey There",
   "createAnAccount": "CREATE AN ACCOUNT",
   "register": "Register",
@@ -32,6 +34,7 @@
   "female": "Female",
   "next": "Next",
   "signingYouUpMessage": "Signing you up...",
+
   "oldTitle": "HOW OLD ARE YOU ?",
   "weightTitle": "WHAT IS YOUR WEIGHT ?",
   "heightTitle": "WHAT IS YOUR HEIGHT ?",
@@ -39,6 +42,7 @@
   "year": "Year",
   "kg": "Kg",
   "cm": "CM",
+
   "goalTitle": "WHAT IS YOUR GOAL ?",
   "gainWeight": "Gain Weight",
   "loseWeight": "Lose Weight",
@@ -53,12 +57,15 @@
   "trueBeast": "True Beast",
   "done": "Done",
   "registeredSuccessfully": "You have successfully registered",
+
   "tryAgain": "Try again",
   "reLogin": "Re-login",
+
   "explore": "Explore",
   "workouts": "Workouts",
   "profile": "Profile",
   "chat": "Chat",
+
   "hi": "Hi",
   "startYourDay": "Let’s start your day",
   "category": "Category",
@@ -83,10 +90,25 @@
   "intermediateBack": "Exercises That \nStrengthen Your Back",
   "advancedLeg": "Exercises That \nStrengthen Your Body",
   "emptyFoodGroupMessage": "There are currently no food available for the selected food group",
+
   "recommendation": "Recommendation",
   "ingredients": "Ingredients",
   "loading": "Loading...",
   "preparationVideo": "Preparation Video",
+
+  "editProfile": "Edit Profile",
+  "changePassword": "Change Password",
+  "selectLanguage": "Select Language",
+  "security": "Security",
+  "privacyPolicy": "Privacy Policy",
+  "help": "Help",
+  "logout": "Logout",
+  "english": "English",
+  "arabic": "Arabic",
+  "helpErrorMessage": "An error occurred while loading the help screen:",
+  "privacyPolicyErrorMessage": "An error occurred while loading the Privacy Policy screen:",
+  "securityErrorMessage": "An error occurred while loading the Security screen:",
+
   "fieldValidation": "This field is required",
   "emailValidation": "This Email is not valid",
   "emailValidation2": "Enter a valid email",
@@ -99,6 +121,7 @@
   "passwordValidation5": "Password must not exceed 20 characters",
   "passwordValidation6": "Password must contain a capital letter",
   "passwordValidation7": "Password must contain a special character",
+
   "connectionError": "Please check your internet connection and try again",
   "noResponseReceivedMessage": "No response received or response is not in expected format.",
   "error": "Error",
@@ -130,6 +153,7 @@
   "invalidCode": "Invalid code",
   "workout": "Workout",
   "foodRecommendation": "Food Recommendation",
+
   "cal": "130 Cal",
   "mins": "30 min",
   "title": "exercises to strengthen and tone your",
