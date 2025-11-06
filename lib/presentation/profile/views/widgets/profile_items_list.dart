@@ -3,8 +3,12 @@ import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/presentation/profile/views/widgets/profile_selection_item.dart';
 import 'package:fitness_app/presentation/profile/views/widgets/select_language_item.dart';
+import 'package:fitness_app/presentation/profile/views_model/profile_cubit.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
+import 'package:fitness_app/utils/dialogs/dialogs.dart';
+import 'package:fitness_app/utils/dialogs/logout_dialog_content.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileItemsList extends StatelessWidget {
@@ -12,6 +16,7 @@ class ProfileItemsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final profileCubit = BlocProvider.of<ProfileCubit>(context);
     return BlurredContainer(
       margin: EdgeInsets.zero,
       padding: const EdgeInsets.all(8),
@@ -57,6 +62,18 @@ class ProfileItemsList extends StatelessWidget {
             title: AppText.logout,
             titleColor: theme.colorScheme.primary,
             isLastItem: true,
+            onTap: () async => await Dialogs.customDialog(
+              isBarrierDismissible: false,
+              context: context,
+              backgroundColor: theme.colorScheme.secondary.withValues(
+                alpha: 0.5,
+              ),
+              insetPadding: REdgeInsets.symmetric(horizontal: 16),
+              content: BlocProvider<ProfileCubit>.value(
+                value: profileCubit,
+                child: const LogoutDialogContent(),
+              ),
+            ),
           ),
         ],
       ),

@@ -120,6 +120,9 @@ abstract final class AppText {
   static const String helpErrorMessage = "helpErrorMessage";
   static const String privacyPolicyErrorMessage = "privacyPolicyErrorMessage";
   static const String securityErrorMessage = "securityErrorMessage";
+  static const String logoutCapital = "logoutCapital";
+  static const String confirmLogout = "confirmLogout";
+  static const String cancel = "cancel";
 
   // Validations
   static const String fieldValidation = "fieldValidation";

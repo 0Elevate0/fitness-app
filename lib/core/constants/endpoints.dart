@@ -21,4 +21,5 @@ abstract final class Endpoints {
   static const String getDifficultyLevelsByPrimeMover =
       "/api/v1/levels/difficulty-levels/by-prime-mover";
   static const String profileResetPassword = '/api/v1/auth/change-password';
+  static const String logout = '/api/v1/auth/logout';
 }

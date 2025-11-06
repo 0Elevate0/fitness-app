@@ -109,6 +109,10 @@
   "privacyPolicyErrorMessage": "An error occurred while loading the Privacy Policy screen:",
   "securityErrorMessage": "An error occurred while loading the Security screen:",
 
+  "logoutCapital": "LOGOUT",
+  "confirmLogout": "Confirm logout!!",
+  "cancel": "Cancel",
+
   "fieldValidation": "This field is required",
   "emailValidation": "This Email is not valid",
   "emailValidation2": "Enter a valid email",
