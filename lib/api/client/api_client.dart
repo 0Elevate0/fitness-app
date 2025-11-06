@@ -102,4 +102,7 @@ abstract class ApiClient {
     @Header("Authorization") required String token,
     @Body() required ProfileResetPasswordRequestModel request,
   });
+
+  @GET(Endpoints.logout)
+  Future<void> logout({@Header("Authorization") required String token});
 }
