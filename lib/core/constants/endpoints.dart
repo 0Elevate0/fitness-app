@@ -20,4 +20,5 @@ abstract final class Endpoints {
       "/api/v1/exercises/by-muscle-difficulty";
   static const String getDifficultyLevelsByPrimeMover =
       "/api/v1/levels/difficulty-levels/by-prime-mover";
+  static const String profileResetPassword = '/api/v1/auth/change-password';
 }

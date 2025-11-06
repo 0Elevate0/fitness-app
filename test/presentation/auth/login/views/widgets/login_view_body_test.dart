@@ -1,6 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/di/di.dart';
+import 'package:fitness_app/core/global_cubit/global_cubit.dart';
+import 'package:fitness_app/core/global_cubit/global_state.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
 import 'package:fitness_app/presentation/auth/login/views/widgets/login_form.dart';
 import 'package:fitness_app/presentation/auth/login/views/widgets/login_view_body.dart';
@@ -19,12 +22,23 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'login_view_body_test.mocks.dart';
 
-@GenerateMocks([LoginCubit])
+@GenerateMocks([LoginCubit, GlobalCubit])
 void main() async {
+  late MockGlobalCubit mockGlobalCubit;
   setUpAll(() async {
     TestWidgetsFlutterBinding.ensureInitialized();
     SharedPreferences.setMockInitialValues({});
     await EasyLocalization.ensureInitialized();
+  });
+
+  setUp(() {
+    mockGlobalCubit = MockGlobalCubit();
+    getIt.registerFactory<GlobalCubit>(() => mockGlobalCubit);
+    provideDummy<GlobalState>(const GlobalState());
+    when(mockGlobalCubit.state).thenReturn(const GlobalState());
+    when(
+      mockGlobalCubit.stream,
+    ).thenAnswer((_) => Stream.fromIterable([const GlobalState()]));
   });
 
   provideDummy<LoginState>(
@@ -58,11 +72,12 @@ void main() async {
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         child: MaterialApp(
-          home: Scaffold(
-            body: BlocProvider<LoginCubit>.value(
-              value: mockCubit,
-              child: const LoginViewBody(),
-            ),
+          home: MultiBlocProvider(
+            providers: [
+              BlocProvider<LoginCubit>.value(value: mockCubit),
+              BlocProvider<GlobalCubit>.value(value: mockGlobalCubit),
+            ],
+            child: const Scaffold(body: LoginViewBody()),
           ),
         ),
       ),
@@ -102,5 +117,9 @@ void main() async {
     // Assert
     expect(find.byType(AnimationLoaderWidget), findsOneWidget);
     expect(find.text(AppText.loggingInMessage.tr()), findsOneWidget);
+  });
+
+  tearDown(() {
+    getIt.reset();
   });
 }

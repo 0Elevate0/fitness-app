@@ -1,5 +1,4 @@
 {
-
   "skip": "تخطي",
   "back": "رجوع",
   "doIt": "ابدأ الآن",
@@ -97,6 +96,19 @@
   "loading": "تحميل...",
   "preparationVideo": "فيديو التحضير",
 
+  "editProfile": "تعديل الملف الشخصي",
+  "changePassword": "تغيير كلمة المرور",
+  "selectLanguage": "اختيار اللغة",
+  "security": "الأمان",
+  "privacyPolicy": "سياسة الخصوصية",
+  "help": "المساعدة",
+  "logout": "تسجيل الخروج",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "helpErrorMessage": "حدث خطأ أثناء تحميل شاشة المساعدة:",
+  "privacyPolicyErrorMessage": "حدث خطأ أثناء تحميل شاشة سياسة الخصوصية:",
+  "securityErrorMessage": "حدث خطأ أثناء تحميل شاشة الأمان:",
+
   "fieldValidation": "هذا الحقل مطلوب",
   "emailValidation": "البريد الإلكتروني غير صالح",
   "emailValidation2": "أدخل بريدًا إلكترونيًا صحيحًا",
@@ -145,8 +157,6 @@
   "cal": "130 سعرة حرارية",
   "mins": "30 دقيقة",
   "title": "تمارين لتقوية وشد عضلاتك",
-  "exerciseReps": "3 مجموعات * 15 مرة",
-
   "askAnyThing": "اسأل أي شيء",
   "smartCoach": "المدرب الذكي",
   "previousConversations": "المحادثات السابقة",
@@ -155,5 +165,10 @@
   "getStarted": "لنبدأ",
   "iAmYourSmartCoach": "أنا مدربك الذكي",
   "gallery": "معرض الصور",
-  "camera": "الكاميرا"
+  "camera": "الكاميرا",
+  "exerciseReps": "3 مجموعات * 15 مرة",
+  "passwordChanged": "تم تغيير كلمة المرور بنجاح",
+  "makeSureIts8Chars": "تأكد أن تكون 8 أحرف أو أكثر",
+  "currentPassword": "كلمة المرور الحالية",
+  "newPassword": "كلمة المرور الجديدة"
 }
