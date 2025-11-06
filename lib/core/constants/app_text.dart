@@ -164,4 +164,17 @@ abstract final class AppText {
   static const String mins = "mins";
   static const String title = "title";
   static const String exerciseReps = "exerciseReps";
+
+  // smartCoach
+  static const String askAnyThing ="askAnyThing";
+  static const String smartCoach="smartCoach";
+  static const String previousConversations="previousConversations";
+  static const String noPreviousChatsFound="noPreviousChatsFound";
+  static const String id='id';
+  static const String untitledChat="untitledChat";
+  static const String howCanIAssistYouToday= "howCanIAssistYouToday";
+  static const String getStarted= "getStarted";
+  static const String iAmYourSmartCoach= "iAmYourSmartCoach";
+  static const String gallery= "gallery";
+  static const String camera= "camera";
 }

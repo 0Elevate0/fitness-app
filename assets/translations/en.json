@@ -144,5 +144,15 @@
   "cal": "130 Cal",
   "mins": "30 min",
   "title": "exercises to strengthen and tone your",
-  "exerciseReps": "3 Groups * 15 Times"
+  "exerciseReps": "3 Groups * 15 Times",
+
+  "askAnyThing": "Ask Anything",
+  "smartCoach": "Smart Coach",
+  "previousConversations": "Previous Conversations",
+  "noPreviousChatsFound": "No previous chats found",
+  "howCanIAssistYouToday": "How can I assist you today?",
+  "getStarted": "Get Started",
+  "iAmYourSmartCoach": "I am your Smart Coach",
+  "gallery": "Gallery",
+  "camera": "Camera"
 }

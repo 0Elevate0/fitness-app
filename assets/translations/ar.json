@@ -145,5 +145,15 @@
   "cal": "130 سعرة حرارية",
   "mins": "30 دقيقة",
   "title": "تمارين لتقوية وشد عضلاتك",
-  "exerciseReps": "3 مجموعات * 15 مرة"
+  "exerciseReps": "3 مجموعات * 15 مرة",
+
+  "askAnyThing": "اسأل أي شيء",
+  "smartCoach": "المدرب الذكي",
+  "previousConversations": "المحادثات السابقة",
+  "noPreviousChatsFound": "لا توجد محادثات سابقة",
+  "howCanIAssistYouToday": "كيف يمكنني مساعدتك اليوم؟",
+  "getStarted": "لنبدأ",
+  "iAmYourSmartCoach": "أنا مدربك الذكي",
+  "gallery": "معرض الصور",
+  "camera": "الكاميرا"
 }

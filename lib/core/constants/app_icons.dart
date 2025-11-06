@@ -14,4 +14,5 @@ abstract final class AppIcons {
   static const String gym = "assets/icons/gym.svg";
   static const String profile = "assets/icons/profile.svg";
   static const String menu ="assets/icons/menu.svg";
+  static const String backArw = "assets/icons/baack.svg";
 }

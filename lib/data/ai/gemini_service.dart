@@ -11,13 +11,14 @@ class GeminiService {
 
   Future<String> sendMessage(String userMessage) async {
     final apiKey = await _secureStorage.getData(key: ConstKeys.geminiApiKey);
+
     if (apiKey == null || apiKey.isEmpty) {
       throw Exception(
         "Missing Gemini API key. Please store it securely first.",
       );
     }
-    final model = GenerativeModel(model: 'gemini-2.5-flash', apiKey: apiKey);
 
+    final model = GenerativeModel(model: 'gemini-2.5-flash', apiKey: apiKey);
     try {
       final content = [Content.text(userMessage)];
       final response = await model.generateContent(content);
