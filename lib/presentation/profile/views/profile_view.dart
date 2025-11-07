@@ -2,6 +2,7 @@ import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/di/di.dart';
 import 'package:fitness_app/presentation/profile/views/widgets/profile_view_body.dart';
 import 'package:fitness_app/presentation/profile/views_model/profile_cubit.dart';
+import 'package:fitness_app/presentation/profile/views_model/profile_intent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +12,9 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ProfileCubit>(
-      create: (context) => getIt.get<ProfileCubit>(),
+      create: (context) =>
+          getIt.get<ProfileCubit>()
+            ..doIntent(intent: const InitializeUserDataIntent()),
       child: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(

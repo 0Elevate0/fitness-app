@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/core/constants/endpoints.dart';
 import 'package:fitness_app/utils/fitness_method_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -65,9 +68,15 @@ class HomeAppBar extends StatelessWidget {
               backgroundColor: theme.colorScheme.onPrimary.withValues(
                 alpha: 0.1,
               ),
-              backgroundImage: CachedNetworkImageProvider(
-                FitnessMethodHelper.userData?.photo ?? "",
-              ),
+              backgroundImage:
+                  FitnessMethodHelper.userData?.photo?.contains(
+                        Endpoints.baseUrl,
+                      ) ==
+                      true
+                  ? CachedNetworkImageProvider(
+                      FitnessMethodHelper.userData?.photo ?? "",
+                    )
+                  : FileImage(File(FitnessMethodHelper.userData?.photo ?? "")),
             ),
           ),
         ],

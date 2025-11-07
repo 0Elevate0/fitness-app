@@ -21,6 +21,16 @@ abstract final class FitnessMethodHelper {
     return ActivityLevels.values.elementAt(currentActivityIndex).name;
   }
 
+  static String getCurrentActivityLevelTitle({required String activityLevel}) {
+    final currentActivityLevelIndex = ActivityLevels.values.indexWhere(
+      (level) => level.name == activityLevel,
+    );
+    if (currentActivityLevelIndex == -1) {
+      return activityLevels[0];
+    }
+    return activityLevels[currentActivityLevelIndex];
+  }
+
   static String getCurrentLanguage({required bool isArabicLanguage}) {
     if (isArabicLanguage) {
       return "ar";

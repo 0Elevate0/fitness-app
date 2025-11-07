@@ -5,6 +5,7 @@ import 'package:fitness_app/core/global_cubit/global_cubit.dart';
 import 'package:fitness_app/core/global_cubit/global_intent.dart';
 import 'package:fitness_app/core/global_cubit/global_state.dart';
 import 'package:fitness_app/presentation/profile/views/widgets/profile_selection_item.dart';
+import 'package:fitness_app/utils/common_widgets/bracket_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,44 +28,11 @@ class SelectLanguageItem extends StatelessWidget {
         ),
         prefixIcon: AppIcons.language,
         isTextTitle: false,
-        titleWidget: Row(
-          children: [
-            FittedBox(
-              alignment: AlignmentDirectional.centerStart,
-              fit: BoxFit.scaleDown,
-              child: Text(
-                "${AppText.selectLanguage.tr()} (",
-                style: theme.textTheme.bodyLarge?.copyWith(
-                  color: theme.colorScheme.onSecondary,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-            FittedBox(
-              alignment: AlignmentDirectional.centerStart,
-              fit: BoxFit.scaleDown,
-              child: Text(
-                state.selectedLanguage == Language.english
-                    ? AppText.english.tr()
-                    : AppText.arabic.tr(),
-                style: theme.textTheme.bodyLarge?.copyWith(
-                  color: theme.colorScheme.primary,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-            FittedBox(
-              alignment: AlignmentDirectional.centerStart,
-              fit: BoxFit.scaleDown,
-              child: Text(
-                ")",
-                style: theme.textTheme.bodyLarge?.copyWith(
-                  color: theme.colorScheme.onSecondary,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-          ],
+        titleWidget: BracketText(
+          textOutside: AppText.selectLanguage,
+          textInside: state.selectedLanguage == Language.english
+              ? AppText.english.tr()
+              : AppText.arabic.tr(),
         ),
         isSuffixIcon: false,
         suffixWidget: RSizedBox(

@@ -26,11 +26,14 @@ class ProfileItemsList extends StatelessWidget {
       child: Column(
         spacing: 16.r,
         children: [
-          const RPadding(
-            padding: EdgeInsets.only(top: 8),
+          RPadding(
+            padding: const EdgeInsets.only(top: 8),
             child: ProfileSelectionItem(
               prefixIcon: AppIcons.editProfile,
               title: AppText.editProfile,
+              onTap: () => Navigator.of(
+                context,
+              ).pushNamed(RouteNames.editProfile, arguments: profileCubit),
             ),
           ),
           ProfileSelectionItem(

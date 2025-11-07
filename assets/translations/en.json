@@ -113,6 +113,14 @@
   "confirmLogout": "Confirm logout!!",
   "cancel": "Cancel",
 
+  "yourWeight": "Your Weight",
+  "yourGoal": "Your Goal",
+  "yourActivityLevel": "Your Activity Level",
+  "tapToEdit": "Tap To Edit",
+  "profilePhotoSuccessMessage": "Your profile picture has been successfully updated",
+  "editProfileSuccessMessage": "Your profile has been successfully updated",
+  "update": "Update",
+
   "fieldValidation": "This field is required",
   "emailValidation": "This Email is not valid",
   "emailValidation2": "Enter a valid email",
