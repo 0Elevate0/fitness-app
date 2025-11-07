@@ -8,6 +8,7 @@ import 'package:fitness_app/presentation/auth/profile_reset_password/views/profi
 import 'package:fitness_app/presentation/auth/register/views/register_view.dart';
 import 'package:fitness_app/presentation/auth/reset_password/views/reset_password_view.dart';
 import 'package:fitness_app/presentation/auth/verification/views/verification_view.dart';
+import 'package:fitness_app/presentation/edit_profile/views/edit_profile_view.dart';
 import 'package:fitness_app/presentation/exercise/views/exercise_view.dart';
 import 'package:fitness_app/presentation/fitness_bottom_navigation/views/fitness_bottom_navigation_view.dart';
 import 'package:fitness_app/presentation/food/views/food_view.dart';
@@ -15,6 +16,7 @@ import 'package:fitness_app/presentation/food_details/views/food_details_view.da
 import 'package:fitness_app/presentation/help/views/help_view.dart';
 import 'package:fitness_app/presentation/onboarding/views/onboarding_view.dart';
 import 'package:fitness_app/presentation/privacy_policy/views/privacy_policy_view.dart';
+import 'package:fitness_app/presentation/profile/views_model/profile_cubit.dart';
 import 'package:fitness_app/presentation/security/views/security_view.dart';
 import 'package:fitness_app/presentation/splash/views/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -70,6 +72,11 @@ abstract final class AppRoutes {
         return MaterialPageRoute(builder: (_) => const SecurityView());
       case RouteNames.profileResetPassword:
         return MaterialPageRoute(builder: (_) => const ProfileResetPassword());
+      case RouteNames.editProfile:
+        return MaterialPageRoute(
+          builder: (_) =>
+              EditProfileView(profileCubit: settings.arguments as ProfileCubit),
+        );
       default:
         return null;
     }

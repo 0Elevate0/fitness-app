@@ -1,3 +1,4 @@
+import 'package:fitness_app/api/requests/edit_profile_request/edit_profile_request_model.dart';
 import 'package:fitness_app/api/requests/forget_password_request/forget_password_request_model.dart';
 import 'package:fitness_app/api/requests/login_request/login_request_model.dart';
 import 'package:fitness_app/api/requests/profile%20_reset_password/profile_reset_password_request.dart';
@@ -5,6 +6,7 @@ import 'package:fitness_app/api/requests/register_request/register_request_model
 import 'package:fitness_app/api/requests/reset_password_request/reset_password_request_model.dart';
 import 'package:fitness_app/api/requests/verification_request/verification_request_model.dart';
 import 'package:fitness_app/domain/entities/profile_reset_password/profile_reset_password_entity.dart';
+import 'package:fitness_app/domain/entities/requests/edit_profile_request/edit_profile_request_entity.dart';
 import 'package:fitness_app/domain/entities/requests/forget_password_request/forget_password_request_entity.dart';
 import 'package:fitness_app/domain/entities/requests/login_request/login_request_entity.dart';
 import 'package:fitness_app/domain/entities/requests/register_request/register_request_entity.dart';
@@ -68,6 +70,18 @@ abstract final class RequestMapper {
     return ProfileResetPasswordRequestModel(
       password: entity.password,
       newPassword: entity.newPassword,
+    );
+  }
+
+  static EditProfileRequestModel toEditProfileRequestModel({
+    required EditProfileRequestEntity request,
+  }) {
+    return EditProfileRequestModel(
+      firstName: request.firstName,
+      lastName: request.lastName,
+      weight: request.weight,
+      goal: request.goal,
+      activityLevel: request.activityLevel,
     );
   }
 }

@@ -112,7 +112,9 @@ class CustomTextFormField extends StatelessWidget {
           borderRadius: borderRadius,
         ),
         disabledBorder: buildOutlinedBorder(
-          borderColor: disabledBorderColor ?? theme.colorScheme.onSecondary,
+          borderColor:
+              disabledBorderColor ??
+              theme.colorScheme.onSecondary.withValues(alpha: 0.5),
           borderRadius: borderRadius,
         ),
         prefixIcon: Padding(

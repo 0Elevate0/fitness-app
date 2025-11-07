@@ -58,5 +58,7 @@
             <string>UIInterfaceOrientationPortrait</string>
             <string>UIInterfaceOrientationPortraitUpsideDown</string>
         </array>
+        <key>NSPhotoLibraryUsageDescription</key>
+        <string>Fitness App need this to allow the user to change his profile image as he can pick up a new image from his gallery</string>
 	</dict>
 </plist>

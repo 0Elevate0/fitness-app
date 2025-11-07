@@ -22,4 +22,6 @@ abstract final class Endpoints {
       "/api/v1/levels/difficulty-levels/by-prime-mover";
   static const String profileResetPassword = '/api/v1/auth/change-password';
   static const String logout = '/api/v1/auth/logout';
+  static const String updatePhoto = '/api/v1/auth/upload-photo';
+  static const String editProfile = '/api/v1/auth/editProfile';
 }
