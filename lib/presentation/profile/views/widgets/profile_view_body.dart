@@ -3,10 +3,14 @@ import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/core/constants/const_keys.dart';
 import 'package:fitness_app/core/global_cubit/global_cubit.dart';
 import 'package:fitness_app/core/global_cubit/global_state.dart';
+import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/presentation/profile/views/widgets/profile_avatar.dart';
 import 'package:fitness_app/presentation/profile/views/widgets/profile_items_list.dart';
+import 'package:fitness_app/presentation/profile/views_model/profile_cubit.dart';
+import 'package:fitness_app/presentation/profile/views_model/profile_state.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_layer_view.dart';
 import 'package:fitness_app/utils/common_widgets/custom_app_bar.dart';
+import 'package:fitness_app/utils/loaders/loaders.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,6 +30,22 @@ class ProfileViewBody extends StatelessWidget {
               context.setLocale(const Locale(ConstKeys.english));
             } else if (state.selectedLanguage == Language.arabic) {
               context.setLocale(const Locale(ConstKeys.arabic));
+            }
+          },
+        ),
+        BlocListener<ProfileCubit, ProfileState>(
+          listenWhen: (previous, current) =>
+              current.logoutStatus.isFailure || current.logoutStatus.isSuccess,
+          listener: (context, state) {
+            if (state.logoutStatus.isFailure) {
+              Loaders.showErrorMessage(
+                message: state.logoutStatus.error?.message ?? "",
+                context: context,
+              );
+            } else if (state.logoutStatus.isSuccess) {
+              Navigator.of(
+                context,
+              ).pushNamedAndRemoveUntil(RouteNames.login, (route) => false);
             }
           },
         ),

@@ -27,6 +27,29 @@ final class UserDataEntity extends Equatable {
     this.photo,
   });
 
+  UserDataEntity copyWith({
+    String? firstName,
+    String? lastName,
+    String? photo,
+    int? weight,
+    String? activityLevel,
+    String? goal,
+  }) {
+    return UserDataEntity(
+      id: id,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      email: email,
+      gender: gender,
+      age: age,
+      weight: weight ?? this.weight,
+      height: height,
+      activityLevel: activityLevel ?? this.activityLevel,
+      goal: goal ?? this.goal,
+      photo: photo ?? this.photo,
+    );
+  }
+
   @override
   List<Object?> get props => [
     id,

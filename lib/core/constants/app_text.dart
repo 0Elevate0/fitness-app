@@ -120,6 +120,18 @@ abstract final class AppText {
   static const String helpErrorMessage = "helpErrorMessage";
   static const String privacyPolicyErrorMessage = "privacyPolicyErrorMessage";
   static const String securityErrorMessage = "securityErrorMessage";
+  static const String logoutCapital = "logoutCapital";
+  static const String confirmLogout = "confirmLogout";
+  static const String cancel = "cancel";
+
+  // Edit Profile
+  static const String yourWeight = "yourWeight";
+  static const String yourGoal = "yourGoal";
+  static const String yourActivityLevel = "yourActivityLevel";
+  static const String tapToEdit = "tapToEdit";
+  static const String profilePhotoSuccessMessage = "profilePhotoSuccessMessage";
+  static const String editProfileSuccessMessage = "editProfileSuccessMessage";
+  static const String update = "update";
 
   // Validations
   static const String fieldValidation = "fieldValidation";

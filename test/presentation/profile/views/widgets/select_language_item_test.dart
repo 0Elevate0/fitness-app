@@ -5,6 +5,7 @@ import 'package:fitness_app/core/global_cubit/global_cubit.dart';
 import 'package:fitness_app/core/global_cubit/global_state.dart';
 import 'package:fitness_app/presentation/profile/views/widgets/profile_selection_item.dart';
 import 'package:fitness_app/presentation/profile/views/widgets/select_language_item.dart';
+import 'package:fitness_app/utils/common_widgets/bracket_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,6 +57,7 @@ void main() {
     );
     expect(find.byType(ProfileSelectionItem), findsOneWidget);
     expect(find.byType(Row), findsWidgets);
+    expect(find.byType(BracketText), findsOneWidget);
     expect(find.byType(FittedBox), findsWidgets);
     expect(find.byType(Text), findsNWidgets(3));
     expect(find.textContaining(AppText.selectLanguage.tr()), findsOneWidget);

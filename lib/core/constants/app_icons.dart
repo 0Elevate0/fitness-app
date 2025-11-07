@@ -22,4 +22,5 @@ abstract final class AppIcons {
   static const String logout = "assets/icons/logout.svg";
   static const String privacyPolicy = "assets/icons/privacy_policy.svg";
   static const String security = "assets/icons/security.svg";
+  static const String edit = "assets/icons/edit.svg";
 }

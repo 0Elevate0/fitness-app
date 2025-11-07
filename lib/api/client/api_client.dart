@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
+import 'package:fitness_app/api/requests/edit_profile_request/edit_profile_request_model.dart';
 import 'package:fitness_app/api/requests/forget_password_request/forget_password_request_model.dart';
 import 'package:fitness_app/api/requests/login_request/login_request_model.dart';
 import 'package:fitness_app/api/requests/profile%20_reset_password/profile_reset_password_request.dart';
@@ -101,5 +104,21 @@ abstract class ApiClient {
   Future<ProfileResetPasswordResponse> profileResetPassword({
     @Header("Authorization") required String token,
     @Body() required ProfileResetPasswordRequestModel request,
+  });
+
+  @GET(Endpoints.logout)
+  Future<void> logout({@Header("Authorization") required String token});
+
+  @MultiPart()
+  @PUT(Endpoints.updatePhoto)
+  Future<void> updatePhoto({
+    @Header("Authorization") required String token,
+    @Part(name: "photo") required File newPhoto,
+  });
+
+  @PUT(Endpoints.editProfile)
+  Future<void> editProfile({
+    @Header("Authorization") required String token,
+    @Body() required EditProfileRequestModel request,
   });
 }

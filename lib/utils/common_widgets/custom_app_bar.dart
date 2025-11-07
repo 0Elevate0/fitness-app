@@ -15,6 +15,7 @@ class CustomAppBar extends StatelessWidget {
     this.titleAlignment,
     this.onBackArrowClicked,
     this.padding,
+    this.titlePadding,
   });
   final String? title;
   final TextStyle? titleStyle;
@@ -26,6 +27,7 @@ class CustomAppBar extends StatelessWidget {
   final AlignmentGeometry? titleAlignment;
   final void Function()? onBackArrowClicked;
   final EdgeInsets? padding;
+  final EdgeInsetsGeometry? titlePadding;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -49,14 +51,17 @@ class CustomAppBar extends StatelessWidget {
                 child: FittedBox(
                   alignment: titleAlignment ?? AlignmentDirectional.center,
                   fit: BoxFit.scaleDown,
-                  child: Text(
-                    title ?? "",
-                    style:
-                        titleStyle ??
-                        theme.textTheme.headlineLarge?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: titlePadding ?? EdgeInsets.zero,
+                    child: Text(
+                      title ?? "",
+                      style:
+                          titleStyle ??
+                          theme.textTheme.headlineLarge?.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),

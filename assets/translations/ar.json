@@ -109,6 +109,18 @@
   "privacyPolicyErrorMessage": "حدث خطأ أثناء تحميل شاشة سياسة الخصوصية:",
   "securityErrorMessage": "حدث خطأ أثناء تحميل شاشة الأمان:",
 
+  "logoutCapital": "تسجيل الخروج",
+  "confirmLogout": "تأكيد تسجيل الخروج!!",
+  "cancel": "إلغاء",
+
+  "yourWeight": "وزنك",
+  "yourGoal": "هدفك",
+  "yourActivityLevel": "مستوى نشاطك البدني",
+  "tapToEdit": "اضغط للتعديل",
+  "profilePhotoSuccessMessage": "تم تحديث صورة ملفك الشخصي بنجاح",
+  "editProfileSuccessMessage": "تم تحديث ملفك الشخصي بنجاح",
+  "update": "تحديث",
+
   "fieldValidation": "هذا الحقل مطلوب",
   "emailValidation": "البريد الإلكتروني غير صالح",
   "emailValidation2": "أدخل بريدًا إلكترونيًا صحيحًا",
