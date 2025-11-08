@@ -169,9 +169,19 @@
   "cal": "130 Cal",
   "mins": "30 min",
   "title": "exercises to strengthen and tone your",
-  "exerciseReps": "3 Groups * 15 Times",
   "passwordChanged": "Password Changed Successfully",
   "makeSureIts8Chars": "Make Sure Its 8 Characters Or More",
   "currentPassword": "Current Password",
-  "newPassword": "New Password"
+  "newPassword": "New Password",
+  "exerciseReps": "3 Groups * 15 Times",
+
+  "askAnyThing": "Ask Anything",
+  "smartCoach": "Smart Coach",
+  "previousConversations": "Previous Conversations",
+  "noPreviousChatsFound": "No previous chats found",
+  "howCanIAssistYouToday": "How Can I Assist You\n Today?",
+  "getStarted": "Get Started",
+  "iAmYourSmartCoach": "I Am Your Smart Coach",
+  "gallery": "Gallery",
+  "camera": "Camera"
 }

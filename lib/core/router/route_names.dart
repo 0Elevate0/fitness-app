@@ -15,4 +15,5 @@ abstract final class RouteNames {
   static const String security = "/securityView";
   static const String profileResetPassword = "/profileResetPasswordView";
   static const String editProfile = "/editProfileView";
+  static const String smartCoachChat ="/SmartCoachChatView";
 }
