@@ -96,7 +96,7 @@ class ExerciseItem extends StatelessWidget {
                   ),
                   child: Icon(
                     Icons.play_arrow,
-                    color: AppColors.black,
+                    color: theme.colorScheme.secondaryFixed,
                     size: 28.sp,
                   ),
                 ),
