@@ -22,6 +22,9 @@ class ProfileCubit extends Cubit<ProfileState> {
           newImagePath: intent.newImagePath,
           newFirstName: intent.newFirstName,
           newLastName: intent.newLastName,
+          newGoal: intent.newGoal,
+          newActivityLevel: intent.newActivityLevel,
+          newWeight: intent.newWeight,
         );
         break;
     }
