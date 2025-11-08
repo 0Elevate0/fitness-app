@@ -17,25 +17,26 @@ class SmartCoachIntroBodyView extends StatelessWidget {
     final theme = Theme.of(context);
     return BlurredLayerView(
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const RSizedBox(height: 30),
-            const SmartCoachIntroAppBar(),
-            const RSizedBox(height: 20),
+        child: SafeArea(
+          child: Column(
+            children: [
+              const RSizedBox(height: 12),
+              const SmartCoachIntroAppBar(),
+              const RSizedBox(height: 20),
 
-            Container(
-              height: 425.h,
-              width: 350.w,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(AppImages.robot),
+              Container(
+                height: 425.h,
+                width: 350.w,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(AppImages.robot),
+                  ),
                 ),
               ),
-            ),
-            BlurredContainer(
-              child: RPadding(
-                padding: const EdgeInsets.all(18),
+              BlurredContainer(
+                borderRadius: BorderRadius.circular(50.r),
+                padding: REdgeInsets.symmetric(horizontal: 16, vertical: 28),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -56,8 +57,8 @@ class SmartCoachIntroBodyView extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

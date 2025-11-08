@@ -8,7 +8,7 @@ import 'package:fitness_app/domain/use_cases/smart_coach_chat/insert_message_use
 import 'package:fitness_app/presentation/smart_coach_chat/views/widgets/chat_message.dart';
 import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coach_chat_intent.dart';
 import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coach_chat_state.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
@@ -19,6 +19,7 @@ class SmartCoachChatCubit extends Cubit<SmartCoachChatState> {
   final GetAllChatsUseCase _getAllChats;
   final InsertMessageUseCase _insertMessage;
   final GetMessagesByChatUseCase _getMessages;
+  late GlobalKey<ScaffoldState> scaffoldKey;
 
   SmartCoachChatCubit(
     this._geminiService,
@@ -32,19 +33,13 @@ class SmartCoachChatCubit extends Cubit<SmartCoachChatState> {
   Future<void> doIntent(SmartCoachChatIntent intent) async {
     switch (intent) {
       case InitSmartCoachChat():
-        await _onInit();
+        _onInit();
         break;
       case SendMessageIntent():
         await _handleSendMessage(intent.message);
         break;
       case LoadChatIntent():
         await _loadChat(chatId: intent.chatId, title: intent.title);
-        break;
-      case LoadAllChatsIntent():
-        await _loadAllChats();
-        break;
-      case SendImageIntent():
-        await _handleSendImage(intent.imagePath);
         break;
     }
   }
@@ -96,6 +91,8 @@ class SmartCoachChatCubit extends Cubit<SmartCoachChatState> {
   }
 
   Future<void> _onInit() async {
+    scaffoldKey = GlobalKey<ScaffoldState>();
+    await _loadAllChats();
     emit(
       state.copyWith(
         messages: const [],
@@ -147,32 +144,6 @@ class SmartCoachChatCubit extends Cubit<SmartCoachChatState> {
         ),
       );
     }
-  }
-
-
-  Future<void> _handleSendImage(String path) async {
-    if (path.isEmpty) return;
-    final chatId = state.currentChatId ?? await _createChat(title: "New Image Chat");
-
-    final updatedMessages = List<ChatMessage>.of(state.messages)
-      ..add(ChatMessage(message: path, isUser: true,));
-
-    await _insertMessage(chatId: chatId, role: 'user', content: path, );
-
-    emit(state.copyWith(
-      sendMessageStatus: const StateStatus.loading(),
-      messages: updatedMessages,
-      currentChatId: chatId,
-    ));
-
-    // لو عايز تبعت الصورة لـ Gemini API أو تعمل أي معالجة:
-    // final reply = await _geminiService.sendImage(path);
-    // updatedMessages.add(ChatMessage(message: reply, isUser: false));
-
-    emit(state.copyWith(
-      sendMessageStatus: const StateStatus.success(null),
-      messages: updatedMessages,
-    ));
   }
 
   @override

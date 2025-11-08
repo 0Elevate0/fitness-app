@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_colors.dart';
 import 'package:fitness_app/core/constants/app_icons.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
-import 'package:fitness_app/core/constants/widget_keys.dart';
 import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coach_chat_cubit.dart';
 import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coach_chat_intent.dart';
 import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coach_chat_state.dart';
@@ -19,14 +18,8 @@ class ChatDrawer extends StatelessWidget {
     final theme = Theme.of(context);
     final cubit = BlocProvider.of<SmartCoachChatCubit>(context);
 
-    return Align(
-      alignment: Alignment.centerRight,
-      child: Dismissible(
-        key: const Key(WidgetKeys.previousChatsDrawer),
-        direction: DismissDirection.startToEnd,
-        onDismissed: (_) {
-          Navigator.of(context).pop();
-        },
+    return SafeArea(
+      child: Drawer(
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -87,12 +80,22 @@ class ChatDrawer extends StatelessWidget {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   SvgPicture.asset(AppIcons.backArw),
-                                  Text(
-                                    textAlign: TextAlign.end,
-                                    chat[AppText.title] ?? AppText.title,
-                                    style: theme.textTheme.bodySmall?.copyWith(
-                                      fontWeight: FontWeight.w500,
-                                      color: AppColors.gray[20],
+                                  Flexible(
+                                    child: RPadding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                      ),
+                                      child: Text(
+                                        textAlign: TextAlign.end,
+                                        chat[AppText.title] ?? AppText.title,
+                                        style: theme.textTheme.bodySmall
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w500,
+                                              color: AppColors.gray[20],
+                                            ),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -105,7 +108,6 @@ class ChatDrawer extends StatelessWidget {
                   GestureDetector(
                     onTap: () async {
                       cubit.doIntent(const LoadChatIntent(title: "New Chat"));
-                      cubit.doIntent(const LoadAllChatsIntent());
                       Navigator.pop(context);
                     },
                     child: Icon(

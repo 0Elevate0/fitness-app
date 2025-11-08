@@ -1,14 +1,14 @@
 import 'package:fitness_app/data/ai/gemini_service.dart';
+import 'package:fitness_app/domain/use_cases/smart_coach_chat/create_chat_use_case.dart';
+import 'package:fitness_app/domain/use_cases/smart_coach_chat/get_all_chats_use_case.dart';
+import 'package:fitness_app/domain/use_cases/smart_coach_chat/get_messages_by_chat_use_case.dart';
+import 'package:fitness_app/domain/use_cases/smart_coach_chat/insert_message_use_case.dart';
+import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coach_chat_cubit.dart';
 import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coach_chat_intent.dart';
+import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coach_chat_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coach_chat_cubit.dart';
-import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coach_chat_state.dart';
-import 'package:fitness_app/domain/use_cases/smart_coach_chat/create_chat_use_case.dart';
-import 'package:fitness_app/domain/use_cases/smart_coach_chat/get_all_chats_use_case.dart';
-import 'package:fitness_app/domain/use_cases/smart_coach_chat/insert_message_use_case.dart';
-import 'package:fitness_app/domain/use_cases/smart_coach_chat/get_messages_by_chat_use_case.dart';
 
 import 'smart_coach_chat_cubit_test.mocks.dart';
 
@@ -83,26 +83,10 @@ void main() {
 
     when(mockGetAllChats.call()).thenAnswer((_) async => fakeChats);
 
-    await cubit.doIntent(const LoadAllChatsIntent());
+    await cubit.doIntent(const InitSmartCoachChat());
 
     expect(cubit.state.loadChatsStatus.isSuccess, true);
     expect(cubit.state.allChats, fakeChats);
   });
 
-  test('sending image updates state correctly', () async {
-    const imagePath = 'path/to/image.png';
-    when(
-      mockCreateChat.call(title: anyNamed('title')),
-    ).thenAnswer((_) async => 1);
-    when(
-      mockInsertMessage.call(chatId: 1, role: 'user', content: imagePath),
-    ).thenAnswer((_) async => 1);
-
-    await cubit.doIntent(const SendImageIntent(imagePath: imagePath));
-
-    final messages = cubit.state.messages;
-    expect(messages.length, 1);
-    expect(messages[0].message, imagePath);
-    expect(messages[0].isUser, true);
-  });
 }

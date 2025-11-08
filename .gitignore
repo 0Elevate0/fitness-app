@@ -61,3 +61,5 @@ lib/generated_plugin_registrant.dart
 
 # Coverage
 coverage/
+
+lib/core/constants/api_keys.dart

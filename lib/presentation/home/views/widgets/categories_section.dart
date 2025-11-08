@@ -1,9 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
+import 'package:fitness_app/presentation/fitness_bottom_navigation/views_model/fitness_bottom_navigation_cubit.dart';
+import 'package:fitness_app/presentation/fitness_bottom_navigation/views_model/fitness_bottom_navigation_intent.dart';
 import 'package:fitness_app/presentation/home/views/widgets/category_item.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
 import 'package:fitness_app/utils/fitness_method_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoriesSection extends StatelessWidget {
@@ -11,6 +14,9 @@ class CategoriesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bottomNavCubit = BlocProvider.of<FitnessBottomNavigationCubit>(
+      context,
+    );
     final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,8 +38,18 @@ class CategoriesSection extends StatelessWidget {
           child: Row(
             children: FitnessMethodHelper.categories
                 .map(
-                  (category) =>
-                      Expanded(child: CategoryItem(categoryData: category)),
+                  (category) => Expanded(
+                    child: CategoryItem(
+                      categoryData: category,
+                      onTap:
+                          FitnessMethodHelper.categories.last.categoryTitle ==
+                              category.categoryTitle
+                          ? () => bottomNavCubit.doIntent(
+                              intent: const ChangeIndexIntent(index: 1),
+                            )
+                          : () {},
+                    ),
+                  ),
                 )
                 .toList(),
           ),

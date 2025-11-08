@@ -8,7 +8,6 @@ import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coac
 import 'package:fitness_app/presentation/smart_coach_chat/views_model/smart_coach_chat_state.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_layer_view.dart';
 import 'package:fitness_app/utils/common_widgets/custom_text_form_field.dart';
-import 'package:fitness_app/utils/image_picker_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,61 +20,54 @@ class SmartCoachChatBodyView extends StatelessWidget {
     final theme = Theme.of(context);
     final cubit = BlocProvider.of<SmartCoachChatCubit>(context);
     return BlurredLayerView(
-      child: Column(
-        children: [
-          const RSizedBox(height: 30),
-          const SmartCoachChatAppBar(),
-          const RSizedBox(height: 20),
-          Expanded(
-            child: BlocBuilder<SmartCoachChatCubit, SmartCoachChatState>(
-              builder: (context, state) {
-                final isLoading = state.sendMessageStatus.isLoading;
+      child: SafeArea(
+        child: Column(
+          children: [
+            const RSizedBox(height: 16),
+            const SmartCoachChatAppBar(),
+            const RSizedBox(height: 8),
+            Expanded(
+              child: BlocBuilder<SmartCoachChatCubit, SmartCoachChatState>(
+                builder: (context, state) {
+                  final isLoading = state.sendMessageStatus.isLoading;
 
-                return Column(
-                  children: [
-                    Expanded(child: ChatSection(messages: state.messages)),
-                    RPadding(
-                      padding: const EdgeInsets.all(18),
-                      child: CustomTextFormField(
-                        controller: cubit.messageController,
-                        label: AppText.askAnyThing.tr(),
-                        labelStyle: theme.textTheme.bodyLarge,
-                        prefixIcon: GestureDetector(
-                          onTap: () => ImagePickerSheet.showImagePickerOptions(
-                            context,
-                            cubit,
+                  return Column(
+                    children: [
+                      Expanded(child: ChatSection(messages: state.messages)),
+                      RPadding(
+                        padding: const EdgeInsets.all(18),
+                        child: CustomTextFormField(
+                          controller: cubit.messageController,
+                          label: AppText.askAnyThing.tr(),
+                          labelStyle: theme.textTheme.bodyLarge,
+                          prefixIcon: const Icon(
+                            Icons.add,
+                            color: AppColors.gray,
                           ),
-                          child: const Icon(Icons.add, color: AppColors.gray),
-                        ),
-                        suffixIcon: GestureDetector(
-                          onTap: isLoading
-                              ? null
-                              : () {
-                                  cubit.doIntent(
-                                    SendMessageIntent(
-                                      message: cubit.messageController.text,
-                                    ),
-                                  );
-                                },
-                          child: isLoading
-                              ? const RSizedBox(
-                                  height: 24,
-                                  width: 24,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    color: AppColors.gray,
-                                  ),
-                                )
-                              : const Icon(Icons.send, color: AppColors.gray),
+                          suffixIcon: GestureDetector(
+                            onTap: isLoading
+                                ? null
+                                : () {
+                                    cubit.doIntent(
+                                      SendMessageIntent(
+                                        message: cubit.messageController.text,
+                                      ),
+                                    );
+                                  },
+                            child: const Icon(
+                              Icons.send,
+                              color: AppColors.gray,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                );
-              },
+                    ],
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

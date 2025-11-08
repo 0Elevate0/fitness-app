@@ -16,17 +16,14 @@ class ChatMessage extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Row(
-      mainAxisAlignment: isUser
-          ? MainAxisAlignment.end
-          : MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (!isUser)
-          RPadding(
-            padding: const EdgeInsets.only(bottom: 40, right: 12),
+          Padding(
+            padding: REdgeInsetsDirectional.only(end: 16),
             child: Container(
-              height: 45.h,
-              width: 45.w,
+              height: 45.r,
+              width: 45.r,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25.r),
                 image: const DecorationImage(
@@ -43,43 +40,42 @@ class ChatMessage extends StatelessWidget {
             ),
           ),
         Expanded(
-          child: RPadding(
+          child: Padding(
             padding: isUser
-                ? const EdgeInsets.only(left: 50)
-                : const EdgeInsets.only(right: 50),
+                ? REdgeInsetsDirectional.only(start: 20)
+                : REdgeInsetsDirectional.only(end: 20),
             child: Container(
-              margin: REdgeInsets.symmetric(vertical: 16),
-              padding: REdgeInsets.all(20),
+              margin: REdgeInsets.symmetric(vertical: 8),
+              padding: REdgeInsets.all(12),
               decoration: BoxDecoration(
                 color: isUser
                     ? theme.colorScheme.onPrimary.withValues(alpha: 0.6)
                     : AppColors.gray[100]?.withValues(alpha: 0.8),
                 borderRadius: BorderRadius.only(
                   topLeft: isUser
-                      ? Radius.circular(25.r)
+                      ? Radius.circular(20.r)
                       : Radius.circular(0.r),
                   topRight: isUser
                       ? Radius.circular(0.r)
-                      : Radius.circular(25.r),
-                  bottomLeft: Radius.circular(25.r),
-                  bottomRight: Radius.circular(25.r),
+                      : Radius.circular(20.r),
+                  bottomLeft: Radius.circular(20.r),
+                  bottomRight: Radius.circular(20.r),
                 ),
               ),
               child: Text(
                 message,
                 style: theme.textTheme.headlineSmall,
-                overflow: TextOverflow.visible,
-                softWrap: true,
+                textAlign: TextAlign.start,
               ),
             ),
           ),
         ),
         if (isUser)
-          RPadding(
-            padding: const EdgeInsets.only(bottom: 40, left: 12),
+          Padding(
+            padding: REdgeInsetsDirectional.only(start: 16),
             child: Container(
-              height: 45.h,
-              width: 45.w,
+              height: 45.r,
+              width: 45.r,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25).r,
                 image: DecorationImage(
