@@ -29,10 +29,15 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      # 5️⃣ Run build_runner (if needed for generated files)
+      # 5️⃣ Create dummy .env file for CI
+      - name: Create dummy .env file
+        run: |
+          echo "API_URL=https://example.com" > .env
+
+      # 6️⃣ Run build_runner (if needed for generated files)
       - name: Run build_runner
         run: flutter pub run build_runner build --delete-conflicting-outputs
 
-      # 6️⃣ Run lint check
+      # 7 Run lint check
       - name: Run Flutter analyze
         run: flutter analyze --fatal-infos --fatal-warnings
