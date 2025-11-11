@@ -203,4 +203,6 @@ flutter run
 ---
 
 ## Download 📥
-- Coming Soon...
+Get the Super Fitness app on your device:
+
+- [Download for Android](https://drive.google.com/file/d/1JUgbs6pv03tN1-fyG2RjgPeChPG5ZBcF/view?usp=sharing)
