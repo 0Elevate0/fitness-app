@@ -20,6 +20,8 @@ jobs:
       - run: flutter  --version
       - name: Install packages
         run: flutter pub get
+      - name: Create dummy .env file for tests
+        run: echo "API_URL=https://example.com" > .env
       - name: Run generator
         run: flutter pub run build_runner build --delete-conflicting-outputs
       - name: Run test
