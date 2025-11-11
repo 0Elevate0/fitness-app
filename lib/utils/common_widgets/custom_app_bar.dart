@@ -13,6 +13,9 @@ class CustomAppBar extends StatelessWidget {
     this.titleWidget,
     this.actionWidget,
     this.titleAlignment,
+    this.onBackArrowClicked,
+    this.padding,
+    this.titlePadding,
   });
   final String? title;
   final TextStyle? titleStyle;
@@ -22,18 +25,21 @@ class CustomAppBar extends StatelessWidget {
   final Widget? titleWidget;
   final Widget? actionWidget;
   final AlignmentGeometry? titleAlignment;
+  final void Function()? onBackArrowClicked;
+  final EdgeInsets? padding;
+  final EdgeInsetsGeometry? titlePadding;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return ColoredBox(
       color: backgroundColor ?? Colors.transparent,
       child: RPadding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: padding ?? const EdgeInsets.symmetric(horizontal: 16),
         child: Row(
           children: [
             Visibility(
               visible: automaticallyImplyLeading,
-              child: const CustomBackArrow(),
+              child: CustomBackArrow(onBackArrowClicked: onBackArrowClicked),
             ),
             Visibility(
               visible: isTitleNotString,
@@ -45,14 +51,17 @@ class CustomAppBar extends StatelessWidget {
                 child: FittedBox(
                   alignment: titleAlignment ?? AlignmentDirectional.center,
                   fit: BoxFit.scaleDown,
-                  child: Text(
-                    title ?? "",
-                    style:
-                        titleStyle ??
-                        theme.textTheme.headlineLarge?.copyWith(
-                          fontWeight: FontWeight.w600,
-                        ),
-                    textAlign: TextAlign.center,
+                  child: Padding(
+                    padding: titlePadding ?? EdgeInsets.zero,
+                    child: Text(
+                      title ?? "",
+                      style:
+                          titleStyle ??
+                          theme.textTheme.headlineLarge?.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),

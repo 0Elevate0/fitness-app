@@ -7,13 +7,23 @@ abstract final class Dialogs {
     List<Widget>? actions,
     Widget? content,
     bool isBarrierDismissible = true,
+    BorderRadiusGeometry? borderRadius,
+    Color? backgroundColor,
+    EdgeInsets? insetPadding,
+    EdgeInsetsGeometry? contentPadding,
   }) {
     return showDialog(
       barrierDismissible: isBarrierDismissible,
       useSafeArea: true,
       context: context,
-      builder: (context) =>
-          CustomDialogContent(content: content, actions: actions),
+      builder: (context) => CustomDialogContent(
+        content: content,
+        actions: actions,
+        insetPadding: insetPadding,
+        borderRadius: borderRadius,
+        backgroundColor: backgroundColor,
+        contentPadding: contentPadding,
+      ),
     );
   }
 }

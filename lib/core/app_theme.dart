@@ -10,9 +10,12 @@ abstract final class AppTheme {
     colorScheme: ColorScheme.fromSeed(
       primary: AppColors.orange[0],
       onPrimary: AppColors.lightOrange[0],
-      secondary: AppColors.black[10],
+      secondary: AppColors.black[0],
+      secondaryFixed: AppColors.black[10],
+      secondaryContainer: AppColors.black[20],
       onSecondary: AppColors.white,
       shadow: AppColors.gray[0],
+      outlineVariant: AppColors.gray[90],
       onSurface: AppColors.green,
       error: AppColors.orange[80],
       onSurfaceVariant: AppColors.gray[90],
@@ -22,7 +25,7 @@ abstract final class AppTheme {
     ),
     textTheme: TextTheme(
       displayLarge: TextStyle(
-        fontSize: 44.sp,
+        fontSize: 40.sp,
         fontWeight: FontWeight.w800,
         color: AppColors.orange[0],
       ),
@@ -61,7 +64,7 @@ abstract final class AppTheme {
         fontWeight: FontWeight.w800,
         color: AppColors.white,
       ),
-      labelLarge: TextStyle(
+      bodySmall: TextStyle(
         fontSize: 12.sp,
         fontWeight: FontWeight.w400,
         color: AppColors.gray[0],
@@ -72,11 +75,21 @@ abstract final class AppTheme {
       selectionHandleColor: AppColors.lightOrange[0],
       selectionColor: AppColors.lightOrange[0]?.withValues(alpha: 0.2),
     ),
-
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         disabledBackgroundColor: AppColors.gray[0],
         disabledForegroundColor: AppColors.white,
+      ),
+    ),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: AppColors.black[0],
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      selectedLabelStyle: TextStyle(
+        fontSize: 12.sp,
+        fontWeight: FontWeight.w400,
+        color: AppColors.orange[0],
       ),
     ),
   );

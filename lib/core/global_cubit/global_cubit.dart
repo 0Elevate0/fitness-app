@@ -4,7 +4,9 @@ import 'package:fitness_app/core/global_cubit/global_intent.dart';
 import 'package:fitness_app/core/global_cubit/global_state.dart';
 import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/core/secure_storage/secure_storage.dart';
+import 'package:fitness_app/utils/fitness_method_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
@@ -50,13 +52,14 @@ class GlobalCubit extends Cubit<GlobalState> {
       key: ConstKeys.isOnboardingFinished,
     );
     if (userToken != null) {
-      // emit(state.copyWith(redirectedScreen: RouteNames.splash));
+      FitnessMethodHelper.currentUserToken = userToken;
+      emit(state.copyWith(redirectedScreen: RouteNames.splash));
     } else if (isLoginScreen) {
-      // emit(state.copyWith(redirectedScreen: RouteNames.login));
+      emit(state.copyWith(redirectedScreen: RouteNames.login));
     } else {
       emit(state.copyWith(redirectedScreen: RouteNames.onboarding));
     }
-    // FlutterNativeSplash.remove(); uncomment this line to remove splash screen after setting redirected screen
+    FlutterNativeSplash.remove();
   }
 
   Future<void> _changedLanguageIndex({

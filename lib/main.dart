@@ -1,22 +1,22 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:fitness_app/core/constants/const_keys.dart';
 import 'package:fitness_app/core/di/di.dart';
 import 'package:fitness_app/core/global_cubit/global_cubit.dart';
 import 'package:fitness_app/core/global_cubit/global_intent.dart';
-import 'package:fitness_app/firebase_options.dart';
 import 'package:fitness_app/fitness_app.dart';
 import 'package:fitness_app/my_bloc_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // remove this and uncomment below if using flutter_native_splash
-  // final WidgetsBinding widgetsBinding =
-  //     WidgetsFlutterBinding.ensureInitialized();
-  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  final WidgetsBinding widgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await dotenv.load(fileName: ".env");
   await ScreenUtil.ensureScreenSize();
   await EasyLocalization.ensureInitialized();
   await SystemChrome.setPreferredOrientations([
@@ -32,9 +32,12 @@ void main() async {
           getIt.get<GlobalCubit>()
             ..doIntent(intent: GlobalInitializationIntent()),
       child: EasyLocalization(
-        supportedLocales: const [Locale('en'), Locale('ar')],
+        supportedLocales: const [
+          Locale(ConstKeys.english),
+          Locale(ConstKeys.arabic),
+        ],
         path: 'assets/translations',
-        fallbackLocale: const Locale('en'),
+        fallbackLocale: const Locale(ConstKeys.english),
         child: const FitnessApp(),
       ),
     ),

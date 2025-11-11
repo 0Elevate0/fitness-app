@@ -1,17 +1,24 @@
+import 'dart:math';
+
 import 'package:fitness_app/core/constants/app_icons.dart';
+import 'package:fitness_app/core/global_cubit/global_cubit.dart';
+import 'package:fitness_app/core/global_cubit/global_state.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomBackArrow extends StatelessWidget {
-  const CustomBackArrow({super.key});
-
+  const CustomBackArrow({super.key, this.onBackArrowClicked});
+  final void Function()? onBackArrowClicked;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pop();
+        onBackArrowClicked != null
+            ? onBackArrowClicked!()
+            : Navigator.of(context).pop();
       },
       child: Container(
         padding: REdgeInsets.all(7),
@@ -19,7 +26,12 @@ class CustomBackArrow extends StatelessWidget {
           shape: BoxShape.circle,
           color: theme.colorScheme.primary,
         ),
-        child: SvgPicture.asset(AppIcons.back, fit: BoxFit.contain),
+        child: BlocBuilder<GlobalCubit, GlobalState>(
+          builder: (context, state) => Transform.rotate(
+            angle: state.selectedLanguage == Language.arabic ? pi : 0,
+            child: SvgPicture.asset(AppIcons.back, fit: BoxFit.contain),
+          ),
+        ),
       ),
     );
   }

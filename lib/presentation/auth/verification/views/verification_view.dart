@@ -1,0 +1,35 @@
+import 'package:fitness_app/core/constants/app_images.dart';
+import 'package:fitness_app/core/di/di.dart';
+import 'package:fitness_app/presentation/auth/verification/views/widgets/verification_view_body.dart';
+import 'package:fitness_app/presentation/auth/verification/views_model/verification_cubit.dart';
+import 'package:fitness_app/presentation/auth/verification/views_model/verification_intent.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class VerificationView extends StatelessWidget {
+  final String email;
+
+  const VerificationView({super.key, required this.email});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => getIt.get<VerificationCubit>()
+        ..doIntent(OnStartTimer())
+        ..doIntent(InitVerificationIntent()),
+      child: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AppImages.authBackground),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Scaffold(
+          resizeToAvoidBottomInset: false,
+          backgroundColor: Colors.transparent,
+          body: VerificationViewBody(email: email),
+        ),
+      ),
+    );
+  }
+}

@@ -1,5 +1,25 @@
 import 'package:fitness_app/core/router/route_names.dart';
+import 'package:fitness_app/domain/entities/exercise_argument/exercise_argument.dart';
+import 'package:fitness_app/domain/entities/food_details_argument/food_details_argument.dart';
+import 'package:fitness_app/domain/entities/meals_argument/meals_argument.dart';
+import 'package:fitness_app/presentation/auth/forget_password/views/forget_password_view.dart';
+import 'package:fitness_app/presentation/auth/login/views/login_view.dart';
+import 'package:fitness_app/presentation/auth/profile_reset_password/views/profile_reset_password.dart';
+import 'package:fitness_app/presentation/auth/register/views/register_view.dart';
+import 'package:fitness_app/presentation/auth/reset_password/views/reset_password_view.dart';
+import 'package:fitness_app/presentation/auth/verification/views/verification_view.dart';
+import 'package:fitness_app/presentation/edit_profile/views/edit_profile_view.dart';
+import 'package:fitness_app/presentation/exercise/views/exercise_view.dart';
+import 'package:fitness_app/presentation/fitness_bottom_navigation/views/fitness_bottom_navigation_view.dart';
+import 'package:fitness_app/presentation/food/views/food_view.dart';
+import 'package:fitness_app/presentation/food_details/views/food_details_view.dart';
+import 'package:fitness_app/presentation/help/views/help_view.dart';
 import 'package:fitness_app/presentation/onboarding/views/onboarding_view.dart';
+import 'package:fitness_app/presentation/smart_coach_chat/views/smart_coach_chat_view.dart';
+import 'package:fitness_app/presentation/privacy_policy/views/privacy_policy_view.dart';
+import 'package:fitness_app/presentation/profile/views_model/profile_cubit.dart';
+import 'package:fitness_app/presentation/security/views/security_view.dart';
+import 'package:fitness_app/presentation/splash/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 abstract final class AppRoutes {
@@ -7,6 +27,61 @@ abstract final class AppRoutes {
     switch (settings.name) {
       case RouteNames.onboarding:
         return MaterialPageRoute(builder: (_) => const OnboardingView());
+      case RouteNames.forgetPassword:
+        return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
+      case RouteNames.verification:
+        return MaterialPageRoute(
+          builder: (_) => VerificationView(email: settings.arguments as String),
+        );
+      case RouteNames.resetPassword:
+        return MaterialPageRoute(
+          builder: (_) =>
+              ResetPasswordView(email: settings.arguments as String),
+        );
+      case RouteNames.register:
+        return MaterialPageRoute(builder: (_) => const RegisterView());
+      case RouteNames.login:
+        return MaterialPageRoute(builder: (_) => const LoginView());
+      case RouteNames.fitnessBottomNavigation:
+        return MaterialPageRoute(
+          builder: (_) => const FitnessBottomNavigationView(),
+        );
+      case RouteNames.exercise:
+        return MaterialPageRoute(
+          builder: (_) => ExerciseView(
+            exerciseArgument: settings.arguments as ExerciseArgument,
+          ),
+        );
+      case RouteNames.splash:
+        return MaterialPageRoute(builder: (_) => const SplashView());
+      case RouteNames.food:
+        return MaterialPageRoute(
+          builder: (_) =>
+              FoodView(argument: settings.arguments as MealsArgument),
+        );
+      case RouteNames.foodDetails:
+        return MaterialPageRoute(
+          builder: (_) => FoodDetailsView(
+            foodDetailsArgument: settings.arguments as FoodDetailsArgument,
+          ),
+        );
+      case RouteNames.smartCoachChat:
+        return MaterialPageRoute(
+          builder: (_) => const SmartCoachChatView(),
+        );
+      case RouteNames.help:
+        return MaterialPageRoute(builder: (_) => const HelpView());
+      case RouteNames.privacyPolicy:
+        return MaterialPageRoute(builder: (_) => const PrivacyPolicyView());
+      case RouteNames.security:
+        return MaterialPageRoute(builder: (_) => const SecurityView());
+      case RouteNames.profileResetPassword:
+        return MaterialPageRoute(builder: (_) => const ProfileResetPassword());
+      case RouteNames.editProfile:
+        return MaterialPageRoute(
+          builder: (_) =>
+              EditProfileView(profileCubit: settings.arguments as ProfileCubit),
+        );
       default:
         return null;
     }
