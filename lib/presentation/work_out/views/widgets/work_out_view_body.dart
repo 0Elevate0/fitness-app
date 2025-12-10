@@ -1,3 +1,4 @@
+import 'package:fitness_app/presentation/work_out/views/widgets/shimmer/muscle_grid_shimmer.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_app_bar.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_muscle_list.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_muscles_group_list.dart';
@@ -47,21 +48,26 @@ class WorkOutViewBody extends StatelessWidget {
                 final pageController = context
                     .read<WorkOutCubit>()
                     .pageController;
-                return PageView.builder(
-                  controller: pageController,
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: group.length,
-                  itemBuilder: (context, index) => const WorkOutMuscleList(),
-                  onPageChanged: (index) {
-                    final muscle = group[index];
-                    context.read<WorkOutCubit>().doIntent(
-                      intent: ChangeWorkOutMusclesGroupIntent(
-                        muscleGroup: muscle,
-                        fromSwipe: true,
-                      ),
-                    );
-                  },
-                );
+                if (state.musclesByGroupStatus.isSuccess &&
+                    state.musclesGroupStatus.isSuccess) {
+                  return PageView.builder(
+                    controller: pageController,
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: group.length,
+                    itemBuilder: (context, index) => const WorkOutMuscleList(),
+                    onPageChanged: (index) {
+                      final muscle = group[index];
+                      context.read<WorkOutCubit>().doIntent(
+                        intent: ChangeWorkOutMusclesGroupIntent(
+                          muscleGroup: muscle,
+                          fromSwipe: true,
+                        ),
+                      );
+                    },
+                  );
+                } else {
+                  return const MusclesGridShimmer();
+                }
               },
             ),
           ),

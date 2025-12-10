@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/presentation/home/views/widgets/recommendation_item.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
@@ -25,8 +26,10 @@ void main() {
     await tester.pumpWidget(prepareWidget());
     // Assert
     expect(find.byType(GestureDetector), findsOneWidget);
-    expect(find.byType(Container), findsWidgets);
-    expect(find.byType(RSizedBox), findsOneWidget);
+    expect(find.byType(Stack), findsOneWidget);
+    expect(find.byType(ClipRRect), findsWidgets);
+    expect(find.byType(CachedNetworkImage), findsOneWidget);
+    expect(find.byType(RSizedBox), findsNWidgets(2));
     expect(find.byType(BlurredContainer), findsOneWidget);
     expect(find.byType(FittedBox), findsOneWidget);
     expect(find.byType(Text), findsOneWidget);
