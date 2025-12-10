@@ -7,9 +7,11 @@ import 'package:fitness_app/domain/entities/exercise/exercise_entity.dart';
 import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/presentation/exercise/views_model/exercise_cubit.dart';
 import 'package:fitness_app/presentation/exercise/views_model/exercise_intent.dart';
+import 'package:fitness_app/utils/common_widgets/shimmer_effect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class ExerciseItem extends StatelessWidget {
   final ExerciseEntity exercise;
@@ -38,18 +40,20 @@ class ExerciseItem extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(20.r),
                 child: CachedNetworkImage(
-                  imageUrl: muscleData.image ?? '',
+                  imageUrl: YoutubePlayer.getThumbnail(
+                    videoId:
+                        YoutubePlayer.convertUrlToId(
+                          exercise.shortYoutubeDemonstrationLink ?? "",
+                        ) ??
+                        "",
+                  ),
                   height: 70.r,
                   width: 70.r,
                   fit: BoxFit.cover,
                   placeholder: (_, __) =>
+                      ShimmerEffect(width: 70.r, height: 70.r),
+                  errorWidget: (_, __, ___) =>
                       Image.asset(AppImages.notFound, fit: BoxFit.cover),
-                  errorWidget: (_, __, ___) => Image.asset(
-                    muscleData.image != null
-                        ? muscleData.image!
-                        : AppImages.notFound,
-                    fit: BoxFit.cover,
-                  ),
                 ),
               ),
               const RSizedBox(width: 15),

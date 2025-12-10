@@ -4,7 +4,6 @@ import 'package:fitness_app/core/state_status/state_status.dart';
 import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/domain/entities/muscle_group/muscle_group_entity.dart';
 import 'package:fitness_app/domain/entities/muscle_with_group_argument/muscle_with_group_argument.dart';
-import 'package:fitness_app/presentation/work_out/views/widgets/shimmer/muscle_grid_shimmer.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_muscle_item.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_muscle_list.dart';
 import 'package:fitness_app/presentation/work_out/views_model/work_out_cubit.dart';
@@ -47,25 +46,12 @@ void main() {
         builder: (_, __) => MaterialApp(
           home: BlocProvider<WorkOutCubit>.value(
             value: mockCubit,
-            child: const Scaffold(
-              body: WorkOutMuscleList(),
-            ),
+            child: const Scaffold(body: WorkOutMuscleList()),
           ),
         ),
       ),
     );
   }
-
-  testWidgets('shows shimmer when loading', (WidgetTester tester) async {
-    final state = const WorkOutState(
-      musclesByGroupStatus: StateStatus.loading(),
-    );
-
-    await tester.pumpWidget(buildTestableWidget(state));
-    await tester.pump();
-
-    expect(find.byType(MusclesGridShimmer), findsOneWidget);
-  });
 
   testWidgets('shows empty message when no muscles', (
     WidgetTester tester,

@@ -15,7 +15,7 @@ import 'package:mockito/mockito.dart';
 
 import 'exercises_list_test.mocks.dart';
 
- @GenerateMocks([ExerciseCubit])
+@GenerateMocks([ExerciseCubit])
 void main() {
   late MockExerciseCubit mockExerciseCubit;
 
@@ -36,7 +36,7 @@ void main() {
   setUp(() {
     mockExerciseCubit = MockExerciseCubit();
 
-     when(mockExerciseCubit.state).thenReturn(const ExerciseState());
+    when(mockExerciseCubit.state).thenReturn(const ExerciseState());
     when(mockExerciseCubit.stream).thenAnswer((_) => const Stream.empty());
   });
 
@@ -85,7 +85,6 @@ void main() {
         exercises: [exercise1, exercise2],
       ),
     );
-    await tester.pumpAndSettle();
 
     expect(find.byType(ExerciseItem), findsNWidgets(2));
     expect(find.text('Push Up'), findsOneWidget);
@@ -100,7 +99,6 @@ void main() {
     await tester.pumpWidget(
       makeTestableWidget(state: successState, exercises: [exercise1]),
     );
-    await tester.pumpAndSettle();
 
     await tester.tap(find.byIcon(Icons.play_arrow));
     await tester.pump();

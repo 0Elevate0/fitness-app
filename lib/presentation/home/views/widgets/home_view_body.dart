@@ -46,26 +46,31 @@ class HomeViewBody extends StatelessWidget {
           );
         }
       },
-      child: BlurredLayerView(
-        child: SingleChildScrollView(
-          padding: REdgeInsets.only(left: 16, right: 16, top: 20, bottom: 112),
-          physics: const BouncingScrollPhysics(),
-          child: const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              HomeAppBar(),
-              RSizedBox(height: 24),
-              CategoriesSection(),
-              RSizedBox(height: 24),
-              RecommendationSection(),
-              RSizedBox(height: 16),
-              WorkoutsSection(),
-              RSizedBox(height: 16),
-              MealsRecommendationSection(),
-              RSizedBox(height: 24),
-              PopularTrainingSection(),
-            ],
-          ),
+      child: const BlurredLayerView(
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: RPadding(
+                padding: EdgeInsets.only(left: 16, right: 16, top: 20, bottom: 112),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    HomeAppBar(),
+                    RSizedBox(height: 24),
+                    CategoriesSection(),
+                    RSizedBox(height: 24),
+                    RecommendationSection(),
+                    RSizedBox(height: 16),
+                    WorkoutsSection(),
+                    RSizedBox(height: 16),
+                    MealsRecommendationSection(),
+                    RSizedBox(height: 24),
+                    PopularTrainingSection(),
+                  ],
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );

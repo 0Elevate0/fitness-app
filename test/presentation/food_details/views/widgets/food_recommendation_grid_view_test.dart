@@ -91,7 +91,6 @@ void main() {
   testWidgets("Verifying FoodRecommendationGridView Widgets", (tester) async {
     // Act
     await tester.pumpWidget(prepareWidget());
-    await tester.pumpAndSettle();
     // Assert
     expect(
       find.byType(BlocBuilder<FoodDetailsCubit, FoodDetailsState>),
