@@ -6,6 +6,7 @@ import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/domain/entities/exercise_argument/exercise_argument.dart';
 import 'package:fitness_app/domain/entities/muscle/muscle_entity.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
+import 'package:fitness_app/utils/common_widgets/shimmer_effect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,43 +24,49 @@ class MuscleItem extends StatelessWidget {
           arguments: ExerciseArgument(muscle: muscleData),
         );
       },
-      child: Container(
-        width: 80.r,
-        alignment: Alignment.bottomCenter,
-        decoration: BoxDecoration(
-          color: theme.colorScheme.secondaryFixed.withValues(alpha: 0.2),
-          borderRadius: BorderRadius.circular(20.r),
-          image: DecorationImage(
-            image: muscleData.image != null
-                ? CachedNetworkImageProvider(muscleData.image ?? "")
-                : const AssetImage(AppImages.notFound),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: RSizedBox(
-          height: 22,
-          width: ScreenUtil().screenWidth,
-          child: BlurredContainer(
-            padding: REdgeInsets.all(4),
-            blurColor: theme.colorScheme.secondary.withValues(alpha: 0.5),
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(20.r),
-              bottomRight: Radius.circular(20.r),
-              topLeft: const Radius.circular(0),
-              topRight: const Radius.circular(0),
-            ),
-            halfTheBlurValue: 5,
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                muscleData.name ?? AppText.notProvided.tr(),
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.onSecondary,
-                ),
-                textAlign: TextAlign.center,
+      child: RSizedBox(
+        width: 80,
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20.r),
+              child: CachedNetworkImage(
+                height: 80,
+                imageUrl: muscleData.image ?? "",
+                errorWidget: (context, url, error) =>
+                    Image.asset(AppImages.notFound, fit: BoxFit.cover),
+                placeholder: (context, url) =>
+                    ShimmerEffect(width: 80.r, height: 80.r),
+                fit: BoxFit.cover,
               ),
             ),
-          ),
+            RSizedBox(
+              height: 22,
+              width: ScreenUtil().screenWidth,
+              child: BlurredContainer(
+                padding: REdgeInsets.all(4),
+                blurColor: theme.colorScheme.secondary.withValues(alpha: 0.5),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20.r),
+                  bottomRight: Radius.circular(20.r),
+                  topLeft: const Radius.circular(0),
+                  topRight: const Radius.circular(0),
+                ),
+                halfTheBlurValue: 5,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    muscleData.name ?? AppText.notProvided.tr(),
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSecondary,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

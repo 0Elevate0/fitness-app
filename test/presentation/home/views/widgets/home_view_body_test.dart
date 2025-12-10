@@ -81,7 +81,9 @@ void main() {
     // Assert
     expect(find.byType(BlocListener<HomeCubit, HomeState>), findsWidgets);
     expect(find.byType(BlurredLayerView), findsOneWidget);
-    expect(find.byType(SingleChildScrollView), findsOneWidget);
+    expect(find.byType(CustomScrollView), findsOneWidget);
+    expect(find.byType(SliverToBoxAdapter), findsOneWidget);
+    expect(find.byType(RPadding), findsWidgets);
     expect(find.byType(Column), findsWidgets);
     expect(find.byType(RSizedBox), findsWidgets);
     expect(find.byType(HomeAppBar), findsOneWidget);

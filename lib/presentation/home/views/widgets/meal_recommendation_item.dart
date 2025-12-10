@@ -6,6 +6,7 @@ import 'package:fitness_app/core/router/route_names.dart';
 import 'package:fitness_app/domain/entities/meal_category/meal_category_entity.dart';
 import 'package:fitness_app/domain/entities/meals_argument/meals_argument.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
+import 'package:fitness_app/utils/common_widgets/shimmer_effect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,39 +34,44 @@ class MealRecommendationItem extends StatelessWidget {
           ),
         );
       },
-      child: Container(
-        width: 104.r,
-        alignment: Alignment.bottomCenter,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20.r),
-          image: DecorationImage(
-            image: mealCategoryData.strCategoryThumb != null
-                ? CachedNetworkImageProvider(
-                    mealCategoryData.strCategoryThumb ?? "",
-                  )
-                : const AssetImage(AppImages.foodNotFound),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: RSizedBox(
-          height: 30,
-          width: ScreenUtil().screenWidth,
-          child: BlurredContainer(
-            padding: REdgeInsets.symmetric(vertical: 8, horizontal: 4),
-            blurColor: theme.colorScheme.secondary.withValues(alpha: 0.5),
-            borderRadius: BorderRadius.circular(20.r),
-            halfTheBlurValue: 5,
-            child: FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                mealCategoryData.strCategory ?? AppText.notProvided.tr(),
-                style: theme.textTheme.bodySmall?.copyWith(
-                  color: theme.colorScheme.onSecondary,
-                ),
-                textAlign: TextAlign.center,
+      child: RSizedBox(
+        width: 104,
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(20.r),
+              child: CachedNetworkImage(
+                height: 104,
+                imageUrl: mealCategoryData.strCategoryThumb ?? "",
+                errorWidget: (context, url, error) =>
+                    Image.asset(AppImages.foodNotFound, fit: BoxFit.cover),
+                placeholder: (context, url) =>
+                    ShimmerEffect(width: 104.r, height: 104.r),
+                fit: BoxFit.cover,
               ),
             ),
-          ),
+            RSizedBox(
+              height: 30,
+              width: ScreenUtil().screenWidth,
+              child: BlurredContainer(
+                padding: REdgeInsets.symmetric(vertical: 8, horizontal: 4),
+                blurColor: theme.colorScheme.secondary.withValues(alpha: 0.5),
+                borderRadius: BorderRadius.circular(20.r),
+                halfTheBlurValue: 5,
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    mealCategoryData.strCategory ?? AppText.notProvided.tr(),
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: theme.colorScheme.onSecondary,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

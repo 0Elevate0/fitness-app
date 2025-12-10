@@ -2,6 +2,7 @@ import 'package:fitness_app/core/exceptions/response_exception.dart';
 import 'package:fitness_app/core/state_status/state_status.dart';
 import 'package:fitness_app/domain/entities/muscle_group/muscle_group_entity.dart';
 import 'package:fitness_app/domain/entities/muscle_with_group_argument/muscle_with_group_argument.dart';
+import 'package:fitness_app/presentation/work_out/views/widgets/shimmer/muscle_grid_shimmer.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_app_bar.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_muscle_list.dart';
 import 'package:fitness_app/presentation/work_out/views/widgets/work_out_muscles_group_list.dart';
@@ -63,6 +64,22 @@ void main() {
     expect(find.byType(WorkOutAppBar), findsOneWidget);
     expect(find.byType(WorkOutMusclesGroupList), findsOneWidget);
     expect(find.byType(WorkOutMuscleList), findsOneWidget);
+  });
+
+  testWidgets('shows shimmer when loading', (WidgetTester tester) async {
+    final loadingState = const WorkOutState(
+      musclesByGroupStatus: StateStatus.loading(),
+    );
+
+    when(mockWorkOutCubit.state).thenReturn(loadingState);
+    when(
+      mockWorkOutCubit.stream,
+    ).thenAnswer((_) => Stream<WorkOutState>.fromIterable([loadingState]));
+
+    await tester.pumpWidget(buildTestableWidget());
+    await tester.pump();
+
+    expect(find.byType(MusclesGridShimmer), findsOneWidget);
   });
 
   testWidgets('shows error message when musclesByGroupStatus is failure', (

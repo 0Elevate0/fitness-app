@@ -68,7 +68,12 @@ class WorkOutCubit extends Cubit<WorkOutState> {
   }
 
   Future<void> _fetchAllMusclesGroup() async {
-    emit(state.copyWith(musclesGroupStatus: const StateStatus.loading()));
+    emit(
+      state.copyWith(
+        musclesGroupStatus: const StateStatus.loading(),
+        musclesByGroupStatus: const StateStatus.loading(),
+      ),
+    );
     final result = await _getAllMusclesGroupUseCase.invoke();
     if (isClosed) return;
     switch (result) {

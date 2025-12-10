@@ -38,6 +38,8 @@ class MusclesList extends StatelessWidget {
                       AppText.emptyExercisesGroupMessage.tr(),
                       style: theme.textTheme.bodyLarge,
                       textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   );
           } else {

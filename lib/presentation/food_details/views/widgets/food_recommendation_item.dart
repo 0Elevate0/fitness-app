@@ -4,6 +4,7 @@ import 'package:fitness_app/core/constants/app_images.dart';
 import 'package:fitness_app/core/constants/app_text.dart';
 import 'package:fitness_app/domain/entities/meals/meals_entity.dart';
 import 'package:fitness_app/utils/common_widgets/blurred_container.dart';
+import 'package:fitness_app/utils/common_widgets/shimmer_effect.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -54,6 +55,8 @@ class FoodRecommendationItem extends StatelessWidget {
                             ),
                             colorBlendMode: BlendMode.dstOut,
                             fit: BoxFit.cover,
+                            placeholder: (context, url) =>
+                                ShimmerEffect(height: 160.r, width: 163.r),
                           )
                         : Image.asset(
                             color: theme.colorScheme.secondaryFixed.withValues(
